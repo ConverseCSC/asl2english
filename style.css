@@ -1,0 +1,36 @@
+.two, .moving { display: none; }
+
+span.one { display: inline; }
+
+ul.image_picker_selector, ul.image_picker_selector ul, ul.locimg {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.image_picker_selector ul li, ul.locimg li {
+    display: inline;
+    vertical-align: top;
+}
+
+ul.locimg img {
+    vertical-align: top;
+    border: thin solid blue;
+    padding: 0px;
+}
+
+ul.image_picker_selector ul li div {
+    display: inline;
+}
+
+ul.image_picker_selector p {
+    display: none;
+}
+
+ul.image_picker_selector ul li .thumbnail img {
+    padding: 4px;
+}
+
+ul.image_picker_selector ul li .thumbnail.selected img {
+    background-color: blue;
+}
+

@@ -1,39 +1,109 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- -/*/- make-backup-files: nil -/*/- -->
 <html lang="en">
+  <head>
+    <title>Beginning ASL-to-English dictionary</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="data.js"></script>
+    <script src="image-picker/image-picker/image-picker.js"></script>
+    <script src="functions.js"></script>
+  </head>
 
-<head>
-  <title>Beginning ASL-to-English dictionary</title>
-</head>
+  <body>
+    <h1>Beginning ASL-to-English dictionary</h1>
 
-<body>
-  <h1>Beginning ASL-to-English dictionary</h1>
-
-
-  <form action="" method="get">
-    <fieldset id="numhandsdiv">
-    <legend>
-      How many hands
-    </legend>
-    <p>
-      The sign I want to look up is:
-    
-    <select name="numhands" id="numhands">
-          <option selected="on" value="1">One-handed</option>
-          <option value="1.5">Dominant hand moves, non-dominant stationary</option>
-          <option value="2">Two hands moving</option>
-      </select>
-    </fieldset>
-    <fieldset id="domhanddiv">
-      <legend>
-        Dominant hand position
-      </legend>
-    </fieldset>
-  </p>
-
-
-  </form>
-
-
-</body>
-
+    <form action="" method="get">
+      <fieldset id="numhandsdiv">
+	<legend>How many hands</legend>
+	<p>The sign I want to look up is:
+	  <select name="numhands" id="numhands">
+            <option selected="one" value="one">One-handed</option>
+            <option value="moving">Dominant hand moves, non-dominant stationary</option>
+            <option value="two">Two hands moving</option>
+	  </select>
+	</p>
+      </fieldset>
+      <fieldset id="hand0div">
+	<legend>Handshape<span class="moving">, dominant hand</span></legend>
+      </fieldset>
+      <fieldset id="hand1div" class="moving">
+	<legend>Handshape, non-dominant hand</legend>
+      </fieldset>
+      <fieldset id="movelocdiv">
+	<legend>Movement and location</legend>
+	<select name="movetype" id="movetype">
+	  <option>Straight line</option>
+	  <option>Arc</option>
+	  <option>Circle</option>
+	  <option>Moving circle (rolling wheel)</option>
+	  <option>Spiral</option>
+	  <option>Wiggle</option>
+	  <option>In-and-out</option>
+	  <option>Wrist twist</option>
+	  <option>Finger flick</option>
+	</select>
+	<h4>Click the starting location of the dominant hand:</h4>
+	<ul class="locimg">
+	  <li>Head:
+	    <img alt="Head"
+		 src="images/220px-AlCaponemugshotCPD-vertical.png"
+		 usemap="#headmap0"/><map id="headmap0" name="headmap0">
+	      <area id="ear0" shape="circle" coords="44,52,10"
+		    alt="Ear" title="Ear"/>
+	      <area id="temple0" alt="Temple" title="Temple" shape="rect"
+		    coords="57,36,68,49" />
+	      <area id="forehead0" alt="Forehead" title="Forehead" 
+		    shape="rect" coords="40,156,72,172" />
+	      <area id="R-eye0" alt="Eye" title="Eye"
+		    shape="circle" coords="46,181,5" />
+	      <area id="L-eye0" alt="Eye" title="Eye"
+		    shape="circle" coords="66,182,5" />
+	      <area id="R-cheek0" alt="Cheek" title="Cheek"
+		    shape="circle" coords="40,195,7" />
+	      <area id="L-cheek0" alt="Cheek" title="Cheek"
+		    shape="circle" coords="72,194,8" />
+	      <area id="nose0" alt="Nose" title="Nose"
+		    shape="circle" coords="54,191,7" />
+	      <area id="mouth0" alt="Mouth" title="Mouth"
+		    shape="rect" coords="42,198,67,209" />
+	      <area id="chin0" alt="Chin" title="Chin"
+		    shape="rect" coords="42,210,67,221" />
+	      <area shape="default" />
+	    </map>
+	  </li>
+	  <li>Body:
+	    <img alt="Body"
+		 src="images/Wikiman.svg"
+		 style="width: 200px; height: 400px"
+		 usemap="#bodymap"/><map id="bodymap0" name="bodymap0">
+	      <area id="neck0" alt="Neck" title="Neck" />
+	      <area id="L-shoulder0" alt="Shoulder" title="Shoulder" />
+	      <area id="R-shoulder0" alt="Shoulder" title="Shoulder" />
+	      <area id="chest0" alt="Chest" title="Chest" />
+	      <area id="stomach0" alt="Stomach" title="Stomach" />
+	      <area id="waist0" alt="Waist" title="Waist" />
+	      <area id="elbow0" alt="Elbow" title="Elbow" />
+	      <area id="forearm0" alt="Arm" title="Arm" />
+	      <area id="wrist0" alt="Wrist" title="Wrist" />
+	      <area id="hand0" alt="Hand" title="Hand" />
+	    </map>
+	  </li>
+	</ul>
+      </fieldset>
+      <fieldset id="orientationdiv">
+	<legend>Palm direction</legend>
+	<select name="palm">
+	  <option value="">&mdash;Select&mdash;</option>
+	  <option value="forward">Forward</option>
+	  <option value="inward">Inward</option>
+	  <option value="horizontal">Horizontal</option>
+	  <option value="towards-palm" class="two">Palm towards palm</option>
+	  <option value="to-palm" class="two">Palm-to-palm</option>
+	</select>
+      </fieldset>
+      <fieldset id="nonmandiv">
+	<legend>Non-manuals</legend>
+      </fieldset>
+    </form>
+  </body>
 </html>
