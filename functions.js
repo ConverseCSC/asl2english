@@ -29,6 +29,18 @@ function makeHandshapeSelect(id) {
     return selectElt;
 }
 
+var handleImgClick = function(event) {
+    var targName = event.target.id;
+    alert(targName);
+    
+    var control = document.getElementById('loc0');
+    if (targName.endsWith('1')) {
+	control = document.getElementById('loc1');
+    }
+
+    control.value = targName.slice(0, -1);
+}
+
 function fillHandshapeDiv(divElt) {
     $(divElt).append('<h4>Beginning:</h4>');
     var handStr = divElt.id.substring(0, 5);
@@ -85,4 +97,6 @@ $(document).ready( function() {
 	$(this).attr('alt',text);
 	$(this).attr('title',text);
     });
+
+    $('ul.locimg area').bind("click", handleImgClick);
 });

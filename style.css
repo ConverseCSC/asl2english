@@ -34,3 +34,6 @@ ul.image_picker_selector ul li .thumbnail.selected img {
     background-color: blue;
 }
 
+div.locdiv {
+    display: inline-block;
+}

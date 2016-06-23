@@ -31,64 +31,138 @@
       </fieldset>
       <fieldset id="movelocdiv">
 	<legend>Movement and location</legend>
-	<select name="movetype" id="movetype">
-	  <option>Straight line</option>
-	  <option>Arc</option>
-	  <option>Circle</option>
-	  <option>Moving circle (rolling wheel)</option>
-	  <option>Spiral</option>
-	  <option>Wiggle</option>
-	  <option>In-and-out</option>
-	  <option>Wrist twist</option>
-	  <option>Finger flick</option>
-	</select>
-	<h4>Click the starting location of the dominant hand:</h4>
-	<ul class="locimg">
-	  <li>Head:
-	    <img alt="Head"
-		 src="images/220px-AlCaponemugshotCPD-vertical.png"
-		 usemap="#headmap0"/><map id="headmap0" name="headmap0">
-	      <area id="ear0" shape="circle" coords="44,52,10"
-		    alt="Ear" title="Ear"/>
-	      <area id="temple0" alt="Temple" title="Temple" shape="rect"
-		    coords="57,36,68,49" />
-	      <area id="forehead0" alt="Forehead" title="Forehead" 
-		    shape="rect" coords="40,156,72,172" />
-	      <area id="R-eye0" alt="Eye" title="Eye"
-		    shape="circle" coords="46,181,5" />
-	      <area id="L-eye0" alt="Eye" title="Eye"
-		    shape="circle" coords="66,182,5" />
-	      <area id="R-cheek0" alt="Cheek" title="Cheek"
-		    shape="circle" coords="40,195,7" />
-	      <area id="L-cheek0" alt="Cheek" title="Cheek"
-		    shape="circle" coords="72,194,8" />
-	      <area id="nose0" alt="Nose" title="Nose"
-		    shape="circle" coords="54,191,7" />
-	      <area id="mouth0" alt="Mouth" title="Mouth"
-		    shape="rect" coords="42,198,67,209" />
-	      <area id="chin0" alt="Chin" title="Chin"
-		    shape="rect" coords="42,210,67,221" />
-	      <area shape="default" />
-	    </map>
-	  </li>
-	  <li>Body:
-	    <img alt="Body"
-		 src="images/Wikiman.svg"
-		 style="width: 200px; height: 400px"
-		 usemap="#bodymap"/><map id="bodymap0" name="bodymap0">
-	      <area id="neck0" alt="Neck" title="Neck" />
-	      <area id="L-shoulder0" alt="Shoulder" title="Shoulder" />
-	      <area id="R-shoulder0" alt="Shoulder" title="Shoulder" />
-	      <area id="chest0" alt="Chest" title="Chest" />
-	      <area id="stomach0" alt="Stomach" title="Stomach" />
-	      <area id="waist0" alt="Waist" title="Waist" />
-	      <area id="elbow0" alt="Elbow" title="Elbow" />
-	      <area id="forearm0" alt="Arm" title="Arm" />
-	      <area id="wrist0" alt="Wrist" title="Wrist" />
-	      <area id="hand0" alt="Hand" title="Hand" />
-	    </map>
-	  </li>
-	</ul>
+	<div>
+	  <label for="movetype">Type of movement:</label>
+	  <select name="movetype" id="movetype">
+	    <option>Straight line</option>
+	    <option>Arc</option>
+	    <option>Circle</option>
+	    <option>Moving circle (rolling wheel)</option>
+	    <option>Spiral</option>
+	    <option>Wiggle</option>
+	    <option>In-and-out</option>
+	    <option>Wrist twist</option>
+	    <option>Finger flick</option>
+	  </select>
+	</div>
+	<div id="locdiv0" class="locdiv">
+	  <h4>Click the starting location of the dominant hand:</h4>
+	  <input type="hidden" id="loc0" name="loc0" value="" />
+	  <ul class="locimg">
+	    <li>Head:
+	      <img id="headimg0" alt="Head" 
+		   src="images/220px-AlCaponemugshotCPD-vertical.png"
+		   usemap="#headmap0"/><map id="headmap0" name="headmap0">
+		<area id="ear0" shape="circle" coords="44,52,10"
+		      alt="Ear" title="Ear"/>
+		<area id="temple0" alt="Temple" title="Temple" shape="rect"
+		      coords="57,36,68,49" />
+		<area id="forehead0" alt="Forehead" title="Forehead" 
+		      shape="rect" coords="40,156,72,172" />
+		<area id="R-eye0" alt="Eye" title="Eye"
+		      shape="circle" coords="46,181,5" />
+		<area id="L-eye0" alt="Eye" title="Eye"
+		      shape="circle" coords="66,182,5" />
+		<area id="R-cheek0" alt="Cheek" title="Cheek"
+		      shape="circle" coords="40,195,7" />
+		<area id="L-cheek0" alt="Cheek" title="Cheek"
+		      shape="circle" coords="72,194,8" />
+		<area id="nose0" alt="Nose" title="Nose"
+		      shape="circle" coords="54,191,7" />
+		<area id="mouth0" alt="Mouth" title="Mouth"
+		      shape="rect" coords="42,198,67,209" />
+		<area id="chin0" alt="Chin" title="Chin"
+		      shape="rect" coords="42,210,67,221" />
+	      </map>
+	    </li>
+	    <li>Body:
+	      <img id="bodyimg0" alt="Body"
+		   src="images/Wikiman.svg"
+		   style="width: 200px; height: 400px"
+		   usemap="#bodymap0"/><map id="bodymap0" name="bodymap0">
+		<area id="neck0" alt="Neck" title="Neck"
+		      shape="rect" coords="86,68,118,78" />
+		<area id="L-shoulder0" alt="Shoulder" title="Shoulder"
+		      shape="rect" coords="124,83,160,106" />
+		<area id="R-shoulder0" alt="Shoulder" title="Shoulder"
+		      shape="rect" coords="48,82,83,101" />
+		<area id="chest0" alt="Chest" title="Chest"
+		      shape="rect" coords="68,108,133,152" />
+		<area id="stomach0" alt="Stomach" title="Stomach"
+		      shape="rect" coords="66,158,136,186" />
+		<area id="waist0" alt="Waist" title="Waist"
+		      shape="rect" coords="64,188,140,200" />
+		<area id="elbow0" alt="Elbow" title="Elbow"
+		      shape="poly" coords="136,153,155,148,162,165,140,170" />
+		<area id="forearm0" alt="Arm" title="Arm"
+		      shape="poly" coords="140,171,162,166,174,208,158,214" />
+		<area id="wrist0" alt="Wrist" title="Wrist"
+		      shape="poly" coords="158,215,174,209,178,221,164,228" />
+		<area id="hand0" alt="Hand" title="Hand" shape="poly"
+		      coords="178,222,164,229,199,235,184,263,172,252" />
+	      </map>
+	    </li>
+	  </ul>
+	</div>
+	<div id="locdiv1" class="locdiv">
+	  <h4>Click the ending location of the dominant hand:</h4>
+	  <input type="hidden" id="loc1" name="loc1" value="" />
+	  <ul class="locimg">
+	    <li>Head:
+	      <img id="headimg1" alt="Head" 
+		   src="images/220px-AlCaponemugshotCPD-vertical.png"
+		   usemap="#headmap1"/><map id="headmap1" name="headmap1">
+		<area id="ear1" shape="circle" coords="44,52,10"
+		      alt="Ear" title="Ear"/>
+		<area id="temple1" alt="Temple" title="Temple" shape="rect"
+		      coords="57,36,68,49" />
+		<area id="forehead1" alt="Forehead" title="Forehead" 
+		      shape="rect" coords="40,156,72,172" />
+		<area id="R-eye1" alt="Eye" title="Eye"
+		      shape="circle" coords="46,181,5" />
+		<area id="L-eye1" alt="Eye" title="Eye"
+		      shape="circle" coords="66,182,5" />
+		<area id="R-cheek1" alt="Cheek" title="Cheek"
+		      shape="circle" coords="40,195,7" />
+		<area id="L-cheek1" alt="Cheek" title="Cheek"
+		      shape="circle" coords="72,194,8" />
+		<area id="nose1" alt="Nose" title="Nose"
+		      shape="circle" coords="54,191,7" />
+		<area id="mouth1" alt="Mouth" title="Mouth"
+		      shape="rect" coords="42,198,67,209" />
+		<area id="chin1" alt="Chin" title="Chin"
+		      shape="rect" coords="42,210,67,221" />
+	      </map>
+	    </li>
+	    <li>Body:
+	      <img id="bodyimg1" alt="Body"
+		   src="images/Wikiman.svg"
+		   style="width: 200px; height: 400px"
+		   usemap="#bodymap1"/><map id="bodymap1" name="bodymap1">
+		<area id="neck1" alt="Neck" title="Neck"
+		      shape="rect" coords="86,68,118,78" />
+		<area id="L-shoulder1" alt="Shoulder" title="Shoulder"
+		      shape="rect" coords="124,83,160,106" />
+		<area id="R-shoulder1" alt="Shoulder" title="Shoulder"
+		      shape="rect" coords="48,82,83,101" />
+		<area id="chest1" alt="Chest" title="Chest"
+		      shape="rect" coords="68,108,133,152" />
+		<area id="stomach1" alt="Stomach" title="Stomach"
+		      shape="rect" coords="66,158,136,186" />
+		<area id="waist1" alt="Waist" title="Waist"
+		      shape="rect" coords="64,188,140,200" />
+		<area id="elbow1" alt="Elbow" title="Elbow"
+		      shape="poly" coords="136,153,155,148,162,165,140,170" />
+		<area id="forearm1" alt="Arm" title="Arm"
+		      shape="poly" coords="140,171,162,166,174,208,158,214" />
+		<area id="wrist1" alt="Wrist" title="Wrist"
+		      shape="poly" coords="140,171,162,166,174,208,158,214" />
+		<area id="hand1" alt="Hand" title="Hand" shape="poly"
+		      coords="178,222,164,229,199,235,184,263,172,252" />
+	      </map>
+	    </li>
+	  </ul>
+	</div>
       </fieldset>
       <fieldset id="orientationdiv">
 	<legend>Palm direction</legend>
