@@ -1,3 +1,57 @@
+function parseNumHands(val) {
+    var result = 0;
+    switch (val) {
+    case 'one':
+	result = 1;
+	break;
+    case 'two':
+	result = 2;
+	break;
+    case 'moving':
+	result = 1.5;
+	break;
+    }
+    return result;
+}
+
+function valueOrUndefined(value) {
+    if ((value === "") || (value === null)) {
+	return undefined;
+    }
+    else return value;
+}
+
+function parseHandShape(numHands, hand0start, hand0end,
+			hand1start, hand1end) {
+    var result = []
+    var start = valueOrUndefined(hand0start);
+    var end = valueOrUndefined(hand0end);
+    result.push([start, end]);
+    
+    if (numHands > 1) {
+	start = valueOrUndefined(hand1start);
+	end = valueOrUndefined(hand1end);
+	result.push([start, end]);
+    }
+    
+    return result;
+}
+
+function Sign() {
+    var formElt = document.getElementById('lookupform');
+    this.hands = parseNumHands(formElt.numhands.value);
+    //alert(this.hands);
+    this.handshape = parseHandShape(this.hands,
+	                            $('#hand0shape0').val(),
+	                            $('#hand0shape1').val(),
+	                            $('#hand1shape0').val(),
+	                            $('#hand1shape1').val());
+    alert(JSON.stringify(this.handshape));
+
+    
+}
+
+
 function makeHandshapeSelect(id) {
     var selectElt = document.createElement('select');
     selectElt.id = id;
@@ -31,14 +85,26 @@ function makeHandshapeSelect(id) {
 
 var handleImgClick = function(event) {
     var targName = event.target.id;
-    alert(targName);
+    //alert(targName);
     
     var control = document.getElementById('loc0');
     if (targName.endsWith('1')) {
 	control = document.getElementById('loc1');
+	$('#locdiv1 path').removeClass('selected');
+	$('#locdiv1 ellipse').removeClass('selected');
+    }
+    else {
+	$('#locdiv0 path').removeClass('selected');
+	$('#locdiv0 ellipse').removeClass('selected');
     }
 
-    control.value = targName.slice(0, -1);
+    if (control.value.length == 0 || !(targName.startsWith(control.value))) {
+	$('#' + targName).addClass('selected');
+	control.value = targName.slice(0, -1);
+    }
+    else {
+	control.value = "";
+    }
 }
 
 function fillHandshapeDiv(divElt) {
@@ -74,10 +140,14 @@ function fillHandshapeDiv(divElt) {
     divElt.appendChild(endDiv);
 }
 
+function evalGuess() {
+    var sign = Sign();
+}
+
 $(document).ready( function() {
     var changeHands = function() {
 	var classToShow = $("#numhands option:selected").val();
-	alert(classToShow);
+	//alert(classToShow);
 	$(".one, .moving, .two").hide();
 	$('.' + classToShow).show();
     }
@@ -98,5 +168,8 @@ $(document).ready( function() {
 	$(this).attr('title',text);
     });
 
-    $('ul.locimg area').bind("click", handleImgClick);
+    $('ul.locimg path').bind("click", handleImgClick);
+    $('ul.locimg ellipse').bind("click", handleImgClick);
+
+    $('#lookupbutton').bind('click', evalGuess);
 });

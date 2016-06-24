@@ -12,7 +12,7 @@
   <body>
     <h1>Beginning ASL-to-English dictionary</h1>
 
-    <form action="" method="get">
+    <form id="lookupform" action="" method="get">
       <fieldset id="numhandsdiv">
 	<legend>How many hands</legend>
 	<p>The sign I want to look up is:
@@ -47,122 +47,188 @@
 	</div>
 	<div id="locdiv0" class="locdiv">
 	  <h4>Click the starting location of the dominant hand:</h4>
+	  <input type="checkbox" id="locinfront0" name="locinfront0" />
+	  <label for="front0">Hand starts in front of body</label>
 	  <input type="hidden" id="loc0" name="loc0" value="" />
 	  <ul class="locimg">
 	    <li>Head:
-	      <img id="headimg0" alt="Head" 
-		   src="images/220px-AlCaponemugshotCPD-vertical.png"
-		   usemap="#headmap0"/><map id="headmap0" name="headmap0">
-		<area id="ear0" shape="circle" coords="44,52,10"
-		      alt="Ear" title="Ear"/>
-		<area id="temple0" alt="Temple" title="Temple" shape="rect"
-		      coords="57,36,68,49" />
-		<area id="forehead0" alt="Forehead" title="Forehead" 
-		      shape="rect" coords="40,156,72,172" />
-		<area id="R-eye0" alt="Eye" title="Eye"
-		      shape="circle" coords="46,181,5" />
-		<area id="L-eye0" alt="Eye" title="Eye"
-		      shape="circle" coords="66,182,5" />
-		<area id="R-cheek0" alt="Cheek" title="Cheek"
-		      shape="circle" coords="40,195,7" />
-		<area id="L-cheek0" alt="Cheek" title="Cheek"
-		      shape="circle" coords="72,194,8" />
-		<area id="nose0" alt="Nose" title="Nose"
-		      shape="circle" coords="54,191,7" />
-		<area id="mouth0" alt="Mouth" title="Mouth"
-		      shape="rect" coords="42,198,67,209" />
-		<area id="chin0" alt="Chin" title="Chin"
-		      shape="rect" coords="42,210,67,221" />
-	      </map>
+	      <svg id="headimg0" height="277" width="107"
+		   xmlns="http://www.w3.org/2000/svg"
+		   xmlns:xlink="http://www.w3.org/1999/xlink">
+		<image x="0" y="0" width="107" height="277"
+		       xlink:href="images/220px-AlCaponemugshotCPD-vertical.png"
+		       />
+		<ellipse id="ear0" cx="43" cy="192" rx="8" ry="11">
+		  <title>Ear</title>
+		</ellipse>
+		<path id="temple0" d="M 57 175 L 68 175 68 188 57 188 z">
+		  <title>Temple</title>
+		</path>
+		<path id="forehead0" d="M 40 17 L 72 17 72 33 40 33 z">
+		  <title>Forehead</title>
+		</path>
+		<ellipse id="R-eye0" cx="46" cy="42" rx="6" ry="5">
+		  <title>Eye</title>
+		</ellipse>
+		<ellipse id="L-eye0" cx="66" cy="43" rx="6" ry="5">
+		  <title>Eye</title>
+		</ellipse>
+		<ellipse id="R-cheek0" cx="39" cy="56" rx="6" ry="7">
+		  <title>Cheek</title>
+		</ellipse>
+		<ellipse id="L-cheek0" cx="73" cy="56" rx="6" ry="8">
+		  <title>Cheek</title>
+		</ellipse>
+		<ellipse id="nose0" cx="55" cy="52" rx="7" ry="6">
+		  <title>Nose</title>
+		</ellipse>
+		<path id="mouth0" d="M 45 61 L 56 59 67 62 67 67 45 67 z">
+		  <title>Mouth</title>
+		</path>
+		<path id="chin0" d="M 42 71 L 67 71 67 82 42 82 z">
+		  <title>Chin</title>
+		</path>
+	      </svg>
 	    </li>
 	    <li>Body:
-	      <img id="bodyimg0" alt="Body"
-		   src="images/Wikiman.svg"
-		   style="width: 200px; height: 400px"
-		   usemap="#bodymap0"/><map id="bodymap0" name="bodymap0">
-		<area id="neck0" alt="Neck" title="Neck"
-		      shape="rect" coords="86,68,118,78" />
-		<area id="L-shoulder0" alt="Shoulder" title="Shoulder"
-		      shape="rect" coords="124,83,160,106" />
-		<area id="R-shoulder0" alt="Shoulder" title="Shoulder"
-		      shape="rect" coords="48,82,83,101" />
-		<area id="chest0" alt="Chest" title="Chest"
-		      shape="rect" coords="68,108,133,152" />
-		<area id="stomach0" alt="Stomach" title="Stomach"
-		      shape="rect" coords="66,158,136,186" />
-		<area id="waist0" alt="Waist" title="Waist"
-		      shape="rect" coords="64,188,140,200" />
-		<area id="elbow0" alt="Elbow" title="Elbow"
-		      shape="poly" coords="136,153,155,148,162,165,140,170" />
-		<area id="forearm0" alt="Arm" title="Arm"
-		      shape="poly" coords="140,171,162,166,174,208,158,214" />
-		<area id="wrist0" alt="Wrist" title="Wrist"
-		      shape="poly" coords="158,215,174,209,178,221,164,228" />
-		<area id="hand0" alt="Hand" title="Hand" shape="poly"
-		      coords="178,222,164,229,199,235,184,263,172,252" />
-	      </map>
-	    </li>
-	  </ul>
-	</div>
+	      <svg id="bodyimg0" height="400" width="200"
+		   xmlns="http://www.w3.org/2000/svg"
+		   xmlns:xlink="http://www.w3.org/1999/xlink">
+		<image x="0" y="0" width="200" height="400"
+		       xlink:href="images/Wikiman.svg" />
+		<path id="neck0"
+		      d="M 86 68 L 118 68 118 78 86 78 z">
+		  <title>Neck</title>
+		</path>
+		<path id="L-shoulder0"
+		      d="M 124 83 L 154 97 156 106 124 106 z">
+		  <title>Shoulder</title>
+		</path>
+		<path id="R-shoulder0"
+		      d="M 50 95 L 83 81 83 101 50 101 z">
+		  <title>Shoulder</title>
+		</path>
+		<path id="chest0"
+		      d="M 66 108 L 133 108 133 152 66 152 z">
+		  <title>Chest</title>
+		</path>
+		<path id="stomach0"
+		      d="M 66 158 L 136 158 136 186 66 186 z">
+		  <title>Stomach</title>
+		</path>
+		<path id="waist0"
+		      d="M 64 188 L 138 188 140 200 64 200 z">
+		  <title>Waist</title>
+		</path>
+		<path id="elbow0"
+		      d="M 136 153 L 155 148 162 165 140 170 z">
+		  <title>Elbow</title>
+		</path>
+		<path id="arm0"
+		      d="M 140 171 L 162 166 174 208 158 214 z">
+		  <title>Arm</title>
+		</path>
+		<path id="wrist0"
+		      d="M 158 215 L 174 209 178 221 164 228 z">
+		  <title>Wrist</title>
+		</path>
+		<path id="hand0"178,222,
+		      d="M 164 229 L 178 222 199 235 184 263 172 252 z">
+		  <title>Hand</title>
+		</path>
+	</svg></li></ul></div>
 	<div id="locdiv1" class="locdiv">
 	  <h4>Click the ending location of the dominant hand:</h4>
+	  <input type="checkbox" id="locinfront1" name="locinfront1" />
+	  <label for="front1">Hand finishes in front of body</label>
 	  <input type="hidden" id="loc1" name="loc1" value="" />
 	  <ul class="locimg">
 	    <li>Head:
-	      <img id="headimg1" alt="Head" 
-		   src="images/220px-AlCaponemugshotCPD-vertical.png"
-		   usemap="#headmap1"/><map id="headmap1" name="headmap1">
-		<area id="ear1" shape="circle" coords="44,52,10"
-		      alt="Ear" title="Ear"/>
-		<area id="temple1" alt="Temple" title="Temple" shape="rect"
-		      coords="57,36,68,49" />
-		<area id="forehead1" alt="Forehead" title="Forehead" 
-		      shape="rect" coords="40,156,72,172" />
-		<area id="R-eye1" alt="Eye" title="Eye"
-		      shape="circle" coords="46,181,5" />
-		<area id="L-eye1" alt="Eye" title="Eye"
-		      shape="circle" coords="66,182,5" />
-		<area id="R-cheek1" alt="Cheek" title="Cheek"
-		      shape="circle" coords="40,195,7" />
-		<area id="L-cheek1" alt="Cheek" title="Cheek"
-		      shape="circle" coords="72,194,8" />
-		<area id="nose1" alt="Nose" title="Nose"
-		      shape="circle" coords="54,191,7" />
-		<area id="mouth1" alt="Mouth" title="Mouth"
-		      shape="rect" coords="42,198,67,209" />
-		<area id="chin1" alt="Chin" title="Chin"
-		      shape="rect" coords="42,210,67,221" />
-	      </map>
+	      <svg id="headimg1" height="277" width="107"
+		   xmlns="http://www.w3.org/2000/svg"
+		   xmlns:xlink="http://www.w3.org/1999/xlink">
+		<image x="0" y="0" width="107" height="277"
+		       xlink:href="images/220px-AlCaponemugshotCPD-vertical.png"
+		       />
+		<ellipse id="ear1" cx="43" cy="192" rx="8" ry="11">
+		  <title>Ear</title>
+		</ellipse>
+		<path id="temple1" d="M 57 175 L 68 175 68 188 57 188 z">
+		  <title>Temple</title>
+		</path>
+		<path id="forehead1" d="M 40 17 L 72 17 72 33 40 33 z">
+		  <title>Forehead</title>
+		</path>
+		<ellipse id="R-eye1" cx="46" cy="42" rx="6" ry="5">
+		  <title>Eye</title>
+		</ellipse>
+		<ellipse id="L-eye1" cx="66" cy="43" rx="6" ry="5">
+		  <title>Eye</title>
+		</ellipse>
+		<ellipse id="R-cheek1" cx="39" cy="56" rx="6" ry="7">
+		  <title>Cheek</title>
+		</ellipse>
+		<ellipse id="L-cheek1" cx="73" cy="56" rx="6" ry="8">
+		  <title>Cheek</title>
+		</ellipse>
+		<ellipse id="nose1" cx="55" cy="52" rx="7" ry="6">
+		  <title>Nose</title>
+		</ellipse>
+		<path id="mouth1" d="M 45 61 L 56 59 67 62 67 67 45 67 z">
+		  <title>Mouth</title>
+		</path>
+		<path id="chin1" d="M 42 71 L 67 71 67 82 42 82 z">
+		  <title>Chin</title>
+		</path>
+	      </svg>
 	    </li>
 	    <li>Body:
-	      <img id="bodyimg1" alt="Body"
-		   src="images/Wikiman.svg"
-		   style="width: 200px; height: 400px"
-		   usemap="#bodymap1"/><map id="bodymap1" name="bodymap1">
-		<area id="neck1" alt="Neck" title="Neck"
-		      shape="rect" coords="86,68,118,78" />
-		<area id="L-shoulder1" alt="Shoulder" title="Shoulder"
-		      shape="rect" coords="124,83,160,106" />
-		<area id="R-shoulder1" alt="Shoulder" title="Shoulder"
-		      shape="rect" coords="48,82,83,101" />
-		<area id="chest1" alt="Chest" title="Chest"
-		      shape="rect" coords="68,108,133,152" />
-		<area id="stomach1" alt="Stomach" title="Stomach"
-		      shape="rect" coords="66,158,136,186" />
-		<area id="waist1" alt="Waist" title="Waist"
-		      shape="rect" coords="64,188,140,200" />
-		<area id="elbow1" alt="Elbow" title="Elbow"
-		      shape="poly" coords="136,153,155,148,162,165,140,170" />
-		<area id="forearm1" alt="Arm" title="Arm"
-		      shape="poly" coords="140,171,162,166,174,208,158,214" />
-		<area id="wrist1" alt="Wrist" title="Wrist"
-		      shape="poly" coords="140,171,162,166,174,208,158,214" />
-		<area id="hand1" alt="Hand" title="Hand" shape="poly"
-		      coords="178,222,164,229,199,235,184,263,172,252" />
-	      </map>
-	    </li>
-	  </ul>
-	</div>
+	      <svg id="bodyimg1" height="400" width="200"
+		   xmlns="http://www.w3.org/2000/svg"
+		   xmlns:xlink="http://www.w3.org/1999/xlink">
+		<image x="0" y="0" width="200" height="400"
+		       xlink:href="images/Wikiman.svg" />
+		<path id="neck1"
+		      d="M 86 68 L 118 68 118 78 86 78 z">
+		  <title>Neck</title>
+		</path>
+		<path id="L-shoulder1"
+		      d="M 124 83 L 154 97 156 106 124 106 z">
+		  <title>Shoulder</title>
+		</path>
+		<path id="R-shoulder1"
+		      d="M 50 95 L 83 81 83 101 50 101 z">
+		  <title>Shoulder</title>
+		</path>
+		<path id="chest1"
+		      d="M 66 108 L 133 108 133 152 66 152 z">
+		  <title>Chest</title>
+		</path>
+		<path id="stomach1"
+		      d="M 66 158 L 136 158 136 186 66 186 z">
+		  <title>Stomach</title>
+		</path>
+		<path id="waist1"
+		      d="M 64 188 L 138 188 140 200 64 200 z">
+		  <title>Waist</title>
+		</path>
+		<path id="elbow1"
+		      d="M 136 153 L 155 148 162 165 140 170 z">
+		  <title>Elbow</title>
+		</path>
+		<path id="arm1"
+		      d="M 140 171 L 162 166 174 208 158 214 z">
+		  <title>Arm</title>
+		</path>
+		<path id="wrist1"
+		      d="M 158 215 L 174 209 178 221 164 228 z">
+		  <title>Wrist</title>
+		</path>
+		<path id="hand1"
+		      d="M 164 229 L 178 222 199 235 184 263 172 252 z">
+		  <title>Hand</title>
+		</path>
+	</svg></li></ul></div>
       </fieldset>
       <fieldset id="orientationdiv">
 	<legend>Palm direction</legend>
@@ -176,8 +242,9 @@
 	</select>
       </fieldset>
       <fieldset id="nonmandiv">
-	<legend>Non-manuals</legend>
+      <legend>Non-manuals</legend>
       </fieldset>
+      <button id="lookupbutton" type="button">Look for matching signs!</button>
     </form>
   </body>
 </html>

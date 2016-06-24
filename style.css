@@ -7,7 +7,7 @@ ul.image_picker_selector, ul.image_picker_selector ul, ul.locimg {
     padding-left: 0;
 }
 
-ul.image_picker_selector ul li, ul.locimg li {
+ul.image_picker_selector ul li, ul.locimg li, ul.locimg li svg {
     display: inline;
     vertical-align: top;
 }
@@ -36,4 +36,19 @@ ul.image_picker_selector ul li .thumbnail.selected img {
 
 div.locdiv {
     display: inline-block;
+}
+
+path, ellipse {
+    stroke: green;
+    fill: green;
+    opacity: 0;
+}
+
+path:hover, ellipse:hover {
+    opacity: 0.5;
+}
+
+path.selected, ellipse.selected {
+    opacity: 0.6;
+    stroke: black;
 }
