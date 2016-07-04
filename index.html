@@ -24,9 +24,9 @@
 	</p>
       </fieldset>
       <fieldset id="hand0div">
-	<legend>Handshape<span class="moving">, dominant hand</span></legend>
+	<legend>Handshape, dominant hand</legend>
       </fieldset>
-      <fieldset id="hand1div" class="moving">
+      <fieldset id="hand1div" class="moving two">
 	<legend>Handshape, non-dominant hand</legend>
       </fieldset>
       <fieldset id="movelocdiv">
@@ -34,15 +34,18 @@
 	<div>
 	  <label for="movetype">Type of movement:</label>
 	  <select name="movetype" id="movetype">
-	    <option>Straight line</option>
+	    <option value="">&mdash;Select&mdash;</option>
+	    <option value="straight">Straight line</option>
 	    <option>Arc</option>
-	    <option>Circle</option>
-	    <option>Moving circle (rolling wheel)</option>
-	    <option>Spiral</option>
-	    <option>Wiggle</option>
-	    <option>In-and-out</option>
-	    <option>Wrist twist</option>
-	    <option>Finger flick</option>
+	    <option value="flat-circle">Flat circle (axis is
+	      vertical)</option><!--Circle about Y-->
+	    <option value="facing-circle">Circle facing the
+	      viewer</option><!--Circle about Z-->
+	    <option value="spiral">Spiral</option>
+	    <option value="wiggle">Wiggle</option>
+	    <option value="in-and-out">In-and-out</option>
+	    <option value="twist">Wrist twist</option>
+	    <option value="flick">Finger flick</option>
 	  </select>
 	</div>
 	<div id="locdiv0" class="locdiv">
@@ -237,14 +240,20 @@
 	  <option value="forward">Forward</option>
 	  <option value="inward">Inward</option>
 	  <option value="horizontal">Horizontal</option>
-	  <option value="towards-palm" class="two">Palm towards palm</option>
-	  <option value="to-palm" class="two">Palm-to-palm</option>
+	  <option value="towards-palm" class="moving two">Palm towards palm</option>
+	  <option value="to-palm" class="moving two">Palm-to-palm</option>
 	</select>
       </fieldset>
       <fieldset id="nonmandiv">
       <legend>Non-manuals</legend>
       </fieldset>
       <button id="lookupbutton" type="button">Look for matching signs!</button>
+      <button id="resetbutton" type="reset">Reset</button>
     </form>
+    <div id="resultsdiv">
+      <table id="results">
+      </table>
+    </div>
+
   </body>
 </html>

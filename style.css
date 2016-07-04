@@ -52,3 +52,13 @@ path.selected, ellipse.selected {
     opacity: 0.6;
     stroke: black;
 }
+
+th.signtitle {
+    text-transform: capitalize;
+    /* vertical-align: ;*/
+    padding-right: 1em;
+}
+
+video.signvideo {
+    width: 60%;
+}
