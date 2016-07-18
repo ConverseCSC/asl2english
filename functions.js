@@ -124,6 +124,75 @@ function makeHand1Button() {
     return hand1Button;
 }
 
+function makeImageNode(regions) {
+    var imgElt = document.createElementNS('http://www.w3.org/2000/svg',
+					  'image');
+    imgElt.setAttribute('x', '0');
+    imgElt.setAttribute('y', '0');
+    imgElt.setAttribute('width', regions['width']);
+    imgElt.setAttribute('height', regions['height']);
+    imgElt.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
+			  regions['image']);
+    return imgElt;
+}
+
+function setEllipseAttributes(elt, spec) {
+    elt.setAttribute('cx', spec['c'][0]);
+    elt.setAttribute('cy', spec['c'][1]);
+    elt.setAttribute('rx', spec['r'][0]);
+    elt.setAttribute('ry', spec['r'][1]);
+}
+
+function makeTitleElt(id) {
+    var title = id;
+    // Strip off the 'L-' or 'R-', if present
+    if (id.startsWith('R') || id.startsWith('L')) {
+	title = title.substr(2);
+    }
+    title = title.replace('-', ' ');
+    title = title.substr(0, 1).toUpperCase() + title.substr(1);
+
+    var elt = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+    var textNode = document.createTextNode(title);
+    elt.appendChild(textNode);
+    return elt;
+}
+
+function makeRegion(id, idNum, spec) {
+    var elt = document.createElementNS('http://www.w3.org/2000/svg',
+				       spec['elt']);
+    switch(spec['elt']) {
+    case 'ellipse':
+	setEllipseAttributes(elt, spec); break;
+    case 'path':
+	elt.setAttribute('d', spec['d']); break;
+    }
+
+    elt.setAttribute('id', id + idNum);
+    elt.appendChild(makeTitleElt(id));
+    
+    return elt;
+}
+
+function makeLocSVG(eltID, regions) {
+    var idNum = eltID.slice(-1);
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('id', eltID);
+    svg.setAttribute('width', regions['width']);
+    svg.setAttribute('height', regions['height']);
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); 
+    svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink",
+		       "http://www.w3.org/1999/xlink");
+    svg.appendChild(makeImageNode(regions));
+
+    var regionsSpec = regions['regions'];
+    for (id in regionsSpec) {
+	var regionElt = makeRegion(id, idNum, regionsSpec[id]);
+	svg.appendChild(regionElt);
+    }
+    return svg;
+}
+
 function makeSignRow(sign) {
     var row = document.createElement('tr');
     row.id = sign.sign + '-row';
@@ -204,6 +273,11 @@ $(document).ready( function() {
 	$(this).attr('alt',text);
 	$(this).attr('title',text);
     });
+
+    $('#headimgitem0').append(makeLocSVG('headimg0', headregions));
+    $('#bodyimgitem0').append(makeLocSVG('bodyimg0', bodyregions));
+    $('#headimgitem1').append(makeLocSVG('headimg1', headregions));
+    $('#bodyimgitem1').append(makeLocSVG('bodyimg1', bodyregions));
 
     $('ul.locimg path').bind("click", handleImgClick);
     $('ul.locimg ellipse').bind("click", handleImgClick);

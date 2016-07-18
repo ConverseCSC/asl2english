@@ -62,3 +62,9 @@ th.signtitle {
 video.signvideo {
     width: 60%;
 }
+
+noscript div {
+    border: thick solid red;
+    font-weight: bold;
+    font-size: 125%;
+}

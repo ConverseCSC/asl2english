@@ -13,6 +13,23 @@
   <body>
     <h1>Beginning ASL-to-English dictionary</h1>
 
+    <noscript><div><p>It appears that your browser doesn't support
+	  Javascript, or Javascript is turned off.  Unhappily, this page
+	  doesn't work without Javascript.</p>
+	<p>Directions for turning Javascript on in some common
+	  browsers can be found below.</p>
+	<ul>
+	  <li><a href="https://www.google.com/url?q=https://productforums.google.com/forum/%23!topic/chrome/BYOQskiuGU0&sa=U&ved=0ahUKEwi528Hv1PPNAhUM4SYKHbUSCGwQFgggMAM&sig2=pPNMNH-1saIJUmNm6L9xHw&usg=AFQjCNGUe3it8uaZLHf825Jyfrgk-5LoQA">Google Chrome</a></li>
+	  <li><a href="https://support.apple.com/en-us/HT201265">iPhone/iPad/iPod
+	      Touch</a>
+	  <li><a href="http://activatejavascript.org/en/instructions/android#instructions">Android</a></li>
+	  <li><a href="http://enable-javascript.com/">Microsoft
+	      Internet Explorer</a></li>
+	  <li><a href="http://activatejavascript.org/en/instructions/safari#instructions">Safari
+	      (on a computer)</a></li>
+	</ul>
+    </div></noscript>
+
     <form id="lookupform" action="" method="get">
       <fieldset id="numhandsdiv">
 	<legend>How many hands</legend>
@@ -55,8 +72,8 @@
 	  <label for="locinfront0">Hand starts in front of body</label>
 	  <input type="hidden" id="loc0" name="loc0" value="" />
 	  <ul class="locimg">
-	    <li>Head:
-	      <svg id="headimg0" height="277" width="107"
+	    <li id="headimgitem0">Head:
+	      <!--svg id="headimg0" height="277" width="107"
 		   xmlns="http://www.w3.org/2000/svg"
 		   xmlns:xlink="http://www.w3.org/1999/xlink">
 		<image x="0" y="0" width="107" height="277"
@@ -65,8 +82,11 @@
 		<ellipse id="ear0" cx="43" cy="192" rx="8" ry="11">
 		  <title>Ear</title>
 		</ellipse>
-		<path id="temple0" d="M 57 175 L 68 175 68 188 57 188 z">
+		<path id="temple0" d="M 53 160 L 68 160 68 177 57 177 z">
 		  <title>Temple</title>
+		</path>
+		<path id="lowtemple0" d="M 57 178 L 68 178 68 188 57 188 z">
+		  <title>Low temple</title>
 		</path>
 		<path id="forehead0" d="M 40 17 L 72 17 72 33 40 33 z">
 		  <title>Forehead</title>
@@ -92,10 +112,10 @@
 		<path id="chin0" d="M 42 71 L 67 71 67 82 42 82 z">
 		  <title>Chin</title>
 		</path>
-	      </svg>
+	      </svg-->
 	    </li>
-	    <li>Body:
-	      <svg id="bodyimg0" height="400" width="200"
+	    <li id="bodyimgitem0">Body:
+	      <!--svg id="bodyimg0" height="400" width="200"
 		   xmlns="http://www.w3.org/2000/svg"
 		   xmlns:xlink="http://www.w3.org/1999/xlink">
 		<image x="0" y="0" width="200" height="400"
@@ -124,6 +144,14 @@
 		      d="M 64 188 L 138 188 140 200 64 200 z">
 		  <title>Waist</title>
 		</path>
+		<path id="thigh0"
+		      d="M 64 250 L 100 250 95 275 68 275 z">
+		  <title>Thigh</title>
+		</path>
+		<path id="upperarm0"
+		      d="M 136 120 L 155 120 155 147 136 148 z">
+		  <title>Upper arm</title>
+		</path>
 		<path id="elbow0"
 		      d="M 136 153 L 155 148 162 165 140 170 z">
 		  <title>Elbow</title>
@@ -140,15 +168,15 @@
 		      d="M 164 229 L 178 222 199 235 184 263 172 252 z">
 		  <title>Hand</title>
 		</path>
-	</svg></li></ul></div>
+	</svg--></li></ul></div>
 	<div id="locdiv1" class="locdiv">
 	  <h4>Click the ending location of the dominant hand:</h4>
 	  <input type="checkbox" id="locinfront1" name="locinfront1" />
 	  <label for="locinfront1">Hand finishes in front of body</label>
 	  <input type="hidden" id="loc1" name="loc1" value="" />
 	  <ul class="locimg">
-	    <li>Head:
-	      <svg id="headimg1" height="277" width="107"
+	    <li id="headimgitem1">Head:
+	      <!--svg id="headimg1" height="277" width="107"
 		   xmlns="http://www.w3.org/2000/svg"
 		   xmlns:xlink="http://www.w3.org/1999/xlink">
 		<image x="0" y="0" width="107" height="277"
@@ -157,8 +185,11 @@
 		<ellipse id="ear1" cx="43" cy="192" rx="8" ry="11">
 		  <title>Ear</title>
 		</ellipse>
-		<path id="temple1" d="M 57 175 L 68 175 68 188 57 188 z">
+		<path id="temple1" d="M 53 160 L 68 160 68 177 57 177 z">
 		  <title>Temple</title>
+		</path>
+		<path id="lowtemple1" d="M 57 178 L 68 178 68 188 57 188 z">
+		  <title>Low Temple</title>
 		</path>
 		<path id="forehead1" d="M 40 17 L 72 17 72 33 40 33 z">
 		  <title>Forehead</title>
@@ -184,10 +215,10 @@
 		<path id="chin1" d="M 42 71 L 67 71 67 82 42 82 z">
 		  <title>Chin</title>
 		</path>
-	      </svg>
+	      </svg-->
 	    </li>
-	    <li>Body:
-	      <svg id="bodyimg1" height="400" width="200"
+	    <li id="bodyimgitem1">Body:
+	      <!--svg id="bodyimg1" height="400" width="200"
 		   xmlns="http://www.w3.org/2000/svg"
 		   xmlns:xlink="http://www.w3.org/1999/xlink">
 		<image x="0" y="0" width="200" height="400"
@@ -216,6 +247,14 @@
 		      d="M 64 188 L 138 188 140 200 64 200 z">
 		  <title>Waist</title>
 		</path>
+		<path id="thigh1"
+		      d="M 64 250 L 100 250 95 275 68 275 z">
+		  <title>Thigh</title>
+		</path>
+		<path id="upperarm1"
+		      d="M 136 120 L 155 120 155 147 136 148 z">
+		  <title>Upper arm</title>
+		</path>
 		<path id="elbow1"
 		      d="M 136 153 L 155 148 162 165 140 170 z">
 		  <title>Elbow</title>
@@ -232,7 +271,7 @@
 		      d="M 164 229 L 178 222 199 235 184 263 172 252 z">
 		  <title>Hand</title>
 		</path>
-	</svg></li></ul></div>
+	</svg--></li></ul></div>
       </fieldset>
       <fieldset id="orientationdiv">
 	<legend>Palm direction</legend>
@@ -249,7 +288,7 @@
       <legend>Non-manuals</legend>
       </fieldset>
       <button id="lookupbutton" type="button">Look for matching signs!</button>
-      <button id="resetbutton" type="reset">Reset</button>
+      <!--button id="resetbutton" type="reset">Reset</button-->
     </form>
     <div id="resultsdiv">
       <table id="results">
