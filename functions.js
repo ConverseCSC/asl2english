@@ -230,7 +230,7 @@ function showSigns(signsToShow) {
 
 function evalGuess() {
     var guess = new Sign();
-    alert(JSON.stringify(guess));
+    //alert(JSON.stringify(guess));
     
     for (var s = 0; s < signs.length; s++) {
 	signs[s].diff = compareSigns(guess, signs[s]);

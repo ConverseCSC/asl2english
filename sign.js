@@ -74,77 +74,15 @@ function parsePositionXYZ(loc, inFront) {
 	loc = 'chest';
     }
 
-    if (headregions.regions.hasOwnProperty(loc)) {
-	console.log(loc + ' is in headregions');
-    }
-    
     if (Array.isArray(loc)) {
 	result = loc.slice();
-	console.log('Array: Setting ' + loc + ': ' + JSON.stringify(result));
     }
     else if (loc in headregions.regions) {
 	result = headregions.regions[loc]['xyz'].slice();
-	console.log('Head: Setting ' + loc + ': ' + JSON.stringify(result));
     }
     else if (loc in bodyregions.regions) {
 	result = bodyregions.regions[loc]['xyz'].slice();
-	console.log('Body: Setting ' + loc + ': ' + JSON.stringify(result));
     }
-    /*
-    else {
-	switch (loc) {
-	case undefined:
-	    result[0] = result[1] = result[2] = undefined; break; 
-	case 'forehead': // [0, 6, z]
-	    result[1] = 6; break;
-	case 'l-eye': // [1, 5, z]
-	    result[0] = 1; result[1] = 5; break;
-	case 'r-eye': // [-1, 5, z]
-	    result[0] = -1; result[1] = 5; break;
-	case 'temple': // [-2, 5, -1]
-	    result[0] = -2; result[1] = 5; result[2] = -1; break;
-	case 'low-temple': // [-2, 5, -1]
-	    result[0] = -2; result[1] = 5; result[2] = -1; break;
-	case 'ear':  // [-2, 4, -2]
-	    result[0] = -2; result[1] = 4; result[2] = -2; break;
-	case 'nose': // [0, 4, z]
-	    result[1] = 4; break;
-	case 'l-cheek': // [2, 3, z]
-	    result[0] = 2; result[1] = 4; break;
-	case 'r-cheek': // [-2, 3, z]
-	    result[0] = -2; result[1] = 4; break;
-	case 'mouth': // [0, 3, z]
-	    result[1] = 3; break;
-	case 'chin': // [0, 2, z]
-	    result[1] = 2; break;
-	case 'neck': // [0, 1, z]
-	    result[1] = 1; break;
-	case 'l-shoulder': // [1, 0, z]
-	    result[0] = 1; break;
-	case 'r-shoulder': // [-1, 0, z]
-	    result[0] = -1; break;
-	case 0:
-	case 'sightline':
-	case 'chest': // [0, 0, z]
-	    break;
-	case 'stomach': // [0, -1, z]
-	    result[1] = -1; break;
-	case 'waist': // [0, -2, z]
-	    result[1] = -2; break;
-	case 'thigh': // [1, -3, z]
-	    result[0] = 1; result[1] = -3; break;
-	case 'upperarm': // [3, 0, z]
-	    result[0] = 3; result[1] = 0; break;
-	case 'elbow': // [3, -1, z]
-	    result[0] = 3; result[1] = -1; break;
-	case 'arm': // [3, -2, z]
-	    result[0] = 3; result[1] = -2; break;
-	case 'wrist': // [3, -3, z]
-	    result[0] = 3; result[1] = -3; break;
-	case 'hand': // [3, -4, z]
-	    result[0] = 3; result[1] = -4; break;
-	}
-    */
     // Set Z, if not done already
     if (result.length === 2) {
 	if (inFront === true) {
@@ -154,12 +92,7 @@ function parsePositionXYZ(loc, inFront) {
 	    result.push(0);
 	}
     }
-    /*
-	else if (result[2] === 0 && inFront === true) {
-	    result[2] = 1;
-	}
-    */
-    console.log('Returning ' + loc + ': ' + JSON.stringify(result));
+    //console.log('Returning ' + loc + ': ' + JSON.stringify(result));
     return result;
 }
 
