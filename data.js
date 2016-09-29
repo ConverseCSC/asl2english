@@ -292,5 +292,14 @@ signs = [{ sign: 'accept',
 	   position: ['chin', 'sightline'],
 	   palmFace: 'inward',
 	   motion: { type: 'facing-circle',
-		     dir: [0, 0, 0] }}
+		     dir: [0, 0, 0] }},
+	 { sign: 'thrill/whats-up',
+	 	video: 'images/whats-up.mp4',
+	 	hands: 2,
+	 	handshape: [ [13, 13], [13, 13] ],
+	 	position: [ 'chest', 'right-shoulder'],
+	 	palmFace: 'inward',
+	 	motion: { type: 'arc',
+	 	          dir: [-1, 1, 0]}
+	 }
 	]
