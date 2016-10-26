@@ -9,4 +9,3 @@
 - Refactor/clarify code
     - functions.js needs organization (MVC)
     - sign.js: Sign class is too big, too much stuff coupled together
-- Put TODO material in a better place
