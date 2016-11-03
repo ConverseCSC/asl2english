@@ -1,3 +1,19 @@
+// shapegroups is an array of arrays.  Each subarray defines a group of
+// semantically similar handshapes.  The numbers in each subarray are
+// handshape ID's, not handshape names.  What signs go in what group is
+// defined by the groups found at 
+// http://www.bu.edu/asllrp/cslgr/pages/handshape-palette.html.
+//
+// In the handshapes array, the group of a sign is a name, not an index.
+// What the name is doesn't matter, as long as every sign in the group
+// uses the same name and no other group uses that name.  Generally, I use
+// the name of the first sign in the group as the group name.
+// 
+// Not all groups are present yet, only the ones that have actually been
+// used in signs present in the database.  When adding a sign, if the group
+// of one of its handshapes hasn't yet been defined, I add the entire group
+// both here and in the handshapes array.
+
 shapegroups = [
     // A  10  S   cocked-S  T  X-over-thumb 
     [ 14, 12, 82, 34,      72, 80],
@@ -20,6 +36,23 @@ shapegroups = [
     // I  Y   I-L-Y bent-I-L-Y Horns bent-Horns O/2-Horns
     [ 57, 81, 56,   95,        55,   25,        64]    ];
 
+// Handshapes is an array of objects representing (surprise!) handshapes.
+// Indices in the array match the handshape ID's.
+// Each handshape object has the following members:
+//     shape: the name of the handshape, as found at 
+//            http://www.bu.edu/asllrp/cslgr/pages/ncslgr-handshapes.html
+//     id: the numerical handshape ID, as found at that same URL
+//     group: the name of the handshape's group, as defined in the shapegroups
+//            array above
+//     img: the URL of a picture of the handshape.  These are taken from the
+//          same URL as the handshape name.
+//
+// Only the handshapes from the groups that have been used so far in the database
+// are present in this array.  (That's why so many members are 'undefined'; those
+// represent handshapes whose groups haven't been used yet.)  When adding a sign, 
+// if the group of one of its handshapes hasn't yet been defined, I add the entire
+// group (not just the one missing sign) both here and in the shapegroups array.
+// 
 handshapes = [undefined,
 	      { shape: '1', id: 1, group: '1',
 		img: 'http://www.bu.edu/asllrp/cslgr/pages/images/_1195.gif'},
@@ -196,7 +229,7 @@ headregions = { 'image': 'images/220px-AlCaponemugshotCPD-vertical.png',
 			      'd': 'M 45 61 L 56 59 67 62 67 67 45 67 z' },
 		    'chin': {'elt': 'path', 'xyz': [0, 2],
 			     'd': 'M 42 71 L 67 71 67 82 42 82 z' }
-		}}
+		}};
 
 bodyregions = { 'image': 'images/Wikiman.svg',
 		'width': 200,
@@ -236,6 +269,36 @@ bodyregions = { 'image': 'images/Wikiman.svg',
 			     'd': 'M 164 229 L 178 222 199 235 184 263 172 252 z' },
 		}};
 		
+
+// Array of Sign objects.  For ease of finding things, these are added in
+// alphabetical order of sign name.  Each Sign object has the following members:
+//    sign: name of the sign, as found in 
+//          http://www.bu.edu/asllrp/dai-asllvd-BU_glossing_with_variations_HS_information-extended-urls-RU.xlsx
+//    hands: number of hands required to make the sign.  For two-henaded signs
+//           where the non-dominant hand is passive, use 1.5.
+//    handshape: array of arrays of handshape ID's.  For a one-handed sign, there is
+//               only one subarray.  For a 1.5-handed or two-handed sign, there are two
+//               subarrays, the first for the dominant hand and the second for the non-dominant
+//               hand.  Each subarray has two numbers; the first is the ID of the handshape
+//               at the beginning of the sign, and the second is the ID of the handshape
+//               at the end of the sign.
+//    position: Array of positions taken by the dominant hand at the beginning and the end of
+//              the sign.  The positions are (generally) strings, the same strings used to
+//              identify regions in the headregions and bodyregions arrays, although [x,y,z]
+//              triples can be used as well.  For the purposes of the
+//              triple, the origin is in the middle of the signer's chest; the X axis is 
+//              horizontal, increasing across the signer's body from right to left; the Y axis
+//              is vertical, increasing upwards; and the Z axis is horizontal, increasing with
+//              increasing distance forward from the signer.
+//    palmFace: Value indicating which direction the dominant hand's palm faces during the
+//              sign.  The value should be one of those used as values for the #palm <select>
+//              element in index.html.  If you need to add a value, make sure it gets added in
+//              index.html as well.
+//    motion: An object representing a motion.  This object has two members of its own:
+//            type: One of the strings used as values for the #movetype <select> element in
+//                  index.html.
+//            dir: An [x,y,z] triple indicating the initial direction of motion.
+//    video: The relative URL of an MP4 video depicting the sign.
 
 signs = [{ sign: 'accept',
 	   hands: 2,
@@ -330,4 +393,4 @@ signs = [{ sign: 'accept',
 	 	motion: { type: 'arc',
 	 	          dir: [-1, 1, 0]}
 	 }
-	]
+	];
