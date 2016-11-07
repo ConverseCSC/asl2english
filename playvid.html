@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <style type="text/css"  id="internalStyle">
+      body { background-color: white }
+      h1 { text-align: center }
+      video { width: 100% }
+    </style>
+    <script type="text/javascript">
+      function setNewFile(fileElt) {
+          var files = fileElt.files;
+          if (files.length === 0) {
+              console.log('No files selected');
+          }
+          else {
+              //console.log(files.length + ' files selected');
+              //console.log(files[0].name);
+              //console.log(window.URL.createObjectURL(files[0]));
+              document.getElementById('playa').src
+                  = window.URL.createObjectURL(files[0]);
+          }
+      }
+    </script>
+  </head>
+  <body>
+    <h1></h1>
+
+    <form id="newfile">
+      <input name="filename" id="filename" type="file"
+	     accept="video/*" onchange="setNewFile(this);" />
+    </form>
+    <video controls="on" id="playa"></video>
+
+    
+    
+    <hr />
+    <div style="margin: 0">
+    <address style="display: inline"><a>Peter Brown</a> &lt;<a href="mailto:peter.brown@converse.edu">peter.brown@converse.edu</a>&gt;</address>
+      Last modified: <!-- hhmts start -->2016-11-07 11:02:09
+</div></body></html>
