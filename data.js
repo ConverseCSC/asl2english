@@ -320,6 +320,15 @@ signs = [{ sign: 'accept',
 	   //video: 'images/26_3933_merged.mov'
 	   video: 'images/alone.mp4'
 	 },
+	  { sign: 'angry',
+	   hands: 1,
+	   handshapE: [ [6, 5] ],
+	   position: [ 'chest', 'R-shoulder'],
+	   palmFace: 'inward',
+	   motion: { type: 'twist',
+			dir: [-1, 1, 0 ] },
+	   video:'images/angry.mp4'
+	 },
 	 { sign: 'blame',
 	   hands: 2,
 	   handshape: [ [12, 14], [12, 14] ],
