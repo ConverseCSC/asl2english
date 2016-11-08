@@ -1,8 +1,54 @@
 # TODO items
 
 - **More signs!**
-- Improve look/usability
-    - Too much presented at once
+    - Absent
+    - (Afraid)
+    - Again
+    - (Angry)
+    - Arrive
+    - Become
+    - Can
+    - Cannot
+    - (Deaf)
+    - Don't know (know+neg)
+    - Don't like (like+neg)
+    - Don't mind (not-mind)
+    - Evening
+    - Excited
+    - Favorite (favorite/prefer)
+    - Friend
+    - Get
+    - Go to it
+    - Hard of hearing
+    - Have
+    - Hearing
+    - How
+    - Introduce
+    - Know
+    - Last
+    - Later
+    - Learn
+    - Like
+    - Meet
+    - Misunderstand
+    - Morning
+    - Name
+    - Nice (nice/clean)
+    - Night
+    - Now
+    - Owe (bill/owe)
+    - Practice
+    - Sad
+    - School
+    - See
+    - Sick
+    - Slow
+    - So-so
+    - Thank you (good/thank you)
+    - Tomorrow
+    - Yes
+    - Yesterday
+- Too much presented at once
     - Ask questions one by one?
     - Integrate all the (many) body images (no more than 2)?
     - Show handshapes in 2 steps: class and then the one row (far less space)?
