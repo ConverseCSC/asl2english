@@ -72,3 +72,5 @@ noscript div {
     font-weight: bold;
     font-size: 125%;
 }
+
+svg { border: thin solid; }

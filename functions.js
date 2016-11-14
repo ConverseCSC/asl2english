@@ -274,10 +274,10 @@ $(document).ready( function() {
 	$(this).attr('title',text);
     });
 
-    $('#headimgitem0').append(makeLocSVG('headimg0', headregions));
-    $('#bodyimgitem0').append(makeLocSVG('bodyimg0', bodyregions));
-    $('#headimgitem1').append(makeLocSVG('headimg1', headregions));
-    $('#bodyimgitem1').append(makeLocSVG('bodyimg1', bodyregions));
+    $('#sideimgitem0').append(makeLocSVG('sideimg0', sideregions));
+    $('#frontimgitem0').append(makeLocSVG('frontimg0', frontregions));
+    $('#sideimgitem1').append(makeLocSVG('sideimg1', sideregions));
+    $('#frontimgitem1').append(makeLocSVG('frontimg1', frontregions));
 
     $('ul.locimg path').bind("click", handleImgClick);
     $('ul.locimg ellipse').bind("click", handleImgClick);
