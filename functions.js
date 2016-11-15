@@ -30,7 +30,7 @@ function makeHandshapeSelect(id) {
 }
 
 var handleImgClick = function(event) {
-    var targName = event.target.id;
+    var targName = $(event.target).attr('name');
     //alert(targName);
     
     var control = document.getElementById('loc0');
@@ -45,8 +45,8 @@ var handleImgClick = function(event) {
     }
 
     if (control.value.length == 0 || !(targName.startsWith(control.value))) {
-        console.log('targName: ' + $('[name="' + targName + '"]').length);
-	    $('[name="' + targName + '"]').addClass('selected');
+        console.log(targName + ': ' + $("[name='" + targName + "]").length);
+	    $("[name='" + targName + "']").addClass('selected');
 	    control.value = targName.slice(0, -1);
     }
     else {
