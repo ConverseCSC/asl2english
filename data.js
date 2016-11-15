@@ -207,7 +207,7 @@ sideregions = { 'image': 'images/side.svg',
 		'width': 150,
 		'height': 400,
 		'regions': {
-		    'ear': {'elt': 'ellipse', 'c': [40, 70],
+		    'ear': {'elt': 'ellipse', 'c': [37, 70],
 			      'r': [8, 11], 'xyz': [-2, 4, -2] },
 		    'temple': {'elt': 'path', 'xyz': [-2, 5, -1],
 			       'd': 'M 30 40 L 50 40 50 50 30 50 z'},
@@ -232,20 +232,18 @@ sideregions = { 'image': 'images/side.svg',
 			'upper-area': {'elt': 'path', 'xyz': [2, 2],
 				   'd': 'M 92 0 L 150 0 150 70 92 70 z' },
 			'chin-area': {'elt': 'path', 'xyz': [2, 2],
-				   'd': 'M 92 70 L 150 70 150 100 92 100 z' },
+				   'd': 'M 75 70 L 150 70 150 100 75 100 z' },
 			'chest': {'elt': 'path', 'xyz': [2, 2],
-				   'd': 'M 92 100 L 150 100 150 150 92 150 z' },
+				   'd': 'M 75 100 L 100 100 100 185 75 185 z' },
+			'chest-front': {'elt': 'path', 'xyz': [2, 2],
+				   'd': 'M 100 100 L 150 100 150 185 100 185 z' },
 			'stomach': {'elt': 'path', 'xyz': [2, 2],
-				   'd': 'M 92 150 L 150 150 150 250 92 250 z' },
+				   'd': 'M 75 185 L 150 185 150 250 75 250 z' },
 			'waist': {'elt': 'path', 'xyz': [2, 2],
-				   'd': 'M 92 250 L 150 250 150 280 92 280 z' },
+				   'd': 'M 75 250 L 150 250 150 290 75 290 z' },
 			}
 		};
 		
-	//	numbers: 
-	// h = horizontal, v = vertical
-				
-	//	M 1 (h-top-left) 1 (v-top-left) L 1 (h-top-right) 1(v-top-right) 1(h-bottom-right) 1(v-bottom-left) 1 (h-bottom-left)  1 (v-bottom right) z
 
 frontregions = { 'image': 'images/front.svg',
 		'width': 250,
@@ -282,7 +280,7 @@ frontregions = { 'image': 'images/front.svg',
 		    'Waist': {'elt': 'path', 'xyz': [0, -2],
 			      'd': 'M 87 250 L 168 250 173 290 82 290 z' },
 		    'thigh': {'elt': 'path', 'xyz': [-1, -3],
-			      'd': 'M 64 250 L 100 250 95 275 68 275 z' },
+			      'd': 'M 82 305 L 125 305 123 355 87 355 z' },
 			      
 			      
 		    'upper-arm': {'elt': 'path', 'xyz': [3, 0],

@@ -168,7 +168,7 @@ function makeRegion(id, idNum, spec) {
 	elt.setAttribute('d', spec['d']); break;
     }
 
-    elt.setAttribute('id', id + idNum);
+    elt.setAttribute('name', id + idNum);
     elt.appendChild(makeTitleElt(id));
     
     return elt;
