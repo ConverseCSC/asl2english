@@ -45,8 +45,9 @@ var handleImgClick = function(event) {
     }
 
     if (control.value.length == 0 || !(targName.startsWith(control.value))) {
-	$('#' + targName).addClass('selected');
-	control.value = targName.slice(0, -1);
+        console.log('targName: ' + $('[name="' + targName + '"]').length);
+	    $('[name="' + targName + '"]').addClass('selected');
+	    control.value = targName.slice(0, -1);
     }
     else {
 	control.value = "";
