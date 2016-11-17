@@ -51,6 +51,32 @@
 - Too much presented at once
     - Ask questions one by one?
     - Integrate all the (many) body images (no more than 2)?
+    - Fix regions for new images:
+        - Add to frontregions:
+            - temple
+            - lowtemple
+        - Add to sideregions: 
+            - shoulder
+            - thigh
+            - neck
+            - above right shoulder
+            - high right
+            - right
+        - Add regions in front of the body:
+            - frontregions: pretty well all of them
+            - sideregions: 
+                - stomach
+                - waist
+                - neck
+                - chin
+                - mouth
+                - nose
+                - eye
+                - forehead
+                - shoulder
+                - above right shoulder
+                - high right
+                - right
     - Show handshapes in 2 steps: class and then the one row (far less space)?
 - Refactor/clarify code
     - functions.js needs organization (MVC)
