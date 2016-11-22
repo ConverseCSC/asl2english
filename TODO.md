@@ -56,12 +56,12 @@
             - temple
             - lowtemple
         - Add to sideregions: 
-            - shoulder
-            - thigh
-            - neck
-            - above right shoulder
-            - high right
-            - right
+            - shoulder *
+            - thigh *
+            - neck *
+            - above right shoulder *
+            - high right *
+            - right *
         - Add regions in front of the body:
             - frontregions: pretty well all of them
             - sideregions: 
