@@ -2,9 +2,9 @@
 
 span.one { display: inline; }
 
-/*#hand0div {
+#hand0div, #hand1div {
     display: none;
-}*/
+}
 
 ul.image_picker_selector, ul.image_picker_selector ul, ul.locimg {
     list-style-type: none;
