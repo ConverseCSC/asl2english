@@ -1,6 +1,12 @@
 .two, .moving { display: none; }
 
+fieldset.noborder { border: none; }
+
 span.one { display: inline; }
+
+h4 option {
+  font-weight: bold;
+}
 
 #hand0div, #hand1div {
     display: none;
@@ -14,12 +20,6 @@ ul.image_picker_selector, ul.image_picker_selector ul, ul.locimg {
 ul.image_picker_selector ul li, ul.locimg li, ul.locimg li svg {
     display: inline;
     vertical-align: top;
-}
-
-ul.locimg img {
-    vertical-align: top;
-    border: thin solid blue;
-    padding: 0px;
 }
 
 ul.image_picker_selector ul li div {
@@ -41,6 +41,13 @@ ul.image_picker_selector ul li .thumbnail.selected img {
 div.locdiv {
     display: inline-block;
 }
+
+ul.locimg img {
+    vertical-align: top;
+    border: thin solid blue;
+    padding: 0px;
+}
+
 
 path, ellipse {
     stroke: green;
