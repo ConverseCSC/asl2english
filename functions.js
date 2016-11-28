@@ -257,8 +257,8 @@ $(document).ready( function() {
     }
     $("#numhands").change(changeHands);
 
-    fillHandshapeDiv(document.getElementById('hand0div'));
-    $("#hand1div").append(makeHand1Button());
+    //fillHandshapeDiv(document.getElementById('hand0div'));
+    //$("#hand1div").append(makeHand1Button());
     //fillHandshapeDiv(document.getElementById('hand1div'));
     //$('#hand1shape0div').hide();
     //$('#hand1div').hide();

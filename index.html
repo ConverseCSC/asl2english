@@ -1,19 +1,21 @@
-<!DOCTYPE html> <!-- -/*/- make-backup-files: nil -/*/- -->
+<!DOCTYPE html>
+<!-- -/*/- make-backup-files: nil -/*/- -->
 <html lang="en">
-  <head>
-    <title>Beginning ASL-to-English dictionary</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-    <script src="data.js"></script>
-    <script src="sign.js"></script>
-    <script src="../image-picker/image-picker/image-picker.js"></script>
-    <script src="functions.js"></script>
-  </head>
 
-  <body>
-    <h1>Beginning ASL-to-English dictionary</h1>
+<head>
+	<title>Beginning ASL-to-English dictionary</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<script src="data.js"></script>
+	<script src="sign.js"></script>
+	<script src="../image-picker/image-picker/image-picker.js"></script>
+	<script src="functions.js"></script>
+</head>
 
-    <noscript><div><p>It appears that your browser doesn't support
+<body>
+	<h1>Beginning ASL-to-English dictionary</h1>
+
+	<noscript><div><p>It appears that your browser doesn't support
 	  Javascript, or Javascript is turned off.  Unhappily, this page
 	  doesn't work without Javascript.</p>
 	<p>Directions for turning Javascript on in some common
@@ -30,90 +32,80 @@
 	</ul>
     </div></noscript>
 
-    <form id="lookupform" action="" method="get">
-			<fieldset id="picturefields" style="noborder">
-					<div id="locdiv0" class="locdiv">
-	  <h4>Click the <select name="locstartend" id="locstartend">
-				<option selected="" value="starting">starting</option>
-				<option value="ending">ending</option>
-			</select> location of the dominant hand:</h4>
-	  <!--input type="checkbox" id="locinfront0" name="locinfront0" />
-	  <label for="locinfront0">Hand starts in front of body</label>
-	  <input type="hidden" id="loc0" name="loc0" value="" /> -->
-	  <ul class="locimg">	
-	    <li id="sideimgitem0"></li>
-	    <li id="frontimgitem0"></li></ul></div>
+	<form id="lookupform" action="" method="get">
+		<fieldset id="picturefields" class="noborder">
+			<div id="numhandsdiv">
+				The sign I want to look up is:
+				<select name="numhands" id="numhands">
+					<option selected="one" value="one">One-handed</option>
+					<option value="moving">Dominant hand moves, non-dominant stationary</option>
+					<option value="two">Two hands moving</option>
+	  		</select>
+			</div>
+			<div id="locdiv" class="imgdiv">
+				<h4>Click the <select name="locstartend" id="locstartend">
+						<option selected="" value="starting">starting</option>
+						<option value="ending">ending</option>
+				</select> location of the dominant hand:</h4>
+				<ul class="locimg">
+					<li id="sideimgitem0"></li>
+					<li id="frontimgitem0"></li>
+				</ul>
+			</div>
+			<div id="shape0div" class="imgdiv">
+				<ul class="locimg">
+					<li id="hand0shape0li"></li>
+					<li id="hand0shape1li"></li>
+				</ul>
+			</div>
+			<div id="hand1div" class="imgdiv moving two">
+			</div>
+			<div id="movetypediv">
+				<label for="movetype">Type of movement:</label>
+				<select name="movetype" id="movetype">
+					<option value="">&mdash;Select&mdash;</option>
+					<option value="straight">Straight line</option>
+					<option>Arc</option>
+					<option value="two-lines">Two-part</option>
+					<option value="flat-circle">Flat circle (axis is vertical)</option><!--Circle about Y-->
+					<option value="facing-circle">Circle facing the viewer</option><!--Circle about Z-->
+					<option value="spiral">Spiral</option>
+					<option value="wiggle">Wiggle</option>
+					<option value="in-and-out">In-and-out</option>
+					<option value="twist">Wrist twist</option>
+					<option value="flick">Finger flick</option>
+				</select>
+			</div>
+			<div id="palmorientationdiv">
+				Palm orientation: <select name="palm" id="palm">
+					<option value="">&mdash;Select&mdash;</option>
+					<option value="forward">Forward</option>
+					<option value="inward">Inward</option>
+					<option value="horizontal">Sideways</option>
+					<option value="down">Downwards</option>
+					<option value="towards-palm" class="moving two">Palm towards palm</option>
+					<option value="to-palm" class="moving two">Palm-to-palm</option>
+				</select>
+			</div>
+		</fieldset>
 
-			</fieldset>
-      <fieldset id="numhandsdiv">
-	<legend>How many hands</legend>
-	<p>The sign I want to look up is:
-	  <select name="numhands" id="numhands">
-            <option selected="one" value="one">One-handed</option>
-            <option value="moving">Dominant hand moves, non-dominant stationary</option>
-            <option value="two">Two hands moving</option>
-	  </select>
-	</p>
-      </fieldset>
-      <fieldset id="hand0div">
-	<legend>Handshape, dominant hand</legend>
-      </fieldset>
-      <fieldset id="hand1div" class="moving two">
-	<legend>Handshape, non-dominant hand</legend>
-      </fieldset>
-      <fieldset id="movelocdiv">
-	<legend>Movement and location</legend>
-	<div>
-	  <label for="movetype">Type of movement:</label>
-	  <select name="movetype" id="movetype">
-	    <option value="">&mdash;Select&mdash;</option>
-	    <option value="straight">Straight line</option>
-	    <option>Arc</option>
-	   	<option value="two-lines">Two-part</option>
-	    <option value="flat-circle">Flat circle (axis is
-	      vertical)</option><!--Circle about Y-->
-	    <option value="facing-circle">Circle facing the
-	      viewer</option><!--Circle about Z-->
-	    <option value="spiral">Spiral</option>
-	    <option value="wiggle">Wiggle</option>
-	    <option value="in-and-out">In-and-out</option>
-	    <option value="twist">Wrist twist</option>
-	    <option value="flick">Finger flick</option>
-	  </select>
+		<!--fieldset id="hand0set">
+			<legend>Handshape, dominant hand</legend>
+		</fieldset>
+		<fieldset id="hand1set" class="moving two">
+			<legend>Handshape, non-dominant hand</legend>
+		</fieldset-->
+		<fieldset id="nonmandiv">
+			<legend>Non-manuals</legend>
+		</fieldset>
+		<button id="lookupbutton" type="button">Look for matching signs!</button>
+		<!--button id="resetbutton" type="reset">Reset</button-->
+	</form>
+	<div id="resultsdiv">
+		<table id="results">
+		</table>
 	</div>
-	<!--div id="locdiv1" class="locdiv">
-	  <h4>Click the ending location of the dominant hand:</h4>
-	  <input type="checkbox" id="locinfront1" name="locinfront1" />
-	  <label for="locinfront1">Hand finishes in front of body</label>
-	  <input type="hidden" id="loc1" name="loc1" value="" />
-	  <ul class="locimg">
-	    <li id="sideimgitem1">
-	    </li>
-	    <li id="frontimgitem1">
-	</li></ul></div-->
-      </fieldset>
-      <fieldset id="orientationdiv">
-	<legend>Palm direction</legend>
-	<select name="palm" id="palm">
-	  <option value="">&mdash;Select&mdash;</option>
-	  <option value="forward">Forward</option>
-	  <option value="inward">Inward</option>
-	  <option value="horizontal">Sideways</option>
-	  <option value="down">Downwards</option>
-	  <option value="towards-palm" class="moving two">Palm towards palm</option>
-	  <option value="to-palm" class="moving two">Palm-to-palm</option>
-	</select>
-      </fieldset>
-      <fieldset id="nonmandiv">
-      <legend>Non-manuals</legend>
-      </fieldset>
-      <button id="lookupbutton" type="button">Look for matching signs!</button>
-      <!--button id="resetbutton" type="reset">Reset</button-->
-    </form>
-    <div id="resultsdiv">
-      <table id="results">
-      </table>
-    </div>
 
-  </body>
+</body>
+
 </html>

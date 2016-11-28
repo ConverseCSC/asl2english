@@ -8,7 +8,7 @@ h4 option {
   font-weight: bold;
 }
 
-#hand0div, #hand1div {
+#hand0set, #hand1set {
     display: none;
 }
 
@@ -38,13 +38,17 @@ ul.image_picker_selector ul li .thumbnail.selected img {
     background-color: blue;
 }
 
-div.locdiv {
+div.imgdiv {
     display: inline-block;
+}
+
+ul.locimg {
+  display: inline-block;
 }
 
 ul.locimg img {
     vertical-align: top;
-    border: thin solid blue;
+    border: thin solid;
     padding: 0px;
 }
 
