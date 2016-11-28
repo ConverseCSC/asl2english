@@ -8,6 +8,13 @@ h4 option {
   font-weight: bold;
 }
 
+div.title {
+  margin-top: 0.5em; 
+  font-weight: bold;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 #hand0set, #hand1set {
     display: none;
 }
@@ -44,6 +51,7 @@ div.imgdiv {
 
 ul.locimg {
   display: inline-block;
+  margin-top: 0;
 }
 
 ul.locimg img {
