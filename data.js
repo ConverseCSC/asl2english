@@ -374,7 +374,17 @@ frontregions = { 'image': 'images/front.svg',
 //            dir: An [x,y,z] triple indicating the initial direction of motion.
 //    video: The relative URL of an MP4 video depicting the sign.
 
-signs = [{ sign: 'accept',
+signs = [{ sign: 'absent',
+	   hands: 2,
+	   handshape: [ [1], [4, 51] ],
+	   position: [ 0, 0 ],
+	   palmFace: 'inward',
+	   motion: { type: 'straight',
+		     dir: [0, 0, -1] },
+	   video: 'images/absent.mp4'
+	 },
+	
+	{ sign: 'accept',
 	   hands: 2,
 	   handshape: [ [4, 51], [4, 51] ],
 	   position: [ 0, 0 ],
