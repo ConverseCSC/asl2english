@@ -63,7 +63,7 @@ function parsePositionText(loc0val, loc1val) {
     return result;
 }
 
-function parsePositionXYZ(loc, inFront) {
+function parsePositionXYZ(loc) {
     // This uses a left-handed coordinate system centered on the chest.
     // +X is toward the signer's non-dominant side (usually the viewer's
     // right).  +Y is up.  +Z is away from the signer, towards the viewer.
@@ -75,34 +75,29 @@ function parsePositionXYZ(loc, inFront) {
     }
 
     if (Array.isArray(loc)) {
-	result = loc.slice();
+	    result = loc.slice();
     }
-    else if (loc in headregions.regions) {
-	result = headregions.regions[loc]['xyz'].slice();
+    else if (loc in frontregions.regions) {
+	    result = frontregions.regions[loc]['xyz'].slice();
     }
-    else if (loc in bodyregions.regions) {
-	result = bodyregions.regions[loc]['xyz'].slice();
+    else if (loc in sideregions.regions) {
+	    result = sideregions.regions[loc]['xyz'].slice();
     }
     // Set Z, if not done already
     if (result.length === 2) {
-	if (inFront === true) {
-	    result.push(1);
-	}
-	else {
 	    result.push(0);
-	}
     }
     //console.log('Returning ' + loc + ': ' + JSON.stringify(result));
     return result;
 }
 
 
-function parseMotion(movetype, infront0, loc0, infront1, loc1) {
+function parseMotion(movetype, loc0, loc1) {
     var result = {};
     result.type = valueOrUndefined(movetype);
 
-    var start = parsePositionXYZ(valueOrUndefined(loc0), infront0);
-    var end = parsePositionXYZ(valueOrUndefined(loc1), infront1);
+    var start = parsePositionXYZ(valueOrUndefined(loc0));
+    var end = parsePositionXYZ(valueOrUndefined(loc1));
 
     if (start[0] === undefined || end[0] === undefined) {
 	result.dir = [undefined, undefined, undefined];
@@ -132,9 +127,9 @@ function Sign() {
     //alert(this.palmFace);
 
     this.motion = parseMotion($('#movetype').val(),
-			      $('#locinfront0')[0].checked,
+			      //$('#locinfront0')[0].checked,
 			      $('#loc0').val(),
-			      $('#locinfront1')[0].checked,
+			      //$('#locinfront1')[0].checked,
 			      $('#loc1').val());
     //alert(JSON.stringify(this.motion));
 }
