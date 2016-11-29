@@ -308,4 +308,6 @@ sn9LCyZqDLfrRmsbO7uFO8BmIr/xb//Z" transform="matrix(1 0 0 1 117 196)">
 		c-0.8-0.2-1.6-0.5-2.3-0.7c-0.7-0.2-1.4-0.5-2-0.8c-1.2-0.5-2.2-1-2.9-1.4c-0.3-0.2-0.6-0.3-0.8-0.4
 		C293.5,190.3,293.4,190.3,293.4,190.3z"/>
 </g>
+<text x="5" y="0" font-size="40">&#x2190; Dominant</text>
+<text x="595" y="0" font-size="40" text-anchor="end">Non-dominant &#x2192;</text>
 </svg>
