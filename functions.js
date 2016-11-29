@@ -251,34 +251,34 @@ function evalGuess() {
 
 $(document).ready( function() {
     var changeHands = function() {
-	var classToShow = $("#numhands option:selected").val();
-	$(".one, .moving, .two").hide();
-	$('.' + classToShow).show();
+	    var classToShow = $("#numhands option:selected").val();
+	    $(".one, .moving, .two").hide();
+	    $('.' + classToShow).show();
     }
     $("#numhands").change(changeHands);
 
-    fillHandshapeDiv(document.getElementById('hand0div'));
-    $("#hand1div").append(makeHand1Button());
-    fillHandshapeDiv(document.getElementById('hand1div'));
-    $('#hand1shape0div').hide();
-    $('#hand1div').hide();
+    //fillHandshapeDiv(document.getElementById('hand0div'));
+    //$("#hand1div").append(makeHand1Button());
+    //fillHandshapeDiv(document.getElementById('hand1div'));
+    //$('#hand1shape0div').hide();
+    //$('#hand1div').hide();
     
     $("select.handshape").imagepicker({
-	/*hide_select: false,*/
-	show_label: true
+	    /*hide_select: false,*/
+	    show_label: true
     });
 
     // Add appropriate ALT text to the picker images
     $("img.image_picker_image").each(function(i) {
-	var text = $(this).next('p').text();
-	$(this).attr('alt',text);
-	$(this).attr('title',text);
+	    var text = $(this).next('p').text();
+	    $(this).attr('alt',text);
+	    $(this).attr('title',text);
     });
 
     $('#sideimgitem0').append(makeLocSVG('sideimg0', sideregions));
     $('#frontimgitem0').append(makeLocSVG('frontimg0', frontregions));
-    $('#sideimgitem1').append(makeLocSVG('sideimg1', sideregions));
-    $('#frontimgitem1').append(makeLocSVG('frontimg1', frontregions));
+    //$('#sideimgitem1').append(makeLocSVG('sideimg1', sideregions));
+    //$('#frontimgitem1').append(makeLocSVG('frontimg1', frontregions));
 
     $('ul.locimg path').bind("click", handleImgClick);
     $('ul.locimg ellipse').bind("click", handleImgClick);
