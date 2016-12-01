@@ -50,7 +50,11 @@ var handleImgClick = function(event) {
 
     var control = document.getElementById('loc' + $('#locstartend').val());
     if (control.value.length === 0 || targName !== control.value) {
+        var offset = $(event.target).offset();        
         console.log(targName + ': ' + $("[name='" + targName + "']").length);
+        console.log($(event.target).get().ownerSVGElement);
+        console.log(event.pageX + ',' + event.pageY 
+                    + ' - ' + offset.left + ',' + offset.top);
 	    $("[name='" + targName + "']").addClass('selected');
 	    control.value = targName;
     }
