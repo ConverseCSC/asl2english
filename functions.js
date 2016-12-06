@@ -1,38 +1,3 @@
-var moveClearSelected = function(event) {
-    //$('#locdiv path').removeClass('selected');
-    $('#locdiv polygon').removeClass('selected');
-    $('#locdiv ellipse').removeClass('selected');
-    
-    if (event) {
-        var locvalue = $("#loc" + $('#locstartend').val()).val();
-        if (locvalue !== "") {
-            $("[name='" + locvalue + "']").addClass('selected');
-        }
-    }
-}
-
-var handleImgClick = function(event) {
-    var targName = $(event.target).attr('name');
-    //console.log(targName);
-    //console.log($('#locstartend').val());
-    
-    moveClearSelected(undefined);
-
-    var control = document.getElementById('loc' + $('#locstartend').val());
-    if (control.value.length === 0 || targName !== control.value) {
-        var offset = $(event.target).offset();        
-        console.log(targName + ': ' + $("[name='" + targName + "']").length);
-        console.log($(event.target).get().ownerSVGElement);
-        console.log(event.pageX + ',' + event.pageY 
-                    + ' - ' + offset.left + ',' + offset.top);
-	    $("[name='" + targName + "']").addClass('selected');
-	    control.value = targName;
-    }
-    else {
-	    control.value = "";
-    }
-}
-
 function makeImageNode(regions) {
     var imgElt = document.createElementNS('http://www.w3.org/2000/svg',
 					  'image');
@@ -43,46 +8,6 @@ function makeImageNode(regions) {
     imgElt.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
 			  regions['image']);
     return imgElt;
-}
-
-function setEllipseAttributes(elt, spec) {
-    elt.setAttribute('cx', spec['c'][0]);
-    elt.setAttribute('cy', spec['c'][1]);
-    elt.setAttribute('rx', spec['r'][0]);
-    elt.setAttribute('ry', spec['r'][1]);
-}
-
-function makeTitleElt(id) {
-    var title = id;
-    // Strip off the 'L-' or 'R-', if present
-    if (id.startsWith('R') || id.startsWith('L')) {
-	title = title.substr(2);
-    }
-    title = title.replace('-', ' ');
-    title = title.substr(0, 1).toUpperCase() + title.substr(1);
-
-    var elt = document.createElementNS('http://www.w3.org/2000/svg', 'title');
-    var textNode = document.createTextNode(title);
-    elt.appendChild(textNode);
-    return elt;
-}
-
-function makeRegion(id, spec) {
-    var elt = document.createElementNS('http://www.w3.org/2000/svg',
-				       spec['elt']);
-    switch(spec['elt']) {
-        case 'ellipse':
-    	    setEllipseAttributes(elt, spec); break;
-        //case 'path':
-    	//    elt.setAttribute('d', spec['d']); break;
-    	case 'polygon':
-    	    elt.setAttribute('points', spec['points']); break;
-    }
-
-    elt.setAttribute('name', id);
-    elt.appendChild(makeTitleElt(id));
-    
-    return elt;
 }
 
 function makeLocSVG(eltID, regions) {
