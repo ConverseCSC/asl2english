@@ -1,34 +1,3 @@
-function makeHandshapeSelect(id) {
-    var selectElt = document.createElement('select');
-    selectElt.id = id;
-    selectElt.name = id;
-    selectElt.className = 'handshape';
-
-    var optElt = document.createElement('option');
-    optElt.innerHTML = '&mdash;Select&mdash;';
-    optElt.value = "";
-    selectElt.appendChild(optElt);
-    
-    var makeShapeGroup = function(idx, group) {
-	var groupElt = document.createElement('optgroup');
-	groupElt.label = '';
-	$.each(group, function(i, shapeIdx) {
-	    var shape = handshapes[shapeIdx];
-	    var optElt = document.createElement('option');
-	    optElt.text = shape.shape;
-	    optElt.value = shape.id;
-	    optElt.setAttribute('data-img-src', shape.img);
-	    groupElt.appendChild(optElt);
-	});
-
-	selectElt.appendChild(groupElt);
-    };
-    
-    $.each(shapegroups, makeShapeGroup);
-
-    return selectElt;
-}
-
 var moveClearSelected = function(event) {
     $('#locdiv path').removeClass('selected');
     $('#locdiv ellipse').removeClass('selected');
@@ -61,77 +30,6 @@ var handleImgClick = function(event) {
     else {
 	    control.value = "";
     }
-}
-
-function fillHandshapeDiv(divElt) {
-    var handStr = divElt.id.substring(0, 5);
-    
-    var startDiv = document.createElement('div');
-    startDiv.id = handStr + 'shape0div';
-    $(startDiv).append('<h4>Beginning:</h4>');
-    $(startDiv).append(makeHandshapeSelect(handStr + 'shape0'));
-
-    var endButton = document.createElement('button');
-    endButton.type = 'button';
-    endButton.name = handStr + 'EndButton';
-    endButton.id = endButton.name;
-    $(endButton).data('showText', 'Ending handshape is different');
-    $(endButton).data('hideText', 'Ending handshape is the same');
-    $(endButton).text($(endButton).data('showText'));
-    
-    startDiv.appendChild(endButton);
-    divElt.appendChild(startDiv);
-
-    var endDiv = document.createElement('div');
-    endDiv.id = handStr + 'shape1div';
-    $(endDiv).append('<h4>Ending:</h4>');
-    $(endDiv).append(makeHandshapeSelect(handStr + 'shape1'));
-    $(endDiv).hide();
-
-    var endButtonFn = function() {
-	if ($(endButton).text() === $(endButton).data('showText')) {
-	    $(endDiv).show();
-	    $(endButton).text($(endButton).data('hideText'));
-	}
-	else {
-	    $(endDiv).hide();
-	    $(endButton).text($(endButton).data('showText'));
-	}
-    };
-    endButton.onclick = endButtonFn;
-    
-    divElt.appendChild(endDiv);
-}
-
-function makeHand1Button() {
-    var hand1Button = document.createElement('button');
-    hand1Button.type = 'button';
-    hand1Button.id = 'showHand1ShapeButton';
-    $(hand1Button).data('showText', 'Non-dominant handshape is different');
-    $(hand1Button).data('hideText', 'Non-dominant handshape is the same');
-    $(hand1Button).text($(hand1Button).data('showText'));
-
-    var hand1ButtonFn = function () {
-	if ($(hand1Button).text() === $(hand1Button).data('showText')) {
-	    $('#hand1shape0div').show();
-	    if ($('#hand1EndButton').text()
-		=== $('#hand1EndButton').data('showText')) {
-		$('#hand1shape1div').hide();
-	    }
-	    else {
-		$('#hand1shape1div').show();
-	    }
-	    $(hand1Button).text($(hand1Button).data('hideText'));
-	}
-	else {
-	    $('#hand1shape0div').hide();
-	    $('#hand1shape1div').hide();
-	    $(hand1Button).text($(hand1Button).data('showText'));
-	}      
-    };
-    hand1Button.onclick = hand1ButtonFn;
-
-    return hand1Button;
 }
 
 function makeImageNode(regions) {
@@ -265,12 +163,6 @@ $(document).ready( function() {
     }
     $("#numhands").change(changeHands);
 
-    //fillHandshapeDiv(document.getElementById('hand0div'));
-    //$("#hand1div").append(makeHand1Button());
-    //fillHandshapeDiv(document.getElementById('hand1div'));
-    //$('#hand1shape0div').hide();
-    //$('#hand1div').hide();
-    
     $("select.handshape").imagepicker({
 	    /*hide_select: false,*/
 	    show_label: true
