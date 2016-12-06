@@ -82,7 +82,7 @@ th.signtitle {
 }
 
 video.signvideo {
-    width: 60%;
+    max-width: 100%;
 }
 
 noscript div {
