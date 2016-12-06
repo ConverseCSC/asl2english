@@ -1,5 +1,6 @@
 var moveClearSelected = function(event) {
-    $('#locdiv path').removeClass('selected');
+    //$('#locdiv path').removeClass('selected');
+    $('#locdiv polygon').removeClass('selected');
     $('#locdiv ellipse').removeClass('selected');
     
     if (event) {
@@ -70,10 +71,12 @@ function makeRegion(id, spec) {
     var elt = document.createElementNS('http://www.w3.org/2000/svg',
 				       spec['elt']);
     switch(spec['elt']) {
-    case 'ellipse':
-	setEllipseAttributes(elt, spec); break;
-    case 'path':
-	elt.setAttribute('d', spec['d']); break;
+        case 'ellipse':
+    	    setEllipseAttributes(elt, spec); break;
+        //case 'path':
+    	//    elt.setAttribute('d', spec['d']); break;
+    	case 'polygon':
+    	    elt.setAttribute('points', spec['points']); break;
     }
 
     elt.setAttribute('name', id);
@@ -179,7 +182,8 @@ $(document).ready( function() {
     $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
     $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
 
-    $('ul.locimg path').bind("click", handleImgClick);
+//    $('ul.locimg path').bind("click", handleImgClick);
+    $('ul.locimg polygon').bind("click", handleImgClick);
     $('ul.locimg ellipse').bind("click", handleImgClick);
 
     $('#lookupbutton').bind('click', evalGuess);

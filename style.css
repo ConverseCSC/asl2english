@@ -60,17 +60,17 @@ ul.locimg img {
 }
 
 
-path, ellipse {
+path, ellipse, polygon {
     stroke: green;
     fill: green;
     opacity: 0;
 }
 
-path:hover, ellipse:hover {
+path:hover, ellipse:hover, polygon:hover {
     opacity: 0.5;
 }
 
-path.selected, ellipse.selected {
+path.selected, ellipse.selected, polygon.selected {
     opacity: 0.6;
     stroke: black;
 }
