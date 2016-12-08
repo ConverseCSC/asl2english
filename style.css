@@ -1,5 +1,3 @@
-.two, .moving { display: none; }
-
 fieldset.noborder { border: none; }
 
 span.one { display: inline; }
@@ -45,8 +43,9 @@ ul.image_picker_selector ul li .thumbnail.selected img {
     background-color: blue;
 }
 
-div.imgdiv {
+.imgdiv {
     display: inline-block;
+    vertical-align: top;
 }
 
 ul.locimg {
@@ -163,3 +162,5 @@ svg { border: thin solid; }
     text-decoration: none;
     cursor: pointer;
 }
+
+.two, .moving { display: none; }
