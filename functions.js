@@ -29,28 +29,33 @@ function makeHandshapeSelect(id) {
     return selectElt;
 }
 
+var moveClearSelected = function(event) {
+    $('#locdiv path').removeClass('selected');
+    $('#locdiv ellipse').removeClass('selected');
+    
+    if (event) {
+        var locvalue = $("#loc" + $('#locstartend').val()).val();
+        if (locvalue !== "") {
+            $("[name='" + locvalue + "']").addClass('selected');
+        }
+    }
+}
+
 var handleImgClick = function(event) {
     var targName = $(event.target).attr('name');
-    //alert(targName);
+    //console.log(targName);
+    //console.log($('#locstartend').val());
     
-    var control = document.getElementById('loc0');
-    if (targName.endsWith('1')) {
-	control = document.getElementById('loc1');
-	$('#locdiv1 path').removeClass('selected');
-	$('#locdiv1 ellipse').removeClass('selected');
-    }
-    else {
-	$('#locdiv0 path').removeClass('selected');
-	$('#locdiv0 ellipse').removeClass('selected');
-    }
+    moveClearSelected(undefined);
 
-    if (control.value.length == 0 || !(targName.startsWith(control.value))) {
-        console.log(targName + ': ' + $("[name='" + targName + "]").length);
+    var control = document.getElementById('loc' + $('#locstartend').val());
+    if (control.value.length === 0 || targName !== control.value) {
+        console.log(targName + ': ' + $("[name='" + targName + "']").length);
 	    $("[name='" + targName + "']").addClass('selected');
-	    control.value = targName.slice(0, -1);
+	    control.value = targName;
     }
     else {
-	control.value = "";
+	    control.value = "";
     }
 }
 
@@ -159,7 +164,7 @@ function makeTitleElt(id) {
     return elt;
 }
 
-function makeRegion(id, idNum, spec) {
+function makeRegion(id, spec) {
     var elt = document.createElementNS('http://www.w3.org/2000/svg',
 				       spec['elt']);
     switch(spec['elt']) {
@@ -169,14 +174,13 @@ function makeRegion(id, idNum, spec) {
 	elt.setAttribute('d', spec['d']); break;
     }
 
-    elt.setAttribute('name', id + idNum);
+    elt.setAttribute('name', id);
     elt.appendChild(makeTitleElt(id));
     
     return elt;
 }
 
 function makeLocSVG(eltID, regions) {
-    var idNum = eltID.slice(-1);
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('id', eltID);
     svg.setAttribute('width', regions['width']);
@@ -188,8 +192,8 @@ function makeLocSVG(eltID, regions) {
 
     var regionsSpec = regions['regions'];
     for (id in regionsSpec) {
-	var regionElt = makeRegion(id, idNum, regionsSpec[id]);
-	svg.appendChild(regionElt);
+	    var regionElt = makeRegion(id, regionsSpec[id]);
+	    svg.appendChild(regionElt);
     }
     return svg;
 }
@@ -275,10 +279,9 @@ $(document).ready( function() {
 	    $(this).attr('title',text);
     });
 
-    $('#sideimgitem0').append(makeLocSVG('sideimg0', sideregions));
-    $('#frontimgitem0').append(makeLocSVG('frontimg0', frontregions));
-    //$('#sideimgitem1').append(makeLocSVG('sideimg1', sideregions));
-    //$('#frontimgitem1').append(makeLocSVG('frontimg1', frontregions));
+    $('#locstartend').bind('change', moveClearSelected);
+    $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
+    $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
 
     $('ul.locimg path').bind("click", handleImgClick);
     $('ul.locimg ellipse').bind("click", handleImgClick);
