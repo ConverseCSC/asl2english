@@ -29,36 +29,6 @@ function makeHandshapeSelect(id) {
     return selectElt;
 }
 
-var moveClearSelected = function(event) {
-    $('#locdiv path').removeClass('selected');
-    $('#locdiv ellipse').removeClass('selected');
-    
-    if (event) {
-        var locvalue = $("#loc" + $('#locstartend').val()).val();
-        if (locvalue !== "") {
-            $("[name='" + locvalue + "']").addClass('selected');
-        }
-    }
-}
-
-var handleImgClick = function(event) {
-    var targName = $(event.target).attr('name');
-    //console.log(targName);
-    //console.log($('#locstartend').val());
-    
-    moveClearSelected(undefined);
-
-    var control = document.getElementById('loc' + $('#locstartend').val());
-    if (control.value.length === 0 || targName !== control.value) {
-        console.log(targName + ': ' + $("[name='" + targName + "']").length);
-	    $("[name='" + targName + "']").addClass('selected');
-	    control.value = targName;
-    }
-    else {
-	    control.value = "";
-    }
-}
-
 function fillHandshapeDiv(divElt) {
     var handStr = divElt.id.substring(0, 5);
     
