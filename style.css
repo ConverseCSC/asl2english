@@ -60,18 +60,24 @@ ul.locimg img {
     padding: 0px;
 }
 
+path.mark, circle.mark {
+    stroke: blue;
+    stroke-width: 2;
+    fill: none;
+    opacity: 1;
+}
 
-path, ellipse {
+ellipse, polygon {
     stroke: green;
     fill: green;
     opacity: 0;
 }
 
-path:hover, ellipse:hover {
+ellipse:hover, polygon:hover {
     opacity: 0.5;
 }
 
-path.selected, ellipse.selected {
+ellipse.selected, polygon.selected {
     opacity: 0.6;
     stroke: black;
 }
@@ -83,7 +89,7 @@ th.signtitle {
 }
 
 video.signvideo {
-    width: 60%;
+    max-width: 100%;
 }
 
 noscript div {

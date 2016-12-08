@@ -142,44 +142,6 @@ function makeImageNode(regions) {
     return imgElt;
 }
 
-function setEllipseAttributes(elt, spec) {
-    elt.setAttribute('cx', spec['c'][0]);
-    elt.setAttribute('cy', spec['c'][1]);
-    elt.setAttribute('rx', spec['r'][0]);
-    elt.setAttribute('ry', spec['r'][1]);
-}
-
-function makeTitleElt(id) {
-    var title = id;
-    // Strip off the 'L-' or 'R-', if present
-    if (id.startsWith('R') || id.startsWith('L')) {
-	title = title.substr(2);
-    }
-    title = title.replace('-', ' ');
-    title = title.substr(0, 1).toUpperCase() + title.substr(1);
-
-    var elt = document.createElementNS('http://www.w3.org/2000/svg', 'title');
-    var textNode = document.createTextNode(title);
-    elt.appendChild(textNode);
-    return elt;
-}
-
-function makeRegion(id, spec) {
-    var elt = document.createElementNS('http://www.w3.org/2000/svg',
-				       spec['elt']);
-    switch(spec['elt']) {
-    case 'ellipse':
-	setEllipseAttributes(elt, spec); break;
-    case 'path':
-	elt.setAttribute('d', spec['d']); break;
-    }
-
-    elt.setAttribute('name', id);
-    elt.appendChild(makeTitleElt(id));
-    
-    return elt;
-}
-
 function makeLocSVG(eltID, regions) {
     var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('id', eltID);
@@ -334,7 +296,8 @@ $(document).ready( function() {
     $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
     $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
 
-    $('ul.locimg path').bind("click", handleImgClick);
+//    $('ul.locimg path').bind("click", handleImgClick);
+    $('ul.locimg polygon').bind("click", handleImgClick);
     $('ul.locimg ellipse').bind("click", handleImgClick);
 
     $('#lookupbutton').bind('click', evalGuess);
