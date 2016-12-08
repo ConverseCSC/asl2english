@@ -42,53 +42,76 @@
 					<option value="two">Two hands moving</option>
 	  		</select>
 			</div>
-			<div id="locmovediv" class="imgdiv">
-				<div id="locdiv" class="imgdiv">
-					<div class="title">Click the <select name="locstartend" id="locstartend">
-							<option selected="" value="0">starting</option>
-							<option value="1">ending</option>
-						</select> location of the dominant hand:
-					</div>
-					<ul class="locimg">
-						<li id="sideimgitem"></li>
-						<li id="frontimgitem"></li>
-					</ul>
-					<input type="hidden" name="loc0" id="loc0" value="" />
-					<input type="hidden" name="loc1" id="loc1" value="" />
-				</div>	
-				<div id="movetypediv">
-					<label for="movetype">Type of movement:</label>
-					<select name="movetype" id="movetype">
-						<option value="">&mdash;Select&mdash;</option>
-						<option value="straight">Straight line</option>
-						<option>Arc</option>
-						<option value="two-lines">Two-part</option>
-						<option value="circle-about-X">Circle facing the side</option>
-						<option value="flat-circle">Flat circle (axis is vertical)</option><!--Circle about Y-->
-						<option value="facing-circle">Circle facing the viewer</option><!--Circle about Z-->
-						<option value="spiral">Spiral</option>
-						<option value="wiggle">Wiggle</option>
-						<option value="in-and-out">In-and-out</option>
-						<option value="twist">Wrist twist</option>
-						<option value="flick">Finger flick</option>
-					</select>
-				</div>
+			<div id="locdiv" class="imgdiv">
+				<div class="title">Click the <select name="locstartend" id="locstartend">
+						<option selected="" value="0">starting</option>
+						<option value="1">ending</option>
+				</select> location of the dominant hand:</div>
+				<ul class="locimg">
+					<li id="sideimgitem"></li>
+					<li id="frontimgitem"></li>
+				</ul>
+				<input type="hidden" name="loc0" id="loc0" value="" />
+				<input type="hidden" name="loc1" id="loc1" value="" />
 			</div>
-			<div id="handshapesdiv" class="imgdiv">
-				<div id="shape0div" class="imgdiv">
-					<div class="title">Click to set handshape (dominant hand):</div>
-					<ul class="locimg">
-						<li id="hand0shape0li"><img id="hand0shape0img" src="images/handshape-start.svg" style="border: thin solid" width="114" height="159" /></li>
-						<li id="hand0shape1li"><img id="hand0shape1img" src="images/handshape-end.svg" style="border: thin solid" width="114" height="159" /></li>
-					</ul>
-				</div>
-				<div id="shape1div" class="imgdiv moving two">
-					<div class="title">Click to set handshape (non-dominant hand):</div>
-					<ul class="locimg">
-						<li id="hand1shape0li"><img id="hand1shape0img" src="images/handshape-start.svg" style="border: thin solid" width="114" height="159" /></li>
-						<li id="hand1shape1li"><img id="hand1shape1img" src="images/handshape-end.svg" style="border: thin solid" width="114" height="159" /></li>
-					</ul>
-				</div>
+			<div id="shape0div" class="imgdiv">
+				<div class="title">Click to set handshape (dominant hand):</div>
+				<ul class="locimg">
+					<button id="btn">
+					<li id="hand0shape0li"><img id="hand0shape0img" src="images/handshape-start.svg" style="border: thin solid" width="114" height="159" /></li>
+					</button>
+					<div id="popup" class="popup"> 
+		 			<div id="hand0div">
+		 			<span class="close">x</span>
+    				</div>
+    				</div>
+    			<button id="btn1">
+					<li id="hand0shape1li"><img id="hand0shape1img" src="images/handshape-end.svg" style="border: thin solid" width="114" height="159" /></li>
+					</button>
+					<div id="popup1" class="popup"> 
+		 			<div id="hand1div">
+			 		<span class="close">x</span>
+			 		</div>
+			 		</div>
+				</ul>
+			</div>
+			<div class="imgdiv moving two">
+				<div class="title">Click to set handshape (non-dominant hand):</div>
+				<ul class="locimg">
+					<button id="btn2">
+					<li id="hand1shape0li"><img id="hand1shape0img" src="images/handshape-start.svg" style="border: thin solid" width="114" height="159" /></li>
+					</button>
+					<div id="popup2" class="popup"> 
+		 			<div id="hand2div">
+			 		<span class="close">x</span>
+			 		</div>
+			 		</div>
+			 		<button id="btn3">
+					<li id="hand1shape1li"><img id="hand1shape1img" src="images/handshape-end.svg" style="border: thin solid" width="114" height="159" /></li>
+					</button>
+					<div id="popup3" class="popup"> 
+		 			<div id="hand3div">
+			 		<span class="close">x</span>
+			 		</div>
+			 		</div>
+				</ul>
+			</div>
+			<div id="movetypediv">
+				<label for="movetype">Type of movement:</label>
+				<select name="movetype" id="movetype">
+					<option value="">&mdash;Select&mdash;</option>
+					<option value="straight">Straight line</option>
+					<option>Arc</option>
+					<option value="two-lines">Two-part</option>
+					<option value="circle-about-X">Circle facing the side</option>
+					<option value="flat-circle">Flat circle (axis is vertical)</option><!--Circle about Y-->
+					<option value="facing-circle">Circle facing the viewer</option><!--Circle about Z-->
+					<option value="spiral">Spiral</option>
+					<option value="wiggle">Wiggle</option>
+					<option value="in-and-out">In-and-out</option>
+					<option value="twist">Wrist twist</option>
+					<option value="flick">Finger flick</option>
+				</select>
 			</div>
 			<div id="palmorientationdiv">
 				Palm orientation: <select name="palm" id="palm">

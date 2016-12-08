@@ -93,3 +93,16 @@ Motion types cause an arrow of the appropriate kind to be displayed from start t
 Handshape box chooses starting handshape of dominant hand.  If the user indicates more than one hand, another box is presented for the non-dominant handshape.  If the user indicates ending handshape != beginning handshape, another box is presented for that.
 
 Handshape is chosen by clicking the appropriate box, which presents the handshape choice as a popup.  This can be done as a nested menu: choose the group first, then the shape within it; hovering displays the hshapes in that group.  Once chosen, the handshape is displayed in the appropriate box.
+
+What's been done:
+-popup box appears once box is selected
+-x's out of popup when clicking x button
+-all handshapes show up when clicking on the popup 
+-image is selected when clicking
+
+Still to do:
+-Once click handshape, popup disappears
+-Make it that the form data updates with the chosen handshape 
+-Once popup disappears, handshape photo appears in respective box
+-If the ending handshape hasn't been chosen, the image of the chosen starting handshape shows up in the 
+ending handshap box too. 

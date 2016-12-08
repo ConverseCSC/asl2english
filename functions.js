@@ -64,7 +64,6 @@ function fillHandshapeDiv(divElt) {
     
     var startDiv = document.createElement('div');
     startDiv.id = handStr + 'shape0div';
-    $(startDiv).append('<h4>Beginning:</h4>');
     $(startDiv).append(makeHandshapeSelect(handStr + 'shape0'));
 
     var endButton = document.createElement('button');
@@ -74,9 +73,10 @@ function fillHandshapeDiv(divElt) {
     $(endButton).data('showText', 'Ending handshape is different');
     $(endButton).data('hideText', 'Ending handshape is the same');
     $(endButton).text($(endButton).data('showText'));
+    $(endButton).hide();
     
     startDiv.appendChild(endButton);
-    divElt.appendChild(startDiv);
+    divElt.appendChild(startDiv);;
 
     var endDiv = document.createElement('div');
     endDiv.id = handStr + 'shape1div';
@@ -253,6 +253,11 @@ function evalGuess() {
     showSigns(possibles);
 }
 
+
+
+
+
+
 $(document).ready( function() {
     var changeHands = function() {
 	    var classToShow = $("#numhands option:selected").val();
@@ -260,17 +265,63 @@ $(document).ready( function() {
 	    $('.' + classToShow).show();
     }
     $("#numhands").change(changeHands);
-
-    //fillHandshapeDiv(document.getElementById('hand0div'));
-    //$("#hand1div").append(makeHand1Button());
-    //fillHandshapeDiv(document.getElementById('hand1div'));
-    //$('#hand1shape0div').hide();
-    //$('#hand1div').hide();
+   
+   $('#hand0div').append(makeHandshapeSelect('hand0shape0'));
+   $('#hand1div').append(makeHandshapeSelect('hand0shape1'));
+   $('#hand2div').append(makeHandshapeSelect('hand1shape0'));
+   $('#hand3div').append(makeHandshapeSelect('hand1shape1'));
+   
     
     $("select.handshape").imagepicker({
 	    /*hide_select: false,*/
 	    show_label: true
+	    
     });
+    
+    $( "select.handshape" ).change(function() {
+        
+        var pop = document.getElementById('popup');
+        var pop1 = document.getElementById('popup1');
+        var pop2 = document.getElementById('popup2');
+        var pop3 = document.getElementById('popup3');
+        
+        if (pop.style.display == "block"){
+            var image0 = handshapes[$('#hand0shape0').val()].img;
+            if (handshapes[$('#hand0shape1').val()] == undefined){
+                 $("#hand0shape1img").attr('src', image0);
+            };
+            $("#hand0shape0img").attr('src', image0);
+            pop.style.display = "none";
+        };
+        
+         if (pop1.style.display == "block"){
+            var image1 = handshapes[$('#hand0shape1').val()].img;
+            $("#hand0shape1img").attr('src', image1);
+            pop1.style.display = "none";
+        };
+        
+         if (pop2.style.display == "block"){
+            var image2 = handshapes[$('#hand1shape0').val()].img;
+             if (handshapes[$('#hand1shape1').val()] == undefined){
+                 $("#hand1shape1img").attr('src', image2);
+            };
+            $("#hand1shape0img").attr('src', image2);
+            pop2.style.display = "none";
+        };
+        
+         if (pop3.style.display == "block"){
+            var image3 = handshapes[$('#hand1shape1').val()].img;
+            $("#hand1shape1img").attr('src', image3);
+            pop3.style.display = "none";
+        };
+        
+        
+        
+
+    });
+    
+    
+
 
     // Add appropriate ALT text to the picker images
     $("img.image_picker_image").each(function(i) {
@@ -287,4 +338,120 @@ $(document).ready( function() {
     $('ul.locimg ellipse').bind("click", handleImgClick);
 
     $('#lookupbutton').bind('click', evalGuess);
+    
+    
+    
+
 });
+
+
+window.onload = function(){ 
+    // Get the modal
+    
+    //Starting Dom
+var pop = document.getElementById('popup');
+var pop1 = document.getElementById('popup1');
+var pop2 = document.getElementById('popup2');
+var pop3 = document.getElementById('popup3');
+
+// Get the button that opens the modal
+var btn = document.getElementById("btn");
+var btn1 = document.getElementById("btn1");
+var btn2 = document.getElementById("btn2");
+var btn3 = document.getElementById("btn3");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+var span1 = document.getElementsByClassName("close")[1];
+var span2 = document.getElementsByClassName("close")[2];
+var span3 = document.getElementsByClassName("close")[3];
+
+
+// STARTING DOMINANT
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    pop.style.display = "block";
+    return false;
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    pop.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == pop) {
+        pop.style.display = "none";
+    }
+}
+
+
+// ENDING DOMINANT
+
+
+// When the user clicks on the button, open the modal 
+btn1.onclick = function() {
+    pop1.style.display = "block";
+    return false;
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    pop1.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == pop1) {
+        pop1.style.display = "none";
+    }
+}
+
+
+// STARTING NON-DOMINANT
+
+
+// When the user clicks on the button, open the modal 
+btn2.onclick = function() {
+    pop2.style.display = "block";
+    return false;
+}
+
+// When the user clicks on <span> (x), close the modal
+span2.onclick = function() {
+    pop2.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == pop2) {
+        pop2.style.display = "none";
+    }
+}
+
+
+// ENDING NON DOMINANT
+
+// When the user clicks on the button, open the modal 
+btn3.onclick = function() {
+    pop3.style.display = "block";
+    return false;
+}
+
+// When the user clicks on <span> (x), close the modal
+span3.onclick = function() {
+    pop3.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == pop3) {
+        pop3.style.display = "none";
+    }
+}
+
+
+}
