@@ -38,3 +38,6 @@ jspm_packages
 
 # Ignore emacs-style backup files
 *~
+
+# Ignore image-picker (which has its own repo)
+image-picker/
