@@ -41,3 +41,6 @@ jspm_packages
 
 # Ignore image-picker (which has its own repo)
 image-picker/
+
+# Ignore videos subfolder (too big for Github)
+videos/
