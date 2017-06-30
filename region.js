@@ -1,3 +1,5 @@
+/* global $ */
+
 function setEllipseAttributes(elt, spec) {
     elt.setAttribute('cx', spec['c'][0]);
     elt.setAttribute('cy', spec['c'][1]);

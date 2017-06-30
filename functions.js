@@ -1,3 +1,23 @@
+/* global $ */
+
+// From sign.js
+/* global Sign */
+/* global compareSigns */
+/* global CLEARLY_DIFFERENT */
+
+// From data.js
+/* global handshapes */
+/* global shapegroups */
+/* global signs */
+/* global sideregions */
+/* global frontregions */
+
+// From region.js
+/* global handleImgClick */
+/* global makeRegion */
+/* global moveClearSelected */
+
+
 function makeHandshapeSelect(id) {
     var selectElt = document.createElement('select');
     selectElt.id = id;
@@ -46,7 +66,7 @@ function fillHandshapeDiv(divElt) {
     $(endButton).hide();
     
     startDiv.appendChild(endButton);
-    divElt.appendChild(startDiv);;
+    divElt.appendChild(startDiv);
 
     var endDiv = document.createElement('div');
     endDiv.id = handStr + 'shape1div';
@@ -123,7 +143,7 @@ function makeLocSVG(eltID, regions) {
     svg.appendChild(makeImageNode(regions));
 
     var regionsSpec = regions['regions'];
-    for (id in regionsSpec) {
+    for (var id in regionsSpec) {
 	    var regionElt = makeRegion(id, regionsSpec[id]);
 	    svg.appendChild(regionElt);
     }
@@ -141,10 +161,8 @@ function makeSignRow(sign) {
     $(th).text(sign.sign);
     row.appendChild(th);
     
-    
-    
     // Change way file path is done
-    var video_path = "images/"
+    var video_path = "https://moodle.converse.edu/asl2english/videos/";
     
     var signSrc = document.createElement('source');
     signSrc.src = video_path + sign.video;
@@ -200,7 +218,7 @@ $(document).ready( function() {
 	    var classToShow = $("#numhands option:selected").val();
 	    $(".one, .moving, .two").hide();
 	    $('.' + classToShow).show();
-    }
+    };
     $("#numhands").change(changeHands);
    
    $('#hand0div').append(makeHandshapeSelect('hand0shape0'));
@@ -226,31 +244,31 @@ $(document).ready( function() {
             var image0 = handshapes[$('#hand0shape0').val()].img;
             if (handshapes[$('#hand0shape1').val()] == undefined){
                  $("#hand0shape1img").attr('src', image0);
-            };
+            }
             $("#hand0shape0img").attr('src', image0);
             pop.style.display = "none";
-        };
+        }
         
          if (pop1.style.display == "block"){
             var image1 = handshapes[$('#hand0shape1').val()].img;
             $("#hand0shape1img").attr('src', image1);
             pop1.style.display = "none";
-        };
+        }
         
-         if (pop2.style.display == "block"){
+        if (pop2.style.display == "block"){
             var image2 = handshapes[$('#hand1shape0').val()].img;
              if (handshapes[$('#hand1shape1').val()] == undefined){
                  $("#hand1shape1img").attr('src', image2);
-            };
+            }
             $("#hand1shape0img").attr('src', image2);
             pop2.style.display = "none";
-        };
+        }
         
          if (pop3.style.display == "block"){
             var image3 = handshapes[$('#hand1shape1').val()].img;
             $("#hand1shape1img").attr('src', image3);
             pop3.style.display = "none";
-        };
+        }
         
         
         
@@ -312,19 +330,19 @@ var span3 = document.getElementsByClassName("close")[3];
 btn.onclick = function() {
     pop.style.display = "block";
     return false;
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     pop.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == pop) {
         pop.style.display = "none";
     }
-}
+};
 
 
 // ENDING DOMINANT
@@ -334,19 +352,19 @@ window.onclick = function(event) {
 btn1.onclick = function() {
     pop1.style.display = "block";
     return false;
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span1.onclick = function() {
     pop1.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == pop1) {
         pop1.style.display = "none";
     }
-}
+};
 
 
 // STARTING NON-DOMINANT
@@ -356,19 +374,19 @@ window.onclick = function(event) {
 btn2.onclick = function() {
     pop2.style.display = "block";
     return false;
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span2.onclick = function() {
     pop2.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == pop2) {
         pop2.style.display = "none";
     }
-}
+};
 
 
 // ENDING NON DOMINANT
@@ -377,19 +395,19 @@ window.onclick = function(event) {
 btn3.onclick = function() {
     pop3.style.display = "block";
     return false;
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span3.onclick = function() {
     pop3.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == pop3) {
         pop3.style.display = "none";
     }
-}
+};
 
 
-}
+};

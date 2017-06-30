@@ -1,3 +1,10 @@
+// Defined in this file:
+/* global handshapes */
+/* global shapegroups */
+/* global sideregions */
+/* global frontregions */
+/* global signs */
+
 // shapegroups is an array of arrays.  Each subarray defines a group of
 // semantically similar handshapes.  The numbers in each subarray are
 // handshape ID's, not handshape names.  What signs go in what group is

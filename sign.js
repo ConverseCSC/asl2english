@@ -1,3 +1,13 @@
+/* global $ */
+
+// From data.js:
+/* global handshapes */
+/* global frontregions */
+/* global sideregions */
+
+// Defined here, used elsewhere:
+/* global CLEARLY_DIFFERENT */
+
 function parseNumHands(val) {
     var result = 0;
     switch (val) {
@@ -15,7 +25,7 @@ function parseNumHands(val) {
 }
 
 function valueOrUndefined(value) {
-    result = value;
+    var result = value;
     if ((value === "") || (value === null)) {
 	result = undefined;
     }
@@ -134,7 +144,7 @@ function Sign() {
     //alert(JSON.stringify(this.motion));
 }
 
-var CLEARLY_DIFFERENT = 1000;
+CLEARLY_DIFFERENT = 1000;
 
 function compareHandshapes(shape1, shape2) {
     //alert('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
