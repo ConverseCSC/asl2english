@@ -381,7 +381,7 @@ signs = [{ sign: 'absent',
 	   palmFace: 'down',
 	   motion: { type: 'arc',
 		     dir: [1, -1, -1] },
-	   video: 'images/absent.mp4'
+	   video: 'absent.mp4'
 	 },
 	
 	{ sign: 'accept',

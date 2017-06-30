@@ -141,8 +141,13 @@ function makeSignRow(sign) {
     $(th).text(sign.sign);
     row.appendChild(th);
     
+    
+    
+    // Change way file path is done
+    var video_path = "images/"
+    
     var signSrc = document.createElement('source');
-    signSrc.src = sign.video;
+    signSrc.src = video_path + sign.video;
     signSrc.type = 'video/mp4';
     
     var signVid = document.createElement('video');
