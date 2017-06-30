@@ -17,7 +17,7 @@
               //console.log(files.length + ' files selected');
               //console.log(files[0].name);
               //console.log(window.URL.createObjectURL(files[0]));
-              document.getElementById('playa').src
+              document.getElementById('vidsrc').src
                   = window.URL.createObjectURL(files[0]);
           }
       }
@@ -34,12 +34,14 @@
       <input name="filename" id="filename" type="file"
 	     accept="video/*" onchange="setNewFile(this);" />
     </form>
-    <video controls="on" id="playa"></video>
+    <video controls="on" id="playa">
+      <source id="vidsrc" src="videos/accept.mp4" type="video/mp4" />
+    </video>
 
     
     
     <hr />
     <div style="margin: 0">
     <address style="display: inline"><a>Peter Brown</a> &lt;<a href="mailto:peter.brown@converse.edu">peter.brown@converse.edu</a>&gt;</address>
-      Last modified: <!-- hhmts start -->2016-11-07 11:02:09
+      Last modified: <!-- hhmts start -->2017-06-30 11:26:55
 </div></body></html>
