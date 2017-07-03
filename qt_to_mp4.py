@@ -3,6 +3,7 @@
 
 import os
 import subprocess
+from pathlib import Path
 
 def main():
     srcdir = 'videos-qt'
@@ -23,7 +24,13 @@ def main():
                 appledoubles = appledoubles + 1
             elif 'Apple QuickTime movie' in filetype:
                 quicktimes = quicktimes + 1
-                # Convert the file, putting the output in videos
+                dstfile = Path(dstdir, entry.name)
+                if not dstfile.exists():
+                    # Convert the file, putting the output in videos
+                    subprocess.run(['ffmpeg', '-i', entry.path, '-c:v',
+                                    'libx264', str(dstfile)])
+                else:
+                    print(dstfile, 'exists')
             else:
                 print(filetype)
                 others = others + 1
