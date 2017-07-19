@@ -43,38 +43,6 @@
 					<option value="two">Two hands moving</option>
 	  		</select>
 			</div>
-			<div id="locmovediv" class="imgdiv">
-				<div id="locdiv" class="imgdiv">
-					<div class="title">Click the <select name="locstartend" id="locstartend">
-							<option selected="" value="0">starting</option>
-							<option value="1">ending</option>
-						</select> location of the dominant hand:
-					</div>
-					<ul class="locimg">
-						<li id="sideimgitem"></li>
-						<li id="frontimgitem"></li>
-					</ul>
-					<input type="hidden" name="loc0" id="loc0" value="" />
-					<input type="hidden" name="loc1" id="loc1" value="" />
-				</div>	
-				<div id="movetypediv">
-					<label for="movetype">Type of movement:</label>
-					<select name="movetype" id="movetype">
-						<option value="">&mdash;Select&mdash;</option>
-						<option value="straight">Straight line</option>
-						<option>Arc</option>
-						<option value="two-lines">Two-part</option>
-						<option value="circle-about-X">Circle facing the side</option>
-						<option value="flat-circle">Flat circle (axis is vertical)</option><!--Circle about Y-->
-						<option value="facing-circle">Circle facing the viewer</option><!--Circle about Z-->
-						<option value="spiral">Spiral</option>
-						<option value="wiggle">Wiggle</option>
-						<option value="in-and-out">In-and-out</option>
-						<option value="twist">Wrist twist</option>
-						<option value="flick">Finger flick</option>
-					</select>
-				</div>
-			</div>
 			<div id="handshapesdiv" class="imgdiv">
 				<div id="shape0div" class="imgdiv">
 					<div class="title">Click to set handshape (dominant hand):</div>
@@ -124,7 +92,7 @@
 				</div>
 			</div>
 			<div id="palmorientationdiv">
-				Palm orientation: <select name="palm" id="palm">
+				Palm (starting) orientation: <select name="palm" id="palm">
 					<option value="">&mdash;Select&mdash;</option>
 					<option value="forward">Forward</option>
 					<option value="inward">Inward</option>
@@ -132,10 +100,69 @@
 					<option value="down">Downwards</option>
 					<option value="up">Upwards</option>
 					<option value="towards-palm" class="moving two">Palm towards palm</option>
-					<option value="to-palm" class="moving two">Palm-to-palm</option>
+				<!--	<option value="to-palm" class="moving two">Palm-to-palm</option>-->
 				</select>
 			</div>
 		</fieldset>
+			<div id="locmovediv" class="imgdiv">
+				<div id="locdiv" class="imgdiv">
+					<div class="title">Click the <select name="locstartend" id="locstartend">
+							<option selected="" value="0">starting</option>
+							<option value="1">ending</option>
+						</select> location of the dominant hand:
+					</div>
+					<ul class="locimg">
+						<li id="sideimgitem"></li>
+						<li id="frontimgitem"></li>
+					</ul>
+					<input type="hidden" name="loc0" id="loc0" value="" />
+					<input type="hidden" name="loc1" id="loc1" value="" />
+				</div>	
+				<div id="movetypediv">
+					<label for="movetype">Type of movement:</label>
+					<select name="movetype" id="movetype">
+					<!--	<option value="">&mdash;Select&mdash;</option>
+						<option value="straight">Straight line</option>
+						<option>Arc</option>
+						<option value="two-lines">Two-part</option>
+						<option value="circle-about-X">Circle facing the side</option>
+						<option value="flat-circle">Flat circle (axis is vertical)</option><!--Circle about Y
+						<option value="facing-circle">Circle facing the viewer</option><!--Circle about Z
+						<option value="spiral">Spiral</option>
+						<option value="wiggle">Wiggle</option>
+						<option value="in-and-out">In-and-out</option>-->
+
+						
+						
+						<!-- All can be used with one or both hands
+						
+						Decide whether it's worth making a distinction between repeated movements
+						and repeated movements moving in a certain direction (repeated vs plural)
+						
+						Find ways to describe single more clearly (pictures needed)
+						
+						Work in progress
+						
+						-->
+						
+						<option value="">&mdash;Select&mdash;</option>
+						<option value="none">None</option>
+						<option value="single">Single movement in one direction (includes two handed signs)</option>
+						<option value="change">Single movement with change in direction and/or handshape</option>
+						<option value="repeated">Repeated movement (double, back-and-forth, up-down, in-out, wiggle, etc)</option>
+						<option value="plural">Repeated movement moving in one direction</option>
+						<option value="circle">Circular movement</option>
+
+
+						<!--Repeated movement and circular are related -->
+						
+						
+						
+						
+					</select>
+				</div>
+			</div>
+			
 
 		<fieldset id="nonmandiv">
 			<legend>Non-manuals</legend>

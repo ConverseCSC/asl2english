@@ -149,6 +149,7 @@ def make_array():
 					nd_start = ws['G' + str(empty_row)]
 					nd_end = ws['I' + str(empty_row)]
 						
+					
 						
 						
 						# Dominant starting hand shape

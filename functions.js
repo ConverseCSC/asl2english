@@ -30,18 +30,20 @@ function makeHandshapeSelect(id) {
     selectElt.appendChild(optElt);
     
     var makeShapeGroup = function(idx, group) {
-	var groupElt = document.createElement('optgroup');
-	groupElt.label = '';
-	$.each(group, function(i, shapeIdx) {
-	    var shape = handshapes[shapeIdx];
-	    var optElt = document.createElement('option');
-	    optElt.text = shape.shape;
-	    optElt.value = shape.id;
-	    optElt.setAttribute('data-img-src', shape.img);
-	    groupElt.appendChild(optElt);
-	});
+	    var groupElt = document.createElement('optgroup');
+	    groupElt.label = '';
 
-	selectElt.appendChild(groupElt);
+    	$.each(group, function(i, shapeIdx) {
+    	   var shape = handshapes[shapeIdx];
+    	   var optElt = document.createElement('option');
+    	   optElt.text = shape.shape;
+    	   optElt.value = shape.id;
+    	   optElt.setAttribute('data-img-src', shape.img);
+    	   groupElt.appendChild(optElt);
+    	 });
+    	
+    
+    	selectElt.appendChild(groupElt);
     };
     
     $.each(shapegroups, makeShapeGroup);
@@ -165,8 +167,16 @@ function makeSignRow(sign) {
     var video_path = "https://moodle.converse.edu/asl2english/videos/";
     
     var signSrc = document.createElement('source');
+    
+    // temporary fix
+    if (Array.isArray(sign.video)) {
+        signSrc.src = video_path + sign.video[0];
+        // for (var i in sign.video.length) {
+          //  signSrc.src = video_path + sign.video[i];
+    } else {
     signSrc.src = video_path + sign.video;
     signSrc.type = 'video/mp4';
+    }
     
     var signVid = document.createElement('video');
     signVid.id = sign.sign + '-video';

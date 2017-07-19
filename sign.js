@@ -75,8 +75,8 @@ function parsePositionText(loc0val, loc1val) {
 
 function parsePositionXYZ(loc) {
     // This uses a left-handed coordinate system centered on the chest.
-    // +X is toward the signer's non-dominant side (usually the viewer's
-    // right).  +Y is up.  +Z is away from the signer, towards the viewer.
+    // +X is toward the signer's dominant side (usually the viewer's
+    // left).  +Y is up.  +Z is away from the signer, towards the viewer.
     var result = [undefined, undefined, undefined];    
     //alert(loc);
     // Set X and Y from loc
@@ -147,19 +147,45 @@ function Sign() {
 CLEARLY_DIFFERENT = 1000;
 
 function compareHandshapes(shape1, shape2) {
-    //alert('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
+    // shape1 is a integer as a string or undefined.  Shape2 is an integer, an array, or null.  [Can shape2 be undefined?]
+    //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
     var diff = CLEARLY_DIFFERENT;
-    if (shape1 == shape2) {
-	diff = 0;
+    if (shape1 === undefined || shape2 === undefined) {
+        diff = 1;
     }
-    else if (shape1 === undefined || shape2 === undefined) {
-	diff = 1;
+    else {
+        shape1 = parseInt(shape1);
+        console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
+        if (shape2 !== null && shape2.constructor === Array){
+            if (shape2.indexOf(shape1) >= 0) {
+	            diff = 0;
+            }
+            // else if (shape1 === undefined || shape2 === undefined) {
+	           // diff = 1;
+            // }
+            else {
+                for (var i = 0; i < shape2.length; i++) { 
+                    if (shape2[i] !== null && handshapes[shape1].group === shape2[i].group) {
+                        diff = 1;
+                    }
+                }
+            }
+        }
+        else {
+            if (shape1 == shape2) {
+	            diff = 0;
+            }
+            // else if (shape1 === undefined || shape2 === undefined) {
+    	       // diff = 1;
+            // }
+            else if (handshapes[shape1].group === handshapes[shape2].group) {
+    	        diff = 1;
+            }
+        }
     }
-    else if (handshapes[shape1].group === handshapes[shape2].group) {
-	diff = 1;
-    }
+    
     return diff;
-}
+};
 
 function cmpVec3(v1, v2, tolerance) {
     var diff = 0;
@@ -200,10 +226,11 @@ function compareSigns(sign1, sign2) {
 	}
 	for (var hand = 0; hand < numHands; hand++) {
 	    for (var end = 0; end < 2; end++) {
-		result += compareHandshapes(sign1.handshape[hand][end],
+            result += compareHandshapes(sign1.handshape[hand][end],
 					    sign2.handshape[hand][end]);
+	            }  
 	    }
-	}
+	
 
 	// Compare positions
 	for (end = 0; end < 2; end++) {
