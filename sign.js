@@ -27,10 +27,10 @@ function parseNumHands(val) {
 function valueOrUndefined(value) {
     var result = value;
     if ((value === "") || (value === null)) {
-	result = undefined;
+    	result = undefined;
     }
     else if (typeof(value) === "string") {
-	result = value.toLowerCase();
+	    result = value.toLowerCase();
     }
     return result;
 }
@@ -38,6 +38,9 @@ function valueOrUndefined(value) {
 function parseOneHandShape(startSpec, endSpec) {
     var start = valueOrUndefined(startSpec);
     var end = valueOrUndefined(endSpec);
+    if (end === undefined) {  // End defaults to the value of start
+        end = start;
+    }
     return [start, end];
 }
 
@@ -45,22 +48,23 @@ function parseHandShape(numHands) {
     var result = [];
     var hand0start = $('#hand0shape0').val();
     var hand0end = $('#hand0shape1').val();
-    if ($('#hand0shape1div').is(':hidden')) {
-	hand0end = hand0start;
+    if ( $('#hand0shape1div').is(':hidden')) {
+	    hand0end = hand0start;
     }
     result.push(parseOneHandShape(hand0start, hand0end));
+    //console.log('Parsed hand0: '+JSON.stringify(result));
 
     if (numHands > 1) {
-	var hand1start = $('#hand1shape0').val();
-	var hand1end = $('#hand1shape1').val();
-	if ($('#hand1shape0div').is(':hidden')) {
-	    hand1start = hand0start;
-	    hand1end = hand0end;
-	}
-	else if ($('#hand1shape1div').is(':hidden')) {
-	    hand1end = hand1start;
-	}
-	result.push(parseOneHandShape(hand1start, hand1end));
+    	var hand1start = $('#hand1shape0').val();
+    	var hand1end = $('#hand1shape1').val();
+    	if ($('#hand1shape0div').is(':hidden')) {
+    	    hand1start = hand0start;
+    	    hand1end = hand0end;
+    	}
+    	else if ($('#hand1shape1div').is(':hidden')) {
+    	    hand1end = hand1start;
+    	}
+    	result.push(parseOneHandShape(hand1start, hand1end));
     }
     
     return result;
@@ -133,7 +137,7 @@ function Sign() {
 				      $('#loc1').val());
     //alert(JSON.stringify(this.position));
     
-    this.palmFace = valueOrUndefined($('#palm').val());
+    this.palmface = valueOrUndefined($('#palm').val());
     //alert(this.palmFace);
 
     this.motion = parseMotion($('#movetype').val(),
@@ -150,12 +154,12 @@ function compareHandshapes(shape1, shape2) {
     // shape1 is a integer as a string or undefined.  Shape2 is an integer, an array, or null.  [Can shape2 be undefined?]
     //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
     var diff = CLEARLY_DIFFERENT;
-    if (shape1 === undefined || shape2 === undefined) {
+    if (shape1 === undefined || shape2 === undefined || shape2 === null) {
         diff = 1;
     }
     else {
         shape1 = parseInt(shape1);
-        console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
+        //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
         if (shape2 !== null && shape2.constructor === Array){
             if (shape2.indexOf(shape1) >= 0) {
 	            diff = 0;
@@ -218,6 +222,7 @@ function compareSigns(sign1, sign2) {
     }
     else {
 	// Compare handshapes
+	//console.log(JSON.stringify(sign1.handshape) + ' ' + JSON.stringify(sign2.handshape));
 	var numHands = sign1.handshape.length;
 	if (sign1.handshape.length != sign2.handshape.length) {
 	    // Number of hands must differ
@@ -239,7 +244,7 @@ function compareSigns(sign1, sign2) {
 	}
 
 	// Compare palm faces
-	if (sign1.palmFace !== sign2.palmFace) {
+	if (sign1.palmface !== sign2.palmface) {
 	    result += 1;
 	}
 

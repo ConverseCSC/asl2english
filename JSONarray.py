@@ -6,7 +6,7 @@
 
 import json
 
-from make_array import * 
+from makearray2 import * 
 
 def json_list(dict):
     lst = []
@@ -18,5 +18,5 @@ def json_list(dict):
     return json.dump(lst, outfile)
 
 
-with open('newlinetest.js', 'w') as outfile:
+with open('multivideosigns.json', 'w') as outfile:
     json_list(file_naming())

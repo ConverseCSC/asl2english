@@ -45,3 +45,7 @@ image-picker/
 # Ignore videos subfolder (too big for Github)
 videos/
 videos-qt/
+
+#Ignore assorted cruft
+duplicate-sign-list.txt
+multivideosigns.json

@@ -34,7 +34,7 @@
     </div></noscript>
 
 	<form id="lookupform" action="" method="get">
-		<fieldset id="picturefields" class="noborder">
+		<fieldset id="handshapefields" class="noborder">
 			<div id="numhandsdiv">
 				The sign I want to look up is:
 				<select name="numhands" id="numhands">
@@ -91,6 +91,8 @@
 					</ul>
 				</div>
 			</div>
+		</fieldset>
+		<fieldset id="orientationfields" class="noborder">
 			<div id="palmorientationdiv">
 				Palm (starting) orientation: <select name="palm" id="palm">
 					<option value="">&mdash;Select&mdash;</option>
@@ -104,6 +106,7 @@
 				</select>
 			</div>
 		</fieldset>
+		<fieldset id="positionset" class="noborder">
 			<div id="locmovediv" class="imgdiv">
 				<div id="locdiv" class="imgdiv">
 					<div class="title">Click the <select name="locstartend" id="locstartend">
@@ -117,22 +120,13 @@
 					</ul>
 					<input type="hidden" name="loc0" id="loc0" value="" />
 					<input type="hidden" name="loc1" id="loc1" value="" />
-				</div>	
+				</div>
+			</fieldset>
+			<fieldset id="movementset" class="noborder">
 				<div id="movetypediv">
 					<label for="movetype">Type of movement:</label>
 					<select name="movetype" id="movetype">
-					<!--	<option value="">&mdash;Select&mdash;</option>
-						<option value="straight">Straight line</option>
-						<option>Arc</option>
-						<option value="two-lines">Two-part</option>
-						<option value="circle-about-X">Circle facing the side</option>
-						<option value="flat-circle">Flat circle (axis is vertical)</option><!--Circle about Y
-						<option value="facing-circle">Circle facing the viewer</option><!--Circle about Z
-						<option value="spiral">Spiral</option>
-						<option value="wiggle">Wiggle</option>
-						<option value="in-and-out">In-and-out</option>-->
 
-						
 						
 						<!-- All can be used with one or both hands
 						
@@ -162,13 +156,11 @@
 					</select>
 				</div>
 			</div>
-			
-
-		<fieldset id="nonmandiv">
-			<legend>Non-manuals</legend>
 		</fieldset>
-		<button id="lookupbutton" type="button">Look for matching signs!</button>
-		<!--button id="resetbutton" type="reset">Reset</button-->
+		<fieldset id="buttonset" class="noborder">
+			<button id="lookupbutton" type="button">Look for matching signs!</button>
+			<!--button id="resetbutton" type="reset">Reset</button-->
+		</fieldset>	
 	</form>
 	<div id="resultsdiv">
 		<table id="results">

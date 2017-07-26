@@ -44,32 +44,32 @@ shapegroups = [
     // I  Y   I-L-Y bent-I-L-Y Horns bent-Horns O/2-Horns
     [ 57, 81, 56,   95,        55,   25,        64], 
     
-	// U/H crvd-U bent-U cocked-U U-L  bent-U-L ******
+	// U/H crvd-U bent-U cocked-U U-L  bent-U-L
     [  76,  40,   29,   83,      75,  86],
    
-    // 3 crvd-3 *****
+    // 3 crvd-3
     [  2, 84],
-    // 6   W   crvd-W *****
+    // 6   W   crvd-W
     [  8,  78,  85],
-    // 7  cocked-7 open-7 ******
+    // 7  cocked-7 open-7
     [  9,  90,     89],
-    // F/9 cocked-F open-F ****
+    // F/9 cocked-F open-F
     [  44,  33,      67],
-    // 4 ******
+    // 4 
       [ 3 ],
     // 5  crvd-5 5-C 5-C-L 5-C-tt
     [  4, 35,    5,  6,    7],
-    // E  loose-E ******
+    // E  loose-E
     [ 43,  61],
-    // M  alt-M  bent-M  full-M *****
+    // M  alt-M  bent-M  full-M
     [ 62, 15,    27,      52],
-    // N  alt-N bent-N *****
+    // N  alt-N bent-N
     [  63, 16,  28],
-    // P/K  alt-P *****
+    // P/K  alt-P
     [  58,   17],
-    // L  L-X  crvd-L ****
+    // L  L-X  crvd-L
     [ 60, 59,  38],
-    // R  R-L *****
+    // R  R-L
     [ 70, 87],
 
     // Rlxd  Other
@@ -457,161 +457,19 @@ frontregions = { 'image': 'images/front.svg',
 //    video: The relative URL of an MP4 video depicting the sign.
 
 signs = [
-	
-	// { sign: 'absent',
-	//   hands: 2,
-	//   handshape: [ [1, 1], [13, 13] ],
-	//   position: [ 'shoulder', 'chest' ],
-	//   palmFace: 'down',
-	//   motion: { type: 'arc',
-	// 	     dir: [1, -1, -1] },
-	//   video: 'absent.mp4'
-	//  },
-	
-	// { sign: 'accept',
-	//   hands: 2,
-	//   handshape: [ [4, 51], [4, 51] ],
-	//   position: [ 0, 0 ],
-	//   palmFace: 'inward',
-	//   motion: { type: 'straight',
-	// 	     dir: [0, 0, -1] },
-	//   video: 'accept.mp4'
-	//  },
-	//  { sign: 'afraid',
-	//   hands: 2,
-	//   handshape: [ [82, 4], [82, 4] ],
-	//   position: [ 'right', 'chest' ],
-	//   palmFace: 'inward',
-	//   motion: { type: 'straight',
-	// 			 dir: [1, 0] },
-	//   video: 'afraid.mp4' },
-	//  { sign: 'again',
-	//   hands: 2,
-	//   handshape: [ [24, 24], [18, 18] ],
-	//   position: ['shoulder', 0],
-	//   palmFace: 'towards-palm',
-	//   motion: { type: 'arc',
-	// 			 dir: [1, -1, 0] },
-	//   video: 'again.mp4' },
-	//  { sign: 'alone',
-	//   hands: 1,
-	//   handshape: [ [1, 1] ],
-	//   position: [ 0, 0 ],
-	//   palmFace: 'inward',
-	//   motion: { type: 'flat-circle',
-	// 	     dir: [0, 0, 0] },
-	//   //video: 'http://csr.bu.edu/ftp/asl/asllvd/demos/verify_start_end_handshape_annotations/test_auto_move/signs_mov/26_3933_merged.mov'
-	//   //video: '26_3933_merged.mov'
-	//   video: 'alone.mp4'
-	//  },
-	//   { sign: 'angry',
-	//   hands: 1,
-	//   handshape: [ [6, 5] ],
-	//   position: [ 'chest', 'R-shoulder'],
-	//   palmFace: 'inward',
-	//   motion: { type: 'twist',
-	// 		dir: [-1, 1, 0 ] },
-	//   video:'images/angry.mp4'
-	//  },
-	//  { sign: 'blame',
-	//   hands: 2,
-	//   handshape: [ [12, 14], [12, 14] ],
-	//   position: ['chin', 'sightline'],
-	//   palmFace: 'inward',
-	//   motion: { type: 'arc',
-	// 	     dir: [0, -1, 1] },
-	//   video: 'blame.mp4' },
-	//  { sign: 'bridge',
-	//   hands: 1.5,
-	//   handshape: [ [77, 77], [18, 18] ],
-	//   position: ['hand', 'elbow'],
-	//   palmFace: 'toward-palm',
-	//   motion: { type: 'arc',
-	// 	     dir: [0, 1, 0] },
-	//   video: 'bridge.mp4'},
-	//  { sign: 'deaf',
-	//   hands: 1,
-	//   handshape: [ [1, 1] ],
-	//   position: [['ear', 'mouth']],
-	//   palmFace: 'inward',
-	//   motion: { type: 'arc',
-	//          dir: [-1, 0, 1] },
-	//   video: 'deaf.mp4'},
-	//  { sign: 'fine',
-	//   hands: 1,
-	//   handshape: [ [4, 4] ],
-	//   position: [[0,0,0], [0,0,0]],
-	//   palmFace: 'horizontal',
-	//   motion: { type:'in-and-out',
-	//   		  dir: [0,0,-1] },
-	//   video: 'fine.mp4'},
-	//  { sign: 'good/thank you',
-	//   hands: 1,
-	//   handshape: [ [18, 18] ],
-	//   position: ['chin', 'sightline'],
-	//   palmFace: 'inward',
-	//   motion: { type: 'arc',
-	// 	     dir: [0, -1, 1] },
-	//   video: 'good-thank-you.mp4'},
-	//  { sign: 'hearing',
-	//   hands: 1,
-	//   handshape: [ [1, 1] ],
-	//   position: ['chin', 'chin'],
-	//   palmFace: 'inward',
-	//   motion: { type: 'circle-about-X',
-	// 	     dir: [0, 0, 1] },
-	//   video: 'hearing.mp4'},
-	//  { sign: 'hello',
-	//   hands: 1,
-	//   handshape: [ [20, 20] ],
-	//   position: ['forehead', [-1, 6, 1]],
-	//   palmFace: 'outward',
-	//   motion: { type: 'arc',
-	// 	     dir: [-1, 0, 1] },
-	//   video: 'hello.mp4'},
-	//  { sign: 'know',
-	//   hands: 1,
-	//   handshape: [ [24, 24] ],
-	//   position: ['temple', 'temple'],
-	//   palmFace: 'inward',
-	//   motion: { type: 'in-and-out',
-	// 		   dir: [0, 1, 0] },
-	//   video: 'know.mp4'}, 
-	//  { sign: 'not',
-	//   hands: 1,
-	//   handshape: [ [12, 12] ],
-	//   position: ['chin', 'sightline'],
-	//   palmFace: 'horizontal',
-	//   motion: { type: 'arc',
-	// 	     dir: [0, -1, 1] },
-	//   video: 'not.mp4'},
-	   
-	//  { sign: 'same-old',
-	//   hands: 2,
-	//   handshape: [[81, 81], [81, 81]],
-	//   position: ['neutral', 'low-right'],
-	//   palmFace: 'outward',
-	//   motion: {type: 'two-lines',
-	//   		 dir: [-1, -1, 0]},
-	//   video: 'same-old.mp4'},
-	//  { sign: 'sorry',
-	//   video: 'sorry.mp4',
-	//   hands: 1,
-	//   handshape: [ [14, 14] ],
-	//   position: ['chin', 'sightline'],
-	//   palmFace: 'inward',
-	//   motion: { type: 'facing-circle',
-	// 	     dir: [0, 0, 0] }},
-	//  { sign: 'thrill/whats-up',
-	//  	video: 'whats-up.mp4',
-	//  	hands: 2,
-	//  	handshape: [ [13, 13], [13, 13] ],
-	//  	position: [ 'chest', 'right-shoulder'],
-	//  	palmFace: 'inward',
-	//  	motion: { type: 'arc',
-	//  	          dir: [-1, 1, 0]}
-	//  },
-	
+    
+// top 100 signs
+
+{"palmface": "towards-palm",
+"handshape": [[24,23],[18,18]],
+"hands": 1.5,
+"video": "again.mp4",
+"sign": "AGAIN",
+"motion": {"dir": [-1,-1,0], "type": "single"},
+"position": [0,"hand"]},
+
+
+//
 	
 {"sign": "TWENTY",
  "motion": {"dir": [0, 0, 0], "type": "change"},
@@ -5582,5 +5440,15 @@ signs = [
  "palmface": "inward",
  "hands": 1.5},
  
+{
+"sign": "DCL:crvd-V \"couch shaped object\": DCL:crvd-V \"couch shaped object\"",
+"hands": 2,
+"handshape": [[41,41],[41,41]],
+"video": "couch-shaped-object2.mp4",
+"motion": {
+"dir": [],
+"type": ""},
+"palmface": "",
+"position": []}
 
 	];
