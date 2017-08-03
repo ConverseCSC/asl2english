@@ -79,8 +79,8 @@ function removeMarks(startp) {
 }
 
 function addMark(idx, elt) {
-    console.log('this: ' + $(this).parent());
-    console.log($(elt).parent());
+   // console.log('this: ' + $(this).parent());
+   // console.log($(elt).parent());
     var pt = getRegionCenter(elt);
     var startp = ($('#locstartend').val() == 0);
     
@@ -108,7 +108,7 @@ var handleImgClick = function(event) {
     var control = document.getElementById('loc' + $('#locstartend').val());
     if (control.value.length === 0 || targName !== control.value) {
         //var offset = $(event.target).offset();        
-        console.log(targName + ': ' + $("[name='" + targName + "']").length);
+       // console.log(targName + ': ' + $("[name='" + targName + "']").length);
         //var center = getRegionCenter($(event.target)['0']);
         //console.log('center: ' + center + ' ' + center.x + ',' + center.y);
         //$(event.target).parent().append(makeMark(, center));

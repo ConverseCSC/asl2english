@@ -153,30 +153,23 @@ function makeLocSVG(eltID, regions) {
 }
 
 function makeSignRow(sign) {
-    var row = document.createElement('tr');
-    row.id = sign.sign + '-row';
-    row.className = 'signrow';
+    var video_path = "https://moodle.converse.edu/asl2english/videos/";
     
+    var row = document.createElement('tr');
+    row.id = sign.sign.replace(/\s/g, '') + '-row';
+    row.className = 'signrow';
+
     var th = document.createElement('th');
-    th.id = sign.sign + '-title';
+    th.id = sign.sign.replace(/\s/g, '') + '-title';
     th.className = 'signtitle';
     $(th).text(sign.sign);
     row.appendChild(th);
     
-    // Change way file path is done
-    var video_path = "https://moodle.converse.edu/asl2english/videos/";
     
     var signSrc = document.createElement('source');
-    
-    // temporary fix
-    if (Array.isArray(sign.video)) {
-        signSrc.src = video_path + sign.video[0];
-        // for (var i in sign.video.length) {
-          //  signSrc.src = video_path + sign.video[i];
-    } else {
-    signSrc.src = video_path + sign.video;
+
+    signSrc.src = video_path + sign.video.replace('#', '%23');
     signSrc.type = 'video/mp4';
-    }
     
     var signVid = document.createElement('video');
     signVid.id = sign.sign + '-video';
@@ -187,16 +180,64 @@ function makeSignRow(sign) {
     var td = document.createElement('td');
     td.appendChild(signVid);
     row.appendChild(td);
-    
+
     return row;
 }
 
 function showSigns(signsToShow) {
-    $('#results').empty();
     signsToShow.forEach(function(item, idx, arrayVar) {
-	$('#results').append(makeSignRow(item));
+        
+        if (item.sign.includes(": ")) {
+             // Creating and appending signrow, variantbtn, and a break tag
+            var signrow = makeSignRow(item);
+            $('#results').append(signrow);
+           
+            var br = document.createElement('br');
+            $('th').append(br);
+ 
+            var variantbtn = document.createElement('button');
+            signrow.firstChild.appendChild(variantbtn);
+
+            variantbtn.innerHTML = "Show sign variation(s)";
+
+            
+            var variantcontain = document.createElement('div');
+            variantcontain.id = item.sign.replace(/\s/g, '') + '-div';
+            variantcontain.className = "variantdiv";
+            $('#results').append(variantcontain)
+            
+            var signIndex = item.sign.indexOf(": ");
+            var slice = item.sign.slice(0, signIndex);
+            
+            for (var i in signs) {
+                if (signs[i].sign.includes(": ") && 
+                    slice == signs[i].sign.slice(0, signIndex) && 
+                        signs[i].sign !== item.sign){
+                    var signrows = makeSignRow(signs[i]);
+                    variantcontain.appendChild(signrows); 
+                }
+            }
+            
+
+            variantcontain.style.display = 'none';
+            variantbtn.addEventListener ("click", function() {
+                if (variantcontain.style.display === 'none') {
+                    variantcontain.style.display = 'table-row-group';
+                    variantbtn.innerHTML = "Hide sign variation(s)";
+                } else {
+                    variantcontain.style.display = 'none';
+                    variantbtn.innerHTML = "Show sign variation(s)";
+                }
+            });
+            
+         }
+        else {
+	       $('#results').append(makeSignRow(item));
+        }
     });
 }
+
+
 
 function evalGuess() {
     var guess = new Sign();
@@ -212,10 +253,92 @@ function evalGuess() {
 	return a.diff - b.diff;
     })
     
-    //alert(JSON.stringify(possibles));
 
     // Display the possibilities
-    showSigns(possibles);
+    var len = possibles.length;
+    
+    var numpages = len / $('#displaynum').val();
+    numpages = Math.ceil(numpages);
+    
+    var currentpage = 1;
+    
+    var prevbtn = document.createElement('button');
+
+    
+    if (numpages == 1){
+        $('#results').empty();
+        showSigns(possibles);
+        $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
+    } else if (numpages > 1) {
+        $('#results').empty();
+        var num = $('#displaynum').val();
+        var page = possibles.slice(0, num);
+        showSigns(page);
+        
+        var nextbtn = document.createElement('button');
+        $('#results').append(nextbtn);
+        nextbtn.innerHTML = "Next page -->";
+        
+        $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
+        
+        
+        // Clicking next page button
+        nextbtn.addEventListener ("click", function() {
+                $('html, body').animate({
+                    scrollTop: $("#displaynum").offset().top
+                }, 0);
+                currentpage += 1
+                $('#results').empty();
+                var nextnum = $('#displaynum').val();
+                nextnum = parseInt(nextnum) + parseInt(num);
+                
+                var nextpage = possibles.slice(num, nextnum);
+                num = nextnum;
+                showSigns(nextpage);
+                
+                $('#results').append(prevbtn);
+                prevbtn.innerHTML = "<-- Previous page";
+               // document.getElementById('#results').scrollIntoView();
+               if (currentpage < numpages) { 
+                    $('#results').append(nextbtn);
+               }
+               $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
+
+            });
+            
+            
+         prevbtn.addEventListener ("click", function() {
+               $('html, body').animate({
+                    scrollTop: $("#displaynum").offset().top
+                }, 0);
+               currentpage -= 1;
+               $('#results').empty();
+               var prevnum = $('#displaynum').val();
+               prevnum = parseInt(num) - parseInt(prevnum);
+               num = parseInt(prevnum) - parseInt($('#displaynum').val());
+               
+               console.log(currentpage);
+
+                var prevpage = possibles.slice(num, prevnum);
+                
+                console.log(prevpage);
+                
+                num = prevnum;
+                showSigns(prevpage);
+                
+               if (currentpage !== 1) {
+                   $('#results').append(prevbtn);
+               } 
+               if (currentpage < numpages) { 
+                    $('#results').append(nextbtn);
+                }
+                
+                $('#results').append('<p>' + currentpage + ' of ' + numpages + '</p>');
+
+        });
+            
+        
+    }
 }
 
 
@@ -282,6 +405,7 @@ $(document).ready( function() {
         
         
         
+        
 
     });
     
@@ -304,6 +428,11 @@ $(document).ready( function() {
     $('ul.locimg ellipse').bind("click", handleImgClick);
 
     $('#lookupbutton').bind('click', evalGuess);
+    
+    $('#resetbutton').click(function() {
+           window.location.reload();
+            
+        });
     
     
     
@@ -418,6 +547,4 @@ window.onclick = function(event) {
         pop3.style.display = "none";
     }
 };
-
-
 };

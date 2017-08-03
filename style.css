@@ -83,12 +83,21 @@ ellipse.selected, polygon.selected {
 
 th.signtitle {
     text-transform: capitalize;
+   /* text-align:;*/
+   vertical-align: middle;
     /* vertical-align: ;*/
     padding-right: 1em;
 }
 
 video.signvideo {
     max-width: 100%;
+}
+table, th, td {
+   border-collapse: collapse; 
+}
+.variantdiv {
+    background:lightgrey;
+    padding:20px;
 }
 
 noscript div {
