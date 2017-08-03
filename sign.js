@@ -97,7 +97,7 @@ function parsePositionXYZ(loc) {
     else if (loc in sideregions.regions) {
 	    result = sideregions.regions[loc]['xyz'].slice();
     }
-    // Set Z, if not done already
+    // Set Z, if not done already (defaults to 0)
     if (result.length === 2) {
 	    result.push(0);
     }
@@ -205,10 +205,10 @@ function cmpVec3(v1, v2, tolerance) {
     return diff;
 }    
 
-function comparePositions(pos1, pos2) {
+function comparePositions(pos1, pos2, tolerance) {
     var pt1 = parsePositionXYZ(pos1, false);
     var pt2 = parsePositionXYZ(pos2, false);
-    return cmpVec3(pt1, pt2, 2);
+    return cmpVec3(pt1, pt2, tolerance);
 }
 
 function compareSigns(sign1, sign2) {
@@ -238,10 +238,24 @@ function compareSigns(sign1, sign2) {
 	
 
 	// Compare positions
-	for (end = 0; end < 2; end++) {
-	    result += comparePositions(sign1.position[end],
-				       sign2.position[end]);
+	// Starting position has a big tolerance, and differences matter less
+    var startWeight = 2.0;
+    result += comparePositions(sign1.position[0], sign2.position[0], 8) / startWeight;
+	if (result >= CLEARLY_DIFFERENT / startWeight) {
+	    result = CLEARLY_DIFFERENT;
 	}
+	
+	// Ending position defaults to starting position
+	var endpos1 = sign1.position[1];
+	if (endpos1.includes(undefined)) {
+	    endpos1 = sign1.position[0];
+	}
+	var endpos2 = sign2.position[1];
+	if (endpos2.includes(undefined)) {
+	    endpos2 = sign2.position[0];
+	}
+    result += comparePositions(endpos1, endpos2, 4);
+
 
 	// Compare palm faces
 	if (sign1.palmface !== sign2.palmface) {
