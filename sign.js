@@ -246,12 +246,13 @@ function compareSigns(sign1, sign2) {
 	}
 	
 	// Ending position defaults to starting position
+	// Changed if statements: includes cannot search for undefined
 	var endpos1 = sign1.position[1];
-	if (endpos1.includes(undefined)) {
+	if (endpos1 == undefined) {
 	    endpos1 = sign1.position[0];
 	}
 	var endpos2 = sign2.position[1];
-	if (endpos2.includes(undefined)) {
+	if (endpos2 == undefined) {
 	    endpos2 = sign2.position[0];
 	}
     result += comparePositions(endpos1, endpos2, 4);
