@@ -171,9 +171,14 @@ function makeSignRow(sign) {
     signSrc.src = video_path + sign.video.replace('#', '%23');
     signSrc.type = 'video/mp4';
     
+    
     var signVid = document.createElement('video');
     signVid.id = sign.sign + '-video';
     signVid.className = 'signvideo';
+   // signVid.mouseover = 'playPause(this)';
+    $("video").attr('onmouseover', 'playPause(this)');
+    
+    
     signVid.appendChild(signSrc);
     $(signVid).attr('controls', 'on');
 
@@ -204,7 +209,7 @@ function showSigns(signsToShow) {
             var variantcontain = document.createElement('div');
             variantcontain.id = item.sign.replace(/\s/g, '') + '-div';
             variantcontain.className = "variantdiv";
-            $('#results').append(variantcontain)
+            $('#results').append(variantcontain);
             
             var signIndex = item.sign.indexOf(": ");
             var slice = item.sign.slice(0, signIndex);
@@ -235,6 +240,15 @@ function showSigns(signsToShow) {
 	       $('#results').append(makeSignRow(item));
         }
     });
+}
+
+function playPause(video) {
+
+    if (video.paused) {
+        video.play();
+    } else {
+        video.pause();
+    }
 }
 
 
@@ -280,8 +294,7 @@ function evalGuess() {
         nextbtn.innerHTML = "Next page -->";
         
         $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
-        
-        
+ 
         // Clicking next page button
         nextbtn.addEventListener ("click", function() {
                 $('html, body').animate({
@@ -320,8 +333,6 @@ function evalGuess() {
                console.log(currentpage);
 
                 var prevpage = possibles.slice(num, prevnum);
-                
-                console.log(prevpage);
                 
                 num = prevnum;
                 showSigns(prevpage);
@@ -432,7 +443,9 @@ $(document).ready( function() {
     $('#resetbutton').click(function() {
            window.location.reload();
             
-        });
+    });
+
+
     
     
 

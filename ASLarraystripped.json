@@ -14168,402 +14168,134 @@
     },
     "position": []
   },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        12,
-        12
-      ]
-    ],
-    "hands": 1,
-    "video": "tomorrow.mp4",
-    "sign": "TOMORROW",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        12,
-        12
-      ]
-    ],
-    "hands": 1,
-    "video": "yesterday.mp4",
-    "sign": "YESTERDAY",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        82,
-        35
-      ],
-      [
-        82,
-        35
-      ]
-    ],
-    "hands": 2,
-    "video": "expand.mp4",
-    "sign": "EXPAND",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          4,
-          35
-        ],
-        [
-          51,
-          null
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "experience.mp4",
-    "sign": "EXPERIENCE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        39,
-        51
-      ]
-    ],
-    "hands": 1,
-    "video": "peach.mp4",
-    "sign": "PEACH",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          61,
-          43
-        ],
-        [
-          61,
-          43
-        ]
-      ],
-      [
-        [
-          61,
-          43
-        ],
-        [
-          61,
-          43
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "experiment.mp4",
-    "sign": "EXPERIMENT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          61,
-          43
-        ],
-        [
-          61,
-          43
-        ]
-      ],
-      [
-        [
-          61,
-          43
-        ],
-        [
-          61,
-          43
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "evaluate.mp4",
-    "sign": "EVALUATE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          14,
-          82
-        ],
-        [
-          4,
-          35
-        ]
-      ],
-      [
-        [
-          14,
-          82
-        ],
-        [
-          4,
-          35
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "express.mp4",
-    "sign": "EXPRESS",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          14,
-          82
-        ],
-        [
-          4,
-          null
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "poem.mp4",
-    "sign": "POEM",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          1,
-          60
-        ],
-        [
-          1,
-          60
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "eyebrow.mp4",
-    "sign": "EYEBROW",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          45,
-          3
-        ],
-        [
-          3,
-          3
-        ]
-      ],
-      [
-        [
-          45,
-          3
-        ],
-        [
-          3,
-          3
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "eyelashes.mp4",
-    "sign": "EYELASHES",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          22,
-          1
-        ],
-        [
-          22,
-          1
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "eyes.mp4",
-    "sign": "EYES",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        44,
-        44
-      ]
-    ],
-    "hands": 1,
-    "video": "f.mp4",
-    "sign": "F",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          2,
-          77
-        ],
-        [
-          75,
-          76
-        ]
-      ],
-      [
-        [
-          2,
-          77
-        ],
-        [
-          75,
-          76
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "cut-fabric.mp4",
-    "sign": "CUT-FABRIC",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          80,
-          79
-        ],
-        [
-          80,
-          79
-        ]
-      ],
-      [
-        [
-          80,
-          79
-        ],
-        [
-          80,
-          79
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "facial-expression.mp4",
-    "sign": "FACIAL-EXPRESSION",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 1,
-    "video": "so-so.mp4",
-    "sign": "SO-SO",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
+  
+{"palmface": "inward",
+ "handshape": [[12,12]],
+ "hands": 1,
+ "video": "tomorrow.mp4",
+ "sign": "TOMORROW",
+ "motion": {"dir": [0, -1, 1], "type": "single"},
+ "position": ["R-cheek", "chin-area"]},
+  
+{"palmface": "forward",
+ "handshape": [[12,12]],
+ "hands": 1,
+ "video": "yesterday.mp4",
+ "sign": "YESTERDAY",
+ "motion": {"dir": [1, 1, 0], "type": "plural"},
+ "position": ["chin", "R-cheek"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[82,35],[82,35]],
+ "hands": 2,
+ "video": "expand.mp4",
+ "sign": "EXPAND",
+ "motion": {"dir": [1, 1, 0], "type": "single"},
+ "position": ["chest", "R-shoulder"]},
+  
+{"palmface": "inward",
+ "handshape": [[[4,35],[51,null]]],
+ "hands": 1,
+ "video": "experience.mp4",
+ "sign": "EXPERIENCE",
+ "motion": {"dir": [1, -1, 0], "type": "repeated"},
+ "position": ["R-cheek", "R-cheek"]},
+  
+{"palmface": "inward",
+ "handshape": [[39,51]],
+ "hands": 1,
+ "video": "peach.mp4",
+ "sign": "PEACH",
+ "motion": {"dir": [0, 1, 0], "type": "repeated"},
+ "position": ["above-right-shoulder", "R-cheek"]},
+  
+{"palmface": "forward",
+ "handshape": [[[61,43],[61,43]],[[61,43],[61,43]]],
+ "hands": 2,
+ "video": "experiment.mp4",
+ "sign": "EXPERIMENT",
+ "motion": {"dir": [1, 0, 0], "type": "circle"},
+ "position": ["chest", "chest"]},
+  
+{"palmface": "forward",
+ "handshape": [[[61,43],[61,43]],[[61,43],[61,43]]],
+ "hands": 2,
+ "video": "evaluate.mp4",
+ "sign": "EVALUATE",
+ "motion": {"dir": [1, -1, 0], "type": "repeated"},
+ "position": ["above-right-shoulder", "chest"]},
+  
+{"palmface": "inward",
+ "handshape": [[[14,82],[4,35]],[[14,82],[4,35]]],
+ "hands": 2,
+ "video": "express.mp4",
+ "sign": "EXPRESS",
+ "motion": {"dir": [0, 1, 1], "type": "single"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[[14,82],[4,null]]],
+ "hands": 1,
+ "video": "poem.mp4",
+ "sign": "POEM",
+ "motion": {"dir": [0, 0, 1], "type": "single"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[[1,60],[1,60]]],
+ "hands": 1,
+ "video": "eyebrow.mp4",
+ "sign": "EYEBROW",
+ "motion": {"dir": [1, 1, 0], "type": "repeated"},
+ "position": ["R-eye", "R-eye"]},
+  
+{"palmface": "down",
+ "handshape": [[[45,3],[3,3]],[[45,3],[3,3]]],
+ "hands": 2,
+ "video": "eyelashes.mp4",
+ "sign": "EYELASHES",
+ "motion": {"dir": [0, 1, 0], "type": "change"},
+ "position": ["R-eye", "R-eye"]},
+  
+{"palmface": "inward",
+ "handshape": [[[22,1],[22,1]]],
+ "hands": 1,
+ "video": "eyes.mp4",
+ "sign": "EYES",
+ "motion": {"dir": [-1, 1, 0], "type": "single"},
+ "position": ["R-cheek", "L-cheek"]},
+  
+{"palmface": "forward",
+ "handshape": [[44,44]],
+ "hands": 1,
+ "video": "f.mp4",
+ "sign": "F",
+ "motion": {"dir": [0, 0, 1], "type": "single"}, 
+ "position": [0, 0]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[[2,77],[75,76]],[[2,77],[75,76]]],
+ "hands": 2,
+ "video": "cut-fabric.mp4",
+ "sign": "CUT-FABRIC",
+ "motion": {"dir": [0, 1, 1], "type": "plural"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[[80,79],[80,79]],[[80,79],[80,79]]],
+ "hands": 2,
+ "video": "facial-expression.mp4",
+ "sign": "FACIAL-EXPRESSION",
+ "motion": {"dir": [1, 1, 0], "type": "repeated"},
+ "position": ["R-temple", "R-cheek"]},
+  
+{"palmface": "horizontal",
+ "handshape": [[4,4]],
+ "hands": 1,
+ "video": "so-so.mp4",
+ "sign": "SO-SO",
+ "motion": {"dir": [0, 1, 1], "type": "single"},
+ "position": ["chest-front", "chest-front"]},
 
 {"palmface": "towards-palm",
 "handshape":[[1,1],[[18,46],[18,46]]],
@@ -14573,1209 +14305,461 @@
 "motion":{"dir":[0,-1, 1],"type":"plural"},
 "position":["chin", "chest-front"]},
 
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        1,
-        1
-      ]
-    ],
-    "hands": 1,
-    "video": "false.mp4",
-    "sign": "FALSE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        22,
-        22
-      ]
-    ],
-    "hands": 1,
-    "video": "falsehood.mp4",
-    "sign": "FALSEHOOD",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        44,
-        44
-      ],
-      [
-        44,
-        44
-      ]
-    ],
-    "hands": 2,
-    "video": "family.mp4",
-    "sign": "FAMILY",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        72,
-        72
-      ],
-      [
-        72,
-        72
-      ]
-    ],
-    "hands": 2,
-    "video": "team.mp4",
-    "sign": "TEAM",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        53,
-        53
-      ],
-      [
-        53,
-        53
-      ]
-    ],
-    "hands": 2,
-    "video": "group.mp4",
-    "sign": "GROUP",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          35,
-          30
-        ],
-        [
-          35,
-          30
-        ]
-      ],
-      [
-        [
-          35,
-          30
-        ],
-        [
-          35,
-          30
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "group-together.mp4",
-    "sign": "GROUP-TOGETHER",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          14,
-          12
-        ],
-        [
-          14,
-          12
-        ]
-      ],
-      [
-        [
-          14,
-          12
-        ],
-        [
-          14,
-          12
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "association.mp4",
-    "sign": "ASSOCIATION",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        82,
-        82
-      ],
-      [
-        82,
-        82
-      ]
-    ],
-    "hands": 2,
-    "video": "society.mp4",
-    "sign": "SOCIETY",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        42,
-        42
-      ],
-      [
-        42,
-        42
-      ]
-    ],
-    "hands": 2,
-    "video": "department.mp4",
-    "sign": "DEPARTMENT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        65,
-        65
-      ],
-      [
-        65,
-        65
-      ]
-    ],
-    "hands": 2,
-    "video": "organization.mp4",
-    "sign": "ORGANIZATION",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        82
-      ],
-      [
-        4,
-        82
-      ]
-    ],
-    "hands": 2,
-    "video": "very-fast.mp4",
-    "sign": "VERY-FAST",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        60,
-        59
-      ],
-      [
-        60,
-        59
-      ]
-    ],
-    "hands": 2,
-    "video": "fast3.mp4",
-    "sign": "FAST",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        44,
-        44
-      ]
-    ],
-    "hands": 1,
-    "video": "fasting.mp4",
-    "sign": "FASTING",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          4,
-          35
-        ],
-        [
-          4,
-          35
-        ]
-      ],
-      [
-        [
-          4,
-          35
-        ],
-        [
-          4,
-          35
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "become-fat.mp4",
-    "sign": "BECOME-FAT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 1,
-    "video": "favorite-prefer.mp4",
-    "sign": "FAVORITE-PREFER",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 1,
-    "video": "taste.mp4",
-    "sign": "TASTE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 1,
-    "video": "lucky.mp4",
-    "sign": "LUCKY",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        51,
-        14
-      ],
-      [
-        51,
-        14
-      ]
-    ],
-    "hands": 2,
-    "video": "pay-spend.mp4",
-    "sign": "PAY-SPEND",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ],
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 2,
-    "video": "concern.mp4",
-    "sign": "CONCERN",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ],
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 2,
-    "video": "excited.mp4",
-    "sign": "EXCITED",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ],
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 2,
-    "video": "thrill-what's-up.mp4",
-    "sign": "THRILL-WHAT'S-UP",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ],
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 2,
-    "video": "light-weight.mp4",
-    "sign": "LIGHT-WEIGHT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        13,
-        13
-      ]
-    ],
-    "hands": 1,
-    "video": "sensitive.mp4",
-    "sign": "SENSITIVE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        3,
-        3
-      ],
-      [
-        3,
-        3
-      ]
-    ],
-    "hands": 2,
-    "video": "fence.mp4",
-    "sign": "FENCE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        3,
-        3
-      ],
-      [
-        3,
-        3
-      ]
-    ],
-    "hands": 2,
-    "video": "net.mp4",
-    "sign": "NET",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        20,
-        20
-      ],
-      [
-        92,
-        92
-      ]
-    ],
-    "hands": 2,
-    "video": "take-break.mp4",
-    "sign": "TAKE-BREAK",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          67,
-          66,
-          4
-        ],
-        [
-          44,
-          10,
-          null
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "find-find-out.mp4",
-    "sign": "FIND-FIND-OUT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          67,
-          66,
-          4
-        ],
-        [
-          44,
-          10,
-          null
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "pick-choose.mp4",
-    "sign": "PICK-CHOOSE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 1,
-    "video": "fine.mp4",
-    "sign": "FINE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 1,
-    "video": "polite.mp4",
-    "sign": "POLITE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 1,
-    "video": "fancy.mp4",
-    "sign": "FANCY",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        1
-      ]
-    ],
-    "hands": 2,
-    "video": "finger.mp4",
-    "sign": "FINGER",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ],
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 2,
-    "video": "fingers.mp4",
-    "sign": "FINGERS",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          35,
-          4
-        ],
-        [
-          35,
-          4
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "fingerspell.mp4",
-    "sign": "FINGERSPELL",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 1,
-    "video": "spell.mp4",
-    "sign": "SPELL",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        35,
-        35
-      ]
-    ],
-    "hands": 1,
-    "video": "cashier.mp4",
-    "sign": "CASHIER",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        35,
-        35
-      ],
-      [
-        18,
-        18
-      ]
-    ],
-    "hands": 2,
-    "video": "calculator.mp4",
-    "sign": "CALCULATOR",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        79,
-        79
-      ]
-    ],
-    "hands": 1,
-    "video": "ns-nat-finland.mp4",
-    "sign": "ns-nat-FINLAND",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          20,
-          19
-        ],
-        [
-          20,
-          19
-        ]
-      ]
-    ],
-    "hands": 1,
-    "video": "fireman.mp4",
-    "sign": "FIREMAN",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        82,
-        82
-      ]
-    ],
-    "hands": 1,
-    "video": "fist.mp4",
-    "sign": "FIST",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        82,
-        82
-      ]
-    ],
-    "hands": 1,
-    "video": "punch.mp4",
-    "sign": "PUNCH",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          35,
-          39
-        ],
-        [
-          35,
-          39
-        ]
-      ],
-      [
-        [
-          1,
-          42
-        ],
-        [
-          1,
-          42
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "video-camera.mp4",
-    "sign": "VIDEO-CAMERA",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        59,
-        59
-      ]
-    ],
-    "hands": 1,
-    "video": "flashlight1.mp4",
-    "sign": "FLASHLIGHT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        6,
-        5
-      ]
-    ],
-    "hands": 1,
-    "video": "flashlight2.mp4",
-    "sign": "FLASHLIGHT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        51,
-        51
-      ],
-      [
-        51,
-        51
-      ]
-    ],
-    "hands": 2,
-    "video": "flexible.mp4",
-    "sign": "FLEXIBLE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        1,
-        1
-      ],
-      [
-        51,
-        51
-      ]
-    ],
-    "hands": 2,
-    "video": "loose.mp4",
-    "sign": "LOOSE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        51,
-        51
-      ]
-    ],
-    "hands": 1,
-    "video": "flip-over.mp4",
-    "sign": "FLIP-OVER",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        51,
-        51
-      ],
-      [
-        18,
-        18
-      ]
-    ],
-    "hands": 2,
-    "video": "turn-page1.mp4",
-    "sign": "TURN-PAGE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        51,
-        51
-      ],
-      [
-        18,
-        18
-      ]
-    ],
-    "hands": 2,
-    "video": "turn-page2.mp4",
-    "sign": "TURN-PAGE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ],
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 2,
-    "video": "water-rise.mp4",
-    "sign": "WATER-RISE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        4,
-        4
-      ],
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 2,
-    "video": "float.mp4",
-    "sign": "FLOAT",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        3,
-        3
-      ],
-      [
-        3,
-        3
-      ]
-    ],
-    "hands": 2,
-    "video": "flow.mp4",
-    "sign": "FLOW",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          58,
-          77
-        ],
-        [
-          58,
-          77
-        ]
-      ],
-      [
-        18,
-        18
-      ]
-    ],
-    "hands": 2,
-    "video": "fail.mp4",
-    "sign": "FAIL",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        44,
-        44
-      ],
-      [
-        18,
-        18
-      ]
-    ],
-    "hands": 2,
-    "video": "flunk.mp4",
-    "sign": "FLUNK",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        67,
-        44
-      ],
-      [
-        4,
-        4
-      ]
-    ],
-    "hands": 2,
-    "video": "choose.mp4",
-    "sign": "CHOOSE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        [
-          79,
-          80
-        ],
-        [
-          79,
-          80
-        ]
-      ],
-      [
-        [
-          79,
-          80
-        ],
-        [
-          79,
-          80
-        ]
-      ]
-    ],
-    "hands": 2,
-    "video": "fly-kite.mp4",
-    "sign": "FLY-KITE",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
-  {
-    "palmface": "",
-    "handshape": [
-      [
-        18,
-        24
-      ],
-      [
-        18,
-        24
-      ]
-    ],
-    "hands": 2,
-    "video": "fly-by-wings.mp4",
-    "sign": "FLY-BY-WINGS",
-    "motion": {
-      "dir": [],
-      "type": ""
-    },
-    "position": []
-  },
+{"palmface": "horizontal",
+ "handshape": [[1,1]],
+ "hands": 1,
+ "video": "false.mp4",
+ "sign": "FALSE",
+ "motion": {"dir": [-1, -1, 0], "type": "single"},
+ "position": ["above-right-shoulder", "chest-front"]},
+  
+{"palmface": "down",
+ "handshape": [[22,22]],
+ "hands": 1,
+ "video": "falsehood.mp4",
+ "sign": "FALSEHOOD",
+ "motion": {"dir": [-1, 1, 0], "type": "single"},
+ "position": ["R-shoulder", "L-shoulder"]},
+  
+{"palmface": "forward",
+ "handshape": [[44,44],[44,44]],
+ "hands": 2,
+ "video": "family.mp4",
+ "sign": "FAMILY",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "forward",
+ "handshape": [[72,72],[72,72]],
+ "hands": 2,
+ "video": "team.mp4",
+ "sign": "TEAM",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[53,53],[53,53]],
+ "hands": 2,
+ "video": "group.mp4",
+ "sign": "GROUP",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "forward",
+ "handshape": [[[35,30],[35,30]],[[35,30],[35,30]]],
+ "hands": 2,
+ "video": "group-together.mp4", 
+ "sign": "GROUP-TOGETHER",
+ "motion": {"dir": [0, 1, 1], "type": "single"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[[14,12],[14,12]],[[14,12],[14,12]]],
+ "hands": 2,
+ "video": "association.mp4",
+ "sign": "ASSOCIATION",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "forward",
+ "handshape": [[82,82],[82,82]],
+ "hands": 2,
+ "video": "society.mp4",
+ "sign": "SOCIETY",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[42,42],[42,42]],
+ "hands": 2,
+ "video": "department.mp4",
+ "sign": "DEPARTMENT",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "forward",
+ "handshape": [[65,65],[65,65]],
+ "hands": 2,
+ "video": "organization.mp4",
+ "sign": "ORGANIZATION",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[4,82],[4,82]],
+ "hands": 2,
+ "video": "very-fast.mp4",
+ "sign": "VERY-FAST",
+ "motion": {"dir": [0, 1, -1], "type": "single"},
+ "position": ["chest-front", "chest"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[60,59],[60,59]],
+ "hands": 2,
+ "video": "fast3.mp4",
+ "sign": "FAST",
+ "motion": {"dir": [0, 0, -1], "type": "single"},
+ "position": ["chest-front", "chest"]},
+  
+{"palmface": "horizontal",
+ "handshape": [[44,44]],
+ "hands": 1,
+ "video": "fasting.mp4",
+ "sign": "FASTING",
+ "motion": {"dir": [-1, 1, 0], "type": "single"},
+ "position": ["L-cheek", "R-cheek"]},
+  
+{"palmface": "inward",
+ "handshape": [[[4,35],[4,35]],[[4,35],[4,35]]],
+ "hands": 2,
+ "video": "become-fat.mp4",
+ "sign": "BECOME-FAT",
+ "motion": {"dir": [0, -1, 1], "type": "single"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[13,13]],
+ "hands": 1,
+ "video": "favorite-prefer.mp4",
+ "sign": "FAVORITE-PREFER",
+ "motion": {"dir": [0, 1, 0], "type": "repeated"},
+ "position": ["chin", "chin"]},
+  
+{"palmface": "inward",
+ "handshape": [[13,13]],
+ "hands": 1,
+ "video": "taste.mp4",
+ "sign": "TASTE",
+ "motion": {"dir": [0, 1, 0], "type": "repeated"},
+ "position": ["chin", "chin"]},
+  
+{"palmface": "inward",
+ "handshape": [[13,13]],
+ "hands": 1,
+ "video": "lucky.mp4",
+ "sign": "LUCKY",
+ "motion": {"dir": [0, -1, 1], "type": "single"},
+ "position": ["chin", "chest-front"]},
+  
+{"palmface": "up",
+ "handshape": [[51,14],[51,14]],
+ "hands": 2,
+ "video": "pay-spend.mp4",
+ "sign": "PAY-SPEND",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[13,13],[13,13]],
+ "hands": 2,
+ "video": "concern.mp4", 
+ "sign": "CONCERN",
+ "motion": {"dir": [0, 1, -1], "type": "repeated"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[13,13],[13,13]],
+ "hands": 2,
+ "video": "excited.mp4",
+ "sign": "EXCITED",
+ "motion": {"dir": [0, 1, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "down",
+ "handshape": [[13,13],[13,13]],
+ "hands": 2,
+ "video": "thrill-what's-up.mp4",
+ "sign": "THRILL-WHAT'S-UP",
+ "motion": {"dir": [0, 1, 1], "type": "change"},
+ "position": ["R-shoulder", "above-right-shoulder"]},
+  
+{"palmface": "up",
+ "handshape": [[13,13],[13,13]],
+ "hands": 2,
+ "video": "light-weight.mp4",
+ "sign": "LIGHT-WEIGHT",
+ "motion": {"dir": [0, 1, 1], "type": "change"},
+ "position": ["stomach", "R-shoulder"]},
+  
+{"palmface": "inward",
+ "handshape": [[13,13]],
+ "hands": 1,
+ "video": "sensitive.mp4", 
+ "sign": "SENSITIVE", 
+ "motion": {"dir": [0, -1, 0], "type": "single"},
+ "position": ["chest", "stomach"]},
+  
+{"palmface": "inward",
+ "handshape": [[3,3],[3,3]],
+ "hands": 2,
+ "video": "fence.mp4",
+ "sign": "FENCE",
+ "motion": {"dir": [1, 0, 1], "type": "single"},
+ "position": ["chest-front", "right"]},
+  
+{"palmface": "inward",
+ "handshape": [[3,3],[3,3]],
+ "hands": 2,
+ "video": "net.mp4", 
+ "sign": "NET",
+ "motion": {"dir": [1, 1, 0], "type": "single"},
+ "position": ["chest-front", "right"]},
+  
+{"palmface": "down",
+ "handshape": [[20,20],[92,92]],
+ "hands": 2,
+ "video": "take-break.mp4",
+ "sign": "TAKE-BREAK",
+ "motion": {"dir": [-1, 0, 1], "type": "single"},
+ "position": ["chest", "chest"]},
+  
+{"palmface": "down",
+ "handshape": [[[67,66,4],[44,10,null]]],
+ "hands": 1,
+ "video": "find-find-out.mp4",
+ "sign": "FIND-FIND-OUT",
+ "motion": {"dir": [0, 1, 0], "type": "single"},
+ "position": ["stomach", "chest"]},
+  
+{"palmface": "forward",
+ "handshape": [[[67,66,4],[44,10,null]]],
+ "hands": 1,
+ "video": "pick-choose.mp4",
+ "sign": "PICK-CHOOSE",
+ "motion": {"dir": [0, 1, -1], "type": "single"},
+ "position": ["chest-front", "chest"]},
+  
+{"palmface": "down",
+ "handshape": [[4,4]],
+ "hands": 1,
+ "video": "fine.mp4",
+ "sign": "FINE",
+ "motion": {"dir": [0, 1, -1], "type": "repeated"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "horizontal",
+ "handshape": [[4,4]],
+ "hands": 1,
+ "video": "polite.mp4",
+ "sign": "POLITE",
+ "motion": {"dir": [0, 0, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "horizontal",
+ "handshape": [[4,4]],
+ "hands": 1,
+ "video": "fancy.mp4",
+ "sign": "FANCY",
+ "motion": {"dir": [0, 0, 1], "type": "circle"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "down",
+ "handshape": [[1,1],[1,1]],
+ "hands": 1.5,
+ "video": "finger.mp4",
+ "sign": "FINGER",
+ "motion": {"dir": [0, 0, 1], "type": "repeated"},
+ "position": ["hand", "hand"]},
+  
+{"palmface": "inward",
+ "handshape": [[4,4],[4,4]],
+ "hands": 2,
+ "video": "fingers.mp4",
+ "sign": "FINGERS",
+ "motion": {"dir": [0, 1, 1], "type": "plural"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "down",
+ "handshape": [[[35,4],[35,4]]],
+ "hands": 1,
+ "video": "fingerspell.mp4",
+ "sign": "FINGERSPELL",
+ "motion": {"dir": [0, 0, 1], "type": "circle"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "down",
+ "handshape": [[4,4]],
+ "hands": 1,
+ "video": "spell.mp4",
+ "sign": "SPELL",
+ "motion": {"dir": [1, 0, 1], "type": "single"},
+ "position": ["chest-front", "chest-front"]},
+
+{"palmface": "down",
+ "handshape": [[35,35]],
+ "hands": 1,
+ "video": "cashier.mp4",
+ "sign": "CASHIER",
+ "motion": {"dir": [1, 0, 1], "type": "repeated"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[35,35],[18,18]],
+ "hands": 1.5,
+ "video": "calculator.mp4",
+ "sign": "CALCULATOR",
+ "motion": {"dir": [0, 0, 1], "type": "plural"},
+ "position": ["hand", "hand"]},
+  
+{"palmface": "inward",
+ "handshape": [[79,79]],
+ "hands": 1,
+ "video": "ns-nat-finland.mp4",
+ "sign": "ns-nat-FINLAND",
+ "motion": {"dir": [0, 1, -1], "type": "repeated"},
+ "position": ["chin", "chin"]},
+  
+{"palmface": "forward",
+ "handshape": [[[20,19],[20,19]]],
+ "hands": 1,
+ "video": "fireman.mp4",
+ "sign": "FIREMAN",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["forehead", "upper-area"]},
+  
+{"palmface": "inward",
+ "handshape": [[82,82]],
+ "hands": 1,
+ "video": "fist.mp4",
+ "sign": "FIST",
+ "motion": {"dir": [1, 1, 1], "type": "single"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[82,82]],
+ "hands": 1,
+ "video": "punch.mp4",
+ "sign": "PUNCH",
+ "motion": {"dir": [-1, 1, 0], "type": "single"},
+ "position": ["above-right-shoulder", "chest"]},
+  
+{"palmface": "forward",
+ "handshape": [[[35,39],[35,39]],[[1,42],[1,42]]],
+ "hands": 1.5,
+ "video": "video-camera.mp4",
+ "sign": "VIDEO-CAMERA",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "up",
+ "handshape": [[59,59]],
+ "hands": 1,
+ "video": "flashlight1.mp4",
+ "sign": "FLASHLIGHT",
+ "motion": {"dir": [-1, 1, 1], "type": "repeated"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "horizontal",
+ "handshape": [[6,5]],
+ "hands": 1,
+ "video": "flashlight2.mp4",
+ "sign": "FLASHLIGHT",
+ "motion": {"dir": [0, 1, 1], "type": "plural"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "inward",
+ "handshape": [[51,51],[51,51]],
+ "hands": 2,
+ "video": "flexible.mp4",
+ "sign": "FLEXIBLE",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["chest-front", "chest"]},
+  
+{"palmface": "inward",
+ "handshape": [[1,1],[51,51]],
+ "hands": 2,
+ "video": "loose.mp4",
+ "sign": "LOOSE",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["chest-front", "hand"]},
+  
+{"palmface": "down",
+ "handshape": [[51,51]],
+ "hands": 1,
+ "video": "flip-over.mp4",
+ "sign": "FLIP-OVER",
+ "motion": {"dir": [0, 0, 1], "type": "repeated"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "towards-palm",
+ "handshape": [[51,51],[18,18]],
+ "hands": 1.5,
+ "video": "turn-page1.mp4",
+ "sign": "TURN-PAGE",
+ "motion": {"dir": [0, 0, 1], "type": "single"},
+ "position": ["hand", "hand"]},
+  
+{"palmface": "down",
+ "handshape": [[51,51],[18,18]],
+ "hands": 1.5,
+ "video": "turn-page2.mp4",
+ "sign": "TURN-PAGE",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["hand", "hand"]},
+  
+{"palmface": "down",
+ "handshape": [[4,4],[4,4]],
+ "hands": 2,
+ "video": "water-rise.mp4",
+ "sign": "WATER-RISE",
+ "motion": {"dir": [1, 1, 1], "type": "single"},
+ "position": ["stomach", "high-right"]},
+  
+{"palmface": "down",
+ "handshape": [[4,4],[4,4]],
+ "hands": 2,
+ "video": "float.mp4",
+ "sign": "FLOAT",
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
+ "position": ["chest-front", "chest-front"]},
+  
+{"palmface": "down",
+ "handshape": [[3,3],[3,3]],
+ "hands": 2,
+ "video": "flow.mp4",
+ "sign": "FLOW",
+ "motion": {"dir": [1, 0, 1], "type": "single"},
+ "position": ["chest", "chest-front"]},
+  
+{"palmface": "up",
+ "handshape": [[[58,77],[58,77]],[18,18]],
+ "hands": 2,
+ "video": "fail.mp4",
+ "sign": "FAIL",
+ "motion": {"dir": [0, 1, 1], "type": "single"},
+ "position": ["hand", "chest-front"]},
+  
+{"palmface": "forward",
+ "handshape": [[44,44],[18,18]],
+ "hands": 1.5,
+ "video": "flunk.mp4",
+ "sign": "FLUNK",
+ "motion": {"dir": [-1, 0, 1], "type": "repeated"},
+ "position": ["right", "hand"]},
+
+{"palmface": "forward",
+ "handshape": [[67,44],[4,4]],
+ "hands": 1.5,
+ "video": "choose.mp4",
+ "sign": "CHOOSE",
+ "motion": {"dir": [0, 1, -1], "type": "single"},
+ "position": ["chest-front", "hand"]},
+  
+{"palmface": "up",
+ "handshape": [[[79,80],[79,80]],[[79,80],[79,80]]],
+ "hands": 2,
+ "video": "fly-kite.mp4",
+ "sign": "FLY-KITE",
+ "motion": {"dir": [-1, 1, 0], "type": "repeated"},
+ "position": ["above-right-shoulder", "upper-area"]},
+  
+{"palmface": "forward",
+ "handshape": [[18,24],[18,24]],
+ "hands": 2,
+ "video": "fly-by-wings.mp4",
+ "sign": "FLY-BY-WINGS",
+ "motion": {"dir": [1, 1, 1], "type": "plural"},
+ "position": ["above-right-shoulder", "high-right"]},
   
 {"palmface": "down",
  "handshape": [[[24,36,23],[18,24,null]],[[24,36,23],[18,24,36]]],
