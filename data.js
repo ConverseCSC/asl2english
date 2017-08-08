@@ -1114,7 +1114,7 @@ signs = [
 "video": "marry.mp4",
 "sign": "MARRY",
 "motion": {"dir": [-1, -1, 0], "type": "single"},
-"position": [0, 1, 0]},
+"position": ["chest-front", "hand"]},
  
 {"palmface": "horizontal",
 "handshape": [[[4,null],[4,35]]],

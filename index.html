@@ -126,18 +126,6 @@
 				<div id="movetypediv">
 					<label for="movetype">Type of movement:</label>
 					<select name="movetype" id="movetype">
-
-						
-						<!-- All can be used with one or both hands
-						
-						Decide whether it's worth making a distinction between repeated movements
-						and repeated movements moving in a certain direction (repeated vs plural)
-						
-						Find ways to describe single more clearly (pictures needed)
-						
-						Work in progress
-						
-						-->
 						
 						<option value="">&mdash;Select&mdash;</option>
 						<option value="none">None</option>
@@ -159,7 +147,7 @@
 		</fieldset>
 		<fieldset class="noborder">
 			<div id="resultnumdiv">
-				Results to display: <select name="displaynum" id="displaynum">
+				Results to display: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
 					<option value="5">5</option>
 					<option value="10">10</option>
 					<option value="15">15</option>

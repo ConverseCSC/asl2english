@@ -176,7 +176,8 @@ function makeSignRow(sign) {
     signVid.id = sign.sign + '-video';
     signVid.className = 'signvideo';
    // signVid.mouseover = 'playPause(this)';
-    $("video").attr('onmouseover', 'playPause(this)');
+    $("video").attr('onmouseenter', 'play(this)');
+    $("video").attr('onmouseout', 'pause(this)');
     
     
     signVid.appendChild(signSrc);
@@ -242,18 +243,25 @@ function showSigns(signsToShow) {
     });
 }
 
-function playPause(video) {
+function play(video) {
 
     if (video.paused) {
         video.play();
-    } else {
+    }
+}
+
+function pause(video) {
+
+    if (video.playing) {
         video.pause();
     }
 }
 
+var submit = false;
 
 
 function evalGuess() {
+    
     var guess = new Sign();
     //alert(JSON.stringify(guess));
     
@@ -267,16 +275,26 @@ function evalGuess() {
 	return a.diff - b.diff;
     })
     
-
-    // Display the possibilities
     var len = possibles.length;
     
     var numpages = len / $('#displaynum').val();
     numpages = Math.ceil(numpages);
     
+    displayResults(possibles, numpages);
+    
+    return possibles;
+
+}
+
+function displayResults(possibles, numpages){
+    // Display the possibilities
+    
+    submit = true;
+    
     var currentpage = 1;
     
     var prevbtn = document.createElement('button');
+    
 
     
     if (numpages == 1){
@@ -294,6 +312,9 @@ function evalGuess() {
         nextbtn.innerHTML = "Next page -->";
         
         $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
+        
+        
+
  
         // Clicking next page button
         nextbtn.addEventListener ("click", function() {
@@ -329,8 +350,6 @@ function evalGuess() {
                var prevnum = $('#displaynum').val();
                prevnum = parseInt(num) - parseInt(prevnum);
                num = parseInt(prevnum) - parseInt($('#displaynum').val());
-               
-               console.log(currentpage);
 
                 var prevpage = possibles.slice(num, prevnum);
                 
@@ -347,10 +366,25 @@ function evalGuess() {
                 $('#results').append('<p>' + currentpage + ' of ' + numpages + '</p>');
 
         });
-            
+    }
+    
+}
+
+function resultsUpdate(value){
+    if (submit == true) {
+        var possibles = evalGuess();
+        var len = possibles.length;
+    
+        var numpages = len / value;
+        numpages = Math.ceil(numpages);
+    
+    
+        displayResults(possibles, numpages);
         
     }
 }
+
+
 
 
 
@@ -385,33 +419,55 @@ $(document).ready( function() {
         var pop3 = document.getElementById('popup3');
         
         if (pop.style.display == "block"){
-            var image0 = handshapes[$('#hand0shape0').val()].img;
-            if (handshapes[$('#hand0shape1').val()] == undefined){
-                 $("#hand0shape1img").attr('src', image0);
+            if (handshapes[$('#hand0shape0').val()] == undefined){
+                 $("#hand0shape0img").attr('src', 'images/handshape-start.svg');  
             }
-            $("#hand0shape0img").attr('src', image0);
-            pop.style.display = "none";
+            else{
+                
+                var image0 = handshapes[$('#hand0shape0').val()].img;
+                if (handshapes[$('#hand0shape1').val()] == undefined){
+                    $("#hand0shape1img").attr('src', image0);
+                }
+                $("#hand0shape0img").attr('src', image0);
+            
+                pop.style.display = "none";
+            }
         }
         
          if (pop1.style.display == "block"){
-            var image1 = handshapes[$('#hand0shape1').val()].img;
-            $("#hand0shape1img").attr('src', image1);
-            pop1.style.display = "none";
+             if (handshapes[$('#hand0shape1').val()] == undefined){
+                 $("#hand0shape1img").attr('src', 'images/handshape-end.svg');  
+            }
+            else{
+                var image1 = handshapes[$('#hand0shape1').val()].img;
+                $("#hand0shape1img").attr('src', image1);
+                pop1.style.display = "none";
+            }
         }
         
         if (pop2.style.display == "block"){
-            var image2 = handshapes[$('#hand1shape0').val()].img;
-             if (handshapes[$('#hand1shape1').val()] == undefined){
-                 $("#hand1shape1img").attr('src', image2);
+            if (handshapes[$('#hand1shape0').val()] == undefined){
+                 $("#hand1shape0img").attr('src', 'images/handshape-start.svg');  
             }
-            $("#hand1shape0img").attr('src', image2);
-            pop2.style.display = "none";
+            else{
+                var image2 = handshapes[$('#hand1shape0').val()].img;
+                if (handshapes[$('#hand1shape1').val()] == undefined){
+                    $("#hand1shape1img").attr('src', image2);
+                }
+                $("#hand1shape0img").attr('src', image2);
+                pop2.style.display = "none";
+            }
         }
         
          if (pop3.style.display == "block"){
-            var image3 = handshapes[$('#hand1shape1').val()].img;
-            $("#hand1shape1img").attr('src', image3);
-            pop3.style.display = "none";
+             if (handshapes[$('#hand1shape1').val()] == undefined){
+                 $("#hand1shape1img").attr('src', 'images/handshape-end.svg');  
+            }
+            else{
+                var image3 = handshapes[$('#hand1shape1').val()].img;
+                $("#hand1shape1img").attr('src', image3);
+                pop3.style.display = "none";
+            }
         }
         
         
@@ -441,7 +497,27 @@ $(document).ready( function() {
     $('#lookupbutton').bind('click', evalGuess);
     
     $('#resetbutton').click(function() {
-           window.location.reload();
+          $('#results').empty();
+          $('#numhands').prop('selectedIndex',0);
+          $('#hand0shape0 option').prop('selected', false);
+          $('#hand0shape1 option').prop('selected', false);
+          $('#hand1shape0 option').prop('selected', false);
+          $('#hand1shape1 option').prop('selected', false);
+          
+         $('#hand0shape0li button img').prop('src', 'images/handshape-start.svg');
+         $('#hand0shape1li button img').prop('src', 'images/handshape-end.svg');
+         $('#hand1shape0li button img').prop('src', 'images/handshape-start.svg');
+         $('#hand1shape1li button img').prop('src', 'images/handshape-end.svg');
+         
+         
+         $('#palm option').prop('selectedIndex', 0);
+         
+         $('#locdiv input').prop('value', '');
+         $('.mark').remove();
+         
+         $('#movetype option').prop('selectedIndex', 0);
+         $('#displaynum option').prop('selectedIndex', 0);
+          
             
     });
 

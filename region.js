@@ -75,7 +75,10 @@ function markName(startp) {
 }
 
 function removeMarks(startp) {
+  //  console.log("[name='" + markName(startp) + "']");
+  //$('.mark').remove();
     $("[name='" + markName(startp) + "']").remove();
+    
 }
 
 function addMark(idx, elt) {
@@ -108,7 +111,7 @@ var handleImgClick = function(event) {
     var control = document.getElementById('loc' + $('#locstartend').val());
     if (control.value.length === 0 || targName !== control.value) {
         //var offset = $(event.target).offset();        
-       // console.log(targName + ': ' + $("[name='" + targName + "']").length);
+        //console.log(targName + ': ' + $("[name='" + targName + "']").length);
         //var center = getRegionCenter($(event.target)['0']);
         //console.log('center: ' + center + ' ' + center.x + ',' + center.y);
         //$(event.target).parent().append(makeMark(, center));
@@ -118,6 +121,7 @@ var handleImgClick = function(event) {
     }
     else {
 	    control.value = "";
+	   removeMarks(($('#locstartend').val() == 0));
     }
 };
 
