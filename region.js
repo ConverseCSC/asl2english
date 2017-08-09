@@ -24,27 +24,35 @@ function getRegionCenter(elt) {
     //console.log(elt);
     //console.log(elt['0']);
     //console.log('SVG: ' + elt.ownerSVGElement);
-    var pt = elt.ownerSVGElement.createSVGPoint();
-    //console.log(elt.tagName);
-    if (elt.tagName === "ellipse") { // Ellipse
-        pt.x = elt.getAttribute('cx');
-        pt.y = elt.getAttribute('cy');
-    }
-    else if (elt.tagName === "polygon") { // Polygon
-        pt.x = pt.y = 0;
-        //console.log(elt.points);
-        var numPts = elt.points.numberOfItems;
-        //var numPts = elt.points.length;
-        //console.log(numPts);
-        for (var i = 0; i < numPts; i++) {
-            var vertex = elt.points.getItem(i);
-           // console.log(vertex);
-            pt.x += vertex.x;
-            pt.y += vertex.y;
-        }
-        pt.x /= numPts;
-        pt.y /= numPts;
-    }
+    var svg = elt.ownerSVGElement;
+    var rect = elt.getBoundingClientRect();
+    var pt = svg.createSVGPoint();
+    var svgrect = svg.getBoundingClientRect();
+    //console.log(pt, rect, svgrect);
+    pt.x = rect.left - svgrect.left + rect.width/2;
+    pt.y = rect.top - svgrect.top + rect.height/2;
+
+    console.log(pt, rect, svgrect);
+    // //console.log(elt.tagName);
+    // if (elt.tagName === "ellipse") { // Ellipse
+    //     pt.x = elt.getAttribute('cx');
+    //     pt.y = elt.getAttribute('cy');
+    // }
+    // else if (elt.tagName === "polygon") { // Polygon
+    //     pt.x = pt.y = 0;
+    //     //console.log(elt.points);
+    //     var numPts = elt.points.numberOfItems;
+    //     //var numPts = elt.points.length;
+    //     //console.log(numPts);
+    //     for (var i = 0; i < numPts; i++) {
+    //         var vertex = elt.points.getItem(i);
+    //       // console.log(vertex);
+    //         pt.x += vertex.x;
+    //         pt.y += vertex.y;
+    //     }
+    //     pt.x /= numPts;
+    //     pt.y /= numPts;
+    // }
     
     return pt;
 }
