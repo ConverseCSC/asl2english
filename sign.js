@@ -239,7 +239,7 @@ function compareSigns(sign1, sign2) {
 
 	// Compare positions
 	// Starting position has a big tolerance, and differences matter less
-    var startWeight = 2.0;
+    var startWeight = 1;
     result += comparePositions(sign1.position[0], sign2.position[0], 8) / startWeight;
 	if (result >= CLEARLY_DIFFERENT / startWeight) {
 	    result = CLEARLY_DIFFERENT;
