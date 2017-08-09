@@ -2621,8 +2621,8 @@
       "type": "repeated"
     },
     "position": [
-      "cheek",
-      "cheek"
+      "R-cheek",
+      "R-cheek"
     ]
   },
   {
@@ -4380,7 +4380,7 @@
     },
     "position": [
       0,
-      "cheek"
+      "R-cheek"
     ]
   },
   {
@@ -4471,8 +4471,8 @@
       "type": "change"
     },
     "position": [
-      "cheek",
-      "cheek"
+      "R-cheek",
+      "R-cheek"
     ]
   },
   {
@@ -5756,7 +5756,7 @@
 "video":"brown.mp4",
 "sign":"BROWN",
 "motion":{"dir":[0,-1,0],"type":"single"},
-"position":["cheek","chin"]},
+"position":["R-cheek","chin"]},
 
   {
     "palmface": "forward",
@@ -6130,8 +6130,8 @@
       "type": "repeated"
     },
     "position": [
-      "cheek",
-      "cheek"
+      "R-cheek",
+      "R-cheek"
     ]
   },
   {
@@ -6589,7 +6589,7 @@
     },
     "position": [
       "forehead",
-      "cheek"
+      "R-cheek"
     ]
   },
   {
@@ -7408,8 +7408,8 @@
       "type": "repeated"
     },
     "position": [
-      "cheek",
-      "cheek"
+      "R-cheek",
+      "R-cheek"
     ]
   },
   {
@@ -11016,8 +11016,8 @@
       "type": "repeated"
     },
     "position": [
-      "cheek",
-      "cheek"
+      "R-cheek",
+      "R-cheek"
     ]
   },
   {
@@ -11504,8 +11504,8 @@
       "type": "repeated"
     },
     "position": [
-      "cheek",
-      "cheek"
+      "R-cheek",
+      "R-cheek"
     ]
   },
   
@@ -22555,7 +22555,7 @@
  "handshape": [[61, 61], [61, 61]],
  "video": "harmonica.mp4",
  "hands": 2,
- "position": ["mouth", "cheek"],
+ "position": ["mouth", "R-cheek"],
  "motion": {"type": "repeated", "dir": [1, 1, 0]},
  "sign": "HARMONICA"},
 
@@ -24239,7 +24239,7 @@
  "palmface": "down"}, 
  
  {"handshape": [[29, 29]],
- "position": ["mouth", "cheek"],
+ "position": ["mouth", "R-cheek"],
  "motion": {"type": "plural", "dir": [1, 0, 0]},
  "hands": 1,
  "sign": "THIEF",
@@ -24420,7 +24420,7 @@
  "palmface": "down"}, 
  
  {"handshape": [[3, 3], [3, 3]],
- "position": ["cheek", "cheek"],
+ "position": ["R-cheek", "R-cheek"],
  "motion": {"type": "plural", "dir": [0, 1, 0]},
  "hands": 2,
  "sign": "WHISKERS",
@@ -24732,7 +24732,7 @@
 
  
  {"handshape": [[18, 18], [18, 18]],
- "position": ["cheek", "chest-front"],
+ "position": ["R-cheek", "chest-front"],
  "motion": {"type": "change", "dir": [0, 1, 1]},
  "hands": 2,
  "sign": "BED+BOX-ROOM",
@@ -26023,7 +26023,7 @@
  "palmface": "inward"},
  
  {"handshape": [[[1, null], [82, 34]], [82, 82]],
- "position": ["R-cheek", "cheek"],
+ "position": ["R-ear", "above-right-shoulder"],
  "motion": {"type": "change", "dir": [1, -1, 0]},
  "hands": 2,
  "sign": "HEAR+RUMBLE",

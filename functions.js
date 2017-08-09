@@ -175,9 +175,11 @@ function makeSignRow(sign) {
     var signVid = document.createElement('video');
     signVid.id = sign.sign + '-video';
     signVid.className = 'signvideo';
-   // signVid.mouseover = 'playPause(this)';
-    $("video").attr('onmouseenter', 'play(this)');
-    $("video").attr('onmouseout', 'pause(this)');
+   // signVid.onmouseenter = 'play(this)';
+    //signVid.onmouseout = 'pause(this)';
+   //signVid.onmouseover(play(this)');
+  // $("video").attr('onmouseout', 'pause(this)');
+  // $("video").attr('onmouseenter', 'play(this)');
     
     
     signVid.appendChild(signSrc);
@@ -243,10 +245,13 @@ function showSigns(signsToShow) {
     });
 }
 
+
+
 function play(video) {
 
     if (video.paused) {
         video.play();
+
     }
 }
 
@@ -255,6 +260,7 @@ function pause(video) {
     if (video.playing) {
         video.pause();
     }
+
 }
 
 var submit = false;

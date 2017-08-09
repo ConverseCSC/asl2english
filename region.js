@@ -33,9 +33,12 @@ function getRegionCenter(elt) {
     else if (elt.tagName === "polygon") { // Polygon
         pt.x = pt.y = 0;
         //console.log(elt.points);
-        var numPts = elt.points.length;
+        var numPts = elt.points.numberOfItems;
+        //var numPts = elt.points.length;
+        //console.log(numPts);
         for (var i = 0; i < numPts; i++) {
             var vertex = elt.points.getItem(i);
+           // console.log(vertex);
             pt.x += vertex.x;
             pt.y += vertex.y;
         }
