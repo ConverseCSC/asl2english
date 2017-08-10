@@ -4135,7 +4135,7 @@ signs = [
  "video": "out.mp4",
  "hands": 2,
  "position": ["chest", "forehead"],
- "motion": {"type": "single","dir": [0, 1, 0]},
+ "motion": {"type": "single", "dir": [0, 1, -1]},
  "sign": "OUT"},
   
 {"palmface": "inward",
@@ -7989,9 +7989,9 @@ signs = [
 {"palmface": "inward",
  "handshape": [[82, 82], [82, 82]],
  "video": "year.mp4",
- "hands": 2,
+ "hands": 1.5,
  "position": ["chest", "stomach"],
- "motion": {"type": "circle", "dir": [0, -1, 0]},
+ "motion": {"type": "circle", "dir": [0, -1, 1]},
  "sign": "YEAR"},
   
 {"palmface": "inward",
@@ -8862,7 +8862,7 @@ signs = [
  "handshape": [[58, 58], [58, 58]],
  "video": "pilgrim.mp4",
  "hands": 2,
- "position": [0, 0],
+ "position": [0, "R-shoulder"],
  "motion": {"type": "single", "dir": [1, 1, 0]},
  "sign": "PILGRIM"},
   
@@ -8870,7 +8870,7 @@ signs = [
  "handshape": [[18, 18], [18, 18]],
  "video": "pope.mp4",
  "hands": 2,
- "position": ["chest", "above-right-shoulder"],
+ "position": ["chest", "upper-area"],
  "motion": {"type": "single", "dir": [0, 1, 0]},
  "sign": "POPE"},
   
@@ -8911,7 +8911,7 @@ signs = [
  "video": "calm-down.mp4",
  "hands": 2,
  "position": ["chest", "stomach"],
- "motion": {"type": "single", "dir": [0, -1, 0]},
+ "motion": {"type": "single", "dir": [0, -1, 1]},
  "sign": "CALM-DOWN"},
 
 {"palmface": "towards-palm",
@@ -9015,7 +9015,7 @@ signs = [
  "video": "vague.mp4",
  "hands": 2,
  "position": [0, 0],
- "motion": {"type": "repeated", "dir": [0, 0, 1]},
+ "motion": {"type": "circle", "dir": [0, 1, 1]},
  "sign": "VAGUE"},
 
 {"palmface": "down",
@@ -10503,12 +10503,12 @@ signs = [
  "palmface": "down"}, 
  
  {"handshape": [[1, 1]],
- "position": ["chin", "chest"],
- "motion": {"type": "single", "dir": [0, -1, 0]},
+ "position": ["chin", "chest-front"],
+ "motion": {"type": "single", "dir": [0, -1, 1]},
  "hands": 1,
  "sign": "REALLY",
  "video": "really.mp4",
- "palmface": "down"},
+ "palmface": "horizontal"},
  
  {"handshape": [[35, 35], [35, 35]],
  "position": [0, 0],
@@ -15259,7 +15259,7 @@ signs = [
 "hands": 2,
 "handshape": [[[18,36,36,30,36],[18,36,36,30,36]],[[18,36,36,30,36],[18,36,36,30,36]]],
 "video": "hamburger1.mp4",
-"motion": {"dir": [0, 0, 0], "type": "circle"},
+"motion": {"dir": [1, 1, 0], "type": "change"},
 "palmface": "towards-palm",
 "position": ["hand", "hand"]},
 
