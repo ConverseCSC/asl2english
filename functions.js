@@ -8,9 +8,11 @@
 // From data.js
 /* global handshapes */
 /* global shapegroups */
-/* global signs */
 /* global sideregions */
 /* global frontregions */
+
+// From signdata.js
+/* global signs */
 
 // From region.js
 /* global handleImgClick */
