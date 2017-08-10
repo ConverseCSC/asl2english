@@ -32,7 +32,7 @@ function getRegionCenter(elt) {
     pt.x = rect.left - svgrect.left + rect.width/2;
     pt.y = rect.top - svgrect.top + rect.height/2;
 
-    console.log(pt, rect, svgrect);
+    //console.log(pt, rect, svgrect);
     // //console.log(elt.tagName);
     // if (elt.tagName === "ellipse") { // Ellipse
     //     pt.x = elt.getAttribute('cx');

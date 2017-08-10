@@ -180,12 +180,12 @@ function makeSignRow(sign) {
    // signVid.onmouseenter = 'play(this)';
     //signVid.onmouseout = 'pause(this)';
    //signVid.onmouseover(play(this)');
-  // $("video").attr('onmouseout', 'pause(this)');
-  // $("video").attr('onmouseenter', 'play(this)');
     
     
     signVid.appendChild(signSrc);
     $(signVid).attr('controls', 'on');
+    $(signVid).attr('onmouseout', 'pause(this)');
+    $(signVid).attr('onmouseenter', 'play(this)');
 
     var td = document.createElement('td');
     td.appendChild(signVid);
@@ -249,21 +249,21 @@ function showSigns(signsToShow) {
 
 
 
-function play(video) {
+//function play(video) {
+   // console.log("play");
+    //if (video.paused) {
+    //    video.play();
 
-    if (video.paused) {
-        video.play();
+   // }
+//}
 
-    }
-}
+//function pause(video) {
+//    console.log("pause");
+   // if (video.playing) {
+   //     video.pause();
+   // }
 
-function pause(video) {
-
-    if (video.playing) {
-        video.pause();
-    }
-
-}
+//}
 
 var submit = false;
 

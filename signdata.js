@@ -86,7 +86,7 @@ signs = [
  "hands": 1,
  "video": "poem.mp4",
  "sign": "POEM",
- "motion": {"dir": [0, 0, 1], "type": "single"},
+ "motion": {"dir": [0, 0, 1], "type": "change"},
  "position": ["chest", "chest-front"]},
   
 {"palmface": "inward",
@@ -118,7 +118,7 @@ signs = [
  "hands": 1,
  "video": "f.mp4",
  "sign": "F",
- "motion": {"dir": [0, 0, 1], "type": "single"}, 
+ "motion": {"dir": [0, 0, 1], "type": "none"}, 
  "position": [0, 0]},
   
 {"palmface": "towards-palm",
@@ -142,7 +142,7 @@ signs = [
  "hands": 1,
  "video": "so-so.mp4",
  "sign": "SO-SO",
- "motion": {"dir": [0, 1, 1], "type": "single"},
+ "motion": {"dir": [0, 1, 1], "type": "repeated"},
  "position": ["chest-front", "chest-front"]},
 
 {"palmface": "towards-palm",
@@ -158,7 +158,7 @@ signs = [
  "hands": 1,
  "video": "false.mp4",
  "sign": "FALSE",
- "motion": {"dir": [-1, -1, 0], "type": "single"},
+ "motion": {"dir": [-1, -1, 0], "type": "repeated"},
  "position": ["above-right-shoulder", "chest-front"]},
   
 {"palmface": "down",
@@ -238,7 +238,7 @@ signs = [
  "hands": 2,
  "video": "very-fast.mp4",
  "sign": "VERY-FAST",
- "motion": {"dir": [0, 1, -1], "type": "single"},
+ "motion": {"dir": [0, 1, -1], "type": "change"},
  "position": ["chest-front", "chest"]},
   
 {"palmface": "towards-palm",
@@ -355,11 +355,11 @@ signs = [
   
 {"palmface": "down",
  "handshape": [[20,20],[92,92]],
- "hands": 2,
+ "hands": 1.5,
  "video": "take-break.mp4",
  "sign": "TAKE-BREAK",
  "motion": {"dir": [-1, 0, 1], "type": "single"},
- "position": ["chest", "chest"]},
+ "position": ["chest", "hand"]},
   
 {"palmface": "down",
  "handshape": [[[67,66,4],[44,10,null]]],
@@ -470,7 +470,7 @@ signs = [
  "hands": 1,
  "video": "fist.mp4",
  "sign": "FIST",
- "motion": {"dir": [1, 1, 1], "type": "single"},
+ "motion": {"dir": [1, 1, 1], "type": "none"},
  "position": ["chest-front", "chest-front"]},
   
 {"palmface": "inward",
@@ -566,12 +566,12 @@ signs = [
  "hands": 2,
  "video": "flow.mp4",
  "sign": "FLOW",
- "motion": {"dir": [1, 0, 1], "type": "single"},
+ "motion": {"dir": [1, 0, 1], "type": "repeated"},
  "position": ["chest", "chest-front"]},
   
 {"palmface": "up",
  "handshape": [[[58,77],[58,77]],[18,18]],
- "hands": 2,
+ "hands": 1.5,
  "video": "fail.mp4",
  "sign": "FAIL",
  "motion": {"dir": [0, 1, 1], "type": "single"},
@@ -654,7 +654,7 @@ signs = [
  "hands": 1,
  "video": "for-for.mp4",
  "sign": "FOR-FOR",
- "motion": {"dir": [-1, 1, 1], "type": "single"},
+ "motion": {"dir": [-1, 1, 1], "type": "repeated"},
  "position": ["temple", "upper-area"]},
   
 {"palmface": "towards-palm",
@@ -758,7 +758,7 @@ signs = [
  "hands": 2,
  "video": "measles.mp4",
  "sign": "MEASLES",
- "motion": {"dir": [0, 1, 0], "type": "single"},
+ "motion": {"dir": [0, 1, 0], "type": "plural"},
  "position": ["chin", "temple"]},
   
 {"palmface": "inward",
@@ -855,7 +855,7 @@ signs = [
  "video": "best-friend1.mp4",
  "sign": "BEST-FRIEND",
  "motion": {"dir": [0, -1, 1], "type": "single"},
- "position": ["chest", "chest-front"]},
+ "position": ["hand", "hand"]},
   
 {"palmface": "inward",
  "handshape": [[70,70]],
@@ -910,7 +910,7 @@ signs = [
  "hands": 2,
  "video": "eyebrow-frown.mp4",
  "sign": "EYEBROW-FROWN",
- "motion": {"dir": [-1, 1, 0], "type": "single"},
+ "motion": {"dir": [-1, 1, 0], "type": "change"},
  "position": ["high-right", "r-eye"]},
   
 {"palmface": "front",
@@ -1087,7 +1087,7 @@ signs = [
  "hands": 2,
  "video": "glasses2.mp4",
  "sign": "GLASSES",
- "motion": {"dir": [0, 1, -1], "type": "single"},
+ "motion": {"dir": [0, 1, -1], "type": "repeated"},
  "position": ["chin-area", "r-eye"]},
   
 {"palmface": "forward",
@@ -2735,8 +2735,8 @@ signs = [
  "hands": 1,
  "video": "library.mp4",
  "sign": "LIBRARY",
- "motion": {"dir": [0, 0, 1], "type": "single"},
- "position": ["chest", "chest-front"]},
+ "motion": {"dir": [0, 0, 0], "type": "circle"},
+ "position": ["chest-front", "chest-front"]},
   
 {"palmface": "forward",
  "handshape": [[60,60],[60,60]],
@@ -4935,7 +4935,7 @@ signs = [
  "video": "r.mp4",
  "hands": 1,
  "position": ["neck", "chin"],
- "motion": {"type": "single", "dir": [0, 1, 0]},
+ "motion": {"type": "none", "dir": [0, 1, 0]},
  "sign": "R"},
   
 {"palmface": "horizontal",
@@ -5015,7 +5015,7 @@ signs = [
  "video": "recent-past.mp4",
  "hands": 1,
  "position": ["chin-area", "chin"],
- "motion": {"type": "single", "dir": [0, 0, -1]},
+ "motion": {"type": "repeated", "dir": [0, 0, -1]},
  "sign": "RECENT-PAST"},
   
 {"palmface": "towards-palm",
@@ -5935,7 +5935,7 @@ signs = [
  "video": "ski.mp4",
  "hands": 2,
  "position": [0, 0],
- "motion": {"type": "single", "dir": [0, 0, 1]},
+ "motion": {"type": "repeated", "dir": [0, 0, 1]},
  "sign": "SKI"},
   
 {"palmface": "up",
@@ -5998,8 +5998,8 @@ signs = [
  "handshape": [[[82,14],[82,14]],[[82,14],[82,14]]],
  "video": "slave.mp4",
  "hands": 2,
- "position": [0, 0],
- "motion": {"type": "single", "dir": [-1, 1, 0]},
+ "position": ["wrist", "wrist"],
+ "motion": {"type": "repeated", "dir": [-1, 1, 0]},
  "sign": "SLAVE"},
   
 {"palmface": "inward",
@@ -6013,7 +6013,7 @@ signs = [
 {"palmface": "horizontal",
  "handshape": [[1,1],[51,51]],
  "video": "slice.mp4",
- "hands": 2,
+ "hands": 1.5,
  "position": ["chin", "chest"],
  "motion": {"type": "single", "dir": [0, -1, 1]},
  "sign": "SLICE"},
@@ -6045,7 +6045,7 @@ signs = [
 {"palmface": "inward",
  "handshape": [[18,18],[18,18]],
  "video": "slippery.mp4",
- "hands": 2,
+ "hands": 1.5,
  "position": ["chest", "chest-front"],
  "motion": {"type": "single", "dir": [0, 1, 1]},
  "sign": "SLIPPERY"},
@@ -8087,7 +8087,7 @@ signs = [
  "video": "dusting.mp4",
  "hands": 1,
  "position": [0, 0],
- "motion": {"type": "single", "dir": [1, 0, 0]},
+ "motion": {"type": "circle", "dir": [1, 0, 0]},
  "sign": "DUSTING"},
   
 {"palmface": "forward",
@@ -11614,7 +11614,7 @@ signs = [
  "hands": 1,
  "sign": "#OR",
  "video": "#or.mp4",
- "palmface": "foreward"},
+ "palmface": "forward"},
  
  {"handshape": [[65, 44]],
  "position": [0, 0],
