@@ -506,6 +506,8 @@ $(document).ready( function() {
     
     $('#resetbutton').click(function() {
           $('#results').empty();
+          var classToHide = $("#numhands option:selected").val();
+	       $('.' + classToHide).hide();
           $('#numhands').prop('selectedIndex',0);
           $('#hand0shape0 option').prop('selected', false);
           $('#hand0shape1 option').prop('selected', false);
@@ -514,8 +516,12 @@ $(document).ready( function() {
           
          $('#hand0shape0li button img').prop('src', 'images/handshape-start.svg');
          $('#hand0shape1li button img').prop('src', 'images/handshape-end.svg');
+         
+         //$('#shapediv1').css("display", "none");
          $('#hand1shape0li button img').prop('src', 'images/handshape-start.svg');
          $('#hand1shape1li button img').prop('src', 'images/handshape-end.svg');
+         
+         
          
          
          $('#palm option').prop('selectedIndex', 0);

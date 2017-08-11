@@ -205,10 +205,14 @@ function cmpVec3(v1, v2, tolerance) {
     return diff;
 }    
 
-function comparePositions(pos1, pos2, tolerance) {
+function comparePositions(pos1, pos2, tolerance, weight) {
     var pt1 = parsePositionXYZ(pos1, false);
     var pt2 = parsePositionXYZ(pos2, false);
-    return cmpVec3(pt1, pt2, tolerance);
+    var diff = cmpVec3(pt1, pt2, tolerance);
+    if (diff < CLEARLY_DIFFERENT) {
+        diff = diff * weight;
+    }
+    return diff;
 }
 
 function compareSigns(sign1, sign2) {
@@ -239,24 +243,24 @@ function compareSigns(sign1, sign2) {
 
 	// Compare positions
 	// Starting position has a big tolerance, and differences matter less
-    var startWeight = 1;
-    result += comparePositions(sign1.position[0], sign2.position[0], 8) / startWeight;
-	if (result >= CLEARLY_DIFFERENT / startWeight) {
-	    result = CLEARLY_DIFFERENT;
-	}
-	
+    var weight = 1;
+    result += comparePositions(sign1.position[0], sign2.position[0], 8, weight);
 	// Ending position defaults to starting position
-	// Changed if statements: includes cannot search for undefined
 	var endpos1 = sign1.position[1];
+	var endpos2 = sign2.position[1];
+	if (endpos1 === undefined || endpos2 === undefined) {
+	    weight = weight / 2; // If the endpoint defaults, count it as only half of the beginning point
+	}
+	else {
+	    weight = 1; // If endpoints are specified, they get full weight
+	}
 	if (endpos1 == undefined) {
 	    endpos1 = sign1.position[0];
 	}
-	var endpos2 = sign2.position[1];
 	if (endpos2 == undefined) {
 	    endpos2 = sign2.position[0];
 	}
-    result += comparePositions(endpos1, endpos2, 4);
-
+    result += comparePositions(endpos1, endpos2, 4, weight);
 
 	// Compare palm faces
 	if (sign1.palmface !== sign2.palmface) {

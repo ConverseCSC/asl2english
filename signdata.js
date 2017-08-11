@@ -4131,10 +4131,10 @@ signs = [
  "sign": "ORTHODOX"},
   
 {"palmface": "down",
- "handshape": [[[45,4],[51,null]],[[45,4],[51,45]]],
+ "handshape": [[[45,4],[51,51]],[[45,4],[51,45]]],
  "video": "out.mp4",
- "hands": 2,
- "position": ["chest", "forehead"],
+ "hands": 1.5,
+ "position": ["hand", "above-right-shoulder"],
  "motion": {"type": "single", "dir": [0, 1, -1]},
  "sign": "OUT"},
   
@@ -5583,7 +5583,7 @@ signs = [
  "video": "girl-scout.mp4",
  "hands": 1,
  "position": ["forehead", "forehead"],
- "motion": {"type": "single", "dir": [0, 1, 0]},
+ "motion": {"type": "none", "dir": [0, 0, 0]},
  "sign": "GIRL-SCOUT"},
   
 {"palmface": "towards-palm",

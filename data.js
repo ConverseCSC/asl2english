@@ -59,7 +59,7 @@ shapegroups = [
     // 4 
       [ 3 ],
     // 5  crvd-5 5-C 5-C-L 5-C-tt
-    [  4, 35,    5,  6,    7],
+  //  [  4, 35,    5,  6,    7],
     // E  loose-E
     [ 43,  61],
     // M  alt-M  bent-M  full-M
