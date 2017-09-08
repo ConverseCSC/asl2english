@@ -6794,11 +6794,11 @@ signs = [
  "motion": {"type": "repeated", "dir": [0, 0, 0]},
  "sign": "TABLE"},
   
-{"palmface": "down",
+{"palmface": "horizontal",
  "handshape": [[1, 1], [37, 37]],
  "video": "tail.mp4",
- "hands": 2,
- "position": [0, 0],
+ "hands": 1.5,
+ "position": ["hand", "hand"],
  "motion": {"type": "repeated", "dir": [0, 0, 0]},
  "sign": "TAIL"},
   
@@ -9326,7 +9326,7 @@ signs = [
  "handshape": [[[36, 23], [36, 23]]],
  "video": "welcome.mp4",
  "hands": 1,
- "position": ["r-shoulder", "stomach"],
+ "position": ["chest", "stomach"],
  "motion": {"type": "single", "dir": [0, -1, 1]},
  "sign": "WELCOME"},
   
@@ -15140,7 +15140,7 @@ signs = [
 "handshape": [[81,81]],
 "video": "same1.mp4",
 "motion": {"dir": [1, 0, 0], "type": "repeated"},
-"palmface": "forward",
+"palmface": "down",
 "position": [0, 0]},
 
 {"sign": "SAME: (2h)SAME+",
@@ -15197,7 +15197,7 @@ signs = [
 "video": "cereal1.mp4",
 "motion": {"dir": [0, 1, 0], "type": "repeated"},
 "palmface": "up",
-"position": ["hand", 0]},
+"position": ["hand", "chin"]},
 
 {"sign": "CEREAL: CEREAL_2++",
 "hands": 1.5,

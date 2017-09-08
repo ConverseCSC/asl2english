@@ -177,15 +177,11 @@ function makeSignRow(sign) {
     var signVid = document.createElement('video');
     signVid.id = sign.sign + '-video';
     signVid.className = 'signvideo';
-   // signVid.onmouseenter = 'play(this)';
-    //signVid.onmouseout = 'pause(this)';
-   //signVid.onmouseover(play(this)');
-    
     
     signVid.appendChild(signSrc);
     $(signVid).attr('controls', 'on');
-    $(signVid).attr('onmouseout', 'pause(this)');
-    $(signVid).attr('onmouseenter', 'play(this)');
+    $(signVid).attr('onmouseenter', 'playvid(this)');
+    $(signVid).attr('onmouseout', 'pausevid(this)');
 
     var td = document.createElement('td');
     td.appendChild(signVid);
@@ -249,21 +245,15 @@ function showSigns(signsToShow) {
 
 
 
-//function play(video) {
-   // console.log("play");
-    //if (video.paused) {
-    //    video.play();
+function playvid(video) {
+    if (video.paused) {
+        video.play();
+    }
+}
 
-   // }
-//}
-
-//function pause(video) {
-//    console.log("pause");
-   // if (video.playing) {
-   //     video.pause();
-   // }
-
-//}
+function pausevid(video) {
+    video.pause();
+}
 
 var submit = false;
 
@@ -303,8 +293,6 @@ function displayResults(possibles, numpages){
     
     var prevbtn = document.createElement('button');
     
-
-    
     if (numpages == 1){
         $('#results').empty();
         showSigns(possibles);
@@ -323,7 +311,6 @@ function displayResults(possibles, numpages){
         
         
 
- 
         // Clicking next page button
         nextbtn.addEventListener ("click", function() {
                 $('html, body').animate({
@@ -394,11 +381,6 @@ function resultsUpdate(value){
 
 
 
-
-
-
-
-
 $(document).ready( function() {
     var changeHands = function() {
 	    var classToShow = $("#numhands option:selected").val();
@@ -414,9 +396,7 @@ $(document).ready( function() {
    
     
     $("select.handshape").imagepicker({
-	    /*hide_select: false,*/
 	    show_label: true
-	    
     });
     
     $( "select.handshape" ).change(function() {
@@ -428,7 +408,10 @@ $(document).ready( function() {
         
         if (pop.style.display == "block"){
             if (handshapes[$('#hand0shape0').val()] == undefined){
-                 $("#hand0shape0img").attr('src', 'images/handshape-start.svg');  
+                 $("#hand0shape0img").attr('src', 'images/handshape-start.svg');
+                 if (handshapes[$('#hand0shape1').val()] == undefined){
+                    $("#hand0shape1img").attr('src', 'images/handshape-end.svg');
+                }
             }
             else{
                 
@@ -514,15 +497,14 @@ $(document).ready( function() {
           $('#hand1shape0 option').prop('selected', false);
           $('#hand1shape1 option').prop('selected', false);
           
+          $('.thumbnail').removeClass('selected');
+          
          $('#hand0shape0li button img').prop('src', 'images/handshape-start.svg');
          $('#hand0shape1li button img').prop('src', 'images/handshape-end.svg');
          
          //$('#shapediv1').css("display", "none");
          $('#hand1shape0li button img').prop('src', 'images/handshape-start.svg');
          $('#hand1shape1li button img').prop('src', 'images/handshape-end.svg');
-         
-         
-         
          
          $('#palm option').prop('selectedIndex', 0);
          
@@ -534,10 +516,6 @@ $(document).ready( function() {
           
             
     });
-
-
-    
-    
 
 });
 
@@ -578,13 +556,6 @@ span.onclick = function() {
     pop.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == pop) {
-        pop.style.display = "none";
-    }
-};
-
 
 // ENDING DOMINANT
 
@@ -598,13 +569,6 @@ btn1.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span1.onclick = function() {
     pop1.style.display = "none";
-};
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == pop1) {
-        pop1.style.display = "none";
-    }
 };
 
 
@@ -622,12 +586,6 @@ span2.onclick = function() {
     pop2.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == pop2) {
-        pop2.style.display = "none";
-    }
-};
 
 
 // ENDING NON DOMINANT
@@ -643,10 +601,4 @@ span3.onclick = function() {
     pop3.style.display = "none";
 };
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == pop3) {
-        pop3.style.display = "none";
-    }
-};
 };
