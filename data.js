@@ -279,8 +279,8 @@ handshapes = [
 	      img: 'https://www.bu.edu/asllrp/cslgr/pages/images/Vulcan.gif'},
 	      	{ shape: 'base-hand', id: 93, group: 'Rlxd',
 	     	img: 'images/basehand.svg'},
-	     { shape: 'Other', id: 94, group: 'Rlxd',
-	     	img: 'https://www.bu.edu/asllrp/cslgr/pages/images/none.gif'},
+	     { shape: 'not-shown', id: 94, group: 'Rlxd',
+	     	img: 'images/not-shown.svg'},
 	      { shape: 'bent-I-L-Y', id: 95, group: 'I',
 	    	img: 'https://www.bu.edu/asllrp/cslgr/pages/images/_1266.gif'},
 	   

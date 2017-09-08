@@ -6019,9 +6019,9 @@ signs = [
  "sign": "SLICE"},
   
 {"palmface": "forward",
- "handshape": [[1,1],[null,1]],
+ "handshape": [[1,1],[null, 1]],
  "video": "tomato.mp4",
- "hands": 1,
+ "hands": 2,
  "position": ["chin", "chest"],
  "motion": {"type": "single", "dir": [0, -1, 1]},
  "sign": "TOMATO"},
@@ -10543,12 +10543,12 @@ signs = [
  "palmface": "down"},
  
  {"handshape": [[[35, 36], [null, 36]]],
- "position": ["chin", "chest"],
+ "position": ["chin", "hand"],
  "motion": {"type": "change", "dir": [0, -1, 0]},
- "hands": 1,
+ "hands": 2,
  "sign": "GIRL+MARRY",
  "video": "girl+marry.mp4",
- "palmface": "down"}, 
+ "palmface": "inward"}, 
  
  {"handshape": [[3, 3], [3, 3]],
  "position": ["r-cheek", "r-cheek"],
@@ -10742,8 +10742,7 @@ signs = [
  "video": "four.mp4",
  "palmface": "inward"},
  
- 
- 
+
  {"handshape": [[44, 44]],
  "position": [0, 0],
  "motion": {"type": "single", "dir": [1, 1, 0]},
@@ -12826,8 +12825,7 @@ signs = [
  "video": "turn+girl+correct.mp4", 
  "palmface": "horizontal"}, 
  
- 
- 
+
  {"handshape": [[13, 82], [[null, null], [18, 36]]],
  "position": ["chest", "chest-front"],
  "motion": {"type": "change", "dir": [0, 0, 1]},

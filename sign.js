@@ -151,9 +151,12 @@ function Sign() {
 CLEARLY_DIFFERENT = 1000;
 
 function compareHandshapes(shape1, shape2) {
-    // shape1 is a integer as a string or undefined.  Shape2 is an integer, an array, or null.  [Can shape2 be undefined?]
+    // shape1 is a integer as a string or undefined.  Shape2 is an integer, an array, or null.
+    // [Can shape2 be undefined?]
     //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
     var diff = CLEARLY_DIFFERENT;
+    
+    // FIX THIS
     if (shape1 === undefined || shape2 === undefined || shape2 === null) {
         diff = 1;
     }
@@ -228,6 +231,8 @@ function compareSigns(sign1, sign2) {
 	// Compare handshapes
 	//console.log(JSON.stringify(sign1.handshape) + ' ' + JSON.stringify(sign2.handshape));
 	var numHands = sign1.handshape.length;
+	
+	// FIX THIS!!!
 	if (sign1.handshape.length != sign2.handshape.length) {
 	    // Number of hands must differ
 	    result += 2; // Treat the missing values as undefined
