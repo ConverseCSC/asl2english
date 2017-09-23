@@ -1322,8 +1322,8 @@ signs = [
  "hands": 1,
  "video": "grip.mp4",
  "sign": "GRIP",
- "motion": {"dir": [0, 1, 1], "type": "single"},
- "position": ["waist", "chest"]},
+ "motion": {"dir": [0, 0, 1], "type": "change"},
+ "position": ["chest", "chest-front"]},
   
 {"palmface": "inward",
  "handshape": [[82,82]],
