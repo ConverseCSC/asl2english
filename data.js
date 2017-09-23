@@ -288,6 +288,18 @@ handshapes = [
 	    	
 	     ];
 
+
+/* 
+ * handshapeDistances is a 2-D array of overrides allowing specification of distances between
+ * particular pairs of handshapes.  In every case, the first index must be less than the second.
+ */
+handshapeDistances = new Array(handshapes.length);
+for (var i = 0; i < handshapeDistances.length; i++) {
+    handshapeDistances[i] = [];
+}
+
+handshapeDistances[18][20] = 0.1;
+
 sideregions = { 'image': 'images/side.svg',
 		'width': 150,
 		'height': 400,

@@ -151,7 +151,30 @@ function compareHandshapes(shape1, shape2) {
     else {
         shape1 = parseInt(shape1);
         //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
-        if (shape2 !== null && shape2.constructor === Array){
+        if (shape2.constructor === Array) {
+            diff = Math.min(...shape2.map(function(hs) { return compareHandshapes(shape1, hs);} ));
+        }
+        else {
+            shape2 = parseInt(shape2);
+            if (shape1 === shape2) {
+                diff = 0;
+            }
+            else {
+                if (shape1 > shape2) {
+                    var temp = shape1;
+                    shape1 = shape2;
+                    shape2 = temp;
+                }
+                if (handshapeDistances[shape1][shape2]) {
+                    diff = handshapeDistances[shape1][shape2];
+                }
+                else if (handshapes[shape1].group === handshapes[shape2].group) {
+    	           diff = 1;
+                }
+            }
+        }
+        /*
+        else if (shape2 !== null && shape2.constructor === Array){
             if (shape2.indexOf(shape1) >= 0) {
 	            diff = 0;
             }
@@ -171,6 +194,7 @@ function compareHandshapes(shape1, shape2) {
     	        diff = 1;
             }
         }
+        */
     }
     return diff;
 };
