@@ -29,7 +29,7 @@ function valueOrUndefined(value) {
     if ((value === "") || (value === null)) {
     	result = undefined;
     }
-    else if (typeof(value) === "string") {
+    else if (typeof value === "string") {
 	    result = value.toLowerCase();
     }
     return result;
@@ -83,7 +83,7 @@ function parsePositionXYZ(loc) {
     var result = [undefined, undefined, undefined];    
     // Set X and Y from loc
     if ([0, 'sightline'].includes(loc)) {
-	loc = 'chest';
+	   loc = 'chest';
     }
 
     if (Array.isArray(loc)) {
@@ -149,26 +149,30 @@ function compareHandshapes(shape1, shape2) {
         diff = 2;
     }
     else {
-        shape1 = parseInt(shape1);
+        var s1 = parseInt(shape1, 10);
         //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
         if (shape2.constructor === Array) {
-            diff = Math.min(...shape2.map(function(hs) { return compareHandshapes(shape1, hs);} ));
+            diff = Math.min(...shape2.map(function(hs) { return compareHandshapes(s1, hs);} ));
         }
         else {
-            shape2 = parseInt(shape2);
-            if (shape1 === shape2) {
+            var s2 = parseInt(shape2, 10);
+            if (s1 === s2) {
+                diff = 0;
+            }
+            // BASE HAND matches anything
+            else if ((s1 === 93) || (s2 === 93)) {
                 diff = 0;
             }
             else {
-                if (shape1 > shape2) {
-                    var temp = shape1;
-                    shape1 = shape2;
-                    shape2 = temp;
+                if (s1 > s2) {
+                    var temp = s1;
+                    s1 = s2;
+                    s2 = temp;
                 }
-                if (handshapeDistances[shape1][shape2]) {
-                    diff = handshapeDistances[shape1][shape2];
+                if (shape_dist_overrides[s1][s2]) {
+                    diff = shape_dist_overrides[s1][s2];
                 }
-                else if (handshapes[shape1].group === handshapes[shape2].group) {
+                else if (handshapes[s1].group === handshapes[s2].group) {
     	           diff = 1;
                 }
             }
@@ -197,7 +201,7 @@ function compareHandshapes(shape1, shape2) {
         */
     }
     return diff;
-};
+}
 
 function cmpVec3(v1, v2, tolerance) {
     var diff = 0;
@@ -232,7 +236,7 @@ function compareSigns(sign1, sign2) {
 	// Compare handshapes
 	var numHands = sign1.hands;
 
-	if (sign1.handshape.length != sign2.handshape.length) {
+	if (sign1.handshape.length !== sign2.handshape.length) {
 	    // Number of hands must differ
 	    result += 2; // Treat the missing values as undefined
 	    numHands = 1; // Minimum value
