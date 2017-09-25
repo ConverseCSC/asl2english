@@ -19,7 +19,6 @@
 /* global makeRegion */
 /* global moveClearSelected */
 
-
 function makeHandshapeSelect(id) {
     var selectElt = document.createElement('select');
     selectElt.id = id;
@@ -124,7 +123,7 @@ function makeHand1Button() {
 
 function makeImageNode(regions) {
     var imgElt = document.createElementNS('http://www.w3.org/2000/svg',
-					  'image');
+                      'image');
     imgElt.setAttribute('x', '0');
     imgElt.setAttribute('y', '0');
     imgElt.setAttribute('width', regions['width']);
@@ -140,13 +139,13 @@ function makeLocSVG(eltID, regions) {
     svg.setAttribute('height', regions['height']);
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg'); 
     svg.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink",
-		       "http://www.w3.org/1999/xlink");
+           "http://www.w3.org/1999/xlink");
     svg.appendChild(makeImageNode(regions));
 
     var regionsSpec = regions['regions'];
     for (var id in regionsSpec) {
-	    var regionElt = makeRegion(id, regionsSpec[id]);
-	    svg.appendChild(regionElt);
+        var regionElt = makeRegion(id, regionsSpec[id]);
+        svg.appendChild(regionElt);
     }
     return svg;
 }
@@ -163,14 +162,12 @@ function makeSignRow(sign) {
     th.className = 'signtitle';
     $(th).text(sign.sign);
     row.appendChild(th);
-    
-    
+
     var signSrc = document.createElement('source');
 
     signSrc.src = video_path + sign.video.replace('#', '%23');
     signSrc.type = 'video/mp4';
-    
-    
+
     var signVid = document.createElement('video');
     signVid.id = sign.sign + '-video';
     signVid.className = 'signvideo';
@@ -235,12 +232,10 @@ function showSigns(signsToShow) {
             
          }
         else {
-	       $('#results').append(makeSignRow(item));
+           $('#results').append(makeSignRow(item));
         }
     });
 }
-
-
 
 function playvid(video) {
     if (video.paused) {
@@ -254,20 +249,19 @@ function pausevid(video) {
 
 var submit = false;
 
-
 function evalGuess() {
     
     var guess = new Sign();
     //alert(JSON.stringify(guess));
     
     for (var s = 0; s < signs.length; s++) {
-	    signs[s].diff = compareSigns(guess, signs[s]);
+        signs[s].diff = compareSigns(guess, signs[s]);
     }
     var possibles = signs.filter(function(elt, idx, arr) {
-	    return (elt.diff < CLEARLY_DIFFERENT);
+        return (elt.diff < CLEARLY_DIFFERENT);
     });
     possibles.sort(function(a, b) {
-    	return a.diff - b.diff;
+        return a.diff - b.diff;
     });
     
     var len = possibles.length;
@@ -376,9 +370,9 @@ function resultsUpdate(value){
 
 $(document).ready( function() {
     var changeHands = function() {
-	    var classToShow = $("#numhands option:selected").val();
-	    $(".one, .moving, .two").hide();
-	    $('.' + classToShow).show();
+        var classToShow = $("#numhands option:selected").val();
+        $(".one, .moving, .two").hide();
+        $('.' + classToShow).show();
     };
     $("#numhands").change(changeHands);
    
@@ -388,7 +382,7 @@ $(document).ready( function() {
     $('#hand3div').append(makeHandshapeSelect('hand1shape1'));
     
     $("select.handshape").imagepicker({
-	    show_label: true
+        show_label: true
     });
     
     $( "select.handshape" ).change(function() {
@@ -399,13 +393,12 @@ $(document).ready( function() {
         
         if (pop.style.display == "block"){
             if (handshapes[$('#hand0shape0').val()] == undefined){
-                 $("#hand0shape0img").attr('src', 'images/handshape-start.svg');
-                 if (handshapes[$('#hand0shape1').val()] == undefined){
+                $("#hand0shape0img").attr('src', 'images/handshape-start.svg');
+                if (handshapes[$('#hand0shape1').val()] == undefined){
                     $("#hand0shape1img").attr('src', 'images/handshape-end.svg');
                 }
             }
             else{
-                
                 var image0 = handshapes[$('#hand0shape0').val()].img;
                 if (handshapes[$('#hand0shape1').val()] == undefined){
                     $("#hand0shape1img").attr('src', image0);
@@ -455,9 +448,9 @@ $(document).ready( function() {
 
     // Add appropriate ALT text to the picker images
     $("img.image_picker_image").each(function(i) {
-	    var text = $(this).next('p').text();
-	    $(this).attr('alt',text);
-	    $(this).attr('title',text);
+        var text = $(this).next('p').text();
+        $(this).attr('alt',text);
+        $(this).attr('title',text);
     });
 
     $('#locstartend').bind('change', moveClearSelected);
@@ -536,44 +529,40 @@ window.onload = function(){
     // ENDING DOMINANT
 
     // When the user clicks on the button, open the modal 
-btn1.onclick = function() {
-    pop1.style.display = "block";
-    return false;
-};
+    btn1.onclick = function() {
+        pop1.style.display = "block";
+        return false;
+    };
+    
+    // When the user clicks on <span> (x), close the modal
+    span1.onclick = function() {
+        pop1.style.display = "none";
+    };
 
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-    pop1.style.display = "none";
-};
+    // STARTING NON-DOMINANT
+    
+    // When the user clicks on the button, open the modal 
+    btn2.onclick = function() {
+        pop2.style.display = "block";
+        return false;
+    };
+    
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() {
+        pop2.style.display = "none";
+    };
 
-
-// STARTING NON-DOMINANT
-
-
-// When the user clicks on the button, open the modal 
-btn2.onclick = function() {
-    pop2.style.display = "block";
-    return false;
-};
-
-// When the user clicks on <span> (x), close the modal
-span2.onclick = function() {
-    pop2.style.display = "none";
-};
-
-
-
-// ENDING NON DOMINANT
-
-// When the user clicks on the button, open the modal 
-btn3.onclick = function() {
-    pop3.style.display = "block";
-    return false;
-};
-
-// When the user clicks on <span> (x), close the modal
-span3.onclick = function() {
-    pop3.style.display = "none";
-};
+    // ENDING NON DOMINANT
+    
+    // When the user clicks on the button, open the modal 
+    btn3.onclick = function() {
+        pop3.style.display = "block";
+        return false;
+    };
+    
+    // When the user clicks on <span> (x), close the modal
+    span3.onclick = function() {
+        pop3.style.display = "none";
+    };
 
 };
