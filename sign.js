@@ -228,59 +228,59 @@ function comparePositions(pos1, pos2, tolerance, weight) {
 }
 
 function compareSigns(sign1, sign2) {
-    var result = 2 * Math.abs(sign1.hands - sign2.hands); // 0, 1, or 2
-    if (result > 0) { // Changed this so it made the difference between 1.5 and 2 very clear
-	    result = CLEARLY_DIFFERENT;
+    // Compare number of hands
+    var result = 0.5 * Math.abs(sign1.hands - sign2.hands); // 0, 0.25, or 0.5;
+    if (result === 0.25) {
+        result = 3;
     }
-    else {
-	// Compare handshapes
-	var numHands = sign1.hands;
 
-	if (sign1.handshape.length !== sign2.handshape.length) {
-	    // Number of hands must differ
-	    result += 2; // Treat the missing values as undefined
-	    numHands = 1; // Minimum value
-	 }
+    // FIX HANDSHAPE COMPARISON
+    // Compare handshapes
+    var numHands = sign1.hands;
 
-	for (var hand = 0; hand < numHands; hand++) {
-	    for (var end = 0; end < 2; end++) {
+    if (sign1.handshape.length !== sign2.handshape.length) {
+        // Number of hands must differ
+        result += 2; // Treat the missing values as undefined
+        numHands = 1; // Minimum value
+    }
+
+    for (var hand = 0; hand < numHands; hand++) {
+        for (var end = 0; end < 2; end++) {
             result += compareHandshapes(sign1.handshape[hand][end],
-					    sign2.handshape[hand][end]);
-	        }
-	    }
-	
+                           sign2.handshape[hand][end]);
+        }
+    }
 
-	// Compare positions
-	// Starting position has a big tolerance, and differences matter less
+    // Compare positions
+    // Starting position has a big tolerance, and differences matter less
     var weight = 1;
     result += comparePositions(sign1.position[0], sign2.position[0], 8, weight);
-	// Ending position defaults to starting position
-	var endpos1 = sign1.position[1];
-	var endpos2 = sign2.position[1];
-	if (endpos1 === undefined || endpos2 === undefined) {
-	    weight = weight / 2; // If the endpoint defaults, count it as only half of the beginning point
-	}
-	else {
-	    weight = 1; // If endpoints are specified, they get full weight
-	}
-	if (endpos1 == undefined) {
-	    endpos1 = sign1.position[0];
-	}
-	if (endpos2 == undefined) {
-	    endpos2 = sign2.position[0];
-	}
+    // Ending position defaults to starting position
+    var endpos1 = sign1.position[1];
+    var endpos2 = sign2.position[1];
+    if (endpos1 === undefined || endpos2 === undefined) {
+        weight = weight / 2; // If the endpoint defaults, count it as only half of the beginning point
+    }
+    else {
+        weight = 1; // If endpoints are specified, they get full weight
+    }
+    if (endpos1 == undefined) {
+        endpos1 = sign1.position[0];
+    }
+    if (endpos2 == undefined) {
+        endpos2 = sign2.position[0];
+    }
     result += comparePositions(endpos1, endpos2, 4, weight);
 
-	// Compare palm faces - increased to 2 from 1
-	if (sign1.palmface !== sign2.palmface) {
-	    result += 2;
-	}
-	// Compare motions
-	if (sign1.motion.type !== sign2.motion.type) {
-	    result += 2;
-	}
-	result += cmpVec3(sign1.motion.dir, sign2.motion.dir, 2); // Increased tolerance, direction is too nebulous
+    // Compare palm faces - increased to 2 from 1
+    if (sign1.palmface !== sign2.palmface) {
+        result += 2;
     }
+    // Compare motions
+    if (sign1.motion.type !== sign2.motion.type) {
+        result += 2;
+    }
+    result += cmpVec3(sign1.motion.dir, sign2.motion.dir, 2); // Increased tolerance, direction is too nebulous
 
     return result;
 }
