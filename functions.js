@@ -43,7 +43,6 @@ function makeHandshapeSelect(id) {
     	   optElt.setAttribute('data-img-src', shape.img);
     	   groupElt.appendChild(optElt);
     	 });
-    	
     
     	selectElt.appendChild(groupElt);
     };
@@ -104,12 +103,11 @@ function makeHand1Button() {
     var hand1ButtonFn = function () {
 	if ($(hand1Button).text() === $(hand1Button).data('showText')) {
 	    $('#hand1shape0div').show();
-	    if ($('#hand1EndButton').text()
-		=== $('#hand1EndButton').data('showText')) {
-		$('#hand1shape1div').hide();
+	    if ($('#hand1EndButton').text()	=== $('#hand1EndButton').data('showText')) {
+		    $('#hand1shape1div').hide();
 	    }
 	    else {
-		$('#hand1shape1div').show();
+		    $('#hand1shape1div').show();
 	    }
 	    $(hand1Button).text($(hand1Button).data('hideText'));
 	}
@@ -131,8 +129,7 @@ function makeImageNode(regions) {
     imgElt.setAttribute('y', '0');
     imgElt.setAttribute('width', regions['width']);
     imgElt.setAttribute('height', regions['height']);
-    imgElt.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href',
-			  regions['image']);
+    imgElt.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', regions['image']);
     return imgElt;
 }
 
@@ -264,14 +261,14 @@ function evalGuess() {
     //alert(JSON.stringify(guess));
     
     for (var s = 0; s < signs.length; s++) {
-	signs[s].diff = compareSigns(guess, signs[s]);
+	    signs[s].diff = compareSigns(guess, signs[s]);
     }
     var possibles = signs.filter(function(elt, idx, arr) {
-	return (elt.diff < CLEARLY_DIFFERENT);
+	    return (elt.diff < CLEARLY_DIFFERENT);
     });
     possibles.sort(function(a, b) {
-	return a.diff - b.diff;
-    })
+    	return a.diff - b.diff;
+    });
     
     var len = possibles.length;
     
@@ -308,8 +305,6 @@ function displayResults(possibles, numpages){
         nextbtn.innerHTML = "Next page -->";
         
         $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
-        
-        
 
         // Clicking next page button
         nextbtn.addEventListener ("click", function() {
@@ -336,29 +331,29 @@ function displayResults(possibles, numpages){
             });
             
             
-         prevbtn.addEventListener ("click", function() {
-               $('html, body').animate({
-                    scrollTop: $("#displaynum").offset().top
-                }, 0);
-               currentpage -= 1;
-               $('#results').empty();
-               var prevnum = $('#displaynum').val();
-               prevnum = parseInt(num) - parseInt(prevnum);
-               num = parseInt(prevnum) - parseInt($('#displaynum').val());
+        prevbtn.addEventListener ("click", function() {
+            $('html, body').animate({
+                scrollTop: $("#displaynum").offset().top
+            }, 0);
+            currentpage -= 1;
+            $('#results').empty();
+            var prevnum = $('#displaynum').val();
+            prevnum = parseInt(num) - parseInt(prevnum);
+            num = parseInt(prevnum) - parseInt($('#displaynum').val());
 
-                var prevpage = possibles.slice(num, prevnum);
+            var prevpage = possibles.slice(num, prevnum);
                 
-                num = prevnum;
-                showSigns(prevpage);
+            num = prevnum;
+            showSigns(prevpage);
                 
-               if (currentpage !== 1) {
-                   $('#results').append(prevbtn);
-               } 
-               if (currentpage < numpages) { 
-                    $('#results').append(nextbtn);
-                }
+            if (currentpage !== 1) {
+                $('#results').append(prevbtn);
+            } 
+            if (currentpage < numpages) { 
+                $('#results').append(nextbtn);
+            }
                 
-                $('#results').append('<p>' + currentpage + ' of ' + numpages + '</p>');
+            $('#results').append('<p>' + currentpage + ' of ' + numpages + '</p>');
 
         });
     }
@@ -372,10 +367,8 @@ function resultsUpdate(value){
     
         var numpages = len / value;
         numpages = Math.ceil(numpages);
-    
-    
+
         displayResults(possibles, numpages);
-        
     }
 }
 
@@ -389,18 +382,16 @@ $(document).ready( function() {
     };
     $("#numhands").change(changeHands);
    
-   $('#hand0div').append(makeHandshapeSelect('hand0shape0'));
-   $('#hand1div').append(makeHandshapeSelect('hand0shape1'));
-   $('#hand2div').append(makeHandshapeSelect('hand1shape0'));
-   $('#hand3div').append(makeHandshapeSelect('hand1shape1'));
-   
+    $('#hand0div').append(makeHandshapeSelect('hand0shape0'));
+    $('#hand1div').append(makeHandshapeSelect('hand0shape1'));
+    $('#hand2div').append(makeHandshapeSelect('hand1shape0'));
+    $('#hand3div').append(makeHandshapeSelect('hand1shape1'));
     
     $("select.handshape").imagepicker({
 	    show_label: true
     });
     
     $( "select.handshape" ).change(function() {
-        
         var pop = document.getElementById('popup');
         var pop1 = document.getElementById('popup1');
         var pop2 = document.getElementById('popup2');
@@ -425,8 +416,8 @@ $(document).ready( function() {
             }
         }
         
-         if (pop1.style.display == "block"){
-             if (handshapes[$('#hand0shape1').val()] == undefined){
+        if (pop1.style.display == "block"){
+            if (handshapes[$('#hand0shape1').val()] == undefined){
                  $("#hand0shape1img").attr('src', 'images/handshape-end.svg');  
             }
             else{
@@ -450,9 +441,9 @@ $(document).ready( function() {
             }
         }
         
-         if (pop3.style.display == "block"){
-             if (handshapes[$('#hand1shape1').val()] == undefined){
-                 $("#hand1shape1img").attr('src', 'images/handshape-end.svg');  
+        if (pop3.style.display == "block"){
+            if (handshapes[$('#hand1shape1').val()] == undefined){
+                $("#hand1shape1img").attr('src', 'images/handshape-end.svg');  
             }
             else{
                 var image3 = handshapes[$('#hand1shape1').val()].img;
@@ -460,15 +451,7 @@ $(document).ready( function() {
                 pop3.style.display = "none";
             }
         }
-        
-        
-        
-        
-
     });
-    
-    
-
 
     // Add appropriate ALT text to the picker images
     $("img.image_picker_image").each(function(i) {
@@ -488,79 +471,71 @@ $(document).ready( function() {
     $('#lookupbutton').bind('click', evalGuess);
     
     $('#resetbutton').click(function() {
-          $('#results').empty();
-          var classToHide = $("#numhands option:selected").val();
-	       $('.' + classToHide).hide();
-          $('#numhands').prop('selectedIndex',0);
-          $('#hand0shape0 option').prop('selected', false);
-          $('#hand0shape1 option').prop('selected', false);
-          $('#hand1shape0 option').prop('selected', false);
-          $('#hand1shape1 option').prop('selected', false);
+        $('#results').empty();
+        var classToHide = $("#numhands option:selected").val();
+        $('.' + classToHide).hide();
+        $('#numhands').prop('selectedIndex',0);
+        $('#hand0shape0 option').prop('selected', false);
+        $('#hand0shape1 option').prop('selected', false);
+        $('#hand1shape0 option').prop('selected', false);
+        $('#hand1shape1 option').prop('selected', false);
           
-          $('.thumbnail').removeClass('selected');
+        $('.thumbnail').removeClass('selected');
           
-         $('#hand0shape0li button img').prop('src', 'images/handshape-start.svg');
-         $('#hand0shape1li button img').prop('src', 'images/handshape-end.svg');
+        $('#hand0shape0li button img').prop('src', 'images/handshape-start.svg');
+        $('#hand0shape1li button img').prop('src', 'images/handshape-end.svg');
          
-         //$('#shapediv1').css("display", "none");
-         $('#hand1shape0li button img').prop('src', 'images/handshape-start.svg');
-         $('#hand1shape1li button img').prop('src', 'images/handshape-end.svg');
+        //$('#shapediv1').css("display", "none");
+        $('#hand1shape0li button img').prop('src', 'images/handshape-start.svg');
+        $('#hand1shape1li button img').prop('src', 'images/handshape-end.svg');
          
-         $('#palm option').prop('selectedIndex', 0);
+        $('#palm option').prop('selectedIndex', 0);
          
-         $('#locdiv input').prop('value', '');
-         $('.mark').remove();
+        $('#locdiv input').prop('value', '');
+        $('.mark').remove();
          
-         $('#movetype option').prop('selectedIndex', 0);
-         $('#displaynum option').prop('selectedIndex', 0);
-          
-            
+        $('#movetype option').prop('selectedIndex', 0);
+        $('#displaynum option').prop('selectedIndex', 0);
     });
-
 });
-
 
 window.onload = function(){ 
     // Get the modal
     
     //Starting Dom
-var pop = document.getElementById('popup');
-var pop1 = document.getElementById('popup1');
-var pop2 = document.getElementById('popup2');
-var pop3 = document.getElementById('popup3');
+    var pop = document.getElementById('popup');
+    var pop1 = document.getElementById('popup1');
+    var pop2 = document.getElementById('popup2');
+    var pop3 = document.getElementById('popup3');
 
-// Get the button that opens the modal
-var btn = document.getElementById("btn");
-var btn1 = document.getElementById("btn1");
-var btn2 = document.getElementById("btn2");
-var btn3 = document.getElementById("btn3");
+    // Get the button that opens the modal
+    var btn = document.getElementById("btn");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
 
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close")[1];
+    var span2 = document.getElementsByClassName("close")[2];
+    var span3 = document.getElementsByClassName("close")[3];
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var span1 = document.getElementsByClassName("close")[1];
-var span2 = document.getElementsByClassName("close")[2];
-var span3 = document.getElementsByClassName("close")[3];
+    // STARTING DOMINANT
 
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+        pop.style.display = "block";
+        return false;
+    };
 
-// STARTING DOMINANT
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        pop.style.display = "none";
+    };
 
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    pop.style.display = "block";
-    return false;
-};
+    // ENDING DOMINANT
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    pop.style.display = "none";
-};
-
-
-// ENDING DOMINANT
-
-
-// When the user clicks on the button, open the modal 
+    // When the user clicks on the button, open the modal 
 btn1.onclick = function() {
     pop1.style.display = "block";
     return false;
