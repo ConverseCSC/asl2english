@@ -145,8 +145,11 @@ function compareHandshapes(shape1, shape2) {
     var diff = CLEARLY_DIFFERENT;
     
     // FIX THIS
-    if (shape1 === undefined || shape2 === undefined || shape2 === null) {
+    if (shape1 === undefined || shape2 === undefined) {
         diff = 2;
+    }
+    else if (shape1 === null || shape2 === null) {
+        diff = 0;
     }
     else {
         var s1 = parseInt(shape1, 10);
@@ -227,29 +230,42 @@ function comparePositions(pos1, pos2, tolerance, weight) {
     return diff;
 }
 
-function compareSigns(sign1, sign2) {
-    // Compare number of hands
-    var result = 0.5 * Math.abs(sign1.hands - sign2.hands); // 0, 0.25, or 0.5;
-    if (result === 0.25) {
+function compareNumHands(sign1, sign2) {
+    // Weighting factor; difference between one- and two-handed signs
+    var HAND_DIFF = 0.5;
+    var result = HAND_DIFF * Math.abs(sign1.hands - sign2.hands); // 0, 0.25, or 0.5;
+    if (result === 0.5 * HAND_DIFF) {
         result = 3;
     }
+    return result;
+}
 
+function compareSignHandshapes(sign1, sign2) {
     // FIX HANDSHAPE COMPARISON
-    // Compare handshapes
-    var numHands = sign1.hands;
 
-    if (sign1.handshape.length !== sign2.handshape.length) {
-        // Number of hands must differ
-        result += 2; // Treat the missing values as undefined
-        numHands = 1; // Minimum value
+    // Length of the handshape arrays is 1 for 1-handed signs,
+    //   and 2 for everything else.  Ignore an unmatched second hand.
+    var numHands = Math.min(sign1.handshape.length, sign2.handshape.length);
+
+    // Dominant
+    var result = compareHandshapes(sign1.handshape[0][0], sign2.handshape[0][0]);
+    result += compareHandshapes(sign1.handshape[0][1], sign2.handshape[0][1]);
+    
+    // Allow non-dominant to be de-weighted
+    if (numHands > 1) {
+        var nd = compareHandshapes(sign1.handshape[1][0], sign2.handshape[1][0]);
+        nd += compareHandshapes(sign1.handshape[0][1], sign2.handshape[0][1]);
+        result += nd;
     }
 
-    for (var hand = 0; hand < numHands; hand++) {
-        for (var end = 0; end < 2; end++) {
-            result += compareHandshapes(sign1.handshape[hand][end],
-                           sign2.handshape[hand][end]);
-        }
-    }
+    return result;
+}
+
+function compareSigns(sign1, sign2) {
+    // Compare number of hands
+    var result = compareNumHands(sign1, sign2);
+
+    result += compareSignHandshapes(sign1, sign2);
 
     // Compare positions
     // Starting position has a big tolerance, and differences matter less

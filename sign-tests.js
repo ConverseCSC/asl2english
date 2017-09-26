@@ -28,4 +28,11 @@ QUnit.test('BASE HAND', function(assert) {
     assert.deepEqual(compareHandshapes(13, 93), 0);
 });
 
-
+QUnit.test('compareNumHands', function(assert) {
+    assert.deepEqual(compareNumHands(signs[0], signs[0]), 0);
+    assert.deepEqual(compareNumHands(signs[0], signs[1]), 3);
+    assert.deepEqual(compareNumHands(signs[1], signs[0]), 3);
+    assert.deepEqual(compareNumHands(signs[1], signs[1]), 0);
+    assert.deepEqual(compareNumHands(signs[0], signs[4]), 3);
+    assert.deepEqual(compareNumHands(signs[1], signs[4]), 0.5);
+})
