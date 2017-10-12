@@ -16,9 +16,6 @@ h1 a {
    color:black;
 }
 
-#help {
-    display:none;
-}
 span.one { display: inline; }
 
 h4 option {
@@ -205,3 +202,25 @@ svg { border: thin solid; }
 }
 
 .two, .moving { display: none; }
+
+.helpparent {
+    position: relative;
+}
+
+.q { border: thin solid; 
+     border-radius: 1em;
+     padding: 0 .3em;
+}
+
+.popuphelp {
+    position: absolute;
+    left: -10000px;
+    font-weight: normal;
+    border: thin solid;
+    background-color: white;
+    width: 50vw;
+}
+
+.q:hover + .popuphelp {
+    left: 0px;
+}
