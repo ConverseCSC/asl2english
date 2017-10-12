@@ -366,6 +366,15 @@ function resultsUpdate(value){
     }
 }
 
+function displayHelp(){
+    var help = document.getElementById("help");
+    if (help.style.display == "block") {
+        help.style.display = "none";
+    } else{
+        help.style.display = "block";
+    }
+}
+
 
 
 $(document).ready( function() {

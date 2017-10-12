@@ -15,7 +15,9 @@
 </head>
 
 <body>
-	<h1>Beginning ASL-to-English dictionary</h1>
+	<h1><a href="">Beginning ASL-to-English dictionary</a></h1>
+	<p>Search by specifying the parameters of the sign you are looking for. You may specify as many or as few of the parameters as you like.
+	For a more detailed tutorial please check out our FAQ page.</p>
 
 	<noscript><div><p>It appears that your browser doesn't support
 	  Javascript, or Javascript is turned off.  Unhappily, this page
@@ -37,6 +39,8 @@
 	<form id="lookupform" action="" method="get">
 		<fieldset id="handshapefields" class="noborder">
 			<div id="numhandsdiv">
+									<hr/>
+			<h2>Number of Hands</h2>
 				The sign I want to look up is:
 				<select name="numhands" id="numhands">
 					<option selected="one" value="one">One-handed</option>
@@ -44,9 +48,13 @@
 					<option value="two">Two hands moving</option>
 	  		</select>
 			</div>
+			<br/>
+			<hr/>
+			<h2>Handshape</h2>
 			<div id="handshapesdiv" class="imgdiv">
 				<div id="shape0div" class="imgdiv">
 					<div class="title">Click to set handshape (dominant hand):</div>
+					<br/>
 					<ul class="locimg">
 						<li id="hand0shape0li">
 							<button id="btn">
@@ -93,7 +101,10 @@
 				</div>
 			</div>
 		</fieldset>
+
 		<fieldset id="orientationfields" class="noborder">
+					<hr/>
+			<h2>Palm Orientation</h2>
 			<div id="palmorientationdiv">
 				Palm (starting) orientation: <select name="palm" id="palm">
 					<option value="">&mdash;Select&mdash;</option>
@@ -108,13 +119,17 @@
 			</div>
 		</fieldset>
 		<fieldset id="positionset" class="noborder">
+					<hr/>
+			<h2>Location</h2>
 			<div id="locmovediv" class="imgdiv">
 				<div id="locdiv" class="imgdiv">
 					<div class="title">Click the <select name="locstartend" id="locstartend">
 							<option selected="" value="0">starting (X)</option>
 							<option value="1">ending (O)</option>
-						</select> location of the dominant hand:
+						</select> location of the dominant hand: <a class="q" href="">[?]</a>
+						<div id="help">Here is some example text</div>
 					</div>
+					<br/>
 					<ul class="locimg">
 						<li id="sideimgitem"></li>
 						<li id="frontimgitem"></li>
@@ -124,6 +139,8 @@
 				</div>
 			</fieldset>
 			<fieldset id="movementset" class="noborder">
+				<hr/>
+			<h2>Movement</h2>
 				<div id="movetypediv">
 					<label for="movetype">Type of movement:</label>
 					<select name="movetype" id="movetype">
@@ -141,6 +158,9 @@
 			</div>
 		</fieldset>
 		<fieldset class="noborder">
+
+			<hr/>
+			<br/>
 			<div id="resultnumdiv">
 				Results to display: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
 					<option value="5">5</option>
@@ -155,6 +175,7 @@
 			<button id="resetbutton" type="reset">Reset</button>
 		</fieldset>
 	</form>
+	<br/>
 	<div id="resultsdiv">
 		<table id="results">
 		</table>

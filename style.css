@@ -1,9 +1,41 @@
 fieldset.noborder { border: none; }
 
+body {
+    font-size:17px;
+}
+
+p {
+    width:70%;
+    padding-left:15px;
+}
+
+
+h1 a {
+   padding-left:15px; 
+
+   color:black;
+}
+
+#help {
+    display:none;
+}
 span.one { display: inline; }
 
 h4 option {
   font-weight: bold;
+}
+
+select {
+    height:32px;
+    font-size:16px;
+}
+select option {
+    font-size:14px;
+}
+
+#buttonset button {
+    height:32px;
+    font-size:14px;
 }
 
 div.title {
