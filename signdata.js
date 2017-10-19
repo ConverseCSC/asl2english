@@ -1338,8 +1338,8 @@ signs = [
  "hands": 1.5,
  "video": "grow.mp4",
  "sign": "GROW",
- "motion": {"dir": [0, 1, 0], "type": "single"},
- "position": ["chest", "neck"]},
+ "motion": {"dir": [0, 1, 0], "type": "change"},
+ "position": ["chest", "chin-area"]},
   
 {"palmface": "inward",
  "handshape": [[2,2],[[82,14],[82,14]]],
@@ -2122,8 +2122,8 @@ signs = [
  "hands": 1,
  "video": "insult.mp4",
  "sign": "INSULT",
- "motion": {"dir": [1, 0, 1], "type": "single"},
- "position": ["chest-front", "chest-front"]},
+ "motion": {"dir": [1, 0, 1], "type": "change"},
+ "position": ["chest", "chest-front"]},
   
 {"palmface": "forward",
  "handshape": [[57,57]],
@@ -4258,7 +4258,7 @@ signs = [
  "video": "pirate.mp4",
  "hands": 1,
  "position": ["r-eye", "r-eye"],
- "motion": {"type": "repeated", "dir": [0, 1, 0]},
+ "motion": {"type": "single", "dir": [0, 1, 0]},
  "sign": "PIRATE"},
   
 {"palmface": "horizontal",
@@ -6970,7 +6970,7 @@ signs = [
  "video": "thermometer.mp4",
  "hands": 1,
  "position": ["mouth", "mouth"],
- "motion": {"type": "repeated", "dir": [0, 0, 0]},
+ "motion": {"type": "single", "dir": [0, 0, 0]},
  "sign": "THERMOMETER"},
   
 {"palmface": "inward",
@@ -13443,7 +13443,7 @@ signs = [
 "hands":2,
 "video":"coat.mp4",
 "sign":"COAT",
-"motion":{"dir":[-1,-1,0], "type":""},
+"motion":{"dir":[-1,-1,0], "type":"single"},
 "position":["r-shoulder","stomach"]},
 
 {"palmface":"towards-palm",
@@ -14947,7 +14947,7 @@ signs = [
 "hands": 1.5,
 "handshape": [[77,77],[18,18]],
 "video": "fork1.mp4",
-"motion": {"dir": [0, 0, 0], "type": "repeated"},
+"motion": {"dir": [0, 0, 0], "type": "change"},
 "palmface": "down",
 "position": ["hand", "hand"]},
 
