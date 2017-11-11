@@ -439,7 +439,7 @@ signs = [
  "video": "cashier.mp4",
  "sign": "CASHIER",
  "motion": {"dir": [1, 0, 1], "type": "repeated"},
- "position": ["chest-front", "chest-front"]},
+ "position": ["chest", "chest"]},
   
 {"palmface": "towards-palm",
  "handshape": [[35,35],[18,18]],
@@ -848,7 +848,7 @@ signs = [
  "hands": 2,
  "video": "friend.mp4",
  "sign": "FRIEND",
- "motion": {"dir": [0, 0, 1], "type": "repeated"},
+ "motion": {"dir": [0, 0, 1], "type": "change"},
  "position": [0, 0]},
   
 {"palmface": "forward",
@@ -2122,7 +2122,7 @@ signs = [
  "hands": 1,
  "video": "insult.mp4",
  "sign": "INSULT",
- "motion": {"dir": [1, 0, 1], "type": "change"},
+ "motion": {"dir": [1, 0, 1], "type": "single"},
  "position": ["chest", "chest-front"]},
   
 {"palmface": "forward",
@@ -4254,11 +4254,11 @@ signs = [
  "sign": "PAT-ON-BACK"},
   
 {"palmface": "inward",
- "handshape": [[[46,37],[46,37]]],
+ "handshape": [[[46,37,36],[46,37,36]]],
  "video": "pirate.mp4",
  "hands": 1,
  "position": ["r-eye", "r-eye"],
- "motion": {"type": "single", "dir": [0, 1, 0]},
+ "motion": {"type": "repeated", "dir": [0, 1, 0]},
  "sign": "PIRATE"},
   
 {"palmface": "horizontal",
@@ -4401,8 +4401,8 @@ signs = [
  "handshape": [[35,35],[35,35]],
  "video": "organ-music.mp4",
  "hands": 2,
- "position": ["l-shoulder", "chest"],
- "motion": {"type": "repeated", "dir": [1, 1, 0]},
+ "position": ["chest", "chest"],
+ "motion": {"type": "plural", "dir": [1, 1, 0]},
  "sign": "ORGAN-MUSIC"},
   
 {"palmface": "horizontal",
@@ -5229,11 +5229,11 @@ signs = [
  "motion": {"type": "single", "dir": [0, 0, 1]},
  "sign": "RIDE-ON"},
   
-{"palmface": "inward",
+{"palmface": "down",
  "handshape": [[[36,4],[36,4]]], 
  "video": "arm.mp4",
  "hands": 1,
- "position": ["upper-arm", "hand"],
+ "position": ["upper-arm", "wrist"],
  "motion": {"type": "single", "dir": [-1, -1, 0]},
  "sign": "ARM"},
   
@@ -6533,7 +6533,7 @@ signs = [
  "motion": {"type": "repeated", "dir": [0, 1, 1]},
  "sign": "TOURNAMENT"},
   
-{"palmface": "down",
+{"palmface": "forward",
  "handshape": [[41, 41], [41, 41]],
  "video": "ferris-wheel-fair.mp4",
  "hands": 2,
@@ -13444,7 +13444,7 @@ signs = [
 "video":"coat.mp4",
 "sign":"COAT",
 "motion":{"dir":[-1,-1,0], "type":"single"},
-"position":["r-shoulder","stomach"]},
+"position":["r-shoulder", 0]},
 
 {"palmface":"towards-palm",
  "handshape":[[82,82],[82,82]],
@@ -14956,7 +14956,7 @@ signs = [
 "handshape": [[77,77],[18,18]],
 "video": "fork2.mp4",
 "motion": {"dir": [0, 0, 0], "type": "repeated"},
-"palmface": "towards-palm",
+"palmface": "down",
 "position": ["hand", "hand"]},
 
 {"sign": "GIVE: GIVE",
@@ -15229,7 +15229,7 @@ signs = [
 "video": "egg1.mp4",
 "motion": {"dir": [1, -1, 0], "type": "single"},
 "palmface": "inward",
-"position": ["hand", 0]},
+"position": ["chest", "stomach"]},
 
 {"sign": "EGG: EGG-pl",
 "hands": 2,
@@ -15237,7 +15237,7 @@ signs = [
 "video": "egg2.mp4",
 "motion": {"dir": [1, -1, 0],"type": "plural"},
 "palmface": "inward",
-"position": ["hand", 0]},
+"position": ["chest", "stomach"]},
 
 {"sign": "HAMBURGER: HAMBURGER",
 "hands": 2,

@@ -229,13 +229,22 @@ function comparePositions(pos1, pos2, tolerance, weight) {
     }
     return diff;
 }
-
+// This function didn't seem to be working, I added an else if that made 
+//      1 hand and 2 hands CLEARLY_DIFFERENT. I think that makes the most sense
+//      as number of hands is very clear. Changed middle of the road value to
+//      a difference of 5, because on bare selection of 1.5 it came up with
+//      only 1 hand values on the first page
 function compareNumHands(sign1, sign2) {
     // Weighting factor; difference between one- and two-handed signs
-    var HAND_DIFF = 0.5;
-    var result = HAND_DIFF * Math.abs(sign1.hands - sign2.hands); // 0, 0.25, or 0.5;
-    if (result === 0.5 * HAND_DIFF) {
-        result = 3;
+    var HAND_DIFF = 0.5; // Scaling factor
+    var result = /*HAND_DIFF **/ Math.abs(sign1.hands - sign2.hands); // 0, 0.5, or 1;
+    if (result === 0.5) {
+        result = 5; // Arbitrary constant
+    } else if (result === 1) {
+        result = 8; // Arbitrary constant #2
+    }
+    if (result < CLEARLY_DIFFERENT) {
+        result *= HAND_DIFF;
     }
     return result;
 }
