@@ -4,6 +4,7 @@
 /* global sideregions */
 /* global frontregions */
 /* global signs */
+/* global shape_dist_overrides */
 
 // shapegroups is an array of arrays.  Each subarray defines a group of
 // semantically similar handshapes.  The numbers in each subarray are
@@ -299,7 +300,19 @@ for (var i = 0; i < shape_dist_overrides.length; i++) {
     shape_dist_overrides[i] = [];
 }
 
-shape_dist_overrides[18][20] = 0.1;
+// B-L, B
+shape_dist_overrides[18][20] = 1;
+
+// crvd-spread-B, fanned-flat-O, tight-C
+shape_dist_overrides[39][45] = 1;
+shape_dist_overrides[39][74] = 1;
+shape_dist_overrides[45][74] = 1;
+
+// X, X-over-thumb, cocked-S
+shape_dist_overrides[34][79] = 1;
+shape_dist_overrides[79][80] = 1;
+// cocked-S and X-over-thumb are both in the A group
+
 
 sideregions = { 'image': 'images/side.svg',
 		'width': 150,
