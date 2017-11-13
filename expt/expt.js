@@ -8,11 +8,13 @@ var sites = { 'asl2english': 'https://moodle.converse.edu/asl2english/',
     'handspeak': 'https://www.handspeak.com/word/asl-eng/' };
 
 var signurls = [ 'https://www.signingsavvy.com/signs/mp4/7/7291.mp4', // fork
+                'https://www.signingsavvy.com/signs/mp4/14/14094.mp4', // emphasize
                 'https://www.signingsavvy.com/signs/mp4/7/7168.mp4', // coat
                 'https://www.signingsavvy.com/signs/mp4/9/9373.mp4', // for
                 'https://www.signingsavvy.com/signs/mp4/7/7073.mp4', // grow
                 'https://www.signingsavvy.com/signs/mp4/9/9371.mp4', // urge
-                'https://www.signingsavvy.com/signs/mp4/1/1127.mp4' // argue
+                'https://www.signingsavvy.com/signs/mp4/1/1127.mp4', // argue
+                'https://www.signingsavvy.com/signs/mp4/14/14342.mp4' // addicted
     ];
 
 var videocount = 3;
