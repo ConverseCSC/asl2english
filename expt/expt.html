@@ -4,16 +4,26 @@
         <title>asl2english experiment</title>
         <style>
             iframe { width: 100%; 
-                     height: 550px; 
+                     height: 900px; 
                      border: none;
             }
             .directions { font-size: 120%; }
             div { display: none; }
+            input[type=textarea] {
+                 width: 50%;
+                 height: 150px;
+                 padding: 12px;
+                 box-sizing: border-box;
+                 border: 2px solid #ccc;
+                 border-radius: 4px;
+                 background-color: #f8f8f8;
+                 }
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-        <script src="expt.js"></script>
+        <script src="expt.js?_c9_id=livepreview2&_c9_host=https://ide.c9.io"></script>
     </head>
     <body>
+
     <div id="videodiv">
         <video id="videoelt">
             
@@ -40,8 +50,53 @@
             <p>Iframes unsupported, different browser needed</p>
         </iframe>
     </div>
-    <div id="questiondiv">
-        <form id="questionnaire">QUESTIONS GO HERE</form>
+    <!-- IN PROGRESS 
+    Alex: please edit this form so the UI text makes sense
+    
+    Add any questions you think would be useful, 
+    id or name doesn't matter you can change those as you like (excluding divs, form id, and buttons)
+    
+    Possibly add a div that shows up as a confirm message when submitlong is submitted
+    
+    -->
+     <form id="questionnaire">
+    <div id="questiondiv">What sign did you find?<br/>
+        <input type="text" name="sign" id="sign"></input><br/><br/>
+        How confident are you in this answer?<br/>
+         <input type="radio" name="confid" value="confident" checked> Confident<br>
+        <input type="radio" name="confid" value="somewhat confident"> Somewhat Confident<br>
+        <input type="radio" name="confid" value="somewhat unsure"> Somewhat Unsure<br>
+        <input type="radio" name="confid" value="unsure"> Unsure<br/>
+        <input type="button" value="Submit" id="nextSign">
     </div>
+    <div id="questiondivlong">
+        <h2>Please Answer Each Question to the Best of Your Abilities</h2>
+        How easy was it to use and understand this application?<br/>
+        <input type="radio" name="usediff" value="easy" checked> Easy<br>
+        <input type="radio" name="usediff" value="somewhat easy"> Somewhat Easy<br>
+        <input type="radio" name="usediff" value="somewhat difficult"> Somewhat Difficult<br>
+        <input type="radio" name="usediff" value="difficult"> Difficult <br/>
+        <br>How easy was it to find the sign you were looking for?<br/>
+        <input type="radio" name="finddiff" value="easy" checked> Easy<br>
+        <input type="radio" name="finddiff" value="somewhat_easy"> Somewhat Easy<br>
+        <input type="radio" name="finddiff" value="somewhat_difficult"> Somewhat Difficult<br>
+        <input type="radio" name="finddiff" value="difficult"> Difficult <br/>
+        
+        <br/>What did you like about the application? Would a program 
+        similar to this be useful when learning ASL? Explain.<br/>
+        <textarea rows="4" cols="80"></textarea><br/><br/>
+        What would you change about this application?
+        <br><textarea rows="4" cols="80"></textarea><br/>
+        <input type="button" value="Submit" id="submitlong">
+    
+    </div>
+        
+    <div id="inputmessage">
+        Congratulations on finishing a section! <br>
+        Please verbally notify Gretchen or Alex that you have completed this section.
+    </div>
+    
+    </form>
+    
     </body>
 </html>

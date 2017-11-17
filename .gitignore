@@ -46,6 +46,9 @@ image-picker/
 videos/
 videos-qt/
 
+# Ignore experimental output
+expt/form_data.csv
+
 #Ignore assorted cruft
 duplicate-sign-list.txt
 multivideosigns.json
