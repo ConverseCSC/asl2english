@@ -48,7 +48,6 @@ function goToQuestions() {
     endTime = new Date().toString();
     $('#' + condition[0] + 'div').hide();
     $('#questiondiv').show();
-   
 }
 
 function nextSign(){
@@ -80,6 +79,11 @@ function nextSign(){
         $("#questiondivlong").show();
     } else {
         $('#questiondiv').hide();
+        
+        // Reset the forms
+        $('#' + condition[0] + 'div iframe').attr('src', sites[condition[0]]);
+        $("input[name='confid']").prop('checked', false);
+
         $('#videoelt').attr('src', signurls[condition[1]]);
         $('#videodiv').show();
         $('#nextvideo').attr('value', 'Play');
