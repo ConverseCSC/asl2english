@@ -1,6 +1,21 @@
 // EDIT HERE TO SET CONDITION
 var observer = 1; // Simple serial number
-var condition = ['asl2english', 0]; // options: asl2english or handspeak, 0 or 1
+var set = 1; // Set of trials.  The first time through for a given observer is
+             // set 1.  The second time is set 2.
+
+var conditionlist = [['asl2english', 0],
+                    ['handspeak', 0],
+                    ['asl2english', 1],
+                    ['handspeak', 1]];
+
+// pairs:  1 -> 0, 3; 2 -> 1, 2; 3, -> 2, 1; 4 -> 3, 0
+
+var conditionnum = observer - 1;
+if (set === 2) {
+    conditionnum = 3 - conditionnum;
+}
+
+var condition = conditionlist[conditionnum]; // options: asl2english or handspeak, 0 or 1
 
 /* global $ */
 
@@ -16,10 +31,12 @@ var signurls = [ 'https://www.signingsavvy.com/signs/mp4/7/7291.mp4', // fork
                 'https://www.signingsavvy.com/signs/mp4/7/7073.mp4', // grow
                 'https://www.signingsavvy.com/signs/mp4/9/9371.mp4', // urge
                 'https://www.signingsavvy.com/signs/mp4/1/1127.mp4', // argue
-                'https://www.signingsavvy.com/signs/mp4/14/14342.mp4' // addicted
+                'https://www.signingsavvy.com/signs/mp4/14/14342.mp4', // addicted
+                'https://www.signingsavvy.com/signs/mp4/5/5659.mp4', //sheep
+                'https://www.signingsavvy.com/signs/mp4/5/5573.mp4' //hurry
+                
     ];
-var signNames = ['fork', 'emphasize', 'coat', 'for', 'grow', 'urge', 'argue', 'addicted'];
-
+var signNames = ['fork', 'emphasize', 'coat', 'for', 'grow', 'urge', 'argue', 'addicted', 'sheep', 'hurry'];
 var videocount = 3;
 var startTime;
 var endTime;
