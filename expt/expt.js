@@ -1,7 +1,7 @@
 // EDIT HERE TO SET CONDITION
 var observer = 1; // Simple serial number
-var set = 1; // Set of trials.  The first time through for a given observer is
-             // set 1.  The second time is set 2.
+var trialset = 2; // Set of trials.  The first time through for a given observer
+                  // is set 1.  The second time is set 2.
 
 var conditionlist = [['asl2english', 0],
                     ['handspeak', 0],
@@ -11,11 +11,12 @@ var conditionlist = [['asl2english', 0],
 // pairs:  1 -> 0, 3; 2 -> 1, 2; 3, -> 2, 1; 4 -> 3, 0
 
 var conditionnum = observer - 1;
-if (set === 2) {
+if (trialset === 2) {
     conditionnum = 3 - conditionnum;
 }
 
 var condition = conditionlist[conditionnum]; // options: asl2english or handspeak, 0 or 1
+alert("Condition number " + conditionnum);
 
 /* global $ */
 

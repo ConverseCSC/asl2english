@@ -48,6 +48,7 @@ videos-qt/
 
 # Ignore experimental output
 expt/form_data.csv
+expt/*.csv
 
 #Ignore assorted cruft
 duplicate-sign-list.txt
