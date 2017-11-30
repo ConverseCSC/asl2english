@@ -5572,15 +5572,7 @@ signs = [
  "position": ["chin", "forehead"],
  "motion": {"type": "single", "dir": [1, 1, 0]},
  "sign": "SCOUT"},
-  
-{"palmface": "forward",
- "handshape": [[94,94]],
- "video": "girl-scout.mp4",
- "hands": 1,
- "position": ["forehead", "forehead"],
- "motion": {"type": "none", "dir": [0, 0, 0]},
- "sign": "GIRL-SCOUT"},
-  
+
 {"palmface": "towards-palm",
  "handshape": [[5,5],[18,18]],
  "video": "scrape.mp4",
