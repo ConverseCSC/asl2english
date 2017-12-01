@@ -65,7 +65,7 @@
     
     -->
      <form id="questionnaire">
-    <div id="questiondiv">What sign did you find?<br />
+    <div id="questiondiv">What sign did you find? (If you didn't find the sign, put &ldquo;Not found&rdquo;.)<br />
         <input type="text" name="sign" id="sign"></input><br /><br />
         How confident are you in this answer?<br />
         <input type="radio" name="confid" value="confident"> Confident<br />
@@ -75,30 +75,30 @@
         <input type="button" value="Submit" id="nextSign">
     </div>
     <div id="questiondivlong">
-        <h2>Please Answer Each Question to the Best of Your Abilities</h2>
+        <h2>Please answer each question to the best of your ability</h2>
         How easy was it to use and understand this application?<br />
-        <input type="radio" name="usediff" value="easy" checked> Easy<br />
-        <input type="radio" name="usediff" value="somewhat easy"> Somewhat Easy<br />
-        <input type="radio" name="usediff" value="somewhat difficult"> Somewhat Difficult<br />
+        <input type="radio" name="usediff" value="easy"> Easy<br />
+        <input type="radio" name="usediff" value="somewhat easy"> Somewhat easy<br />
+        <input type="radio" name="usediff" value="somewhat difficult"> Somewhat difficult<br />
         <input type="radio" name="usediff" value="difficult"> Difficult <br />
         <br />How easy was it to find the sign you were looking for?<br />
-        <input type="radio" name="finddiff" value="easy" checked> Easy<br />
-        <input type="radio" name="finddiff" value="somewhat easy"> Somewhat Easy<br />
-        <input type="radio" name="finddiff" value="somewhat difficult"> Somewhat Difficult<br />
+        <input type="radio" name="finddiff" value="easy"> Easy<br />
+        <input type="radio" name="finddiff" value="somewhat easy"> Somewhat easy<br />
+        <input type="radio" name="finddiff" value="somewhat difficult"> Somewhat difficult<br />
         <input type="radio" name="finddiff" value="difficult"> Difficult <br />
         
         <br />What did you like about the application? Would a program 
         similar to this be useful when learning ASL? Explain.<br />
-        <textarea rows="4" cols="80"></textarea><br /><br />
+        <textarea id="useful" rows="4" cols="80"></textarea><br /><br />
         What would you change about this application?
-        <br /><textarea rows="4" cols="80"></textarea><br />
+        <br /><textarea id="to_change" rows="4" cols="80"></textarea><br />
         <input type="button" value="Submit" id="submitlong">
     
     </div>
         
-    <div id="inputmessage">
-        Congratulations on finishing a section! <br />
-        Please verbally notify Gretchen or Alex that you have completed this section.
+    <div id="inputmessage" class="directions">
+        Thank you for your participation! <br />
+        Please tell Gretchen or Alex that you're done.
     </div>
     
     </form>

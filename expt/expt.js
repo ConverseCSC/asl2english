@@ -1,4 +1,3 @@
-// EDIT HERE TO SET CONDITION
 var observer = 1; // Simple serial number
 var trialset = 1; // Set of trials.  The first time through for a given observer
                   // is set 1.  The second time is set 2.
@@ -9,14 +8,6 @@ var conditionlist = [['asl2english', 0],
                     ['handspeak', 1]];
 
 // pairs:  1 -> 0, 3; 2 -> 1, 2; 3, -> 2, 1; 4 -> 3, 0
-
-var conditionnum = observer - 1;
-if (trialset === 2) {
-    conditionnum = 3 - conditionnum;
-}
-
-var condition = conditionlist[conditionnum]; // options: asl2english or handspeak, 0 or 1
-alert("Condition number " + conditionnum);
 
 /* global $ */
 
@@ -35,26 +26,30 @@ var signurls = [ 'https://www.signingsavvy.com/signs/mp4/7/7291.mp4', // fork
                 'https://www.signingsavvy.com/signs/mp4/14/14342.mp4', // addicted
                 'https://www.signingsavvy.com/signs/mp4/5/5659.mp4', //sheep
                 'https://www.signingsavvy.com/signs/mp4/5/5573.mp4' //hurry
-                
     ];
 var signNames = ['fork', 'emphasize', 'coat', 'for', 'grow', 'urge', 'argue', 'addicted', 'sheep', 'hurry'];
-var videocount = 3;
+var videocount;
+var conditionnum;
+var condition; // options: asl2english or handspeak, 0 or 1
 var startTime;
 var endTime;
-var signAnswer;
-var formAnswers = [];
 
-function goToQuestions() {
-    endTime = new Date().toString();
-    $('#lookupdiv').hide();
-    $('#questiondiv').show();
+function startTrialSet() {
+    conditionnum = observer - 1;
+    if (trialset === 2) {
+        conditionnum = 3 - conditionnum;
+    }
+    condition = conditionlist[conditionnum];
+    startTrial();
 }
 
-function openLookup() {
-    $('#lookupbutton').off('click')
-        .on('click', goToQuestions)
-        .attr('value', 'Go to questions');
-    window.open(sites[condition[0]], condition[0]);
+function startTrial() {
+    videocount = 3;
+    $('#videoelt').attr('src', signurls[condition[1]]);
+    $('#nextvideo').off('click')
+        .on('click', showNextVideo)
+        .attr('value', 'Play');
+    $('#videodiv').show();
 }
 
 function showNextVideo() {
@@ -64,8 +59,6 @@ function showNextVideo() {
         $('#lookupbutton').off('click')
             .on('click', openLookup)
             .attr('value', 'Start lookup');
-        //$('#' + condition[0] + 'div').show();
-        //
         startTime = new Date().toString();
     }
     else {
@@ -80,78 +73,76 @@ function showNextVideo() {
     videocount = videocount - 1;
 }
 
+function openLookup() {
+    $('#lookupbutton').off('click')
+        .on('click', goToQuestions)
+        .attr('value', 'Go to questions');
+    window.open(sites[condition[0]], condition[0]);
+}
+
+function goToQuestions() {
+    endTime = new Date().toString();
+    $('#lookupdiv').hide();
+    $('#questiondiv').show();
+}
 
 function nextSign(){
     // Gathering data and sending it to CSV
-    var signinput = document.getElementById('sign');
-    signAnswer = signinput.value;
-    var radio = $('#questiondiv input');
-    for (var i in radio) {
-        if (radio[i].checked){
-            var confid = radio[i].value;
-        }
-    }
+    writeOutData();
+    clearForms();
     
-    
-    // Saving individual sign data to csv
-    var data = [observer, condition[0], signNames[condition[1]], signAnswer, confid, startTime, endTime,,,,];
-    
-    data = data.join(',');
-    $.post('form.php', {data: data})
-    
-    videocount = 3;
     condition[1] = condition[1] + 2;
-    
-    signinput.value = "";
-    
-    if (condition[1] == signurls.length || condition[1] == signurls.length + 1){
+    if (condition[1] == signurls.length || condition[1] == signurls.length + 1) {
         // Last cycle of a single group!
-        $('#questiondiv').hide();
         $("#questiondivlong").show();
     } else {
-        $('#questiondiv').hide();
-        
-        // Reset the forms
-        //$('#' + condition[0] + 'div iframe').attr('src', sites[condition[0]]);
-        $("input[name='confid']").prop('checked', false);
-
-        $('#videoelt').attr('src', signurls[condition[1]]);
-        $('#videodiv').show();
-        $('#nextvideo').attr('value', 'Play');
+        startTrial();
     }
-    
 }
 
 function submit(){
     // Saving survey information to csv
-    var radio = $('#questiondivlong input');
-    for (var i in radio) {
-        if (radio[i].checked && radio[i].name == "usediff"){
-            var usediff = radio[i].value;
-        } else if (radio[i].checked) {
-            var finddiff = radio[i].value;
-        }
-    }
-    var text = $('textarea');
-    
-    var data = [observer, condition[0], , , , , ,usediff, finddiff, text[0].value, text[1].value];
-    data = data.join(',');
-    $.post('form.php', {data: data})
-    $('#questiondivlong').hide();
-    
-    $('#inputmessage').show();
- 
+    writeOutData();
+    clearForms();
 
+    if (trialset === 1) {
+        trialset = 2;
+        startTrialSet();
+    }
+    else {
+        $('#inputmessage').show();
+    }
+}
+
+function writeOutData() {
+    var data;
+    if (condition[1] < signurls.length) {
+        data = [observer, condition[0], signNames[condition[1]], 
+                $('#sign').val(), 
+                $('#questiondiv [type=radio]:checked').val(),
+                startTime, endTime,,,,];
+    }
+    else {
+        data = [observer, condition[0], ,,,,,
+                $('#questiondivlong [type=radio][name=usediff]:checked').val(),
+                $('#questiondivlong [type=radio][name=finddiff]:checked').val(),
+                $('#useful').val(), $('#to_change').val()];
+    }
+    data = data.join('::');
+    $.post('form.php', {data: data});
+}
+
+function clearForms() {
+    $('input[type=radio]:checked').prop('checked', false);
+    $('#sign').val('');
+    $('textarea').val('');
+    $('#questiondiv').hide();
+    $('#questiondivlong').hide();
 }
 
 $(document).ready(function() {
-    
-    $('#videoelt').attr('src', signurls[condition[1]]);
-    $('#videodiv').show();
-    $('#nextvideo').click(showNextVideo);
     $('#nextSign').click(nextSign);
     $('#submitlong').click(submit);
-    $('input[value="Done with lookup"]').click(goToQuestions);
-    
+    startTrialSet();
 });
 

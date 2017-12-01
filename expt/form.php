@@ -12,12 +12,13 @@
 //      fclose($file);
 //    }
    
-   $data = $_POST['data'];
-  $data = explode(',', $data);
+$data = $_POST['data'];
+$data = explode("::", $data);
    
   // $data = array("Volvo", "BMW", "Toyota");
 
-   $file = fopen("form_data.csv","a");
+$observer = $data[0];
+$file = fopen("form_data_" . $observer . ".csv","a");
 
  // foreach ($data as $line)
    // {
