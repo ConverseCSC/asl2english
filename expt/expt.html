@@ -7,7 +7,8 @@
                      height: 900px; 
                      border: none;
             }
-            .directions { font-size: 120%; }
+            .directions { font-size: 150%; }
+            #lookupbutton { font-size: 100%; }
             div { display: none; }
             input[type=textarea] {
                  width: 50%;
@@ -32,16 +33,20 @@
             <input type="button" id="nextvideo" value="Play" />
         </form>
     </div>
-    <div id="handspeakdiv">
-        <form id="handspeak-dirs" class="directions">Enter a value for <strong>every parameter</strong> in the form below, and then click &ldquo;Search&rdquo;. When you're done, click 
-            <input type="button" value="Done with lookup" />
+    <div id="lookupdiv" class="directions">
+        <p>When you click the button below, a new browser tab will open where you can look up the sign.</p>
+        <p>If you don't find the sign on your first try, you can make changes to your parameters and try again.</p>
+        <p>When you have found the sign&mdash;or when you decide to give up looking&mdash;switch back to this browser tab and click the button again.</p>
+        
+        <form id="handspeak-dirs" class="directions">
+            <input type="button" id="lookupbutton" value="Start lookup" />
         </form>
-        <iframe src="https://www.handspeak.com/word/asl-eng/" 
+        <!--iframe src="https://www.handspeak.com/word/asl-eng/" 
                 sandbox="allow-scripts allow-popups allow-forms">
             <p>Iframes unsupported, different browser needed</p>
-        </iframe>
+        </iframe-->
     </div>
-    <div id="asl2englishdiv">
+    <!-- div id="asl2englishdiv">
         <form id="asl2english-dirs" class="directions">Enter values for <strong>as many parameters as you remember</strong> in the form below, and then click &ldquo;Look for matching signs!&rdquo; When you're done, click 
             <input type="button" value="Done with lookup" />
         </form>
@@ -49,7 +54,7 @@
                 sandbox="allow-scripts allow-popups allow-forms">
             <p>Iframes unsupported, different browser needed</p>
         </iframe>
-    </div>
+    </div-->
     <!-- IN PROGRESS 
     Alex: please edit this form so the UI text makes sense
     

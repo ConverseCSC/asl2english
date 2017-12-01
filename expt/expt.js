@@ -1,6 +1,6 @@
 // EDIT HERE TO SET CONDITION
 var observer = 1; // Simple serial number
-var trialset = 2; // Set of trials.  The first time through for a given observer
+var trialset = 1; // Set of trials.  The first time through for a given observer
                   // is set 1.  The second time is set 2.
 
 var conditionlist = [['asl2english', 0],
@@ -44,10 +44,28 @@ var endTime;
 var signAnswer;
 var formAnswers = [];
 
+function goToQuestions() {
+    endTime = new Date().toString();
+    $('#lookupdiv').hide();
+    $('#questiondiv').show();
+}
+
+function openLookup() {
+    $('#lookupbutton').off('click')
+        .on('click', goToQuestions)
+        .attr('value', 'Go to questions');
+    window.open(sites[condition[0]], condition[0]);
+}
+
 function showNextVideo() {
     if (videocount <= 0) {
         $('#videodiv').hide();
-        $('#' + condition[0] + 'div').show();
+        $('#lookupdiv').show();
+        $('#lookupbutton').off('click')
+            .on('click', openLookup)
+            .attr('value', 'Start lookup');
+        //$('#' + condition[0] + 'div').show();
+        //
         startTime = new Date().toString();
     }
     else {
@@ -62,11 +80,6 @@ function showNextVideo() {
     videocount = videocount - 1;
 }
 
-function goToQuestions() {
-    endTime = new Date().toString();
-    $('#' + condition[0] + 'div').hide();
-    $('#questiondiv').show();
-}
 
 function nextSign(){
     // Gathering data and sending it to CSV
@@ -99,7 +112,7 @@ function nextSign(){
         $('#questiondiv').hide();
         
         // Reset the forms
-        $('#' + condition[0] + 'div iframe').attr('src', sites[condition[0]]);
+        //$('#' + condition[0] + 'div iframe').attr('src', sites[condition[0]]);
         $("input[name='confid']").prop('checked', false);
 
         $('#videoelt').attr('src', signurls[condition[1]]);
