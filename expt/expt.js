@@ -33,6 +33,7 @@ var conditionnum;
 var condition; // options: asl2english or handspeak, 0 or 1
 var startTime;
 var endTime;
+var lookupTab;
 
 function startTrialSet() {
     conditionnum = observer - 1;
@@ -77,13 +78,18 @@ function openLookup() {
     $('#lookupbutton').off('click')
         .on('click', goToQuestions)
         .attr('value', 'Go to questions');
-    window.open(sites[condition[0]], condition[0]);
+    lookupTab = window.open(sites[condition[0]], condition[0]);
 }
 
 function goToQuestions() {
     endTime = new Date().toString();
     $('#lookupdiv').hide();
     $('#questiondiv').show();
+    if (lookupTab) {
+        console.log('Closing');
+        lookupTab.close();
+        lookupTab = undefined;
+    }
 }
 
 function nextSign(){
