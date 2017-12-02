@@ -44,7 +44,7 @@ function setParameters(){
 function startTrialSet() {
     $('#parameters').hide();
     observer = parseInt($('#observer').val());
-    conditionnum = observer - 1;
+    conditionnum = observer % 4;
     if (trialset === 2) {
         conditionnum = 3 - conditionnum;
     }
@@ -55,9 +55,7 @@ function startTrialSet() {
 function startTrial() {
     videocount = 3;
     $('#videoelt').attr('src', signurls[condition[1]]);
-    $('#nextvideo').off('click')
-        .on('click', showNextVideo)
-        .attr('value', 'Play');
+    $('#nextvideo').attr('value', 'Play');
     $('#videodiv').show();
     $('#videodiv p:first span').text(trialset);
     $('#videodiv p:last span').text(trialnum);
@@ -167,9 +165,9 @@ function clearForms() {
 }
 
 $(document).ready(function() {
+    $('#nextvideo').click(showNextVideo);
     $('#nextSign').click(nextSign);
     $('#submitlong').click(submit);
     setParameters();
-    
 });
 
