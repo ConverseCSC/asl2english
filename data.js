@@ -75,7 +75,7 @@ shapegroups = [
     [ 70, 87],
 
     // Rlxd  Other
-    [ 93,    94 ] 
+    [ 93 ] 
   ];
 
 // Handshapes is an array of objects representing (surprise!) handshapes.
@@ -280,8 +280,9 @@ handshapes = [
 	      img: 'https://www.bu.edu/asllrp/cslgr/pages/images/Vulcan.gif'},
 	      	{ shape: 'base-hand', id: 93, group: 'Rlxd',
 	     	img: 'images/basehand.svg'},
+	     	undefined,
 	      { shape: 'bent-I-L-Y', id: 95, group: 'I',
-	    	img: 'https://www.bu.edu/asllrp/cslgr/pages/images/_1266.gif'},
+	    	img: 'https://www.bu.edu/asllrp/cslgr/pages/images/_1266.gif'}
 	   
  
 	    	

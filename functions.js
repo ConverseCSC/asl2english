@@ -248,6 +248,7 @@ function pausevid(video) {
 }
 
 var submit = false;
+var maxpages = 5; // Set maximum number of results pages
 
 function evalGuess() {
     
@@ -268,6 +269,9 @@ function evalGuess() {
     
     var numpages = len / $('#displaynum').val();
     numpages = Math.ceil(numpages);
+    if (numpages > maxpages){
+        numpages = maxpages;
+    }
     
     displayResults(possibles, numpages);
     
@@ -361,6 +365,9 @@ function resultsUpdate(value){
     
         var numpages = len / value;
         numpages = Math.ceil(numpages);
+        if (numpages > maxpages){
+            numpages = maxpages;
+        }
 
         displayResults(possibles, numpages);
     }

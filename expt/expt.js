@@ -1,4 +1,4 @@
-var observer = 1; // Simple serial number
+var observer; // Simple serial number
 var trialset = 1; // Set of trials.  The first time through for a given observer
                   // is set 1.  The second time is set 2.
 
@@ -34,8 +34,16 @@ var condition; // options: asl2english or handspeak, 0 or 1
 var startTime;
 var endTime;
 var lookupTab;
+var trialnum = 1;
+
+function setParameters(){
+    $('#parameters').show();
+    $('#paramSubmit').click(startTrialSet);
+}
 
 function startTrialSet() {
+    $('#parameters').hide();
+    observer = parseInt($('#observer').val());
     conditionnum = observer - 1;
     if (trialset === 2) {
         conditionnum = 3 - conditionnum;
@@ -51,6 +59,10 @@ function startTrial() {
         .on('click', showNextVideo)
         .attr('value', 'Play');
     $('#videodiv').show();
+    $('#videodiv p:first span').text(trialset);
+    $('#videodiv p:last span').text(trialnum);
+    
+    trialnum = trialnum + 1;
 }
 
 function showNextVideo() {
@@ -64,10 +76,18 @@ function showNextVideo() {
     }
     else {
         if (videocount == 1) {
-            $('#nextvideo').attr('value', 'Find the sign');
+             $('#nextvideo').attr('disabled', true);
+            setTimeout(function() {
+                $('#nextvideo').attr('disabled', false);
+                $('#nextvideo').attr('value', 'Find the sign');
+            }, 1500);
         }
         else {
-            $('#nextvideo').attr('value', 'Play video again');
+            $('#nextvideo').attr('disabled', true);
+            setTimeout(function() {
+                $('#nextvideo').attr('disabled', false)
+                $('#nextvideo').attr('value', 'Play video again');
+            }, 1500);
         }
         $('#videoelt')[0].play();
     }
@@ -149,6 +169,7 @@ function clearForms() {
 $(document).ready(function() {
     $('#nextSign').click(nextSign);
     $('#submitlong').click(submit);
-    startTrialSet();
+    setParameters();
+    
 });
 
