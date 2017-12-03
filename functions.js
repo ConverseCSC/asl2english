@@ -385,6 +385,8 @@ function displayHelp(){
 
 
 $(document).ready( function() {
+    $('#locpopup').html($('#locinstructions').html());
+    
     var changeHands = function() {
         var classToShow = $("#numhands option:selected").val();
         $(".one, .moving, .two").hide();

@@ -309,11 +309,12 @@ sn9LCyZqDLfrRmsbO7uFO8BmIr/xb//Z" transform="matrix(1 0 0 1 117 196)">
 		C293.5,190.3,293.4,190.3,293.4,190.3z"/>
 </g>
 <g>
-	<path d="M490,320 L610,320 A15,15 0 0,1 625,335 L625,495 A15,15 0 0,0 640,510
-	         A15,15 0 0,0 625,525 L625,685 A15,15 0 0,1 610,700 L530,700" 
+	<path d="M480,300 L610,300 A15,15 0 0,1 625,315 L625,485 A15,15 0 0,0 640,500
+	         A15,15 0 0,0 625,515 L625,685 A15,15 0 0,1 610,700 L530,700" 
 	         fill="none" stroke="black" stroke-width="2"/>
 </g>
-<text x="645" y="510" font-size="40" transform="rotate(90 645 510)" text-anchor="middle">Non-dominant arm</text>
+<text x="300" y="0" text-anchor="middle" font-size="40">Front view</text>
+<text x="645" y="500" font-size="40" transform="rotate(90 645 500)" text-anchor="middle">Non-dominant arm</text>
 <text x="5" y="200" font-size="40">&#x2190; Dominant</text>
 <text x="675" y="200" font-size="40" text-anchor="end">Non-dominant &#x2192;</text>
 </svg>

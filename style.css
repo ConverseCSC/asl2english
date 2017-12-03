@@ -224,3 +224,19 @@ svg { border: thin solid; }
 .q:hover + .popuphelp {
     left: 0px;
 }
+
+#locdiv {
+    display: grid;
+    grid-template-columns: 450px auto;
+    grid-template-rows: auto;
+}
+
+#locimgdiv {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+
+#locinstructions {
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+}
