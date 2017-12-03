@@ -269,7 +269,7 @@ function evalGuess() {
     
     var numpages = len / $('#displaynum').val();
     numpages = Math.ceil(numpages);
-    if (numpages > maxpages){
+    if ((maxpages > 0) && (numpages > maxpages)) {
         numpages = maxpages;
     }
     

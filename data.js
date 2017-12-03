@@ -356,7 +356,7 @@ sideregions = { 'image': 'images/side.svg',
 		
 
 frontregions = { 'image': 'images/front.svg',
-		'width': 250,
+		'width': 287.5,
 		'height': 400,
 		'regions': {
 		    'high-right': {'elt': 'polygon', 'xyz': [2, 3],

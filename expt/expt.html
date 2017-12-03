@@ -3,11 +3,7 @@
     <head>
         <title>asl2english experiment</title>
         <style>
-            iframe { width: 100%; 
-                     height: 900px; 
-                     border: none;
-            }
-            .directions { font-size: 150%; }
+            .directions { font-size: 120%; }
             #lookupbutton { font-size: 100%; }
             div { display: none; }
             input[type=textarea] {
@@ -19,15 +15,26 @@
                  border-radius: 4px;
                  background-color: #f8f8f8;
                  }
+            .errmsg { 
+                color: red;
+            }
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-        <script src="expt.js?_c9_id=livepreview2&_c9_host=https://ide.c9.io"></script>
+        <script src="expt.js"></script>
     </head>
     <body>
-    <div id="parameters">
-        Observer:
-        <input type="text" id="observer">
-        <input type="button" value="Submit" id="paramSubmit">
+    <div id="parameters" class="directions">
+        <h2>Overview of the experiment</h2>
+        <p>In this experiment, you will be shown 10 ASL signs that we think you probably don't already know.  You will be asked to find the meaning of each sign either on the asl2english site or on the handspeak.com site.  For the first group of five signs, you will use one site.  For the second group of five signs, you will use the other site.</p>
+        <p>After you look up each sign, you will be asked to enter its meaning (or &ldquo;Not found&rdquo; if you couldn't find it), together with how confident you feel in your choice.  After each group of five signs, you'll be asked to give feedback on the Web site you used to look up those five signs.</p>
+        <p style="margin-top: 3em;">When you're ready to begin, please enter your observer number below and click &ldquo;Submit&rdquo;.</p>
+        
+        <form id="paramform">
+            <label>Observer number: </label>
+            <input type="text" id="observer">
+            <input type="button" value="Submit" id="paramSubmit"><br />
+            <label id="paramErr" class="errmsg">Please enter your observer number before clicking Submit.</label>
+        </form>
         <!-- Overview goes here -->
     </div>
 
@@ -51,20 +58,7 @@
         <form id="handspeak-dirs" class="directions">
             <input type="button" id="lookupbutton" value="Start lookup" />
         </form>
-        <!--iframe src="https://www.handspeak.com/word/asl-eng/" 
-                sandbox="allow-scripts allow-popups allow-forms">
-            <p>Iframes unsupported, different browser needed</p>
-        </iframe-->
     </div>
-    <!-- div id="asl2englishdiv">
-        <form id="asl2english-dirs" class="directions">Enter values for <strong>as many parameters as you remember</strong> in the form below, and then click &ldquo;Look for matching signs!&rdquo; When you're done, click 
-            <input type="button" value="Done with lookup" />
-        </form>
-        <iframe src="https://moodle.converse.edu/asl2english/" 
-                sandbox="allow-scripts allow-popups allow-forms">
-            <p>Iframes unsupported, different browser needed</p>
-        </iframe>
-    </div-->
     <!-- IN PROGRESS 
     Alex: please edit this form so the UI text makes sense
     

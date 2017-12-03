@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20%" height="400px" viewBox="0 120 600 600">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20%" height="400px" viewBox="0 120 690 600">
 <style type="text/css">
 	.st0{fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
 </style>
@@ -308,6 +308,12 @@ sn9LCyZqDLfrRmsbO7uFO8BmIr/xb//Z" transform="matrix(1 0 0 1 117 196)">
 		c-0.8-0.2-1.6-0.5-2.3-0.7c-0.7-0.2-1.4-0.5-2-0.8c-1.2-0.5-2.2-1-2.9-1.4c-0.3-0.2-0.6-0.3-0.8-0.4
 		C293.5,190.3,293.4,190.3,293.4,190.3z"/>
 </g>
-<text x="5" y="0" font-size="40">&#x2190; Dominant</text>
-<text x="595" y="0" font-size="40" text-anchor="end">Non-dominant &#x2192;</text>
+<g>
+	<path d="M490,320 L610,320 A15,15 0 0,1 625,335 L625,495 A15,15 0 0,0 640,510
+	         A15,15 0 0,0 625,525 L625,685 A15,15 0 0,1 610,700 L530,700" 
+	         fill="none" stroke="black" stroke-width="2"/>
+</g>
+<text x="645" y="510" font-size="40" transform="rotate(90 645 510)" text-anchor="middle">Non-dominant arm</text>
+<text x="5" y="200" font-size="40">&#x2190; Dominant</text>
+<text x="675" y="200" font-size="40" text-anchor="end">Non-dominant &#x2192;</text>
 </svg>

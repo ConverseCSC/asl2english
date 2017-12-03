@@ -119,14 +119,28 @@
 			</div>
 		</fieldset>
 		<fieldset id="positionset" class="noborder">
-					<hr/>
+			<hr/>
 			<h2>Location</h2>
 			<div id="locmovediv" class="imgdiv">
+				<div id="locinstructions">
+					<p>Click the images to show where the dominant hand's movement starts and ends, as follows:</p>
+					<ol>
+						<li>Move your mouse over the pictures.  The regions will highlight as you move over them.  Click the region where the dominant hand starts.</li>
+						<li>In the dropdown, select &ldquo;End (O)&rdquo; so you can place the ending location.</li>
+						<li>Click the region where the dominant hand ends.</li>
+					</ol>
+					<ul>
+						<li>Use the side view to indicate <strong>locations out in front of the body</strong>.</li>
+						<li>Use the front view to indicate locations on the body.</li>
+						<li>Use the <strong>locations on the non-dominant arm and hand</strong> to indicate that the dominant hand starts or ends there, regardless of whether the non-dominant arm is in front of the body or beside the body.</li>
+					</ul>
+				</div>
 				<div id="locdiv" class="imgdiv">
-					<div class="title">Click the <select name="locstartend" id="locstartend">
-							<option selected="" value="0">starting (X)</option>
-							<option value="1">ending (O)</option>
-						</select> location of the dominant hand:
+					<div class="title">Start/end:
+						<select name="locstartend" id="locstartend">
+							<option selected="" value="0">Start (X)</option>
+							<option value="1">End (O)</option>
+						</select>
 						<span class="helpparent"><span class="q" href="">?</span>
 						<div class="popuphelp">Move your mouse over the pictures.  The regions will highlight as you roll over them.  Click to set the beginning (X) and ending (O) locations of the sign. 
 						<br/>
@@ -134,11 +148,12 @@
 					</div>
 					<br/>
 					<ul class="locimg">
-						<li id="sideimgitem"></li>
 						<li id="frontimgitem"></li>
+						<li id="sideimgitem"></li>
 					</ul>
 					<input type="hidden" name="loc0" id="loc0" value="" />
 					<input type="hidden" name="loc1" id="loc1" value="" />
+
 				</div>
 			</fieldset>
 			<fieldset id="movementset" class="noborder">

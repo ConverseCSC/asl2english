@@ -38,12 +38,25 @@ var trialnum = 1;
 
 function setParameters(){
     $('#parameters').show();
-    $('#paramSubmit').click(startTrialSet);
+    $('#paramSubmit').click(startObserver);
+}
+
+function startObserver() {
+    observer = parseInt($('#observer').val());
+    //console.log(observer);
+    if (observer >= 0) {
+        $('#paramErr').hide();
+        startTrialSet();
+    }
+    else {
+        $('#paramErr').show();
+        $('#observer').focus();
+    }
+    
 }
 
 function startTrialSet() {
     $('#parameters').hide();
-    observer = parseInt($('#observer').val());
     conditionnum = observer % 4;
     if (trialset === 2) {
         conditionnum = 3 - conditionnum;
@@ -165,6 +178,7 @@ function clearForms() {
 }
 
 $(document).ready(function() {
+    $('.errmsg').hide();
     $('#nextvideo').click(showNextVideo);
     $('#nextSign').click(nextSign);
     $('#submitlong').click(submit);
