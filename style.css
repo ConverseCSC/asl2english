@@ -88,6 +88,17 @@ ul.locimg img {
     padding: 0px;
 }
 
+.locimg figure {
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+    /*background-color: white;*/
+}
+
+figcaption {
+    text-align: center;
+}
+
 path.mark, circle.mark {
     stroke: blue;
     stroke-width: 2;
@@ -121,9 +132,11 @@ th.signtitle {
 video.signvideo {
     max-width: 100%;
 }
+
 table, th, td {
    border-collapse: collapse; 
 }
+
 .variantdiv {
     background:lightgrey;
     padding:20px;
@@ -136,7 +149,6 @@ noscript div {
 }
 
 svg { border: thin solid; }
-
 
 .popup {
     display: none; /* Hidden by default */
@@ -151,33 +163,7 @@ svg { border: thin solid; }
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-
-#hand0div {
-    background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-
-#hand1div {
-    background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-#hand2div {
-    background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-}
-
-#hand3div {
+#hand0div, #hand1div, #hand2div, #hand3div {
     background-color: #fefefe;
     margin: 5% auto; /* 15% from the top and centered */
     padding: 20px;

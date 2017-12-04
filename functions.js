@@ -385,8 +385,6 @@ function displayHelp(){
 
 
 $(document).ready( function() {
-    $('#locpopup').html($('#locinstructions').html());
-    
     var changeHands = function() {
         var classToShow = $("#numhands option:selected").val();
         $(".one, .moving, .two").hide();
@@ -472,6 +470,7 @@ $(document).ready( function() {
     });
 
     $('#locstartend').bind('change', moveClearSelected);
+    $('#locpopup').html($('#locinstructions').html());
     $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
     $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
 

@@ -53,22 +53,27 @@
 			<h2>Handshape</h2>
 			<div id="handshapesdiv" class="imgdiv">
 				<div id="shape0div" class="imgdiv">
-					<div class="title">Click to set handshape (dominant hand):</div>
-					<br/>
+					<div class="title">Dominant hand:</div>
 					<ul class="locimg">
 						<li id="hand0shape0li">
+								<figure>
+									<figcaption>Starting handshape</figcaption>
 							<button id="btn">
-								<img id="hand0shape0img" src="images/handshape-start.svg" style="border: thin solid" width="114" height="159" />
+								<img id="hand0shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
+								</figure>
 							<div id="popup" class="popup"> 
 		 						<div id="hand0div">
 		 							<span class="close">x</span>
     							</div>
     						</div></li>
 						<li id="hand0shape1li">
+								<figure>
+									<figcaption>Ending handshape</figcaption>
 							<button id="btn1">
-								<img id="hand0shape1img" src="images/handshape-end.svg" style="border: thin solid" width="114" height="159" />
+								<img id="hand0shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
+								</figure>
 							<div id="popup1" class="popup"> 
 		 						<div id="hand1div">
 			 						<span class="close">x</span>
@@ -77,21 +82,27 @@
 					</ul>
 				</div>
 				<div id="shape1div" class="imgdiv moving two">
-					<div class="title">Click to set handshape (non-dominant hand):</div>
+					<div class="title">Non-dominant hand:</div>
 					<ul class="locimg">
 						<li id="hand1shape0li">
+							<figure>
+								<figcaption>Starting handshape</figcaption>
 							<button id="btn2">
-								<img id="hand1shape0img" src="images/handshape-start.svg" style="border: thin solid" width="114" height="159" />
+								<img id="hand1shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
+							</figure>
 							<div id="popup2" class="popup"> 
 		 						<div id="hand2div">
 			 						<span class="close">x</span>
 			 					</div>
 			 				</div></li>
 						<li id="hand1shape1li">
+							<figure>
+								<figcaption>Ending handshape</figcaption>
 							<button id="btn3">
-								<img id="hand1shape1img" src="images/handshape-end.svg" style="border: thin solid" width="114" height="159" />
+								<img id="hand1shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
+							</figure>
 							<div id="popup3" class="popup"> 
 		 						<div id="hand3div">
 			 						<span class="close">x</span>
@@ -181,7 +192,7 @@
 			<hr/>
 			<br/>
 			<div id="resultnumdiv">
-				Results to display: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
+				Results per page: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
 					<option value="5">5</option>
 					<option value="10">10</option>
 					<option value="15">15</option>
