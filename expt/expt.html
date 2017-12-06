@@ -18,7 +18,7 @@
                  background-color: #f8f8f8;
                  }
             .errmsg { color: red; }
-            .trialparams { display: none; }
+            #trialparams { margin-left: 0.5em; display: none; }
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
         <!-- without this: ?_c9_id=livepreview1&_c9_host=https://ide.c9.io at the end of 
@@ -40,15 +40,14 @@
         <input type="number" min="14" id="observer" required>
         <input type="button" value="Submit" id="paramSubmit">
         <label id="paramErr" class="errmsg"><br />Please enter your observer number before clicking Submit.</label>
-        <label class="trialparams">Part <span id="partnum"></span>, 
-                trial <span id="trialnum"></span></label>
-        <input type="hidden" id="trialset" value="1" />
-        <input type="hidden" id="conditionnum" />
+        <label id="trialparams"> Part: <span id="trialset">1</span> 
+                Trial: <span id="trialnum"></span></label>
         <input type="hidden" id="site" />
         <input type="hidden" id="signnum" />
         <input type="hidden" id="videocount" />
         <input type="hidden" id="starttime" />
-        <input type="hidden" if="endTime" />
+        <input type="hidden" id="endTime" />
+        <input type="hidden" id="lookupTab" />
     </form>
 
     <div id="videodiv">

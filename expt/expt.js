@@ -1,5 +1,5 @@
-var observer; // Simple serial number
-var trialset = 1; // Set of trials.  The first time through for a given observer
+//var observer; // Simple serial number
+//var trialset = 1; // Set of trials.  The first time through for a given observer
                   // is set 1.  The second time is set 2.
 
 var conditionlist = [['asl2english', 0],
@@ -28,18 +28,18 @@ var signurls = [ 'https://www.signingsavvy.com/signs/mp4/7/7291.mp4', // fork
                 'https://www.signingsavvy.com/signs/mp4/5/5573.mp4' //hurry
     ];
 var signNames = ['fork', 'emphasize', 'coat', 'for', 'grow', 'urge', 'argue', 'addicted', 'sheep', 'hurry'];
-var videocount;
-var conditionnum;
-var condition; // options: asl2english or handspeak, 0 or 1
-var startTime;
-var endTime;
-var lookupTab;
-var trialnum;
+//var videocount;
+//var conditionnum;
+//var condition; // options: asl2english or handspeak, 0 or 1
+//var startTime;
+//var endTime;
+//var lookupTab;
+//var trialnum;
 
 function setParameters(){
     $('#paramSubmit').click(startObserver);
     $('#parameters').show();
-    $('.trialparams').hide();
+    $('#trialparams').hide();
 }
 
 function startObserver() {
@@ -61,16 +61,15 @@ function startObserver() {
 
 function startTrialSet() {
     var observer = parseInt($('#observer').val(), 10);
-    var trialset = parseInt($('#trialset').val(), 10);
+    var trialset = parseInt($('#trialset').text(), 10);
     var conditionnum = observer % 4;
     if (trialset === 2) {
         conditionnum = 3 - conditionnum;
     }
-    $('#conditionnum').val(conditionnum);
     $('#site').val(conditionlist[conditionnum][0]);
     $('#signnum').val(conditionlist[conditionnum][1]);
     $('#trialnum').text(0);
-    $('.trialparams').show();
+    $('#trialparams').show();
     startTrial();
 }
 
@@ -84,7 +83,6 @@ function startTrial() {
     $('#videoelt').attr('src', signurls[parseInt($('#signnum').val(), 10)]);
     $('#nextvideo').attr('value', 'Play');
     $('#videodiv').show();
-    $('#partnum').text(trialset);
     $('#videoinstr').text(videoinstructions[2]);
     
     $('#trialnum').text(parseInt($('#trialnum').text(), 10) + 1);
@@ -122,22 +120,22 @@ function showNextVideo() {
 }
 
 function openLookup() {
+    $('#startTime').val(new Date().toISOString());
+    var lookupTab = window.open(sites[$('#site').val()], 'lookupTab');
+
+    var goToQuestions = function() {
+        $('#endTime').val(new Date().toISOString());
+        $('#lookupdiv').hide();
+        $('#questiondiv').show();
+        if (lookupTab) {
+            lookupTab.close();
+            lookupTab = undefined;
+        }
+    };
+    
     $('#lookupbutton').off('click')
         .on('click', goToQuestions)
         .attr('value', 'Go to questions');
-    $('#startTime').val(Date.now().toISOString());
-    window.open(sites[$('#site').val()], 'lookupTab');
-}
-
-function goToQuestions() {
-    $('#endTime').val(Date.now().toISOString());
-    $('#lookupdiv').hide();
-    $('#questiondiv').show();
-    if (lookupTab) {
-        console.log('Closing');
-        lookupTab.close();
-        lookupTab = undefined;
-    }
 }
 
 function nextSign(){
@@ -145,8 +143,10 @@ function nextSign(){
     writeOutData();
     clearForms();
     
-    condition[1] = condition[1] + 2;
-    if (condition[1] == signurls.length || condition[1] == signurls.length + 1) {
+    var signnum = parseInt($('#signnum').val(), 10);
+    signnum += 2;
+    $('#signnum').val(signnum);
+    if (signnum >= signurls.length) {
         // Last cycle of a single group!
         $("#questiondivlong").show();
     } else {
@@ -159,8 +159,8 @@ function submit(){
     writeOutData();
     clearForms();
 
-    if (trialset === 1) {
-        trialset = 2;
+    if (parseInt($('#trialset').text(), 10) === 1) {
+        $('#trialset').text('2');
         startTrialSet();
     }
     else {
@@ -170,15 +170,16 @@ function submit(){
 
 function writeOutData() {
     var data;
-    if (condition[1] < signurls.length) {
+    var signnum = parseInt($('#signnum').val(), 10);
+    if (signnum < signurls.length) {
         console.log(observer);
-        data = [observer, condition[0], signNames[condition[1]], 
+        data = [$('#observer').val(), $('#site').val(), signNames[signnum], 
                 $('#sign').val(), 
                 $('#questiondiv [type=radio]:checked').val(),
-                startTime, endTime,,,,];
+                $('#startTime').val(), $('#endTime').val(),,,,];
     }
     else {
-        data = [observer, condition[0], ,,,,,
+        data = [$('#observer').val(), $('#site').val(), ,,,,,
                 $('#questiondivlong [type=radio][name=usediff]:checked').val(),
                 $('#questiondivlong [type=radio][name=finddiff]:checked').val(),
                 $('#useful').val(), $('#to_change').val()];
