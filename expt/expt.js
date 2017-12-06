@@ -34,18 +34,22 @@ var condition; // options: asl2english or handspeak, 0 or 1
 var startTime;
 var endTime;
 var lookupTab;
-var trialnum = 1;
+var trialnum;
 
 function setParameters(){
-    $('#parameters').show();
     $('#paramSubmit').click(startObserver);
+    $('#parameters').show();
+    $('.trialparams').hide();
 }
 
 function startObserver() {
-    observer = parseInt($('#observer').val());
+    var observer = parseInt($('#observer').val(), 10);
     //console.log(observer);
     if (observer >= 0) {
+        $('#parameters').hide();
         $('#paramErr').hide();
+        $('#paramSubmit').hide();
+        $('#observer').prop('disabled','disabled');
         startTrialSet();
     }
     else {
@@ -56,45 +60,57 @@ function startObserver() {
 }
 
 function startTrialSet() {
-    $('#parameters').hide();
-    conditionnum = observer % 4;
+    var observer = parseInt($('#observer').val(), 10);
+    var trialset = parseInt($('#trialset').val(), 10);
+    var conditionnum = observer % 4;
     if (trialset === 2) {
         conditionnum = 3 - conditionnum;
     }
-    condition = conditionlist[conditionnum];
+    $('#conditionnum').val(conditionnum);
+    $('#site').val(conditionlist[conditionnum][0]);
+    $('#signnum').val(conditionlist[conditionnum][1]);
+    $('#trialnum').text(0);
+    $('.trialparams').show();
     startTrial();
 }
 
+var videoinstructions = ['When the video is done, click the button at the bottom.',
+        'Play the video again, and then click the button at the bottom.',
+        'Play the video, and then click the button at the bottom.',
+        ];
+
 function startTrial() {
-    videocount = 3;
-    $('#videoelt').attr('src', signurls[condition[1]]);
+    $('#videocount').val(3);
+    $('#videoelt').attr('src', signurls[parseInt($('#signnum').val(), 10)]);
     $('#nextvideo').attr('value', 'Play');
     $('#videodiv').show();
-    $('#videodiv p:first span').text(trialset);
-    $('#videodiv p:last span').text(trialnum);
+    $('#partnum').text(trialset);
+    $('#videoinstr').text(videoinstructions[2]);
     
-    trialnum = trialnum + 1;
+    $('#trialnum').text(parseInt($('#trialnum').text(), 10) + 1);
 }
 
 function showNextVideo() {
+    var videocount = parseInt($('#videocount').val(), 10)
     if (videocount <= 0) {
         $('#videodiv').hide();
         $('#lookupdiv').show();
         $('#lookupbutton').off('click')
             .on('click', openLookup)
             .attr('value', 'Start lookup');
-        startTime = new Date().toString();
     }
     else {
         if (videocount == 1) {
              $('#nextvideo').attr('disabled', true);
             setTimeout(function() {
+                $('#videoinstr').text(videoinstructions[0]);
                 $('#nextvideo').attr('disabled', false);
                 $('#nextvideo').attr('value', 'Find the sign');
             }, 1500);
         }
         else {
             $('#nextvideo').attr('disabled', true);
+            $('#videoinstr').text(videoinstructions[1]);
             setTimeout(function() {
                 $('#nextvideo').attr('disabled', false)
                 $('#nextvideo').attr('value', 'Play video again');
@@ -102,18 +118,19 @@ function showNextVideo() {
         }
         $('#videoelt')[0].play();
     }
-    videocount = videocount - 1;
+    $('#videocount').val(videocount - 1);
 }
 
 function openLookup() {
     $('#lookupbutton').off('click')
         .on('click', goToQuestions)
         .attr('value', 'Go to questions');
-    lookupTab = window.open(sites[condition[0]], condition[0]);
+    $('#startTime').val(Date.now().toISOString());
+    window.open(sites[$('#site').val()], 'lookupTab');
 }
 
 function goToQuestions() {
-    endTime = new Date().toString();
+    $('#endTime').val(Date.now().toISOString());
     $('#lookupdiv').hide();
     $('#questiondiv').show();
     if (lookupTab) {
@@ -154,6 +171,7 @@ function submit(){
 function writeOutData() {
     var data;
     if (condition[1] < signurls.length) {
+        console.log(observer);
         data = [observer, condition[0], signNames[condition[1]], 
                 $('#sign').val(), 
                 $('#questiondiv [type=radio]:checked').val(),

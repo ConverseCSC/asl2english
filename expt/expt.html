@@ -3,8 +3,10 @@
     <head>
         <title>asl2english experiment</title>
         <style>
+            #observer { width: 3em; }
             .directions { font-size: 120%; }
             #lookupbutton { font-size: 100%; }
+            #paramform { margin-bottom: 1em; }
             div { display: none; }
             input[type=textarea] {
                  width: 50%;
@@ -15,11 +17,12 @@
                  border-radius: 4px;
                  background-color: #f8f8f8;
                  }
-            .errmsg { 
-                color: red;
-            }
+            .errmsg { color: red; }
+            .trialparams { display: none; }
         </style>
         <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+        <!-- without this: ?_c9_id=livepreview1&_c9_host=https://ide.c9.io at the end of 
+        expt.js it does not work in cloud9, I have no idea why -->
         <script src="expt.js"></script>
     </head>
     <body>
@@ -29,19 +32,30 @@
         <p>After you look up each sign, you will be asked to enter its meaning (or &ldquo;Not found&rdquo; if you couldn't find it), together with how confident you feel in your choice.  After each group of five signs, you'll be asked to give feedback on the Web site you used to look up those five signs.</p>
         <p style="margin-top: 3em;">When you're ready to begin, please enter your observer number below and click &ldquo;Submit&rdquo;.</p>
         
-        <form id="paramform">
-            <label>Observer number: </label>
-            <input type="text" id="observer">
-            <input type="button" value="Submit" id="paramSubmit"><br />
-            <label id="paramErr" class="errmsg">Please enter your observer number before clicking Submit.</label>
-        </form>
         <!-- Overview goes here -->
     </div>
 
+    <form id="paramform">
+        <label>Observer number: </label>
+        <input type="number" min="14" id="observer" required>
+        <input type="button" value="Submit" id="paramSubmit">
+        <label id="paramErr" class="errmsg"><br />Please enter your observer number before clicking Submit.</label>
+        <label class="trialparams">Part <span id="partnum"></span>, 
+                trial <span id="trialnum"></span></label>
+        <input type="hidden" id="trialset" value="1" />
+        <input type="hidden" id="conditionnum" />
+        <input type="hidden" id="site" />
+        <input type="hidden" id="signnum" />
+        <input type="hidden" id="videocount" />
+        <input type="hidden" id="starttime" />
+        <input type="hidden" if="endTime" />
+    </form>
+
     <div id="videodiv">
 
-            <p><b>Part #<span></span></b></p>
-            <p><b>Trial #<span></span></b></p>
+        <!--h2>Part <span id="partnum"></span>, Trial <span id="trialnum"></span></h2-->
+
+        <p id="videoinstr">Play the video again, and then click the button at the bottom.</p>
 
         <video id="videoelt">
             
