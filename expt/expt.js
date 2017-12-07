@@ -46,7 +46,6 @@ function startObserver() {
     console.log(window.sessionStorage.getItem('observer'));
     window.sessionStorage.setItem('observer', observer);
     console.log(window.sessionStorage.getItem('observer'));
-    //console.log(observer);
     if (observer >= 0) {
         $('#parameters').hide();
         $('#paramErr').hide();
@@ -62,7 +61,6 @@ function startObserver() {
 }
 
 function startTrialSet() {
-    //console.log(window.sessionStorage.getItem('observer'));
     var observer = parseInt(window.sessionStorage.getItem('observer'), 10);
     var trialset = 1;
     if (window.sessionStorage.getItem("trialset")) {
@@ -89,9 +87,6 @@ function startTrialSet() {
         window.sessionStorage.setItem('signidx', signidx);
     }
 
-    //$('#site').val(conditionlist[conditionnum][0]);
-    //$('#signnum').val(conditionlist[conditionnum][1]);
-    //$('#trialnum').text(0);
     $('#trialparams').show();
     startTrial();
 }
@@ -108,11 +103,7 @@ function startTrial() {
     var signidx = parseInt(window.sessionStorage.getItem('signidx'), 10);
     $('#trialnum').text(Math.floor(signidx/2) + 1);
     $('#videoelt').attr('src', signurls[signidx]);
-    //$('#videocount').val(3);
-    //$('#videoelt').attr('src', signurls[parseInt($('#signnum').val(), 10)]);
-    //$('#nextvideo').attr('value', 'Play');
     $('#videodiv').show();
-    //$('#videoinstr').text(videoinstructions[2]);
     showNextVideo();
 }
 
@@ -128,7 +119,6 @@ function showNextVideo() {
     var videocount = parseInt(window.sessionStorage.getItem('videocount'), 10);
 
     if (videocount <= 0) {
-        window.sessionStorage.removeItem('videocount');
         $('#videodiv').hide();
         $('#lookupdiv').show();
         $('#lookupbutton').off('click')
@@ -151,13 +141,11 @@ function showNextVideo() {
 
 function openLookup() {
     window.sessionStorage.setItem('startTime', new Date().toISOString());
-    //$('#startTime').val(new Date().toISOString());
     var lookupTab = window.open(sites[window.sessionStorage.getItem('site')],
                                 'lookupTab');
 
     var goToQuestions = function() {
         window.sessionStorage.setItem('endTime', new Date().toISOString());
-        //$('#endTime').val(new Date().toISOString());
         $('#lookupdiv').hide();
         $('#questiondiv').show();
         if (lookupTab) {
@@ -175,10 +163,10 @@ function nextSign(){
     // Gathering data and sending it to CSV
     writeOutData();
     clearForms();
+    window.sessionStorage.removeItem('videocount');
     
     var signidx = parseInt(window.sessionStorage.getItem('signidx'), 10);
     signidx += 2;
-    //$('#signnum').val(signnum);
     window.sessionStorage.setItem('signidx', signidx);
     if (signidx >= signurls.length) {
         // Last cycle of a single group!
@@ -192,6 +180,7 @@ function submit(){
     // Saving survey information to csv
     writeOutData();
     clearForms();
+    window.sessionStorage.removeItem('videocount');
 
     if (parseInt(window.sessionStorage.getItem('trialset'), 10) === 1) {
         window.sessionStorage.setItem('trialset', 2);
@@ -208,7 +197,6 @@ function writeOutData() {
     var data;
     var signidx = parseInt(window.sessionStorage.getItem('signidx'), 10);
     if (signidx < signurls.length) {
-        //console.log(observer);
         data = [window.sessionStorage.getItem('observer'),
                 window.sessionStorage.getItem('site'), signNames[signidx], 
                 $('#sign').val(), 
@@ -243,4 +231,3 @@ $(document).ready(function() {
     $('#submitlong').click(submit);
     setParameters();
 });
-

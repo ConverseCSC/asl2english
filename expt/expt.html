@@ -5,7 +5,7 @@
         <style>
             #observer { width: 3em; }
             .directions { font-size: 120%; }
-            #lookupbutton { font-size: 100%; }
+            .directions input { font-size: 100%; }
             #paramform { margin-bottom: 1em; }
             div { display: none; }
             input[type=textarea] {
@@ -35,31 +35,25 @@
         <!-- Overview goes here -->
     </div>
 
-    <form id="paramform">
+    <form id="paramform" class="directions">
         <label>Observer number: </label>
         <input type="number" min="14" id="observer" required>
         <input type="button" value="Submit" id="paramSubmit">
         <label id="paramErr" class="errmsg"><br />Please enter your observer number before clicking Submit.</label>
         <label id="trialparams"> Part: <span id="trialset">1</span> 
                 Trial: <span id="trialnum"></span></label>
-        <!--input type="hidden" id="site" />
-        <input type="hidden" id="signnum" />
-        <input type="hidden" id="videocount" />
-        <input type="hidden" id="starttime" />
-        <input type="hidden" id="endTime" />
-        <input type="hidden" id="lookupTab" /-->
     </form>
 
     <div id="videodiv">
 
         <!--h2>Part <span id="partnum"></span>, Trial <span id="trialnum"></span></h2-->
 
-        <p id="videoinstr">Play the video again, and then click the button at the bottom.</p>
+        <p id="videoinstr" class="directions">Play the video again, and then click the button at the bottom.</p>
 
         <video id="videoelt">
             
         </video>
-        <form id="videoform">
+        <form id="videoform" class="directions">
             <input type="button" id="nextvideo" value="Play" />
         </form>
     </div>
@@ -81,7 +75,7 @@
     Possibly add a div that shows up as a confirm message when submitlong is submitted
     
     -->
-     <form id="questionnaire">
+     <form id="questionnaire" class="directions">
     <div id="questiondiv">What sign did you find? (If you didn't find the sign, put &ldquo;Not found&rdquo;.)<br />
         <input type="text" name="sign" id="sign"></input><br /><br />
         How confident are you in this answer?<br />
