@@ -28,22 +28,24 @@ var signurls = [ 'https://www.signingsavvy.com/signs/mp4/7/7291.mp4', // fork
                 'https://www.signingsavvy.com/signs/mp4/5/5573.mp4' //hurry
     ];
 var signNames = ['fork', 'emphasize', 'coat', 'for', 'grow', 'urge', 'argue', 'addicted', 'sheep', 'hurry'];
-//var videocount;
-//var conditionnum;
-//var condition; // options: asl2english or handspeak, 0 or 1
-//var startTime;
-//var endTime;
-//var lookupTab;
-//var trialnum;
 
 function setParameters(){
-    $('#paramSubmit').click(startObserver);
-    $('#parameters').show();
-    $('#trialparams').hide();
+    if (window.sessionStorage.getItem('observer')) {
+        $('#observer').val(window.sessionStorage.getItem('observer'));
+        startObserver();
+    }
+    else {
+        $('#paramSubmit').click(startObserver);
+        $('#parameters').show();
+        $('#trialparams').hide();
+    }
 }
 
 function startObserver() {
     var observer = parseInt($('#observer').val(), 10);
+    console.log(window.sessionStorage.getItem('observer'));
+    window.sessionStorage.setItem('observer', observer);
+    console.log(window.sessionStorage.getItem('observer'));
     //console.log(observer);
     if (observer >= 0) {
         $('#parameters').hide();
@@ -60,37 +62,70 @@ function startObserver() {
 }
 
 function startTrialSet() {
-    var observer = parseInt($('#observer').val(), 10);
-    var trialset = parseInt($('#trialset').text(), 10);
-    var conditionnum = observer % 4;
-    if (trialset === 2) {
-        conditionnum = 3 - conditionnum;
+    //console.log(window.sessionStorage.getItem('observer'));
+    var observer = parseInt(window.sessionStorage.getItem('observer'), 10);
+    var trialset = 1;
+    if (window.sessionStorage.getItem("trialset")) {
+        trialset = parseInt(window.sessionStorage.getItem("trialset"), 10);
     }
-    $('#site').val(conditionlist[conditionnum][0]);
-    $('#signnum').val(conditionlist[conditionnum][1]);
-    $('#trialnum').text(0);
+    else {
+        window.sessionStorage.setItem('trialset', trialset);
+    }
+    $('#trialset').text(trialset);
+    
+    var signidx = parseInt(window.sessionStorage.getItem('signidx'), 10);
+    if (signidx) {
+        var site = window.sessionStorage.getItem('site');
+    }
+    else {
+        var conditionnum = observer % 4;
+        if (trialset === 2) {
+           conditionnum = 3 - conditionnum;
+        }
+        
+        site = conditionlist[conditionnum][0];
+        window.localStorage.setItem('site', site);
+        signidx = conditionlist[conditionnum][1];
+        window.localStorage.setItem('signidx', signidx);
+    }
+
+    //$('#site').val(conditionlist[conditionnum][0]);
+    //$('#signnum').val(conditionlist[conditionnum][1]);
+    //$('#trialnum').text(0);
     $('#trialparams').show();
     startTrial();
 }
 
-var videoinstructions = ['When the video is done, click the button at the bottom.',
-        'Play the video again, and then click the button at the bottom.',
-        'Play the video, and then click the button at the bottom.',
-        ];
-
 function startTrial() {
-    $('#videocount').val(3);
-    $('#videoelt').attr('src', signurls[parseInt($('#signnum').val(), 10)]);
-    $('#nextvideo').attr('value', 'Play');
-    $('#videodiv').show();
-    $('#videoinstr').text(videoinstructions[2]);
+    var videocount = 3;
+    if (window.localStorage.getItem('videocount')) {
+        videocount = parseInt(window.localStorage.getItem('videocount'), 10);
+    }
+    else {
+        window.localStorage.setItem('videocount');
+    }
     
-    $('#trialnum').text(parseInt($('#trialnum').text(), 10) + 1);
+    var signidx = parseInt(window.localStorage.getItem('signidx'), 10);
+    $('#trialnum').text(Math.floor(signidx/2) + 1);
+    $('#videoelt').attr('src', signurls[parseInt($('#signnum').val(), 10)]);
+    //$('#videocount').val(3);
+    //$('#videoelt').attr('src', signurls[parseInt($('#signnum').val(), 10)]);
+    //$('#nextvideo').attr('value', 'Play');
+    $('#videodiv').show();
+    //$('#videoinstr').text(videoinstructions[2]);
+    showNextVideo();
 }
 
 function showNextVideo() {
-    var videocount = parseInt($('#videocount').val(), 10)
+    var videoinstructions = ['When the video is done, click the button at the bottom.',
+        'Play the video again, and then click the button at the bottom.',
+        'Play the video, and then click the button at the bottom.',
+        ];
+    var nextVideoText = ['Find the sign', 'Play video again', 'Play video'];
+        
+    var videocount = parseInt(window.localStorage.getItem('videocount'), 10);
     if (videocount <= 0) {
+        window.sessionStorage.removeItem('videocount');
         $('#videodiv').hide();
         $('#lookupdiv').show();
         $('#lookupbutton').off('click')
@@ -98,33 +133,46 @@ function showNextVideo() {
             .attr('value', 'Start lookup');
     }
     else {
-        if (videocount == 1) {
-             $('#nextvideo').attr('disabled', true);
-            setTimeout(function() {
-                $('#videoinstr').text(videoinstructions[0]);
-                $('#nextvideo').attr('disabled', false);
-                $('#nextvideo').attr('value', 'Find the sign');
+        $('nextvideo').attr('value', nextVideoText[videocount - 1]);
+        $('#videoinstr').text(videoinstructions[videocount - 1]);
+        if (videocount < 3) {
+            $('#nextvideo').prop('disabled', true);
+            setTimeout(function () {
+                $('#nextvideo').prop('disabled', false);
             }, 1500);
+            $('#videoelt')[0].play();
         }
-        else {
-            $('#nextvideo').attr('disabled', true);
-            $('#videoinstr').text(videoinstructions[1]);
-            setTimeout(function() {
-                $('#nextvideo').attr('disabled', false)
-                $('#nextvideo').attr('value', 'Play video again');
-            }, 1500);
-        }
-        $('#videoelt')[0].play();
+        window.sessionStorage.setItem('videocount', videocount - 1);
+        // if (videocount == 1) {
+             
+        //     setTimeout(function() {
+        //         $('#videoinstr').text(videoinstructions[0]);
+        //         $('#nextvideo').attr('disabled', false);
+        //         $('#nextvideo').attr('value', 'Find the sign');
+        //     }, 1500);
+        // }
+        // else {
+        //     $('#nextvideo').attr('disabled', true);
+        //     $('#videoinstr').text(videoinstructions[1]);
+        //     setTimeout(function() {
+        //         $('#nextvideo').attr('disabled', false)
+        //         $('#nextvideo').attr('value', 'Play video again');
+        //     }, 1500);
+        // }
+        
     }
-    $('#videocount').val(videocount - 1);
+    // $('#videocount').val(videocount - 1);
 }
 
 function openLookup() {
-    $('#startTime').val(new Date().toISOString());
-    var lookupTab = window.open(sites[$('#site').val()], 'lookupTab');
+    window.sessionStorage.setItem('startTime', new Date().toISOString())
+    //$('#startTime').val(new Date().toISOString());
+    var lookupTab = window.open(sites[window.sessionStorage.getItem('site')],
+                                'lookupTab');
 
     var goToQuestions = function() {
-        $('#endTime').val(new Date().toISOString());
+        window.sessionStorage.setItem('endTime', new Date().toISOString());
+        //$('#endTime').val(new Date().toISOString());
         $('#lookupdiv').hide();
         $('#questiondiv').show();
         if (lookupTab) {
@@ -143,10 +191,11 @@ function nextSign(){
     writeOutData();
     clearForms();
     
-    var signnum = parseInt($('#signnum').val(), 10);
-    signnum += 2;
-    $('#signnum').val(signnum);
-    if (signnum >= signurls.length) {
+    var signidx = parseInt(window.sessionStorage.getItem('signIdx'), 10);
+    signidx += 2;
+    //$('#signnum').val(signnum);
+    window.sessionStorage.setItem('signIdx', signIdx);
+    if (signidx >= signurls.length) {
         // Last cycle of a single group!
         $("#questiondivlong").show();
     } else {
@@ -159,27 +208,33 @@ function submit(){
     writeOutData();
     clearForms();
 
-    if (parseInt($('#trialset').text(), 10) === 1) {
-        $('#trialset').text('2');
+    if (parseInt(window.localStorage.getItem('trialset'), 10) === 1) {
+        window.localStorage.setItem('trialset', 2);
+        window.localStorage.removeItem('signidx');
         startTrialSet();
     }
     else {
         $('#inputmessage').show();
+        window.sessionStorage.clear();
     }
 }
 
 function writeOutData() {
     var data;
-    var signnum = parseInt($('#signnum').val(), 10);
-    if (signnum < signurls.length) {
-        console.log(observer);
-        data = [$('#observer').val(), $('#site').val(), signNames[signnum], 
+    var signidx = parseInt(window.sessionStorage.getItem('signIdx'), 10);
+    if (signidx < signurls.length) {
+        //console.log(observer);
+        data = [window.sessionStorage.getItem('observer'),
+                window.sessionStorage.getItem('site'), signNames[signidx], 
                 $('#sign').val(), 
                 $('#questiondiv [type=radio]:checked').val(),
-                $('#startTime').val(), $('#endTime').val(),,,,];
+                window.sessionStorage.getItem('startTime'),
+                window.sessionStorage.getItem('endTime'),
+                ,,,];
     }
     else {
-        data = [$('#observer').val(), $('#site').val(), ,,,,,
+        data = [window.sessionStorage.getItem('observer'),
+                window.sessionStorage.getItem('site'), ,,,,,
                 $('#questiondivlong [type=radio][name=usediff]:checked').val(),
                 $('#questiondivlong [type=radio][name=finddiff]:checked').val(),
                 $('#useful').val(), $('#to_change').val()];
