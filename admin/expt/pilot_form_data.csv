@@ -1,0 +1,52 @@
+User,Application,"Sign Testing","Sign Inputed",Confidence,"Start Time","End Time","Use Difficulty","Sign Search Difficulty","Liked About Application","Change About Application"
+1,asl2english,fork,Fork,"somewhat confident","Tue Nov 28 2017 12:05:00 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:13:25 GMT-0500 (Eastern Standard Time)",,,
+1,asl2english,coat,Coat,confident,"Tue Nov 28 2017 12:13:47 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:15:14 GMT-0500 (Eastern Standard Time)",,,
+1,asl2english,grow,"Couldn't find the sign",confident,"Tue Nov 28 2017 12:15:31 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:22:54 GMT-0500 (Eastern Standard Time)",,,
+1,asl2english,argue,"took too long to find",,"Tue Nov 28 2017 12:23:19 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:27:32 GMT-0500 (Eastern Standard Time)",,,
+1,asl2english,sheep,sheep,confident,"Tue Nov 28 2017 12:27:57 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:28:45 GMT-0500 (Eastern Standard Time)",,,
+1,asl2english,,,,,,easy,easy,"I liked that I was able to place where each sign ended and began","Having more options for handshapes"
+1,handspeak,emphasize,"Didn't show multiple results",unsure,"Tue Nov 28 2017 12:36:48 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:36:58 GMT-0500 (Eastern Standard Time)",,,
+1,handspeak,for,for,confident,"Tue Nov 28 2017 12:37:32 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:37:53 GMT-0500 (Eastern Standard Time)",,,
+1,handspeak,urge,"Did find sign",confident,"Tue Nov 28 2017 12:38:06 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:39:58 GMT-0500 (Eastern Standard Time)",,,
+1,handspeak,addicted,addictive,confident,"Tue Nov 28 2017 12:40:17 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:40:37 GMT-0500 (Eastern Standard Time)",,,
+1,handspeak,hurry,"did not find ",confident,"Tue Nov 28 2017 12:40:51 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:41:38 GMT-0500 (Eastern Standard Time)",,,
+1,handspeak,,,,,,"somewhat difficult",difficult,"I preferred the other one",everything
+User,Application,"Sign Testing","Sign Inputed",Confidence,"Start Time","End Time","Use Difficulty","Sign Search Difficulty","Liked About Application","Change About Application"
+2,handspeak,fork,"do not know",unsure,"Tue Nov 28 2017 12:08:45 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:10:05 GMT-0500 (Eastern Standard Time)",,,
+2,handspeak,coat,jacket,"somewhat confident","Tue Nov 28 2017 12:10:33 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:13:11 GMT-0500 (Eastern Standard Time)",,,
+2,handspeak,grow,"do not know",unsure,"Tue Nov 28 2017 12:13:32 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:14:53 GMT-0500 (Eastern Standard Time)",,,
+2,handspeak,argue,"do not know",unsure,"Tue Nov 28 2017 12:15:12 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:16:05 GMT-0500 (Eastern Standard Time)",,,
+2,handspeak,sheep,"do not know",unsure,"Tue Nov 28 2017 12:16:24 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:17:12 GMT-0500 (Eastern Standard Time)",,,
+2,handspeak,,,,,,"somewhat difficult",difficult,"I liked that the signs could repeat. It was hard to find a sign with different information put into finding the sign. It was not useful to me. ","How much information needed to find the sign. "
+2,asl2english,emphasize,down,"somewhat unsure","Tue Nov 28 2017 12:19:57 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:25:13 GMT-0500 (Eastern Standard Time)",,,
+2,asl2english,for,cent+one,"somewhat confident","Tue Nov 28 2017 12:25:28 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:27:06 GMT-0500 (Eastern Standard Time)",,,
+2,asl2english,urge,tomato,unsure,"Tue Nov 28 2017 12:27:29 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:30:03 GMT-0500 (Eastern Standard Time)",,,
+2,asl2english,addicted,addicted,confident,"Tue Nov 28 2017 12:30:20 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:31:14 GMT-0500 (Eastern Standard Time)",,,
+2,asl2english,hurry,hurry,"somewhat confident","Tue Nov 28 2017 12:31:28 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:32:31 GMT-0500 (Eastern Standard Time)",,,
+2,asl2english,,,,,,"somewhat easy",somewhat_easy,"I liked that you could see what they wanted you to choose rather than picking an answer.","Placing the dominant hand."
+User,Application,"Sign Testing","Sign Inputed",Confidence,"Start Time","End Time","Use Difficulty","Sign Search Difficulty","Liked About Application","Change About Application"
+3,asl2english,emphasize,"no idea",unsure,"Tue Nov 28 2017 12:11:24 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:12:40 GMT-0500 (Eastern Standard Time)",,,
+3,asl2english,for,suspect,"somewhat confident","Tue Nov 28 2017 12:13:18 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:14:11 GMT-0500 (Eastern Standard Time)",,,
+3,asl2english,urge,wash,"somewhat unsure","Tue Nov 28 2017 12:14:27 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:15:57 GMT-0500 (Eastern Standard Time)",,,
+3,asl2english,addicted,"no idea",unsure,"Tue Nov 28 2017 12:16:17 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:19:00 GMT-0500 (Eastern Standard Time)",,,
+3,asl2english,hurry,belt,"somewhat unsure","Tue Nov 28 2017 12:19:19 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:20:41 GMT-0500 (Eastern Standard Time)",,,
+3,asl2english,,,,,,"somewhat difficult",somewhat_easy,"The sign being shown more than once. Yes very useful.","The location area is very unclear."
+3,handspeak,fork,"no idea","somewhat unsure","Tue Nov 28 2017 12:23:50 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:26:58 GMT-0500 (Eastern Standard Time)",,,
+3,handspeak,coat,science,"somewhat confident","Tue Nov 28 2017 12:27:13 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:28:23 GMT-0500 (Eastern Standard Time)",,,
+3,handspeak,grow,spring,"somewhat confident","Tue Nov 28 2017 12:28:41 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:29:17 GMT-0500 (Eastern Standard Time)",,,
+3,handspeak,argue,"no idea",unsure,"Tue Nov 28 2017 12:29:37 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:30:45 GMT-0500 (Eastern Standard Time)",,,
+3,handspeak,sheep,scissors,"somewhat confident","Tue Nov 28 2017 12:31:02 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:31:33 GMT-0500 (Eastern Standard Time)",,,
+3,handspeak,,,,,,"somewhat easy",somewhat_difficult,"The charts to help. Very helpful for ASL.","Not clear which hand the location is in."
+User,Application,"Sign Testing","Sign Inputed",Confidence,"Start Time","End Time","Use Difficulty","Sign Search Difficulty","Liked About Application","Change About Application"
+4,handspeak,emphasize,"No Idea",confident,"Tue Nov 28 2017 12:06:40 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:12:31 GMT-0500 (Eastern Standard Time)",,,
+4,handspeak,for,for,"somewhat confident","Tue Nov 28 2017 12:13:05 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:14:13 GMT-0500 (Eastern Standard Time)",,,
+4,handspeak,urge,Insist,"somewhat confident","Tue Nov 28 2017 12:14:29 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:17:08 GMT-0500 (Eastern Standard Time)",,,
+4,handspeak,addicted,"hooked on","somewhat unsure","Tue Nov 28 2017 12:17:29 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:19:05 GMT-0500 (Eastern Standard Time)",,,
+4,handspeak,hurry,rush,"somewhat confident","Tue Nov 28 2017 12:19:24 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:20:57 GMT-0500 (Eastern Standard Time)",,,
+4,handspeak,,,,,,"somewhat difficult",somewhat_easy,"I liked getting to see the sign multiple times and having the opportunity to match signs at the end","Without an instructor"," it is a little difficult to understand. For instance"," I didn't know what convergent meant which makes it a little complicated if you don't know the word."
+4,asl2english,fork,fork,confident,"Tue Nov 28 2017 12:23:50 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:26:28 GMT-0500 (Eastern Standard Time)",,,
+4,asl2english,coat,effort,unsure,"Tue Nov 28 2017 12:26:54 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:31:23 GMT-0500 (Eastern Standard Time)",,,
+4,asl2english,grow,"turn page",unsure,"Tue Nov 28 2017 12:31:49 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:39:31 GMT-0500 (Eastern Standard Time)",,,
+4,asl2english,argue,argue,"somewhat unsure","Tue Nov 28 2017 12:39:53 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:42:01 GMT-0500 (Eastern Standard Time)",,,
+4,asl2english,sheep,"of course",unsure,"Tue Nov 28 2017 12:42:17 GMT-0500 (Eastern Standard Time)","Tue Nov 28 2017 12:43:36 GMT-0500 (Eastern Standard Time)",,,
+4,asl2english,,,,,,"somewhat difficult",somewhat_difficult,"I liked that it repeated the signs multiple times for you to find the matching word","The videos/picture quality of the signer & matching where the sign on the body is was very confusin"
