@@ -27,7 +27,7 @@ please email Gretchen Marlow at: gkmarlow001@converse.edu
 ### References
 
 American Sign Language Lexicon Video Dataset (ASLLVD),
-http://csr.bu.edu/asl/asllvd/annotate/index.html, visited March 9, 2018.
+http://www.bu.edu/av/asllrp/dai-asllvd.html, visited March 9, 2018.
 
 American Sign Language Lexicon Video Dataset (ASLLVD),
 http://secrets.rutgers.edu/dai/queryPages/search/search.php, visited January 29, 2018.
