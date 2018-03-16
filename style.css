@@ -165,7 +165,7 @@ select {
 
 #movetype {
     width:100%;
-    word-wrap: break-word;
+   /* word-wrap: break-word;*/
 }
     /* closing button/span */
 .close {
@@ -387,7 +387,7 @@ table, th, td {
   }
   
   select {
-      word-wrap: break-word;
+      /*word-wrap: break-word;*/
       width:100%;
   }
   header {

@@ -1,6 +1,7 @@
 # TODO items
 
 - USER INTERFACE
+    - Option css
     - Add to handshape popup a "show more" button for mobile site
     - Make handshape popup close when clicking outside (for mobile users benefit)
     - Clean up location select SVG and Start/end interface
