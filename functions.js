@@ -161,7 +161,7 @@ function makeSignRow(sign) {
     th.id = sign.sign.replace(/\s/g, '') + '-title';
     th.className = 'signtitle';
     $(th).text(sign.sign);
-    row.appendChild(th);
+    //row.appendChild(th);
 
     var signSrc = document.createElement('source');
 
@@ -178,6 +178,7 @@ function makeSignRow(sign) {
     $(signVid).attr('onmouseout', 'pausevid(this)');
 
     var td = document.createElement('td');
+    td.appendChild(th);
     td.appendChild(signVid);
     row.appendChild(td);
 
@@ -193,7 +194,7 @@ function showSigns(signsToShow) {
             $('#results').append(signrow);
            
             var br = document.createElement('br');
-            $('th').append(br);
+            signrow.firstChild.appendChild(br);
  
             var variantbtn = document.createElement('button');
             signrow.firstChild.appendChild(variantbtn);
@@ -244,7 +245,9 @@ function playvid(video) {
 }
 
 function pausevid(video) {
-    video.pause();
+    if (video.playing){
+        video.pause();
+    }
 }
 
 var submit = false;
@@ -269,9 +272,9 @@ function evalGuess() {
     
     var numpages = len / $('#displaynum').val();
     numpages = Math.ceil(numpages);
-    if ((maxpages > 0) && (numpages > maxpages)) {
-        numpages = maxpages;
-    }
+   // if ((maxpages > 0) && (numpages > maxpages)) {
+   //     numpages = maxpages;
+  //  }
     
     displayResults(possibles, numpages);
     
@@ -290,17 +293,21 @@ function displayResults(possibles, numpages){
     
     if (numpages == 1){
         $('#results').empty();
+        $('#results').append('<p>' + numberWithCommas(possibles.length) + ' results found </p> <hr/>');
         showSigns(possibles);
         $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
     } else if (numpages > 1) {
         $('#results').empty();
+        $('#results').append('<p>' + numberWithCommas(possibles.length) + ' results found </p> <hr/>');
         var num = $('#displaynum').val();
         var page = possibles.slice(0, num);
         showSigns(page);
         
         var nextbtn = document.createElement('button');
+        $('#results').append("<hr/><br/>");
         $('#results').append(nextbtn);
         nextbtn.innerHTML = "Next page -->";
+        //nextbtn.className = "btn btn-outline-info btn-sm";
         
         $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
 
@@ -311,6 +318,7 @@ function displayResults(possibles, numpages){
                 }, 0);
                 currentpage += 1
                 $('#results').empty();
+                $('#results').append('<p>' + numberWithCommas(possibles.length) + ' results found </p> <hr/>');
                 var nextnum = $('#displaynum').val();
                 nextnum = parseInt(nextnum) + parseInt(num);
                 
@@ -318,8 +326,10 @@ function displayResults(possibles, numpages){
                 num = nextnum;
                 showSigns(nextpage);
                 
+                $('#results').append("<hr/><br/>");
                 $('#results').append(prevbtn);
                 prevbtn.innerHTML = "<-- Previous page";
+               // prevbtn.className = "btn btn-outline-secondary btn-sm";
                // document.getElementById('#results').scrollIntoView();
                if (currentpage < numpages) { 
                     $('#results').append(nextbtn);
@@ -335,6 +345,7 @@ function displayResults(possibles, numpages){
             }, 0);
             currentpage -= 1;
             $('#results').empty();
+            $('#results').append('<p>' + numberWithCommas(possibles.length) + ' results found </p> <hr/>');
             var prevnum = $('#displaynum').val();
             prevnum = parseInt(num) - parseInt(prevnum);
             num = parseInt(prevnum) - parseInt($('#displaynum').val());
@@ -343,7 +354,7 @@ function displayResults(possibles, numpages){
                 
             num = prevnum;
             showSigns(prevpage);
-                
+            $('#results').append("<hr/><br/>");    
             if (currentpage !== 1) {
                 $('#results').append(prevbtn);
             } 
@@ -382,7 +393,9 @@ function displayHelp(){
     }
 }
 
-
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 $(document).ready( function() {
     var changeHands = function() {
@@ -409,9 +422,9 @@ $(document).ready( function() {
         
         if (pop.style.display == "block"){
             if (handshapes[$('#hand0shape0').val()] == undefined){
-                $("#hand0shape0img").attr('src', 'images/handshape-start.svg');
+                $("#hand0shape0img").attr('src', 'images/handshape-set.svg');
                 if (handshapes[$('#hand0shape1').val()] == undefined){
-                    $("#hand0shape1img").attr('src', 'images/handshape-end.svg');
+                    $("#hand0shape1img").attr('src', 'images/handshape-set.svg');
                 }
             }
             else{
@@ -482,6 +495,7 @@ $(document).ready( function() {
     
     $('#resetbutton').click(function() {
         $('#results').empty();
+        submit = false;
         var classToHide = $("#numhands option:selected").val();
         $('.' + classToHide).hide();
         $('#numhands').prop('selectedIndex',0);

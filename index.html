@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<!-- -/*/- make-backup-files: nil -/*/- -->
 <html lang="en">
 
 <head>
-	<title>Beginning ASL-to-English dictionary</title>
+	<title>ASL-to-English dictionary</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 	<link rel="stylesheet" href="style.css">
 	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 	<script src="data.js"></script>
@@ -15,10 +18,20 @@
 </head>
 
 <body>
-	<h1><a href="">Beginning ASL-to-English dictionary</a></h1>
-	<p>Search by specifying the parameters of the sign you are looking for. You may specify as many or as few of the parameters as you like.
-	<!--For a more detailed tutorial please check out our FAQ page.--></p>
+	<header>
+		<h1><a href="index-struct.html">ASL-to-English Dictionary</a></h1>
+		<div class="header-right">
+		<a href="help.html"><span class="q">?</span><span class="help"> Help</span></a>
+		</div>
 
+	</header>
+	
+	<div class="center">
+	<p class="instruct">Search by specifying the parameters of the sign you are looking for. 
+	You may specify as many or as few of the parameters as you like.</p>
+
+
+<!-- Not displayed unless Javascript missing -->
 	<noscript><div><p>It appears that your browser doesn't support
 	  Javascript, or Javascript is turned off.  Unhappily, this page
 	  doesn't work without Javascript.</p>
@@ -35,21 +48,26 @@
 	      (on a computer)</a></li>
 	</ul>
     </div></noscript>
+    
 
 	<form id="lookupform" action="" method="get">
-		<fieldset id="handshapefields" class="noborder">
-			<div id="numhandsdiv">
-									<hr/>
+		
+		<!-- NumHands -->
+		<fieldset id="numhandsfield" class="border">
 			<h2>Number of Hands</h2>
-				The sign I want to look up is:
+			<div id="numhandsdiv" class="padding">
+				<label>The sign I want to look up is:</label>
 				<select name="numhands" id="numhands">
 					<option selected="one" value="one">One-handed</option>
 					<option value="moving">Dominant hand moving, non-dominant stationary</option>
 					<option value="two">Two hands moving</option>
-	  		</select>
+	  			</select>
 			</div>
-			<br/>
-			<hr/>
+			</fieldset>
+			
+			<!-- Handshape -->
+			<fieldset id="handshapefields" class="border">
+			
 			<h2>Handshape</h2>
 			<div id="handshapesdiv" class="imgdiv">
 				<div id="shape0div" class="imgdiv">
@@ -112,11 +130,12 @@
 				</div>
 			</div>
 		</fieldset>
-
-		<fieldset id="orientationfields" class="noborder">
-					<hr/>
+		
+		<!-- Palm Orientation -->
+		<fieldset id="orientationfields" class="border">
+					
 			<h2>Palm Orientation</h2>
-			<div id="palmorientationdiv">
+			<div id="palmorientationdiv" class="padding">
 				Starting palm orientation of the <b>dominant</b> hand: <select name="palm" id="palm">
 					<option value="">&mdash;Select&mdash;</option>
 					<option value="forward">Forward</option>
@@ -125,25 +144,24 @@
 					<option value="down">Downwards</option>
 					<option value="up">Upwards</option>
 					<option value="towards-palm" class="moving two">Palm towards palm</option>
-				<!--	<option value="to-palm" class="moving two">Palm-to-palm</option>-->
 				</select>
 			</div>
 		</fieldset>
-		<hr/>
-		<h2>Location</h2>
-		<div id="locmovediv" class="imgdiv">
-			<fieldset id="positionset" class="noborder">
-				<div id="locdiv">
+		
+			<fieldset id="positionset" class="border">
+				
+				<h2>Location</h2>
+				<div id="locdiv" class="padding">
 				<div id="locimgdiv" class="imgdiv">
 					<div class="title">Start/end:
 						<select name="locstartend" id="locstartend">
 							<option selected="" value="0">Start (X)</option>
 							<option value="1">End (O)</option>
 						</select>
-						<span class="helpparent"><span class="q" href="">?</span>
+					<!--	<span class="helpparent"><span class="q" href="">?</span>
 						<div id="locpopup" class="popuphelp"><!--Move your mouse over the pictures.  The regions will highlight as you roll over them.  Click to set the locations where the dominant hand starts (X) and ends (O). 
 						<br/>
-						If the dominant hand starts or ends on the non-dominant hand, specify that by selecting the hand.--></div></span>
+						If the dominant hand starts or ends on the non-dominant hand, specify that by selecting the hand.</div></span>-->
 					</div>
 					<br/>
 					<ul class="locimg">
@@ -153,6 +171,7 @@
 					<input type="hidden" name="loc0" id="loc0" value="" />
 					<input type="hidden" name="loc1" id="loc1" value="" />
 				</div>
+				<!--
 				<div id="locinstructions">
 					<p>Click the images to show where the dominant hand's movement starts and ends:</p>
 					<ol>
@@ -165,13 +184,13 @@
 						<li>Use the <strong>front view</strong> to indicate locations on the body.</li>
 						<li>Use the <strong>locations on the non-dominant arm and hand</strong> to indicate that the dominant hand starts or ends there, regardless of whether the non-dominant arm is in front of the body or beside the body.</li>
 					</ul>
-				</div>
+				</div>-->
 				</div>
 			</fieldset>
-			<fieldset id="movementset" class="noborder">
-				<hr/>
+			<fieldset id="movementset" class="border">
+				
 			<h2>Movement</h2>
-				<div id="movetypediv">
+				<div id="movetypediv" class="padding">
 					<label for="movetype">Type of movement:</label>
 					<select name="movetype" id="movetype">
 						
@@ -185,14 +204,11 @@
 
 					</select>
 				</div>
-			</div>
+			
 		</fieldset>
 		<fieldset class="noborder">
-
-			<hr/>
-			<br/>
 			<div id="resultnumdiv">
-				Results per page: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
+			Results per page: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
 					<option value="5">5</option>
 					<option value="10">10</option>
 					<option value="15">15</option>
@@ -204,12 +220,27 @@
 			<button id="lookupbutton" type="button">Look for matching signs!</button>
 			<button id="resetbutton" type="reset">Reset</button>
 		</fieldset>
+		
 	</form>
 	<br/>
+	
+	<!-- Results -->
 	<div id="resultsdiv">
 		<table id="results">
 		</table>
 	</div>
+	
+	</div> <!-- end main container div -->
+	
+	<footer>
+		<!-- credit and contact info -->
+		
+		<a href="about.html">About</a>  |
+		<a href="contact.html">Contact</a>  |
+		<a href="help.html">Help</a>
+		<p>Videos and data courtesy of the <a href="http://www.bu.edu/av/asllrp/dai-asllvd.html">American Sign Language Lexicon Video Dataset (ASLLVD)</a></p>
+		
+	</footer>
 
 </body>
 

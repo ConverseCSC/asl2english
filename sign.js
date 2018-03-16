@@ -153,7 +153,6 @@ function compareHandshapes(shape1, shape2) {
     }
     else {
         var s1 = parseInt(shape1, 10);
-        //console.log('Handshapes: ' + JSON.stringify(shape1) + ', ' + JSON.stringify(shape2));
         if (shape2.constructor === Array) {
             diff = Math.min(...shape2.map(function(hs) { return compareHandshapes(s1, hs);} ));
         }
@@ -236,7 +235,7 @@ function comparePositions(pos1, pos2, tolerance, weight) {
 //      only 1 hand values on the first page
 function compareNumHands(sign1, sign2) {
     // Weighting factor; difference between one- and two-handed signs
-    var HAND_DIFF = 0.5; // Scaling factor
+    var HAND_DIFF = 1; // Scaling factor
     var result = /*HAND_DIFF **/ Math.abs(sign1.hands - sign2.hands); // 0, 0.5, or 1;
     if (result === 0.5) {
         result = 5; // Arbitrary constant
