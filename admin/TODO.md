@@ -2,12 +2,9 @@
 
 - USER INTERFACE
     - Option css
-    - Add to handshape popup a "show more" button for mobile site
     - Make handshape popup close when clicking outside (for mobile users benefit)
-    - Clean up location select SVG and Start/end interface
-    - BUG: front view location box overflows container at small screen widths
+    - Clean up location select SVG
     - Non-dominant should be next to dominant with large screen widths
-    - Link hovering interaction (make links obvious they're links)
     - Consider changing color scheme, research color accessiblity
     - If time: work on sign variation display box
 
@@ -20,8 +17,5 @@
 
 - PAGES
     - Finish writing Help page text
-    - Write short about page describing it, giving credit, and linking to github
-    - Add possible contact page for issues and questions
-    - Edit CSS so text on pages doesn't align center on small screens
 
     

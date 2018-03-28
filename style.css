@@ -30,6 +30,7 @@ header a{
   line-height: 25px;
 }
 
+
 header h1 a {
   float: left;
   color: black;
@@ -65,6 +66,10 @@ footer a {
   text-decoration: none;
   font-size: 15px; 
   line-height: 10px;
+}
+
+footer a:hover{
+    color:black;
 }
 
 footer p {
@@ -173,6 +178,8 @@ select {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position:fixed;
+    left:88%;
 }
 
 .close:hover,
@@ -186,6 +193,7 @@ select {
 
 
 /* Handshape & Location styles */
+
 .popup {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -194,16 +202,18 @@ select {
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+    overflow: hidden; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 #hand0div, #hand1div, #hand2div, #hand3div {
     background-color: #fefefe;
-    margin: 5% auto; /* 15% from the top and centered */
+    overflow:scroll;
+    margin: 20px auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
+    height:85%;
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
@@ -292,7 +302,13 @@ ellipse.selected, polygon.selected {
     stroke: black;
 }
 
-svg { border: thin solid; }
+#frontimgitem svg {
+    width:270px;
+}
+
+svg { border: thin solid; 
+/*width:270px;*/
+}
 
 
 #locdiv {
@@ -310,6 +326,7 @@ svg { border: thin solid; }
     grid-column: 2 / 2;
     grid-row: 1 / 1;
 }
+
 
 .two, .moving { display: none;}
 
@@ -386,6 +403,10 @@ table, th, td {
       text-align:center;
   }
   
+  .page {
+      text-align:left;
+  }
+  
   select {
       /*word-wrap: break-word;*/
       width:100%;
@@ -404,10 +425,7 @@ table, th, td {
   ul.image_picker_selector ul li, ul.locimg li, ul.locimg li svg{
       text-align:left;
   }
-  
-  #locdiv {
-      grid-template-columns: 200px auto;
-  }
+ 
 }
 
 @media screen and (max-width: 435px) {
@@ -419,6 +437,19 @@ table, th, td {
       font-size:18px;
       text-align:left;
   }
+  #hand0div, #hand1div, #hand2div, #hand3div {
+   /* margin: 20px auto; /* 15% from the top and centered */
+    height:87%;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+}
   
+@media screen and (max-width: 400px) {
     
+    #frontimgitem svg {
+        width:245px;
+    }
+    #frontimgitem svg text {
+        font-size:20px;
+    }
 }

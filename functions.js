@@ -19,16 +19,38 @@
 /* global makeRegion */
 /* global moveClearSelected */
 
-function makeHandshapeSelect(id) {
-    var selectElt = document.createElement('select');
-    selectElt.id = id;
-    selectElt.name = id;
-    selectElt.className = 'handshape';
 
-    var optElt = document.createElement('option');
-    optElt.innerHTML = '&mdash;Select&mdash;';
-    optElt.value = "";
-    selectElt.appendChild(optElt);
+// NUM HANDS FUNCTIONS
+// changeHands
+
+function changeHands() {
+    var classToShow = $("#numhands option:selected").val();
+    $(".one, .moving, .two").hide();
+    $('.' + classToShow).show();
+};
+
+// HANDSHAPE UI FUNCTIONS
+// makeHandshapeSelect, showMoreHandshapes, addShowMoreButton.
+//   fillHandshapeDiv, handshapePopUp, popUpControls, imagePickerSet
+
+var i = 0; // Show more handshapes counter
+
+function makeHandshapeSelect(i, id) {
+    if (i > 0) {
+        var selectElt = document.getElementById(id);
+        var optElt = document.getElementById(id);
+        
+    } else {
+        var selectElt = document.createElement('select');
+        selectElt.id = id;
+        selectElt.name = id;
+        selectElt.className = 'handshape';
+
+        var optElt = document.createElement('option');
+        optElt.innerHTML = '&mdash;Select&mdash;';
+        optElt.value = "";
+        selectElt.appendChild(optElt);
+    }
     
     var makeShapeGroup = function(idx, group) {
 	    var groupElt = document.createElement('optgroup');
@@ -42,84 +64,273 @@ function makeHandshapeSelect(id) {
     	   optElt.setAttribute('data-img-src', shape.img);
     	   groupElt.appendChild(optElt);
     	 });
-    
     	selectElt.appendChild(groupElt);
     };
     
-    $.each(shapegroups, makeShapeGroup);
-
+    if ($(window).width() > 435) {     
+        // groups of 6, 23 so 3 groups of 6, one group of 5
+       // $.each(shapegroups, makeShapeGroup);
+       if (i > 4){
+           return;
+       }
+       else if(i == 1) {
+          for (var j = 4; j < 9; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            } 
+       } else if (i == 2) {
+          for (var j = 9; j < 14; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+       } else if (i == 3) {
+          for (var j = 14; j < 19; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+       } else if (i == 4) {
+           for (var j = 19; j < 24; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+        }
+       else {
+        for (var j = 0; j < 4; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+        }
+       }
+    }
+    else { 
+        //groups of 2, usually
+    // Default shape groups 1 & 2
+        if (i > 4){
+           return;
+        }
+        else if (i == 0) {
+           makeShapeGroup(0, shapegroups[i]);
+           makeShapeGroup(0, shapegroups[i + 1]);
+        } 
+        else if (i == 1) {
+          for (var j = 2; j < 7; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+       } else if (i == 2) {
+          for (var j = 7; j < 12; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+       } else if (i == 3) {
+          for (var j = 12; j < 17; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+       } else if (i == 4) {
+           for (var j = 17; j < 22; j++) {
+            makeShapeGroup(0, shapegroups[j]);
+            }
+        }
+    }
     return selectElt;
 }
 
-function fillHandshapeDiv(divElt) {
-    var handStr = divElt.id.substring(0, 5);
+function showMoreHandshapes(id){
+    i++;
+    if (i > 3){
+        $('.popup button').hide();
+    }
+    makeHandshapeSelect(i, 'hand0shape0');
+    makeHandshapeSelect(i, 'hand0shape1');
+    makeHandshapeSelect(i, 'hand1shape0');
+    makeHandshapeSelect(i, 'hand1shape1');
     
-    var startDiv = document.createElement('div');
-    startDiv.id = handStr + 'shape0div';
-    $(startDiv).append(makeHandshapeSelect(handStr + 'shape0'));
-
-    var endButton = document.createElement('button');
-    endButton.type = 'button';
-    endButton.name = handStr + 'EndButton';
-    endButton.id = endButton.name;
-    $(endButton).data('showText', 'Ending handshape is different');
-    $(endButton).data('hideText', 'Ending handshape is the same');
-    $(endButton).text($(endButton).data('showText'));
-    $(endButton).hide();
-    
-    startDiv.appendChild(endButton);
-    divElt.appendChild(startDiv);
-
-    var endDiv = document.createElement('div');
-    endDiv.id = handStr + 'shape1div';
-    $(endDiv).append('<h4>Ending:</h4>');
-    $(endDiv).append(makeHandshapeSelect(handStr + 'shape1'));
-    $(endDiv).hide();
-
-    var endButtonFn = function() {
-	if ($(endButton).text() === $(endButton).data('showText')) {
-	    $(endDiv).show();
-	    $(endButton).text($(endButton).data('hideText'));
-	}
-	else {
-	    $(endDiv).hide();
-	    $(endButton).text($(endButton).data('showText'));
-	}
-    };
-    endButton.onclick = endButtonFn;
-    
-    divElt.appendChild(endDiv);
+    $("select.handshape").imagepicker({
+        show_label: true
+    });
 }
 
-function makeHand1Button() {
-    var hand1Button = document.createElement('button');
-    hand1Button.type = 'button';
-    hand1Button.id = 'showHand1ShapeButton';
-    $(hand1Button).data('showText', 'Non-dominant handshape is different');
-    $(hand1Button).data('hideText', 'Non-dominant handshape is the same');
-    $(hand1Button).text($(hand1Button).data('showText'));
-
-    var hand1ButtonFn = function () {
-	if ($(hand1Button).text() === $(hand1Button).data('showText')) {
-	    $('#hand1shape0div').show();
-	    if ($('#hand1EndButton').text()	=== $('#hand1EndButton').data('showText')) {
-		    $('#hand1shape1div').hide();
-	    }
-	    else {
-		    $('#hand1shape1div').show();
-	    }
-	    $(hand1Button).text($(hand1Button).data('hideText'));
-	}
-	else {
-	    $('#hand1shape0div').hide();
-	    $('#hand1shape1div').hide();
-	    $(hand1Button).text($(hand1Button).data('showText'));
-	}      
-    };
-    hand1Button.onclick = hand1ButtonFn;
-
-    return hand1Button;
+function addShowMoreButton(id) {
+    var moreButton = document.createElement('button');
+    moreButton.type = "button";
+    moreButton.innerHTML = "Show more handshapes";
+    moreButton.addEventListener("click", showMoreHandshapes);
+    return moreButton;
 }
+
+function fillHandshapeDiv(){
+    $('#hand0div').append(makeHandshapeSelect(0, 'hand0shape0'));
+        var moreButton = addShowMoreButton('hand0shape0');
+        $("#hand0div").append(moreButton);
+    $('#hand1div').append(makeHandshapeSelect(0, 'hand0shape1'));
+        var moreButton = addShowMoreButton('hand0shape1');
+        $("#hand1div").append(moreButton);
+    $('#hand2div').append(makeHandshapeSelect(0, 'hand1shape0'));
+        var moreButton = addShowMoreButton('hand1shape0');
+       $("#hand2div").append(moreButton);
+    $('#hand3div').append(makeHandshapeSelect(0, 'hand1shape1'));
+        var moreButton = addShowMoreButton('hand1shape1');
+        $("#hand3div").append(moreButton); 
+}
+
+function handshapePopUp(){
+    // Attaching handshapes to popup divs
+    var pop = document.getElementById('popup');
+    var pop1 = document.getElementById('popup1');
+    var pop2 = document.getElementById('popup2');
+    var pop3 = document.getElementById('popup3');
+    var pop3 = document.getElementById('popup3');
+    
+    if (pop.style.display == "block"){
+        if (handshapes[$('#hand0shape0').val()] == undefined){
+            $("#hand0shape0img").attr('src', 'images/handshape-set.svg');
+            if (handshapes[$('#hand0shape1').val()] == undefined){
+                $("#hand0shape1img").attr('src', 'images/handshape-set.svg');
+            }
+        }
+        else {
+            var image0 = handshapes[$('#hand0shape0').val()].img;
+            if (handshapes[$('#hand0shape1').val()] == undefined){
+                $("#hand0shape1img").attr('src', image0);
+            }
+            $("#hand0shape0img").attr('src', image0);
+        
+            pop.style.display = "none";
+            $('body').css('overflow','auto');
+        }
+    }
+    
+    if (pop1.style.display == "block"){
+        if (handshapes[$('#hand0shape1').val()] == undefined){
+             $("#hand0shape1img").attr('src', 'images/handshape-set.svg'); 
+        }
+        else{
+            var image1 = handshapes[$('#hand0shape1').val()].img;
+            $("#hand0shape1img").attr('src', image1);
+            pop1.style.display = "none";
+            $('body').css('overflow','auto');
+        }
+       
+    }
+    
+    if (pop2.style.display == "block"){
+        if (handshapes[$('#hand1shape0').val()] == undefined){
+             $("#hand1shape0img").attr('src', 'images/handshape-set.svg');  
+        }
+        else{
+            var image2 = handshapes[$('#hand1shape0').val()].img;
+            if (handshapes[$('#hand1shape1').val()] == undefined){
+                $("#hand1shape1img").attr('src', image2);
+            }
+            $("#hand1shape0img").attr('src', image2);
+            pop2.style.display = "none";
+            $('body').css('overflow','auto');
+        }
+    }
+    
+    if (pop3.style.display == "block"){
+        if (handshapes[$('#hand1shape1').val()] == undefined){
+            $("#hand1shape1img").attr('src', 'images/handshape-set.svg');  
+        }
+        else{
+            var image3 = handshapes[$('#hand1shape1').val()].img;
+            $("#hand1shape1img").attr('src', image3);
+            pop3.style.display = "none";
+            $('body').css('overflow','auto');
+        }
+    }    
+
+}
+
+function popUpControls() {
+    // Opening and closing handshape popups
+    // Get the popups
+    var pop = document.getElementById('popup');
+    var pop1 = document.getElementById('popup1');
+    var pop2 = document.getElementById('popup2');
+    var pop3 = document.getElementById('popup3');
+    var pop3 = document.getElementById('popup3');
+        
+    // Get the button that opens the modal
+    var btn = document.getElementById("btn");
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    var span1 = document.getElementsByClassName("close")[1];
+    var span2 = document.getElementsByClassName("close")[2];
+    var span3 = document.getElementsByClassName("close")[3];
+
+    // STARTING DOMINANT
+
+    // When the user clicks on the button, open the modal 
+    btn.onclick = function() {
+        pop.style.display = "block";
+        $('body').css('overflow','hidden')
+        return false;
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        pop.style.display = "none";
+        $('body').css('overflow','auto')
+    };
+
+    // ENDING DOMINANT
+
+    // When the user clicks on the button, open the modal 
+    btn1.onclick = function() {
+        pop1.style.display = "block";
+        $('body').css('overflow','hidden')
+        return false;
+    };
+    
+    // When the user clicks on <span> (x), close the modal
+    span1.onclick = function() {
+        pop1.style.display = "none";
+        $('body').css('overflow','auto')
+    };
+
+    // STARTING NON-DOMINANT
+    
+    // When the user clicks on the button, open the modal 
+    btn2.onclick = function() {
+        pop2.style.display = "block";
+        $('body').css('overflow','hidden')
+        return false;
+    };
+    
+    // When the user clicks on <span> (x), close the modal
+    span2.onclick = function() {
+        pop2.style.display = "none";
+        $('body').css('overflow','auto')
+    };
+
+    // ENDING NON DOMINANT
+    
+    // When the user clicks on the button, open the modal 
+    btn3.onclick = function() {
+        pop3.style.display = "block";
+        $('body').css('overflow','hidden')
+        return false;
+    };
+    
+    // When the user clicks on <span> (x), close the modal
+    span3.onclick = function() {
+        pop3.style.display = "none";
+        $('body').css('overflow','auto')
+    };
+}
+
+function imagePickerSet(){
+    $("select.handshape").imagepicker({
+        show_label: true
+    });
+    
+    // Add appropriate ALT text to the picker images
+    $("img.image_picker_image").each(function(i) {
+        var text = $(this).next('p').text();
+        $(this).attr('alt',text);
+        $(this).attr('title',text);
+    });
+}
+
+// LOCATION UI FUNCTIONS
+// makeImageNode, makeLocSVG, attachLocHandlers
 
 function makeImageNode(regions) {
     var imgElt = document.createElementNS('http://www.w3.org/2000/svg',
@@ -150,7 +361,20 @@ function makeLocSVG(eltID, regions) {
     return svg;
 }
 
+function attachLocHandlers() {
+    $('#locstartend').bind('change', moveClearSelected);
+    $('#locpopup').html($('#locinstructions').html());
+    $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
+    $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
+    $('ul.locimg polygon').bind("click", handleImgClick);
+    $('ul.locimg ellipse').bind("click", handleImgClick);
+}
+
+// SEARCH RESULTS FUNCTIONS
+// makeSignRow, showSigns, evalGuess, displayResults
+
 function makeSignRow(sign) {
+    // Creating the row where a sign is placed
     var video_path = "https://moodle.converse.edu/asl2english/videos/";
     
     var row = document.createElement('tr');
@@ -161,7 +385,6 @@ function makeSignRow(sign) {
     th.id = sign.sign.replace(/\s/g, '') + '-title';
     th.className = 'signtitle';
     $(th).text(sign.sign);
-    //row.appendChild(th);
 
     var signSrc = document.createElement('source');
 
@@ -186,6 +409,7 @@ function makeSignRow(sign) {
 }
 
 function showSigns(signsToShow) {
+    // Shows sign results for a single page, including variant signs
     signsToShow.forEach(function(item, idx, arrayVar) {
         
         if (item.sign.includes(": ")) {
@@ -201,7 +425,6 @@ function showSigns(signsToShow) {
 
             variantbtn.innerHTML = "Show sign variation(s)";
 
-            
             var variantcontain = document.createElement('div');
             variantcontain.id = item.sign.replace(/\s/g, '') + '-div';
             variantcontain.className = "variantdiv";
@@ -210,16 +433,15 @@ function showSigns(signsToShow) {
             var signIndex = item.sign.indexOf(": ");
             var slice = item.sign.slice(0, signIndex);
             
-            for (var i in signs) {
-                if (signs[i].sign.includes(": ") && 
-                    slice == signs[i].sign.slice(0, signIndex) && 
-                        signs[i].sign !== item.sign){
-                    var signrows = makeSignRow(signs[i]);
+            for (var j in signs) {
+                if (signs[j].sign.includes(": ") && 
+                    slice == signs[j].sign.slice(0, signIndex) && 
+                        signs[j].sign !== item.sign){
+                    var signrows = makeSignRow(signs[j]);
                     variantcontain.appendChild(signrows); 
                 }
             }
             
-
             variantcontain.style.display = 'none';
             variantbtn.addEventListener ("click", function() {
                 if (variantcontain.style.display === 'none') {
@@ -230,7 +452,6 @@ function showSigns(signsToShow) {
                     variantbtn.innerHTML = "Show sign variation(s)";
                 }
             });
-            
          }
         else {
            $('#results').append(makeSignRow(item));
@@ -238,23 +459,9 @@ function showSigns(signsToShow) {
     });
 }
 
-function playvid(video) {
-    if (video.paused) {
-        video.play();
-    }
-}
-
-function pausevid(video) {
-    if (video.playing){
-        video.pause();
-    }
-}
-
 var submit = false;
-var maxpages = 5; // Set maximum number of results pages
 
 function evalGuess() {
-    
     var guess = new Sign();
     //alert(JSON.stringify(guess));
     
@@ -272,23 +479,20 @@ function evalGuess() {
     
     var numpages = len / $('#displaynum').val();
     numpages = Math.ceil(numpages);
-   // if ((maxpages > 0) && (numpages > maxpages)) {
-   //     numpages = maxpages;
-  //  }
     
     displayResults(possibles, numpages);
     
     return possibles;
+}
 
+const numberWithCommas = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 function displayResults(possibles, numpages){
-    // Display the possibilities
-    
+    // Display the possibilities, deals with pagination
     submit = true;
-    
     var currentpage = 1;
-    
     var prevbtn = document.createElement('button');
     
     if (numpages == 1){
@@ -307,37 +511,35 @@ function displayResults(possibles, numpages){
         $('#results').append("<hr/><br/>");
         $('#results').append(nextbtn);
         nextbtn.innerHTML = "Next page -->";
-        //nextbtn.className = "btn btn-outline-info btn-sm";
         
         $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
 
         // Clicking next page button
         nextbtn.addEventListener ("click", function() {
-                $('html, body').animate({
-                    scrollTop: $("#displaynum").offset().top
-                }, 0);
-                currentpage += 1
-                $('#results').empty();
-                $('#results').append('<p>' + numberWithCommas(possibles.length) + ' results found </p> <hr/>');
-                var nextnum = $('#displaynum').val();
-                nextnum = parseInt(nextnum) + parseInt(num);
+            $('html, body').animate({
+                scrollTop: $("#displaynum").offset().top
+            }, 0);
+            currentpage += 1
+            $('#results').empty();
+            $('#results').append('<p>' + numberWithCommas(possibles.length) + ' results found </p> <hr/>');
+            var nextnum = $('#displaynum').val();
+            nextnum = parseInt(nextnum) + parseInt(num);
                 
-                var nextpage = possibles.slice(num, nextnum);
-                num = nextnum;
-                showSigns(nextpage);
+            var nextpage = possibles.slice(num, nextnum);
+            num = nextnum;
+            showSigns(nextpage);
                 
-                $('#results').append("<hr/><br/>");
-                $('#results').append(prevbtn);
-                prevbtn.innerHTML = "<-- Previous page";
-               // prevbtn.className = "btn btn-outline-secondary btn-sm";
-               // document.getElementById('#results').scrollIntoView();
-               if (currentpage < numpages) { 
-                    $('#results').append(nextbtn);
-               }
-               $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
+            $('#results').append("<hr/><br/>");
+            $('#results').append(prevbtn);
+            prevbtn.innerHTML = "<-- Previous page";
+            
+            if (currentpage < numpages) { 
+                $('#results').append(nextbtn);
+            }
+            
+            $('#results').append('<p>' + 'Page ' + currentpage + ' of ' + numpages + '</p>');
 
             });
-            
             
         prevbtn.addEventListener ("click", function() {
             $('html, body').animate({
@@ -351,249 +553,100 @@ function displayResults(possibles, numpages){
             num = parseInt(prevnum) - parseInt($('#displaynum').val());
 
             var prevpage = possibles.slice(num, prevnum);
-                
             num = prevnum;
             showSigns(prevpage);
+            
             $('#results').append("<hr/><br/>");    
+            
             if (currentpage !== 1) {
                 $('#results').append(prevbtn);
             } 
+            
             if (currentpage < numpages) { 
                 $('#results').append(nextbtn);
             }
                 
             $('#results').append('<p>' + currentpage + ' of ' + numpages + '</p>');
-
         });
     }
-    
 }
 
-function resultsUpdate(value){
-    if (submit == true) {
-        var possibles = evalGuess();
-        var len = possibles.length;
-    
-        var numpages = len / value;
-        numpages = Math.ceil(numpages);
-        if (numpages > maxpages){
-            numpages = maxpages;
-        }
+// Make option text shorter -- UNFINISHED
+function altOptionText() {
+    // Get option children of movetype
+    // sort by value
+    // assign innerHTML to something shorter
+    console.log(false);
+}
 
-        displayResults(possibles, numpages);
+ // Video playback controls
+function playvid(video) {
+    if (video.paused) {
+        video.play();
     }
 }
 
-function displayHelp(){
-    var help = document.getElementById("help");
-    if (help.style.display == "block") {
-        help.style.display = "none";
-    } else{
-        help.style.display = "block";
+function pausevid(video) {
+    if (video.playing){
+        video.pause();
     }
 }
 
-const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// Reset entire form
+function resetForm() {
+    $('#results').empty();
+    submit = false;
+    var classToHide = $("#numhands option:selected").val();
+    $('.' + classToHide).hide();
+    $('#numhands').prop('selectedIndex',0);
+    $('#hand0shape0 option').prop('selected', false);
+    $('#hand0shape1 option').prop('selected', false);
+    $('#hand1shape0 option').prop('selected', false);
+    $('#hand1shape1 option').prop('selected', false);
+      
+    $('.thumbnail').removeClass('selected');
+      
+    $('#hand0shape0li button img').prop('src', 'images/handshape-set.svg');
+    $('#hand0shape1li button img').prop('src', 'images/handshape-set.svg');
+     
+    $('#hand1shape0li button img').prop('src', 'images/handshape-set.svg');
+    $('#hand1shape1li button img').prop('src', 'images/handshape-set.svg');
+     
+    $('#palm option').prop('selectedIndex', 0);
+     
+    $('#locdiv input').prop('value', '');
+    $('.mark').remove();
+     
+    $('#movetype option').prop('selectedIndex', 0);
+    $('#displaynum option').prop('selectedIndex', 0);
 }
 
 $(document).ready( function() {
-    var changeHands = function() {
-        var classToShow = $("#numhands option:selected").val();
-        $(".one, .moving, .two").hide();
-        $('.' + classToShow).show();
-    };
+    // Update handshape UI based on number of hands
     $("#numhands").change(changeHands);
-   
-    $('#hand0div').append(makeHandshapeSelect('hand0shape0'));
-    $('#hand1div').append(makeHandshapeSelect('hand0shape1'));
-    $('#hand2div').append(makeHandshapeSelect('hand1shape0'));
-    $('#hand3div').append(makeHandshapeSelect('hand1shape1'));
     
-    $("select.handshape").imagepicker({
-        show_label: true
-    });
+    // Filling handshape div with handshapes
+    fillHandshapeDiv();
     
-    $( "select.handshape" ).change(function() {
-        var pop = document.getElementById('popup');
-        var pop1 = document.getElementById('popup1');
-        var pop2 = document.getElementById('popup2');
-        var pop3 = document.getElementById('popup3');
-        
-        if (pop.style.display == "block"){
-            if (handshapes[$('#hand0shape0').val()] == undefined){
-                $("#hand0shape0img").attr('src', 'images/handshape-set.svg');
-                if (handshapes[$('#hand0shape1').val()] == undefined){
-                    $("#hand0shape1img").attr('src', 'images/handshape-set.svg');
-                }
-            }
-            else{
-                var image0 = handshapes[$('#hand0shape0').val()].img;
-                if (handshapes[$('#hand0shape1').val()] == undefined){
-                    $("#hand0shape1img").attr('src', image0);
-                }
-                $("#hand0shape0img").attr('src', image0);
-            
-                pop.style.display = "none";
-            }
-        }
-        
-        if (pop1.style.display == "block"){
-            if (handshapes[$('#hand0shape1').val()] == undefined){
-                 $("#hand0shape1img").attr('src', 'images/handshape-end.svg');  
-            }
-            else{
-                var image1 = handshapes[$('#hand0shape1').val()].img;
-                $("#hand0shape1img").attr('src', image1);
-                pop1.style.display = "none";
-            }
-        }
-        
-        if (pop2.style.display == "block"){
-            if (handshapes[$('#hand1shape0').val()] == undefined){
-                 $("#hand1shape0img").attr('src', 'images/handshape-start.svg');  
-            }
-            else{
-                var image2 = handshapes[$('#hand1shape0').val()].img;
-                if (handshapes[$('#hand1shape1').val()] == undefined){
-                    $("#hand1shape1img").attr('src', image2);
-                }
-                $("#hand1shape0img").attr('src', image2);
-                pop2.style.display = "none";
-            }
-        }
-        
-        if (pop3.style.display == "block"){
-            if (handshapes[$('#hand1shape1').val()] == undefined){
-                $("#hand1shape1img").attr('src', 'images/handshape-end.svg');  
-            }
-            else{
-                var image3 = handshapes[$('#hand1shape1').val()].img;
-                $("#hand1shape1img").attr('src', image3);
-                pop3.style.display = "none";
-            }
-        }
-    });
+    // Attaching handshapes to popup divs
+    $("select.handshape").change(handshapePopUp); 
+    
+    // Opening and closing handshape popup
+    popUpControls();
+    
+    // Image picker settings for handshapes
+    imagePickerSet();
+    
+    // Make option text shorter -- UNFINISHED
+    if ( $(window).width() < 435) { altOptionText(); }
+    
+    // Attach various location functions to divs
+    attachLocHandlers();
 
-    // Add appropriate ALT text to the picker images
-    $("img.image_picker_image").each(function(i) {
-        var text = $(this).next('p').text();
-        $(this).attr('alt',text);
-        $(this).attr('title',text);
-    });
-
-    $('#locstartend').bind('change', moveClearSelected);
-    $('#locpopup').html($('#locinstructions').html());
-    $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
-    $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
-
-//    $('ul.locimg path').bind("click", handleImgClick);
-    $('ul.locimg polygon').bind("click", handleImgClick);
-    $('ul.locimg ellipse').bind("click", handleImgClick);
-
+    // Submit button
     $('#lookupbutton').bind('click', evalGuess);
     
-    $('#resetbutton').click(function() {
-        $('#results').empty();
-        submit = false;
-        var classToHide = $("#numhands option:selected").val();
-        $('.' + classToHide).hide();
-        $('#numhands').prop('selectedIndex',0);
-        $('#hand0shape0 option').prop('selected', false);
-        $('#hand0shape1 option').prop('selected', false);
-        $('#hand1shape0 option').prop('selected', false);
-        $('#hand1shape1 option').prop('selected', false);
-          
-        $('.thumbnail').removeClass('selected');
-          
-        $('#hand0shape0li button img').prop('src', 'images/handshape-start.svg');
-        $('#hand0shape1li button img').prop('src', 'images/handshape-end.svg');
-         
-        //$('#shapediv1').css("display", "none");
-        $('#hand1shape0li button img').prop('src', 'images/handshape-start.svg');
-        $('#hand1shape1li button img').prop('src', 'images/handshape-end.svg');
-         
-        $('#palm option').prop('selectedIndex', 0);
-         
-        $('#locdiv input').prop('value', '');
-        $('.mark').remove();
-         
-        $('#movetype option').prop('selectedIndex', 0);
-        $('#displaynum option').prop('selectedIndex', 0);
-    });
+    // Reset button
+    $('#resetbutton').click(resetForm);
+    
 });
-
-window.onload = function(){ 
-    // Get the modal
-    
-    //Starting Dom
-    var pop = document.getElementById('popup');
-    var pop1 = document.getElementById('popup1');
-    var pop2 = document.getElementById('popup2');
-    var pop3 = document.getElementById('popup3');
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("btn");
-    var btn1 = document.getElementById("btn1");
-    var btn2 = document.getElementById("btn2");
-    var btn3 = document.getElementById("btn3");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    var span1 = document.getElementsByClassName("close")[1];
-    var span2 = document.getElementsByClassName("close")[2];
-    var span3 = document.getElementsByClassName("close")[3];
-
-    // STARTING DOMINANT
-
-    // When the user clicks on the button, open the modal 
-    btn.onclick = function() {
-        pop.style.display = "block";
-        return false;
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        pop.style.display = "none";
-    };
-
-    // ENDING DOMINANT
-
-    // When the user clicks on the button, open the modal 
-    btn1.onclick = function() {
-        pop1.style.display = "block";
-        return false;
-    };
-    
-    // When the user clicks on <span> (x), close the modal
-    span1.onclick = function() {
-        pop1.style.display = "none";
-    };
-
-    // STARTING NON-DOMINANT
-    
-    // When the user clicks on the button, open the modal 
-    btn2.onclick = function() {
-        pop2.style.display = "block";
-        return false;
-    };
-    
-    // When the user clicks on <span> (x), close the modal
-    span2.onclick = function() {
-        pop2.style.display = "none";
-    };
-
-    // ENDING NON DOMINANT
-    
-    // When the user clicks on the button, open the modal 
-    btn3.onclick = function() {
-        pop3.style.display = "block";
-        return false;
-    };
-    
-    // When the user clicks on <span> (x), close the modal
-    span3.onclick = function() {
-        pop3.style.display = "none";
-    };
-
-};
