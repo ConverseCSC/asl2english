@@ -5,8 +5,7 @@
 /* global frontregions */
 /* global sideregions */
 
-// Defined here, used elsewhere:
-/* global CLEARLY_DIFFERENT */
+
 
 function parseNumHands(val) {
     var result = 0;
@@ -138,7 +137,7 @@ function Sign() {
 			      $('#loc1').val());
 }
 
-CLEARLY_DIFFERENT = 1000;
+var CLEARLY_DIFFERENT = 1000;
 
 function compareHandshapes(shape1, shape2) {
     // Shape1 is a integer as a string or undefined.  Shape2 is an integer, an array, or null.

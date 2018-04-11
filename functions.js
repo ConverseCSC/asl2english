@@ -241,7 +241,6 @@ function popUpControls() {
     var pop1 = document.getElementById('popup1');
     var pop2 = document.getElementById('popup2');
     var pop3 = document.getElementById('popup3');
-    var pop3 = document.getElementById('popup3');
         
     // Get the button that opens the modal
     var btn = document.getElementById("btn");
@@ -254,6 +253,7 @@ function popUpControls() {
     var span1 = document.getElementsByClassName("close")[1];
     var span2 = document.getElementsByClassName("close")[2];
     var span3 = document.getElementsByClassName("close")[3];
+    
 
     // STARTING DOMINANT
 
@@ -269,6 +269,14 @@ function popUpControls() {
         pop.style.display = "none";
         $('body').css('overflow','auto')
     };
+    
+    // When the user clicks outside modal, close the modal
+    pop.onclick = function(e) {
+        if (e.target == pop) {
+            pop.style.display = "none";
+            $('body').css('overflow','auto')
+        }
+    }
 
     // ENDING DOMINANT
 
@@ -284,6 +292,14 @@ function popUpControls() {
         pop1.style.display = "none";
         $('body').css('overflow','auto')
     };
+    
+    // When the user clicks outside modal, close the modal
+    pop1.onclick = function(e) {
+        if (e.target == pop1) {
+            pop1.style.display = "none";
+            $('body').css('overflow','auto')
+        }
+    }
 
     // STARTING NON-DOMINANT
     
@@ -299,6 +315,14 @@ function popUpControls() {
         pop2.style.display = "none";
         $('body').css('overflow','auto')
     };
+    
+    // When the user clicks outside modal, close the modal
+    pop2.onclick = function(e) {
+        if (e.target == pop2) {
+            pop2.style.display = "none";
+            $('body').css('overflow','auto')
+        }
+    }
 
     // ENDING NON DOMINANT
     
@@ -314,6 +338,15 @@ function popUpControls() {
         pop3.style.display = "none";
         $('body').css('overflow','auto')
     };
+    
+    // When the user clicks outside modal, close the modal
+    pop3.onclick = function(e) {
+        if (e.target == pop3) {
+            pop3.style.display = "none";
+            $('body').css('overflow','auto')
+        }
+    }
+    
 }
 
 function imagePickerSet(){
@@ -571,12 +604,13 @@ function displayResults(possibles, numpages){
     }
 }
 
-// Make option text shorter -- UNFINISHED
+// Make option text shorter -- Go over these again
 function altOptionText() {
-    // Get option children of movetype
-    // sort by value
-    // assign innerHTML to something shorter
-    console.log(false);
+    $("#numhands option:contains('Dominant')").text('One hand moving, one stationary');
+    $("#movetype option:contains('Single movement in one direction')").text('Single direction');
+    $("#movetype option:contains('change in direction')").text('Change in direction/handshape');
+    $("#movetype option:contains('double, back-and-forth')").text('Repeated');
+    $("#movetype option:contains('moving in one direction')").text('Repeated directional');
 }
 
  // Video playback controls
@@ -637,7 +671,7 @@ $(document).ready( function() {
     // Image picker settings for handshapes
     imagePickerSet();
     
-    // Make option text shorter -- UNFINISHED
+    // Make option text shorter
     if ( $(window).width() < 435) { altOptionText(); }
     
     // Attach various location functions to divs

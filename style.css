@@ -447,7 +447,7 @@ table, th, td {
 @media screen and (max-width: 400px) {
     
     #frontimgitem svg {
-        width:245px;
+        width:235px;
     }
     #frontimgitem svg text {
         font-size:20px;

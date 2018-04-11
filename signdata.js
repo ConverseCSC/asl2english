@@ -1,5 +1,5 @@
 // Finalized signs
-signs = [
+var signs = [
 
 {"palmface": "down",
  "handshape": [[[23,24,37],[23,24,37]],[[20,37],[20,37]]],
