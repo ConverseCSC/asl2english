@@ -2,7 +2,7 @@ body {
     font-size:17px;
     font-family: Helvetica;
     margin: 0 auto;
-    padding: 0 auto;
+    padding: 0;
 }
 
 /* Header & Footer */
@@ -29,7 +29,6 @@ header a{
   font-size: 17px; 
   line-height: 25px;
 }
-
 
 header h1 a {
   float: left;
@@ -101,10 +100,8 @@ h2 {
     margin:0;
 }
 
-
-fieldset.noborder { 
+.noborder { 
    border:none;
-
 }
 
 fieldset.border{
@@ -120,13 +117,11 @@ fieldset.border .padding {
 
 .instruct {
     padding-bottom:15px;
- 
 }
 
-span.one { display: inline; }
+.one { display: inline; }
 
-div.title {
-  /*margin-top: 0.5em; */
+.title {
   font-weight: bold;
   margin-bottom: 0;
   padding: 15px;
@@ -137,7 +132,6 @@ noscript div {
     font-weight: bold;
     font-size: 125%;
 }
-
 
 
 /* Button & Select styles */
@@ -152,14 +146,12 @@ button {
      padding: 10px 15px;
 }
 
-
 button:hover{
     cursor:pointer;
 }
 
 #handshapesdiv button {
     margin:15px;
-    
 }
 
 select {
@@ -170,7 +162,6 @@ select {
 
 #movetype {
     width:100%;
-   /* word-wrap: break-word;*/
 }
     /* closing button/span */
 .close {
@@ -217,14 +208,9 @@ select {
     width: 80%; /* Could be more or less, depending on screen size */
 }
 
-#hand0set, #hand1set {
-    display: none;
-}
-
 #handshapesdiv {
     width:100%;
 }
-
 
 ul.image_picker_selector, ul.image_picker_selector ul, ul.locimg {
     list-style-type: none;
@@ -233,7 +219,7 @@ ul.image_picker_selector, ul.image_picker_selector ul, ul.locimg {
 
 ul.image_picker_selector ul li, ul.locimg li, ul.locimg li svg {
     display: inline;
-    vertical-align: top;
+    vertical-align:top;
 }
 
 ul.image_picker_selector ul li div {
@@ -263,21 +249,23 @@ ul.locimg {
 }
 
 ul.locimg img {
-    vertical-align: top;
     border: thin solid;
+    vertical-align: top;
     padding: 0px;
-
 }
 
 .locimg figure {
     padding: 0px;
     margin: 0px;
     display: inline-block;
-    /*background-color: white;*/
 }
 
 figcaption {
     text-align: center;
+}
+
+svg {
+   border: thin solid; 
 }
 
 path.mark, circle.mark {
@@ -306,14 +294,8 @@ ellipse.selected, polygon.selected {
     width:270px;
 }
 
-svg { border: thin solid; 
-/*width:270px;*/
-}
-
-
 #locdiv {
     display: grid;
-    /*grid-template-columns: 450px auto;*/
     grid-template-rows: auto;
 }
 
@@ -327,16 +309,13 @@ svg { border: thin solid;
     grid-row: 1 / 1;
 }
 
-
 .two, .moving { display: none;}
 
 
 /* Results (Video, Table) styles */
 
-th.signtitle {
+.signtitle {
     text-transform: capitalize;
-   /* text-align:;*/
-    /* vertical-align: ;*/
     padding-right: 1em;
     padding-bottom:10px;
 }
@@ -346,7 +325,7 @@ td {
     padding-bottom:15px;
 }
 
-video.signvideo {
+.signvideo {
     max-width: 100%;
 }
 
@@ -360,29 +339,16 @@ table, th, td {
 }
 
 
-
-/* Extras */
+/* Help */
 
 .helpparent {
     position: relative;
 }
 
-.q { border: thin solid; 
-     border-radius: 1em;
-     padding: 0 .3em;
-}
-
-.popuphelp {
-    position: absolute;
-    left: -10000px;
-    font-weight: normal;
-    border: thin solid;
-    background-color: white;
-    width: 50vw;
-}
-
-.q:hover + .popuphelp {
-    left: 0px;
+.q {
+    border: thin solid; 
+    border-radius: 1em;
+    padding: 0 .3em;
 }
 
 
@@ -408,7 +374,6 @@ table, th, td {
   }
   
   select {
-      /*word-wrap: break-word;*/
       width:100%;
   }
   header {
@@ -430,7 +395,6 @@ table, th, td {
 
 @media screen and (max-width: 435px) {
  .header-right {
-    /*display:none;*/
     margin-right:1%;
   }
   header h1 a {
@@ -438,7 +402,6 @@ table, th, td {
       text-align:left;
   }
   #hand0div, #hand1div, #hand2div, #hand3div {
-   /* margin: 20px auto; /* 15% from the top and centered */
     height:87%;
     width: 80%; /* Could be more or less, depending on screen size */
 }

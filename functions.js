@@ -26,7 +26,7 @@
 function changeHands() {
     var classToShow = $("#numhands option:selected").val();
     $(".one, .moving, .two").hide();
-    $('.' + classToShow).show();
+    $('.' + classToShow).css( "display", "inline" );
 };
 
 // HANDSHAPE UI FUNCTIONS
@@ -69,7 +69,6 @@ function makeHandshapeSelect(i, id) {
     
     if ($(window).width() > 435) {     
         // groups of 6, 23 so 3 groups of 6, one group of 5
-       // $.each(shapegroups, makeShapeGroup);
        if (i > 4){
            return;
        }
@@ -137,9 +136,7 @@ function showMoreHandshapes(id){
     makeHandshapeSelect(i, 'hand1shape0');
     makeHandshapeSelect(i, 'hand1shape1');
     
-    $("select.handshape").imagepicker({
-        show_label: true
-    });
+    imagePickerSet();
 }
 
 function addShowMoreButton(id) {

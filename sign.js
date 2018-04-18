@@ -7,6 +7,7 @@
 
 
 
+
 function parseNumHands(val) {
     var result = 0;
     switch (val) {
@@ -178,28 +179,6 @@ function compareHandshapes(shape1, shape2) {
                 }
             }
         }
-        /*
-        else if (shape2 !== null && shape2.constructor === Array){
-            if (shape2.indexOf(shape1) >= 0) {
-	            diff = 0;
-            }
-            else {
-                for (var i = 0; i < shape2.length; i++) { 
-                    if (shape2[i] !== null && handshapes[shape1].group === handshapes[shape2[i]].group) {
-                        diff = 1;
-                    }
-                }
-            }
-        }
-        else {
-            if (shape1 == shape2) {
-	            diff = 0;
-            }
-            else if (handshapes[shape1].group === handshapes[shape2].group) {
-    	        diff = 1;
-            }
-        }
-        */
     }
     return diff;
 }
