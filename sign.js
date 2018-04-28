@@ -8,6 +8,7 @@
 
 
 
+
 function parseNumHands(val) {
     var result = 0;
     switch (val) {
@@ -154,7 +155,7 @@ function compareHandshapes(shape1, shape2) {
     else {
         var s1 = parseInt(shape1, 10);
         if (shape2.constructor === Array) {
-            diff = Math.min(...shape2.map(function(hs) { return compareHandshapes(s1, hs);} ));
+            diff = Math.min(shape2.map(function(hs) { return compareHandshapes(s1, hs);} ));
         }
         else {
             var s2 = parseInt(shape2, 10);
@@ -286,3 +287,14 @@ function compareSigns(sign1, sign2) {
 
     return result;
 }
+
+// Necessary for testing
+/*
+module.exports = {
+    parseNumHands: parseNumHands,
+    valueOrUndefined: valueOrUndefined,
+    parseOneHandShape: parseOneHandShape,
+    parsePositionText: parsePositionText
+    
+};
+*/
