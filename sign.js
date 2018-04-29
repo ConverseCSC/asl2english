@@ -5,10 +5,6 @@
 /* global frontregions */
 /* global sideregions */
 
-
-
-
-
 function parseNumHands(val) {
     var result = 0;
     switch (val) {
@@ -83,7 +79,7 @@ function parsePositionXYZ(loc) {
     // left).  +Y is up.  +Z is away from the signer, towards the viewer.
     var result = [undefined, undefined, undefined];    
     // Set X and Y from loc
-    if ([0, 'sightline'].includes(loc)) {
+    if (loc == 0) {
 	   loc = 'chest';
     }
 

@@ -3,6 +3,7 @@
 
 <head>
 	<title>ASL-to-English Dictionary</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,11 +28,7 @@
 	</header>
 	
 	<div class="center">
-	<p class="instruct">Search by specifying the parameters of the sign you are looking for. 
-	You may specify as many or as few of the parameters as you like.</p>
-
-
-<!-- Not displayed unless Javascript missing -->
+	<!-- Not displayed unless Javascript missing -->
 	<noscript><div><p>It appears that your browser doesn't support
 	  Javascript, or Javascript is turned off.  Unhappily, this page
 	  doesn't work without Javascript.</p>
@@ -48,20 +45,26 @@
 	      (on a computer)</a></li>
 	</ul>
     </div></noscript>
+		
+		
+		
+	<p class="instruct"><label for="lookupform">Search by specifying the parameters of the sign you are looking for. 
+	You may specify as many or as few of the parameters as you like.</label></p>
     
 
-	<form id="lookupform" action="" method="get">
+	<form id="lookupform" name="lookupform" method="get">
 		
 		<!-- NumHands -->
 		<fieldset id="numhandsfield" class="border">
 			<h2>Number of Hands</h2>
 			<div id="numhandsdiv" class="padding">
-				<label>The sign I want to look up is:</label>
+				<label for="numhands">The sign I want to look up is:
 				<select name="numhands" id="numhands">
 					<option selected="one" value="one">One-handed</option>
 					<option value="moving">Dominant hand moving, non-dominant stationary</option>
 					<option value="two">Two hands moving</option>
 	  			</select>
+	  			</label>
 			</div>
 			</fieldset>
 			
@@ -77,7 +80,7 @@
 								<figure>
 									<figcaption>Starting handshape</figcaption>
 							<button id="btn">
-								<img id="hand0shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
+								<img alt="click to set" id="hand0shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 								</figure>
 							<div id="popup" class="popup"> 
@@ -89,7 +92,7 @@
 								<figure>
 									<figcaption>Ending handshape</figcaption>
 							<button id="btn1">
-								<img id="hand0shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
+								<img alt="click to set" id="hand0shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 								</figure>
 							<div id="popup1" class="popup"> 
@@ -106,7 +109,7 @@
 							<figure>
 								<figcaption>Starting handshape</figcaption>
 							<button id="btn2">
-								<img id="hand1shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
+								<img alt="click to set" id="hand1shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 							</figure>
 							<div id="popup2" class="popup"> 
@@ -118,7 +121,7 @@
 							<figure>
 								<figcaption>Ending handshape</figcaption>
 							<button id="btn3">
-								<img id="hand1shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
+								<img alt="click to set" id="hand1shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 							</figure>
 							<div id="popup3" class="popup"> 
@@ -155,14 +158,15 @@
 						
 						
 				<div id="locimgdiv" class="imgdiv">
-				<div class="title">	Start/end: 
+				<div class="title">	<label for="locstartend">Start/end: 
 						<select name="locstartend" id="locstartend">
 							<option selected="" value="0">Start (X)</option>
 							<option value="1">End (O)</option>
 						</select>
+						</label>
 			</div>
 					
-					<br/>
+					<br>
 					<ul class="locimg">
 						<li id="frontimgitem"></li>
 						<li id="sideimgitem"></li>
@@ -176,7 +180,7 @@
 				
 			<h2>Movement</h2>
 				<div id="movetypediv" class="padding">
-					<label for="movetype">Type of movement:</label>
+					<label for="movetype">Type of movement:
 					<select name="movetype" id="movetype">
 						
 						<option value="">&mdash;Select&mdash;</option>
@@ -189,17 +193,19 @@
 						<optgroup label=""></optgroup>
 
 					</select>
+					</label>
 				</div>
 			
 		</fieldset>
 		<fieldset class="noborder">
 			<div id="resultnumdiv">
-			Results per page: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
+			<label for="displaynum">Results per page: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
 					<option value="5">5</option>
 					<option value="10">10</option>
 					<option value="15">15</option>
 					<option value="20">20</option>
 				</select>
+				</label>
 			</div>
 		</fieldset>
 		<fieldset id="buttonset" class="noborder">
@@ -208,7 +214,7 @@
 		</fieldset>
 		
 	</form>
-	<br/>
+	<br>
 	
 	<!-- Results -->
 	<div id="resultsdiv">

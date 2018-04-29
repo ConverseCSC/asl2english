@@ -100,8 +100,8 @@ var handleImgClick = function(event) {
 };
 
 function makeTitleElt(id) {
-    var title = id;
-    if (id.startsWith('R') || id.startsWith('L')) {
+    var title = id.toString();
+    if (id.charAt(0) == 'R' || id.charAt(0) == 'L') {
 	title = title.substr(2);
     }
     title = title.replace('-', ' ');

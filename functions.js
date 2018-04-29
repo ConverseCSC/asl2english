@@ -392,12 +392,12 @@ function makeLocSVG(eltID, regions) {
 }
 
 function attachLocHandlers() {
-    $('#locstartend').bind('change', moveClearSelected);
+    $('#locstartend').change(moveClearSelected);
     $('#locpopup').html($('#locinstructions').html());
     $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
     $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
-    $('ul.locimg polygon').bind("click", handleImgClick);
-    $('ul.locimg ellipse').bind("click", handleImgClick);
+    $('ul.locimg polygon').click(handleImgClick);
+    $('ul.locimg ellipse').click(handleImgClick);
 }
 
 // SEARCH RESULTS FUNCTIONS
@@ -442,7 +442,7 @@ function showSigns(signsToShow) {
     // Shows sign results for a single page, including variant signs
     signsToShow.forEach(function(item, idx, arrayVar) {
         
-        if (item.sign.includes(": ")) {
+        if (item.sign.indexOf(": ") != -1) {
              // Creating and appending signrow, variantbtn, and a break tag
             var signrow = makeSignRow(item);
             $('#results').append(signrow);
@@ -464,7 +464,7 @@ function showSigns(signsToShow) {
             var slice = item.sign.slice(0, signIndex);
             
             for (var j in signs) {
-                if (signs[j].sign.includes(": ") && 
+                if (signs[j].sign.indexOf(": ") != -1 && 
                     slice == signs[j].sign.slice(0, signIndex) && 
                         signs[j].sign !== item.sign){
                     var signrows = makeSignRow(signs[j]);
@@ -515,7 +515,7 @@ function evalGuess() {
     return possibles;
 }
 
-const numberWithCommas = (x) => {
+function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
@@ -675,7 +675,7 @@ $(document).ready( function() {
     attachLocHandlers();
 
     // Submit button
-    $('#lookupbutton').bind('click', evalGuess);
+    $('#lookupbutton').click(evalGuess);
     
     // Reset button
     $('#resetbutton').click(resetForm);

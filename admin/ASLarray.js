@@ -3928,6 +3928,9 @@ signs = [
  "handshape": [[1, 1], [[82, 93], [82, 93]]],
  "palmface": "inward",
  "hands": 1.5},
+ ////
+ 
+ 
  
  {"sign": "CYCLE",
  "motion": {"dir": [0, 0, 0], "type": "circle"},
@@ -3944,7 +3947,7 @@ signs = [
  "handshape": [[42, 42]],
  "palmface": "horizontal",
  "hands": 1},
- 
+ //
  {"sign": "ns-DALLAS",
  "motion": {"dir": [0, 0, 0], "type": "repeated"},
  "video": "ns-dallas.mp4",
@@ -4032,6 +4035,7 @@ signs = [
  "handshape": [[[12, 14], [18, 24]], [[14, 12, 24], [14, 12, 24]]],
  "palmface": "horizontal",
  "hands": 1.5},
+ //***
  
  {"sign": "DAY",
  "motion": {"dir": [-1, -1, 0], "type": "single"},
@@ -4546,6 +4550,7 @@ signs = [
  "handshape": [[[51, null], [4, 35]], [[51, null], [4, 35]]],
  "palmface": "inward",
  "hands": 2},
+ /////****
  
  {"sign": "DIVE",
  "motion": {"dir": [0, 0, 1], "type": "single"},
@@ -4578,6 +4583,8 @@ signs = [
  "handshape": [[[20, 19], [20, 19]], [[20, 19], [20, 19]]],
  "palmface": "towards-palm",
  "hands": 2},
+ 
+ /// *******
  
  {"sign": "DIVORCE",
  "motion": {"dir": [1, 0, 0], "type": "single"},
@@ -4691,6 +4698,8 @@ signs = [
  "palmface": "inward",
  "hands": 1},
  
+ //*******
+ 
  {"sign": "DOORBELL",
  "motion": {"dir": [-1, 0, 0], "type": "repeated"},
  "video": ["doorbell1.mp4", "doorbell2.mp4"],
@@ -4730,6 +4739,7 @@ signs = [
  "handshape": [[[22, 1], [22, 1]]],
  "palmface": "down",
  "hands": 1},
+ /// *****
  
  {"sign": "DEEP",
  "motion": {"dir": [0, -1, 0], "type": "single"},
@@ -4770,6 +4780,7 @@ signs = [
  "handshape": [[[30, 81, 38, 59], [30, 81, 38, 59]]],
  "palmface": "inward",
  "hands": 1},
+ //
  
  {"sign": "DRIP",
  "motion": {"dir": [0, -1, 0], "type": "repeated"},
@@ -4884,6 +4895,7 @@ signs = [
  "handshape": [[[44, 33], [44, 33]], [[44, 33], [44, 33]]],
  "palmface": "down",
  "hands": 2},
+ //****
  
  {"sign": "E",
  "motion": {"dir": [], "type": "none"},
@@ -4973,6 +4985,7 @@ signs = [
  "handshape": [[[43, 61], [43, 61]]],
  "palmface": "forward",
  "hands": 1},
+ //****
  
  {"sign": "EAT",
  "motion": {"dir": [0, 0, 0], "type": "repeated"},
@@ -20728,7 +20741,6 @@ signs = [
  "sign": "SNAKE+WAG",
  "video": "snake+wag.mp4",
  "palmface": "inward"},
- 
   
  {"handshape": [[70, 44]],
  "position": ["chest", "stomach"],

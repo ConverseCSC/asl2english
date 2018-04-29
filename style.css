@@ -104,6 +104,13 @@ h2 {
    border:none;
 }
 
+div.border{
+    border: 1px solid lightgrey;
+    padding:0;
+    border-radius:.3em;
+    margin-bottom:35px;
+}
+
 fieldset.border{
     border: 1px solid lightgrey;
     padding:0;
@@ -112,6 +119,10 @@ fieldset.border{
 }
 
 fieldset.border .padding {
+    padding:20px;
+}
+
+div.border .padding {
     padding:20px;
 }
 
@@ -142,8 +153,9 @@ button {
     text-align: center;
     text-decoration: none;
     font-size: 15px;
+    border:1px solid lightgrey;
     border-radius: 8px;
-     padding: 10px 15px;
+    padding: 10px 15px;
 }
 
 button:hover{

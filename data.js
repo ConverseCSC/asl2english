@@ -356,7 +356,6 @@ sideregions = { 'image': 'images/side.svg',
 		
 
 frontregions = { 'image': 'images/front.svg',
-//287.5
 
 		'width': 287.5,
 		'height': 400,
