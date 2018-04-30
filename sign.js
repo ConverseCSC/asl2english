@@ -124,9 +124,19 @@ function Sign() {
     this.hands = parseNumHands(formElt.numhands.value);
 
     this.handshape = parseHandShape(this.hands);
-    
-    this.position = parsePositionText($('#loc0').val(),
+	
+	// SVG supported (default)
+	if (typeof SVGRect !== "undefined") { 
+	    this.position = parsePositionText($('#loc0').val(),
 				      $('#loc1').val());
+	} 
+	// SVG not supported
+	else {
+	    this.position = parsePositionText($('#loc0nosvg').val(),
+				      $('#loc1nosvg').val());
+
+	}
+				      
     
     this.palmface = valueOrUndefined($('#palm').val());
 

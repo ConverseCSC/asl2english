@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="en">  
 
 <head>
 	<title>ASL-to-English Dictionary</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="American Sign Language to English dictionary search tool. Search by specifying the parameters of the sign you are looking for. You may specify as many or as few of the parameters as you like.">
 
 
 	<link rel="stylesheet" href="style.css">
@@ -48,14 +50,15 @@
 		
 		
 		
-	<p class="instruct"><label for="lookupform">Search by specifying the parameters of the sign you are looking for. 
-	You may specify as many or as few of the parameters as you like.</label></p>
+	<p class="instruct">Search by specifying the parameters of the sign you are looking for. 
+	You may specify as many or as few of the parameters as you like.</p>
     
 
 	<form id="lookupform" name="lookupform" method="get">
 		
 		<!-- NumHands -->
-		<fieldset id="numhandsfield" class="border">
+		<fieldset id="numhandsfield" class="border" tabIndex ="0">
+			<legend class="accessible">Number of Hands</legend>
 			<h2>Number of Hands</h2>
 			<div id="numhandsdiv" class="padding">
 				<label for="numhands">The sign I want to look up is:
@@ -69,8 +72,8 @@
 			</fieldset>
 			
 			<!-- Handshape -->
-			<fieldset id="handshapefields" class="border">
-			
+			<fieldset id="handshapefields" class="border" tabIndex ="0">
+			<legend class="accessible">Handshape</legend>
 			<h2>Handshape</h2>
 			<div id="handshapesdiv" class="imgdiv">
 				<div id="shape0div" class="imgdiv">
@@ -79,25 +82,27 @@
 						<li id="hand0shape0li">
 								<figure>
 									<figcaption>Starting handshape</figcaption>
-							<button id="btn">
+							<button id="btn" class="btn">
 								<img alt="click to set" id="hand0shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 								</figure>
 							<div id="popup" class="popup"> 
 		 						<div id="hand0div">
-		 							<span class="close">x</span>
+		 							<a class="close" aria-label="Close" tabIndex ="0" >x</a>
+		 							<label for="hand0shape0" class="accessible">Dominant hand: starting handshape</label>
     							</div>
     						</div></li>
 						<li id="hand0shape1li">
 								<figure>
 									<figcaption>Ending handshape</figcaption>
-							<button id="btn1">
+							<button id="btn1" class="btn">
 								<img alt="click to set" id="hand0shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 								</figure>
 							<div id="popup1" class="popup"> 
 		 						<div id="hand1div">
-			 						<span class="close">x</span>
+			 						<a class="close" aria-label="Close" tabIndex ="0" >x</a>
+			 						<label for="hand0shape1" class="accessible">Dominant hand: ending handshape</label>
 			 					</div>
 			 				</div></li>
 					</ul>
@@ -108,25 +113,27 @@
 						<li id="hand1shape0li">
 							<figure>
 								<figcaption>Starting handshape</figcaption>
-							<button id="btn2">
+							<button id="btn2" class="btn">
 								<img alt="click to set" id="hand1shape0img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 							</figure>
 							<div id="popup2" class="popup"> 
 		 						<div id="hand2div">
-			 						<span class="close">x</span>
+			 						<a class="close" aria-label="Close" tabIndex ="0" >x</a>
+			 						<label for="hand1shape0" class="accessible">Non-dominant hand: starting handshape</label>
 			 					</div>
 			 				</div></li>
 						<li id="hand1shape1li">
 							<figure>
 								<figcaption>Ending handshape</figcaption>
-							<button id="btn3">
+							<button id="btn3" class="btn">
 								<img alt="click to set" id="hand1shape1img" src="images/handshape-set.svg" style="border: thin solid" width="114" height="159" />
 							</button>
 							</figure>
 							<div id="popup3" class="popup"> 
 		 						<div id="hand3div">
-			 						<span class="close">x</span>
+			 						<a class="close" aria-label="Close" tabIndex ="0" >x</a>
+			 						<label for="hand1shape1" class="accessible">Non-dominant hand: ending handshape</label>
 			 					</div>
 			 				</div></li>
 					</ul>
@@ -135,11 +142,11 @@
 		</fieldset>
 		
 		<!-- Palm Orientation -->
-		<fieldset id="orientationfields" class="border">
-					
+		<fieldset id="orientationfields" class="border" tabIndex ="0">
+			<legend class="accessible">Palm Orientation</legend>		
 			<h2>Palm Orientation</h2>
 			<div id="palmorientationdiv" class="padding">
-				Starting palm orientation of the <b>dominant</b> hand: <select name="palm" id="palm">
+			<label for="palm">	Starting palm orientation of the <b>dominant</b> hand: <select name="palm" id="palm">
 					<option value="">&mdash;Select&mdash;</option>
 					<option value="forward">Forward</option>
 					<option value="inward">Inward</option>
@@ -148,11 +155,12 @@
 					<option value="up">Upwards</option>
 					<option value="towards-palm" class="moving two">Palm towards palm</option>
 				</select>
+				</label>
 			</div>
 		</fieldset>
 		
-			<fieldset id="positionset" class="border">
-				
+			<fieldset id="positionset" class="border" tabIndex ="0">
+				<legend class="accessible">Location</legend>
 				<h2>Location</h2>
 				<div id="locdiv" class="padding">
 						
@@ -176,8 +184,8 @@
 				</div>
 				</div>
 			</fieldset>
-			<fieldset id="movementset" class="border">
-				
+			<fieldset id="movementset" class="border" tabIndex ="0">
+			<legend class="accessible">Movement</legend>	
 			<h2>Movement</h2>
 				<div id="movetypediv" class="padding">
 					<label for="movetype">Type of movement:
@@ -190,14 +198,15 @@
 						<option value="repeated">Repeated movement (double, back-and-forth, up-down, in-out, wiggle, etc)</option>
 						<option value="plural">Repeated movement moving in one direction</option>
 						<option value="circle">Circular movement</option>
-						<optgroup label=""></optgroup>
+					
 
 					</select>
 					</label>
 				</div>
 			
 		</fieldset>
-		<fieldset class="noborder">
+		<fieldset class="noborder" tabIndex ="0">
+			<legend class="accessible">Results per page</legend>
 			<div id="resultnumdiv">
 			<label for="displaynum">Results per page: <select name="displaynum" id="displaynum" onchange="resultsUpdate(this.value);">
 					<option value="5">5</option>
@@ -208,7 +217,8 @@
 				</label>
 			</div>
 		</fieldset>
-		<fieldset id="buttonset" class="noborder">
+		<fieldset id="buttonset" class="noborder" tabIndex ="0">
+			<legend class="accessible">Submit or reset form</legend>
 			<button id="lookupbutton" type="button">Look for matching signs!</button>
 			<button id="resetbutton" type="reset">Reset</button>
 		</fieldset>
@@ -227,6 +237,7 @@
 	<footer>
 		<!-- credit and contact info -->
 		
+		<a href="index.html">Home</a>  |
 		<a href="about.html">About</a>  |
 		<a href="contact.html">Contact</a>  |
 		<a href="help.html">Help</a>

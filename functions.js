@@ -45,6 +45,7 @@ function makeHandshapeSelect(i, id) {
         selectElt.id = id;
         selectElt.name = id;
         selectElt.className = 'handshape';
+        
 
         var optElt = document.createElement('option');
         optElt.innerHTML = '&mdash;Select&mdash;';
@@ -231,6 +232,41 @@ function handshapePopUp(){
 
 }
 
+function open(popup){
+    popup.style.display = "block";
+    $('body').css('overflow','hidden')
+}
+
+function close(popup){
+    $(popup).hide();
+    $('body').css('overflow','auto') 
+}
+
+function lockFocus(popup){
+    var focusableEls = $(popup).find('a, object, :input, iframe, [tabindex]');
+        var firstFocusableEl = focusableEls.first()[0];  
+        var lastFocusableEl = focusableEls.last()[0];
+        
+        var KEYCODE_TAB = 9;
+
+        $(popup).on('keydown', function(e) {
+        if (e.key === 'Tab' || e.keyCode === KEYCODE_TAB) {
+            if ( e.shiftKey ) /* shift + tab */ {
+                if (document.activeElement === firstFocusableEl) {
+                    lastFocusableEl.focus();
+                    e.preventDefault();
+                }
+            } else /* tab */ {
+                if (document.activeElement === lastFocusableEl) {
+                    firstFocusableEl.focus();
+                    e.preventDefault();
+                }
+            }
+        }
+        });
+    
+}
+
 function popUpControls() {
     // Opening and closing handshape popups
     // Get the popups
@@ -238,111 +274,78 @@ function popUpControls() {
     var pop1 = document.getElementById('popup1');
     var pop2 = document.getElementById('popup2');
     var pop3 = document.getElementById('popup3');
-        
-    // Get the button that opens the modal
-    var btn = document.getElementById("btn");
-    var btn1 = document.getElementById("btn1");
-    var btn2 = document.getElementById("btn2");
-    var btn3 = document.getElementById("btn3");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-    var span1 = document.getElementsByClassName("close")[1];
-    var span2 = document.getElementsByClassName("close")[2];
-    var span3 = document.getElementsByClassName("close")[3];
     
+    var btn = document.getElementById('btn');
 
+    // Specific cases
+    $("#lookupform").keypress(function(event) {
+
+       for (var i = 0; i < 4; i++) {
+           var btn = document.getElementsByClassName("btn")[i];
+           var x = document.getElementsByClassName("close")[i];
+           
+           var isXFocused = document.activeElement === x;
+           var isBtnFocused = document.activeElement === btn;
+           
+           if (isXFocused) {
+               close(".popup");
+           } else if (isBtnFocused){
+               return true;
+           } else if (!isBtnFocused && i == 3) {
+               return false;
+           }
+       }
+    });
+
+    
     // STARTING DOMINANT
 
     // When the user clicks on the button, open the modal 
-    btn.onclick = function() {
-        pop.style.display = "block";
-        $('body').css('overflow','hidden')
+    $( "#btn" ).click(function() {
+        lockFocus("#popup");
+        open(pop);
         return false;
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        pop.style.display = "none";
-        $('body').css('overflow','auto')
-    };
-    
-    // When the user clicks outside modal, close the modal
-    pop.onclick = function(e) {
-        if (e.target == pop) {
-            pop.style.display = "none";
-            $('body').css('overflow','auto')
-        }
-    }
+    });
 
     // ENDING DOMINANT
 
     // When the user clicks on the button, open the modal 
-    btn1.onclick = function() {
-        pop1.style.display = "block";
-        $('body').css('overflow','hidden')
+    $( "#btn1" ).click(function() {
+        lockFocus("#popup1");
+        open(pop1);
         return false;
-    };
-    
-    // When the user clicks on <span> (x), close the modal
-    span1.onclick = function() {
-        pop1.style.display = "none";
-        $('body').css('overflow','auto')
-    };
-    
-    // When the user clicks outside modal, close the modal
-    pop1.onclick = function(e) {
-        if (e.target == pop1) {
-            pop1.style.display = "none";
-            $('body').css('overflow','auto')
-        }
-    }
-
+    });
     // STARTING NON-DOMINANT
     
     // When the user clicks on the button, open the modal 
-    btn2.onclick = function() {
-        pop2.style.display = "block";
-        $('body').css('overflow','hidden')
+    $( "#btn2" ).click(function() {
+        lockFocus("#popup2");
+        open(pop2);
         return false;
-    };
-    
-    // When the user clicks on <span> (x), close the modal
-    span2.onclick = function() {
-        pop2.style.display = "none";
-        $('body').css('overflow','auto')
-    };
-    
-    // When the user clicks outside modal, close the modal
-    pop2.onclick = function(e) {
-        if (e.target == pop2) {
-            pop2.style.display = "none";
-            $('body').css('overflow','auto')
-        }
-    }
+    });
 
     // ENDING NON DOMINANT
     
     // When the user clicks on the button, open the modal 
-    btn3.onclick = function() {
-        pop3.style.display = "block";
-        $('body').css('overflow','hidden')
+    $( "#btn3" ).click(function() {
+        lockFocus("#popup3");
+        open(pop3);
         return false;
-    };
+    });
+    
+    // General cases
     
     // When the user clicks on <span> (x), close the modal
-    span3.onclick = function() {
-        pop3.style.display = "none";
-        $('body').css('overflow','auto')
-    };
+    $( ".close" ).click(function() {
+        close('.popup');
+    });
     
     // When the user clicks outside modal, close the modal
-    pop3.onclick = function(e) {
-        if (e.target == pop3) {
-            pop3.style.display = "none";
-            $('body').css('overflow','auto')
+    $(".popup").click(function(e) {
+        if (e.target.className == "popup") {
+            close('.popup');
         }
-    }
+    });
     
 }
 
@@ -351,11 +354,13 @@ function imagePickerSet(){
         show_label: true
     });
     
-    // Add appropriate ALT text to the picker images
+    // Add appropriate ALT text and tab navigation to the picker images
     $("img.image_picker_image").each(function(i) {
         var text = $(this).next('p').text();
         $(this).attr('alt',text);
         $(this).attr('title',text);
+        
+        $(this).attr('tabindex', '0');
     });
 }
 
@@ -393,11 +398,35 @@ function makeLocSVG(eltID, regions) {
 
 function attachLocHandlers() {
     $('#locstartend').change(moveClearSelected);
-    $('#locpopup').html($('#locinstructions').html());
     $('#sideimgitem').append(makeLocSVG('sideimg', sideregions));
     $('#frontimgitem').append(makeLocSVG('frontimg', frontregions));
     $('ul.locimg polygon').click(handleImgClick);
     $('ul.locimg ellipse').click(handleImgClick);
+    
+    $('ul.locimg polygon').keypress(handleImgClick);
+    $('ul.locimg ellipse').keypress(handleImgClick);
+}
+
+// For IE 8 and older and Android 3 and older
+function makeLocationSelect() {
+    var labelStart = $("<label for='loc0nosvg'><b>Starting location:</b></label>").appendTo('#locdiv');
+    var selectStart = $("<select id='loc0nosvg' name='loc0nosvg'>").appendTo('#locdiv');
+    var labelEnd = $("<br><label for='loc1nosvg'><b>Ending location:</b></label>").appendTo('#locdiv');
+    var selectEnd = $("<select id='loc1nosvg' name='loc1nosvg'>").appendTo('#locdiv');
+    
+    var regionsSpec = frontregions['regions'];
+    for (var id in regionsSpec) {
+        var title = id;
+        var title = id.toString();
+        if (id.charAt(0) == 'R' || id.charAt(0) == 'L') {
+	        title = title.substr(2);
+        }
+        title = title.replace('-', ' ');
+        title = title.substr(0, 1).toUpperCase() + title.substr(1);
+        selectStart.append($("<option>").attr('value',title).text(title));
+        selectEnd.append($("<option>").attr('value',title).text(title));
+    }
+    
 }
 
 // SEARCH RESULTS FUNCTIONS
@@ -493,7 +522,6 @@ var submit = false;
 
 function evalGuess() {
     var guess = new Sign();
-    //alert(JSON.stringify(guess));
     
     for (var s = 0; s < signs.length; s++) {
         signs[s].diff = compareSigns(guess, signs[s]);
@@ -601,6 +629,16 @@ function displayResults(possibles, numpages){
     }
 }
 
+function resultsUpdate(value){
+    if (submit == true) {
+        var possibles = evalGuess();
+        var len = possibles.length;
+    
+        var numpages = len / value;
+        numpages = Math.ceil(numpages);
+    }
+}
+
 // Make option text shorter -- Go over these again
 function altOptionText() {
     $("#numhands option:contains('Dominant')").text('One hand moving, one stationary');
@@ -672,12 +710,26 @@ $(document).ready( function() {
     if ( $(window).width() < 435) { altOptionText(); }
     
     // Attach various location functions to divs
-    attachLocHandlers();
+    
+    // SVG supported
+    if (typeof SVGRect !== "undefined") { 
+        attachLocHandlers();
+    }
+    // SVG not supported
+    else {
+        $("#locimgdiv").hide();
+        $("#locdiv").append("<p>Your browser or device does not support Scalable Vector Graphics (SVG)."
+        + " A modified, non-SVG based version of the location selector is available below." +
+        " Please upgrade to a modern browser to view the unmodified selector.")
+        makeLocationSelect()
+    }
 
     // Submit button
     $('#lookupbutton').click(evalGuess);
+    $('#lookupbutton').keypress(evalGuess);
     
     // Reset button
     $('#resetbutton').click(resetForm);
+    $('#resetbutton').keypress(resetForm);
     
 });

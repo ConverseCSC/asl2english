@@ -420,10 +420,6 @@ frontregions = { 'image': 'images/front.svg',
 				 'points': '115,40 140,40 140,55 115,55' },
 			'temple': {'elt': 'polygon', 'xyz': [1, 2.5, -.5],
 				 'points': '105,50 113,39 113,55 103,55' },
-			//'low-temple': {'elt': 'polygon', 'xyz': [2, 4, -1],
-			//	 'points': '103,55 110,55 110,65 103,65' },
-			// there should only be one temple- doesn't make sense to have 2	 
-				 
 			'r-eye-front': {'elt': 'ellipse', 'c': [116, 71], 'r': [6, 5, 1],
 			      'xyz': [0.5, 2.5]},
 		    'l-eye-front': {'elt': 'ellipse', 'c': [138, 71], 'r': [6, 5, 1],

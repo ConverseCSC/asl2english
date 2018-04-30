@@ -274,6 +274,7 @@ ul.locimg img {
 
 figcaption {
     text-align: center;
+    display:block;
 }
 
 svg {
@@ -293,7 +294,7 @@ ellipse, polygon {
     opacity: 0;
 }
 
-ellipse:hover, polygon:hover {
+ellipse:hover, polygon:hover, ellipse:focus, polygon:focus {
     opacity: 0.5;
 }
 
@@ -364,7 +365,10 @@ table, th, td {
 }
 
 
-/* Other Pages */
+.accessible {
+   position:absolute;
+   left: -5000px;
+}
 
 
 

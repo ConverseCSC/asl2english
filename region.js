@@ -5,6 +5,7 @@ function setEllipseAttributes(elt, spec) {
     elt.setAttribute('cy', spec['c'][1]);
     elt.setAttribute('rx', spec['r'][0]);
     elt.setAttribute('ry', spec['r'][1]);
+    elt.setAttribute('tabindex', 0);
 }
 
 var moveClearSelected = function(event) {
@@ -120,7 +121,9 @@ function makeRegion(id, spec) {
         case 'ellipse':
     	    setEllipseAttributes(elt, spec); break;
     	case 'polygon':
-    	    elt.setAttribute('points', spec['points']); break;
+    	    elt.setAttribute('points', spec['points']); 
+    	    elt.setAttribute('tabindex', 0);
+    	    break;
     }
 
     elt.setAttribute('name', id);
