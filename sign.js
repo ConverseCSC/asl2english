@@ -151,7 +151,6 @@ function compareHandshapes(shape1, shape2) {
     // Shape1 is a integer as a string or undefined.  Shape2 is an integer, an array, or null.
     var diff = CLEARLY_DIFFERENT;
     
-    // FIX THIS
     if (shape1 === undefined || shape2 === undefined) {
         diff = 2;
     }
@@ -213,11 +212,7 @@ function comparePositions(pos1, pos2, tolerance, weight) {
     }
     return diff;
 }
-// This function didn't seem to be working, I added an else if that made 
-//      1 hand and 2 hands CLEARLY_DIFFERENT. I think that makes the most sense
-//      as number of hands is very clear. Changed middle of the road value to
-//      a difference of 5, because on bare selection of 1.5 it came up with
-//      only 1 hand values on the first page
+
 function compareNumHands(sign1, sign2) {
     // Weighting factor; difference between one- and two-handed signs
     var HAND_DIFF = 1; // Scaling factor
@@ -234,7 +229,6 @@ function compareNumHands(sign1, sign2) {
 }
 
 function compareSignHandshapes(sign1, sign2) {
-    // FIX HANDSHAPE COMPARISON
 
     // Length of the handshape arrays is 1 for 1-handed signs,
     //   and 2 for everything else.  Ignore an unmatched second hand.

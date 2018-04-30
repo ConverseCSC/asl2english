@@ -31,7 +31,8 @@ function changeHands() {
 
 // HANDSHAPE UI FUNCTIONS
 // makeHandshapeSelect, showMoreHandshapes, addShowMoreButton.
-//   fillHandshapeDiv, handshapePopUp, popUpControls, imagePickerSet
+//   fillHandshapeDiv, handshapePopUp, open, close, lockFocus, 
+//     popUpControls, imagePickerSet
 
 var i = 0; // Show more handshapes counter
 
@@ -145,6 +146,7 @@ function addShowMoreButton(id) {
     moreButton.type = "button";
     moreButton.innerHTML = "Show more handshapes";
     moreButton.addEventListener("click", showMoreHandshapes);
+    moreButton.addEventListener("keypress", showMoreHandshapes);
     return moreButton;
 }
 
@@ -277,7 +279,6 @@ function popUpControls() {
     
     var btn = document.getElementById('btn');
 
-    // Specific cases
     $("#lookupform").keypress(function(event) {
 
        for (var i = 0; i < 4; i++) {
@@ -297,6 +298,7 @@ function popUpControls() {
        }
     });
 
+    // Specific cases
     
     // STARTING DOMINANT
 
