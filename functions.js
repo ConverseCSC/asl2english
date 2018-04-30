@@ -683,13 +683,13 @@ function resetForm() {
     $('#hand1shape0li button img').prop('src', 'images/handshape-set.svg');
     $('#hand1shape1li button img').prop('src', 'images/handshape-set.svg');
      
-    $('#palm option').prop('selectedIndex', 0);
+    $('#palm').prop('selectedIndex', 0);
      
     $('#locdiv input').prop('value', '');
     $('.mark').remove();
-     
-    $('#movetype option').prop('selectedIndex', 0);
-    $('#displaynum option').prop('selectedIndex', 0);
+    
+    $('#movetype').prop('selectedIndex',0);
+    $('#displaynum').prop('selectedIndex', 0);
 }
 
 $(document).ready( function() {
