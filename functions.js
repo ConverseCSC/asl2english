@@ -186,9 +186,8 @@ function handshapePopUp(){
                 $("#hand0shape1img").attr('src', image0);
             }
             $("#hand0shape0img").attr('src', image0);
-        
-            pop.style.display = "none";
-            $('body').css('overflow','auto');
+            
+            close('.popup');
         }
     }
     
@@ -199,8 +198,8 @@ function handshapePopUp(){
         else{
             var image1 = handshapes[$('#hand0shape1').val()].img;
             $("#hand0shape1img").attr('src', image1);
-            pop1.style.display = "none";
-            $('body').css('overflow','auto');
+            
+            close('.popup');
         }
        
     }
@@ -215,8 +214,9 @@ function handshapePopUp(){
                 $("#hand1shape1img").attr('src', image2);
             }
             $("#hand1shape0img").attr('src', image2);
-            pop2.style.display = "none";
-            $('body').css('overflow','auto');
+            
+            close('.popup');
+
         }
     }
     
@@ -227,8 +227,7 @@ function handshapePopUp(){
         else{
             var image3 = handshapes[$('#hand1shape1').val()].img;
             $("#hand1shape1img").attr('src', image3);
-            pop3.style.display = "none";
-            $('body').css('overflow','auto');
+            close('.popup');
         }
     }    
 
@@ -236,12 +235,22 @@ function handshapePopUp(){
 
 function open(popup){
     popup.style.display = "block";
-    $('body').css('overflow','hidden')
+    $('body').css('overflow','hidden');
+    $('body').css('position','relative');
+    $('body').css('height', '100%');
+    $('html').css('overflow', 'hidden');
+    $('html').css('position','relative');
+    $('html').css('height', '100%');
 }
 
 function close(popup){
     $(popup).hide();
-    $('body').css('overflow','auto') 
+    $('body').css('overflow','auto'); 
+    $('html').css('overflow', 'auto');
+    $('body').css('position','auto');
+    $('body').css('height', 'auto');
+    $('html').css('position','auto');
+    $('html').css('height', 'auto');
 }
 
 function lockFocus(popup){
