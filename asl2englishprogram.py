@@ -27,28 +27,51 @@
 import sqlite3
 import json
 from sqlite3 import Error
- 
-with open('asl2english-master\\data.json') as json_file:  
-    data = json.load(json_file)
-    for p in data['handshapes']:
-        print('Handshape: ')
-        if p == "null":
-            print(p)
-        else:
-            print('id: ' + str(p['id']))
-            print('shape: ' + p['shape'])
-            print('group: ' + p['group'])
-            print('img: ' + p['img'])
+
+def readData(): 
+    with open('asl2english-master\\data.json') as json_file:  
+        data = json.load(json_file)
+        for p in data['handshapes']:
+            print('Handshape: ')
+            if p == "null":
+                print(p)
+            else:
+                print('id: ' + str(p['id']))
+                print('shape: ' + p['shape'])
+                print('group: ' + p['group'])
+                print('img: ' + p['img'])
+                print('')
+        for p in data['shapegroups']:
+            print('Shapegroup: ')
+            print(str(p))
             print('')
-    for p in data['shapegroups']:
-        print('Shapegroup: ')
-        print(str(p))
-        print('')
-
-
-    """print frontregions DICT img, width, height, regions"""
-    """print sideregions DICT, img, width, height, regions"""
-    print(json.dumps('sideregions'))
+    
+        
+        
+        """print frontregions DICT img, width, height, regions"""
+        print(data['frontregions'])
+        """print sideregions DICT, img, width, height, regions"""
+        print(data['sideregions']) #json.dumps('sideregions')
+        return data
+    
+def makeSQL(data):
+    sql = []
+    for p in data['handshapes']:
+        if p != "null":
+            print(p)
+            insert = 'insert into HandShape (id, shape, group, img) values ' \
+                + "({0:d}, '{1}', '{2}', '{3}');".format(p['id'], p['shape'],
+                                                p['group'], p['img'])
+            sql.append(insert)
+    
+    #for p in data['shapegroups']:
+        #print(p)
+        #insert = 'insert into Shapegroup
+    for p in data['frontregions']:
+        #iterate the keys / values ; need some kind of iteration i = ___
+    return sql
+    
+    
 
 
         
@@ -65,6 +88,10 @@ def create_connection(dbfile):
 
  
 def main():
+    data = readData()
+    sqlStatements = makeSQL(data) # Result is a long list of INSERT statements
+    print(sqlStatements)
+    exit()
     try:
         conn = create_connection("asl2english-master\\asl2english.sqlite")
     finally:
