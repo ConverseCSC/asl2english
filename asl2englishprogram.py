@@ -63,12 +63,32 @@ def makeSQL(data):
                 + "({0:d}, '{1}', '{2}', '{3}');".format(p['id'], p['shape'],
                                                 p['group'], p['img'])
             sql.append(insert)
-    
-    #for p in data['shapegroups']:
-        #print(p)
-        #insert = 'insert into Shapegroup
+
+    for p in data['shapegroups']:
+        print(p)
+        insert = 'insert into Shapegroup (p) values ' \
+            + "({0:d});".format(p)
+        sql.append(insert)
+
     for p in data['frontregions']:
+        print(p)
+        frontvalues = [p]
+        i = 0
+        while (i < len(frontvalues)):
+            insert = 'insert into Regions (id, name, image, X, Y, Z, elt, pts, cx, cy, rx, ry ' \
+            #frontvalues[i]
+            i += 1
+            sql.append(insert)
         #iterate the keys / values ; need some kind of iteration i = ___
+    for p in data['sideregions']:
+        print(p)
+        sidevalues = [p]
+        i = 0
+        while (i < len(frontvalues)):
+            insert = 'insert into Regions (id, name, image, X, Y, Z, elt, pts, cx, cy, rx, ry ' \
+            #sidevalues[i]
+            i += 1
+            sql.append(insert)
     return sql
     
     
@@ -86,7 +106,15 @@ def create_connection(dbfile):
         
     return conn
 
- 
+
+
+#def create_Regions(conn, Regions):
+#     sql = INSERT INTO Region(id, name, image, X, Y, Z, elt, pts, cx, cy, rx, ry)
+#            VALUES(?,?,?)
+#    cur = conn.cursor()
+#    cur.execute(sql, Regions)
+#    return cur.lastrowid
+
 def main():
     data = readData()
     sqlStatements = makeSQL(data) # Result is a long list of INSERT statements
@@ -103,9 +131,13 @@ def main():
 if __name__ == '__main__':
     main()
     
- #SELECT
-# *
-#FROM
- #projects;
+SELECT
+*
+FROM
+Handshape;
  
+SELECT
+*
+FROM
+Regions;
  
